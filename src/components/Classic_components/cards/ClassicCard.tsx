@@ -178,7 +178,7 @@ const {width, height, ref} = useResizeDetector({
                      {/*    data-selector="BPG_AutoDelivery_Image"*/}
                      {/*/>*/}
                      <label>
-                       Auto-Delivery 25% OFF
+                       25% OFF with Auto-Delivery
                      </label>
                      
                    </div>

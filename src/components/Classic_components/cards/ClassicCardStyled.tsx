@@ -19,6 +19,12 @@ export const ClassicCardStyled = styled.div`
     font-size: 0.8em;
   }
 
+  .box-count-title {
+    margin-bottom: 2px;
+    text-align: center ;
+    color: var(--colorMediumRoast);
+  }
+
   .rating {
     display: flex;
     flex-direction: row;
@@ -108,7 +114,8 @@ export const ClassicCardStyled = styled.div`
   }
 
   &:hover, &.always-show-cta {
-    border: 1px solid ${colorNameToValue("dark-roast")};
+    border-width: 0 1px 1px 1px !important;
+    border: solid ${colorNameToValue("dark-roast")};
 
     .card-bottom-content {
       height: 80px;
@@ -408,10 +415,7 @@ export const ClassicCardStyled = styled.div`
     text-align: center;
   }
 
-  .box-count-title {
-    margin-bottom: 2px;
-    color: var(--colorMediumRoast);
-  }
+  
 
   
 

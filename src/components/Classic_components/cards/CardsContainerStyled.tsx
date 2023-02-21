@@ -7,7 +7,7 @@ export const CardsContainerStyled = styled.div`
   row-gap: 1rem;
   column-gap: 2%;
   margin-bottom: 2rem;
-  justify-content: center;
+    justify-content: center;
   .inner-container{
     max-width: 1440px;
     min-width: 390px;
@@ -21,14 +21,14 @@ export const CardsContainerStyled = styled.div`
   }
   .program-group, .program-logo{
     padding-right: 18px;
-
+    
   }
-
+  
   .classic-card-container{
     width: 22%;
     align-items: center;
   }
-
+  
   &.desktop{
     .product-naming-area{
       &.mobile{
@@ -39,7 +39,7 @@ export const CardsContainerStyled = styled.div`
       }
     }
   }
-
+  
   &.mobile{
     .inner-container{
       justify-content: flex-start;
@@ -55,27 +55,27 @@ export const CardsContainerStyled = styled.div`
         display: none;
       }
     }
-
+    
     .program-group{
       padding: 0;
-      flex-direction: row;
+      flex-direction: row;   
       justify-content: space-between;
-
+      
     }
-
+    
     .box-count-title{
-      text-align: left;
+      text-align: left; 
     }
-
+    
     .box-count-section{
       margin-bottom: 0;
     }
-
+    
     .inner-container{
       flex-direction: column;
-      padding: 2vh 4vh 4vh 2vh;
+      padding: 4vw;
     }
-
+    
     .top-content{
       padding: 0 23px 25px 6px;
     }
@@ -86,7 +86,7 @@ export const CardsContainerStyled = styled.div`
       background-color: #EBE7E3;
       margin: 10px 0 !important;
     }
-
+    
     .all-pricing-container{
       display: flex;
       flex-direction: column;
@@ -123,13 +123,13 @@ export const CardsContainerStyled = styled.div`
         margin-top: 3px;
       }
     }
-
+    
     .variant-selection-menu-container{
       label{
         font-size: 18px;
       }
     }
-
+    
     .card-bottom-content{
       transform: none;
       height: auto;
@@ -160,7 +160,7 @@ export const CardsContainerStyled = styled.div`
       }
     }
   }
-
+  
   &.small{
     .program-group, .one-time-group{
       flex-direction: column;
@@ -170,11 +170,11 @@ export const CardsContainerStyled = styled.div`
       text-align: left;
       font-size: 12px;
     }
-
+    
     .box-count-title{
       font-size: 10px;
     }
-
+    
     .program-logo{
       align-items: flex-start;
     }
@@ -186,7 +186,7 @@ export const CardsContainerStyled = styled.div`
       font-size: 16px;
       font-weight: 600;
     }
-
+    
     .front-top{
       flex: 0 0 40%;
     }
