@@ -1,0 +1,11 @@
+@import "../../styles/colors";
+
+.life-bar-container{
+  &.KCOM{
+    background-color: white;
+    border: 1px solid $dark-roast;
+    .life-bar{
+      background-color: $cta-primary;
+    }
+  }
+}

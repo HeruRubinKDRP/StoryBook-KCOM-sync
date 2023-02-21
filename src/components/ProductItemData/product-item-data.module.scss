@@ -1,0 +1,49 @@
+@import "../../styles/colors";
+
+.product-info-container{
+  display: flex;
+  align-content: center;
+  align-items: center;
+
+
+  .data-text{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pod-lid{
+    max-height: 8rem;
+  }
+  h2{
+    font-size: 1rem;
+    color: $dark-roast;
+  }
+  p{
+    font-size: 0.75rem;
+    color: $text;
+  }
+
+  .quant-variant{
+    display: flex;
+    .variant{
+      padding: 0;
+    }
+  }
+
+  .price-rating-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img{
+      margin-left: 0.5vw;
+      width: 60% !important;
+    }
+    .price-area{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  display: flex;
+}

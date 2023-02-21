@@ -1,0 +1,11 @@
+.page-view-container{
+  .expand-collapse{
+    &.false{
+      margin-bottom: 2rem;
+    }
+    &.true{
+      margin-bottom: 0;
+    }
+
+  }
+}

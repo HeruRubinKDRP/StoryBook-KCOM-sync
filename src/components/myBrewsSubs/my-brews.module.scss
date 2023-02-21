@@ -1,0 +1,117 @@
+@import "../../styles/colors";
+
+.subscription-group-section {
+  margin-right: 1rem;
+  &:last-child{
+    margin-right: 0;
+  }
+
+  .mobile-item-panel.panel-grid.item {
+    width: 100%;
+  }
+}
+
+.my-brews-main{
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+  height: inherit;
+  .subscriptions-main{
+    height: inherit;
+  }
+  .subscription-group-main{
+    display: flex;
+    flex-flow: row;
+    margin: 0 5% 0 5%;
+    width: 100%;
+    justify-content: center;
+    .subscription-group-section{
+      &:first-child{
+        margin-left: 10%;
+      }
+      &:last-child{
+        margin-right: 10%;
+      }
+    }
+  }
+
+  .k-btn.secondary.already-subscribed.undefined {
+    white-space: normal;
+    pointer-events: none;
+    border-color: transparent !important;
+    background-color: $sepia !important;
+    padding: 2rem !important;
+    border-radius: 0.25rem;
+  }
+
+
+  &.width-larger-than-1000{
+    flex-flow: row;
+    .flow-panel-content{
+      width: auto;
+      .sub-config-items-container{
+        width: 100%;
+        .data-inputs-container{
+          width: 100%;
+        }
+      }
+    }
+    .subscriptions-main{
+      display: flex;
+      flex-flow: row;
+      margin: 0 5% 0 5%;
+    }
+    .cta-group{
+      .icon.icon-add.right-edge{
+        width: 1rem !important;
+        height: 1rem !important;
+      }
+      .secondary{
+        font-size: 1rem;
+      }
+    }
+
+    .subscription-group-section{
+      width: auto;
+      margin-right: 1rem;
+      .container-title{
+        padding: 4rem 1rem 0.25rem 1rem;
+        margin: 0 -0.5rem;
+      }
+      &:first-child{
+        margin-right: 1rem;
+      }
+    }
+  }
+
+
+  &.width-between-400-and-999{
+    flex-flow: column;
+    .subscriptions-main{
+      padding-bottom: 4rem;
+    }
+    .subscription-group-section {
+      width: 100%;
+      margin: 1rem 0 0 0;
+    }
+    .add-items{
+      background-color: $cta-primary !important;
+    }
+  }
+
+  &.width-between-100-and-399{
+    .add-items-main{
+
+      .add-items{
+        max-width: 100%;
+        margin: 0 0.5rem 0 0.5rem;
+      }
+
+    }
+    .subscription-group-section{
+      width: 100%;
+    }
+    width: 100%;
+    flex-flow: column;
+  }
+}

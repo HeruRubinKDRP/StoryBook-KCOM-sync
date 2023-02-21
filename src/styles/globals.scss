@@ -1,0 +1,188 @@
+@import "../components/GridPanel/GridPanel.module";
+@import "../components/ProductImage/productImage.module";
+@import "../components/ContainerHeader/containerHeader.module";
+@import "../components/myBrewsSubs/my-brews.module";
+@import "../components/Kbutton/k-button.module";
+@import "../components/add-products/add-products.module";
+@import "src/pages/PDP/pdp.module";
+@import "../components/ProductScene/ProductScene.module";
+@import "../components/LifeBar/life-bar.module";
+@import "../components/FlowPanel/k-flow-panel.module";
+@import "../components/Price/price.module";
+@import "../components/PanelHeader/panel-header.module";
+@import "../components/Graphic/graphic.module";
+@import "../components/Toggle/toggle.module";
+@import "../components/DropDown/k-drop-down.module";
+@import "../components/ProductItemData/product-item-data.module";
+@import "../components/KSK_Experience/KSK.module";
+@import "../components/ContentComponents/content-components.module";
+@import "../components/BooleanToggle/boolean-toggle.module";
+@import "../components/Carousel/Kcarousel.module";
+@import "../components/MasonTiles/mason-tile.module";
+@import "../components/NavMenu/nav.module";
+@import "../components/WF_layout_component/wf-layout.module";
+@import "../components/PageNav/page-nav.module";
+@import "../components/ContentComponents/ProductCard/product-card.module";
+@import "../components/Table/k-table.module";
+@import "../components/ExpandCollapse/expander.module";
+@import "../components/FlyOut/fly-out.module";
+@import "../components/FormInputs/form-inputs.module";
+@import "../components/PopUp/pop-up.module";
+@import "../components/SEO_Component/seo-item.module";
+@import "../components/PageView/page-view.module";
+@import "../components/ValidationInput/validation.module";
+@import "../components/PDP_Related/pdp-related.module";
+@import "../components/Flag/flag.module";
+@import "../components/FeatureBullets/feature-bullet.module";
+@import "../components/PDP_Related/SecondaryPurchaseOptions/purchase-option.module";
+@import "../components/SpecificationsArea/specs-area.module";
+@import "../components/HeaderArea/header-area.module";
+@import "../components/ContentComponents/SimpleHighlightCard/simple-highlight-card.module";
+@import "../components/ScrubVideo/scrub-video.module";
+@import "../components/Rating/rating.module";
+@import "../components/LearnMore/learn-more.module";
+@import "../components/FilterableCardsArea/filterable-cards.module";
+@import "../components/colorPicker/color-picker.module";
+@import "../components/ContentComponents/MultiCardContainer/multi-card.module";
+@import "../components/RecipeDetails/recipe-related.module";
+@import "../components/RecipeDetails/Ingredients/ingredients.module";
+@import "../components/MultiBlock/multi-block.module";
+@import "../components/FeaturesList/features-list.module";
+@import "../components/FeaturedProduct/featured-product";
+@import "../components/ContentStories/content-story.module";
+@import "../components/PricingCarousel/pricing-item.module";
+@import "../components/KSK_Experience/Phase1/ksk-phase-one.module";
+@import "../pages/SMART-Family/smart-family";
+@import "../components/ProductDetails/product-details.module";
+@import "../components/ContentComponents/FocalImage/focal-image.module";
+@import "../components/SocialMedia/social";
+@import "../components/Incrementor/incrementor.module";
+
+@import "./animation";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.disabled{
+  pointer-events:none;
+}
+
+
+  .version-menu {
+    position: fixed;
+    margin: auto;
+    inset: 0 0 0 0;
+    z-index: 100000000;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+
+    .versions {
+      .version-item {
+        margin-top: 1rem;
+
+        &:hover {
+          background-color: $latte70;
+        }
+      }
+
+      margin: auto;
+      position: absolute;
+      top: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 0 4rem 4rem 4rem;
+      border-radius: 1rem;
+    }
+  }
+
+  .version {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 11111;
+    font-size: 1rem;
+  }
+
+
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT-Light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT-Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT-Heavy.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
+}
+
+html{
+
+}
+
+body {
+
+  h2, p, label, div{
+    font-family: 'Mark OT', sans-serif !important;
+  }
+
+  height: 100%;
+  #root{
+    height: inherit;
+  }
+}
+
+button{
+  font-family: 'Mark OT', sans-serif !important;
+}
+
+.demo-box{
+  padding: 4rem;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,241,234,1) 100%);
+  height: 100%;
+}
+.demo-box-no-pad{
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,241,234,1) 100%);
+  height: 100%;
+}
+
+
+.padded-demo{
+  padding: 4rem;
+}
