@@ -46,7 +46,7 @@ export const ClassicCardsContainer = (props: iClassicCardsContainer) => {
     const getContainerQueries=(width:number)=>{
         if(!width){return}
 
-        if(width<1000 && width >= 400){
+        if(width<1000 && width >= 440){
             return "mobile"
         }else if(width < 440){
             return "small mobile"
