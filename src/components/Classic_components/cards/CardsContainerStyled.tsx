@@ -160,4 +160,43 @@ export const CardsContainerStyled = styled.div`
       }
     }
   }
+
+  &.small{
+    .program-group, .one-time-group{
+      flex-direction: column;
+    }
+
+    .all-pricing-container label {
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .box-count-title{
+      font-size: 10px;
+    }
+
+    .program-logo{
+      align-items: flex-start;
+    }
+    .container-classic{
+      padding: 0 8px;
+    }
+
+    .price-amount {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .front-top{
+      flex: 0 0 40%;
+    }
+    .top-content {
+      padding: 0;
+    }
+    .variant-selection-menu-container{
+      label{
+        font-size: 14px;
+      }
+    }
+  }
 `
