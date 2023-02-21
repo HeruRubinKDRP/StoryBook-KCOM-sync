@@ -20,7 +20,8 @@ export const CardsContainerStyled = styled.div`
     justify-content: center;
   }
   .program-group, .program-logo{
-    padding-right: 16px;
+    padding-right: 18px;
+
   }
 
   .classic-card-container{
@@ -67,7 +68,7 @@ export const CardsContainerStyled = styled.div`
     }
 
     .box-count-section{
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .inner-container{
@@ -102,7 +103,7 @@ export const CardsContainerStyled = styled.div`
     .ratings-overall-container{
       flex-direction: column;
       justify-content: center;
-      width : 80%
+      width : 100%
     }
 
     .one-time-group {
