@@ -14,7 +14,9 @@ export const ClassicCardStyled = styled.div`
   border-radius: 8px;
   --colorDarkRoast: ${colorNameToValue("dark-roast")} !important;
   --colorMediumRoast: ${colorNameToValue("medium-roast")} !important;
-
+  position: relative;
+   
+  z-index: 1;
   .brand-name {
     font-size: 0.8em;
   }
@@ -29,7 +31,7 @@ export const ClassicCardStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 0 4px 8px 4px;
+    margin: 0 4px 8px 4px;
   }
 
   .product-name {
@@ -112,36 +114,64 @@ export const ClassicCardStyled = styled.div`
   &.always-show-cta {
     border: none !important;
   }
-
+  border: 1px solid transparent;
+  border-width: 0 1px 1px 1px !important;
   &:hover, &.always-show-cta {
-    border-width: 0 1px 1px 1px !important;
+    
     border: solid ${colorNameToValue("dark-roast")};
-
-    .card-bottom-content {
-      height: 80px;
+    z-index: 10000000;
+    
+    //.container-classic { 
+    //  position: absolute;
+    //  inset: 0;
+    //}
+    .card-bottom-content { 
+      height: auto;
       opacity: 1;
-      pointer-events: all;
-      transform: translateY(0%);
+      
+      transform: translateY(100%);
     }
 
     .btn-box {
       height: 2rem !important;
+      pointer-events: all;
+    }
+  }
+  @keyframes disable {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+      pointer-events: auto;
     }
   }
 
 
   .card-bottom-content {
-    overflow: hidden;
-    transition: opacity 0.15s 0.15s ease-in-out, height 0.25s 0.1s ease-in, transform 0.45s 0.15s ease-in;
-    transform: translateY(-25%);
+    overflow: visible;
+    transition: opacity 0.15s 0.05s ease-in, height 0.25s 0.1s ease-in, transform 0.45s 0.15s ease-in;
+    transform: translateY(50%);
     height: 1px;
     opacity: 0;
     pointer-events: none;
     padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
 
     .btn-box {
       transition: height 0.5s ease-in-out;
       height: 0.1rem !important;
+      margin-top: 6px;
+      pointer-events: auto;
+      animation: disable 0.5s none;
+      box-shadow: 0px 3px 6px rgb(0 0 0 / 25%);
     }
   }
 
@@ -232,7 +262,7 @@ export const ClassicCardStyled = styled.div`
   perspective: 2400px;
   transition: all 0s ease 0s, all 0.4s ease 0s;
   height: 100% !important;
-  padding: 0 16px;
+  padding: 0 16px 32px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

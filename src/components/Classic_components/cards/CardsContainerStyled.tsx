@@ -19,9 +19,11 @@ export const CardsContainerStyled = styled.div`
     row-gap: 10px;
     justify-content: center;
   }
-  .program-group, .program-logo{
-    padding-right: 18px;
-    
+  .program-group, .program-logo{ 
+    align-items: center;
+  }
+  .secondary-price{
+    justify-content: center;
   }
   
   .classic-card-container{
@@ -30,13 +32,17 @@ export const CardsContainerStyled = styled.div`
   }
   
   &.desktop{
+    .card-bottom-content{
+      padding: 0;
+    }
+    .mobile{
+      display: none;
+    }
+    .desktop{
+      display: inherit;
+    }
     .product-naming-area{
-      &.mobile{
-        display: none;
-      }
-      &.desktop{
-        display: inherit;
-      }
+      
     }
   }
   
@@ -45,22 +51,35 @@ export const CardsContainerStyled = styled.div`
       justify-content: flex-start;
       gap: 0;
     }
-    .product-naming-area{
-      display: flex;
-      flex-direction: column;
-      &.mobile{
-        display: inherit;
-      }
-      &.desktop{
-        display: none;
-      }
+    
+    .cta-container{
+      padding: 12px 0 8px 0;
+    }
+
+    .container-classic{
+      padding: 0 8px;
+    }
+
+    .mobile{
+      display: inherit !important;
+    }
+    .desktop{
+      display: none !important;
     }
     
-    .program-group{
+    .product-naming-area, .one-time-group{
+      display: flex;
+      flex-direction: column !important; 
+    }
+    
+    .program-group{ 
       padding: 0;
-      flex-direction: row;   
-      justify-content: space-between;
-      
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .secondary-price{
+      justify-content: flex-start;
     }
     
     .box-count-title{
@@ -70,14 +89,14 @@ export const CardsContainerStyled = styled.div`
     .box-count-section{
       margin-bottom: 0;
     }
-    
+
     .inner-container{
       flex-direction: column;
       padding: 4vw;
     }
-    
-    .top-content{
-      padding: 0 23px 25px 6px;
+
+    .top-content {
+      padding: 0 8px 0 0;
     }
 
     .divider-horizontal {
@@ -94,9 +113,11 @@ export const CardsContainerStyled = styled.div`
       justify-content: space-between;
       label{
         text-align: left;
+        font-size: 12px;
       }
     }
     .program-logo{
+      padding-right: 18px;
       flex-direction: column;
       justify-content: flex-end;
     }
@@ -126,7 +147,7 @@ export const CardsContainerStyled = styled.div`
     
     .variant-selection-menu-container{
       label{
-        font-size: 18px;
+        font-size: 14px;
       }
     }
     
@@ -150,6 +171,7 @@ export const CardsContainerStyled = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding-top: 0;
         padding-bottom: 10px;
       }
       .purchase-options-explainer{

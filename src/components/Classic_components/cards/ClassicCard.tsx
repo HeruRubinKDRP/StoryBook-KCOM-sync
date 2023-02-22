@@ -142,7 +142,6 @@ const {width, height, ref} = useResizeDetector({
                 {/*RATING STARS*/}
                 <div className="rating">
                   <Rating
-                      height={20}
                       ratingNumber={4.2}
                       scrollToTargetID="Ratings"
                       totalNumberOfReviews={1431}
@@ -204,10 +203,9 @@ const {width, height, ref} = useResizeDetector({
                      <span className="price-amount per-pod">{getPricePerPod(props.productPrices[currentSelectedIndex], props.boxSizes[currentSelectedIndex])}/pod</span>
                    </div>
                  </div>
-
                </div>
 
-                <div className="card-bottom-content">
+                <div className="card-bottom-content desktop">
                   <KButton
                       label={"BUY NOW"}
                       buttonType="ecommerce-primary"
@@ -219,8 +217,18 @@ const {width, height, ref} = useResizeDetector({
                 </div>
               </div>
             </div>
-
+            <div className="mobile cta-container">
+              <KButton
+                  label={"BUY NOW"}
+                  buttonType="ecommerce-primary"
+                  classes="btn-box"
+                  iconStandard="none"
+                  iconPlacement="after-label"
+                  transitionType="expand-bg"
+              />
+            </div>
           </div>
+       
         <div className="fader"></div>
           <div className="backing"></div>
         </div>
