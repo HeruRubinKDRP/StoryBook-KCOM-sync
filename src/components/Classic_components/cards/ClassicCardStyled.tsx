@@ -8,7 +8,7 @@ export const ClassicCardStyled = styled.div`
   justify-content: flex-start;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.25);
   width: auto;
-  border: none;
+  border: 0;
   background-color: rgb(255, 255, 255);
   overflow: visible;
   border-radius: 8px;
@@ -154,7 +154,7 @@ export const ClassicCardStyled = styled.div`
   .card-bottom-content {
     overflow: visible;
     transition: opacity 0.15s 0.05s ease-in, height 0.25s 0.1s ease-in, transform 0.45s 0.15s ease-in;
-    transform: translateY(50%);
+    transform: translateY(90%);
     height: 1px;
     opacity: 0;
     pointer-events: none;
