@@ -36,108 +36,128 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   width: 100%;
   border: 1px solid grey;
   border-radius: var(--spacingTiny);
-  padding: var(--spacingLarge);
+  padding: var(--spacingLarge) 0 0 var(--spacingLarge);
 
-  .add-to-cart-container{
-    display: flex; 
+  .add-to-cart-container {
+    display: flex;
+    
+   
+    .expander {
+      border-radius: 0 100vw 100vw 0 !important;
+    }
+    
+    .k-btn{
+      label{
+        transform: translateX(calc(var(--spacingLarge) * -1));
+      }
+    }
+
+    .drop-down-container { 
+      border-radius: 100vw 0 0 100vw;
+      position: relative;
+      z-index: 100;
+      width: calc(var(--spacingLarge) * 4) !important;
       
-      .drop-down-container{
-        flex-basis: 20%;
-        border-radius: 100vw 0 0 100vw;
-        position: relative;
-        z-index: 100;
-        &.is-open{
-          .drop-down{
-            .icon.chevron-down{
-                transform: rotate(180deg);
-            }
-          }
-        }
-        .column.panel{ 
-          box-shadow: 0 0 var(--spacingSmall) 0 rgba(0,0,0,.25);
-          display: flex;
-          flex-flow: column;
-          width: 100%; 
-          right: 0;
-          position: absolute;
-          z-index: 0;
-          left: 0;
-          top: 0; 
-          transform: translateY(-100%);
-          .panel-bg{
-            top:0;
-            bottom: calc(var(--spacingMedium) * -1);
-            z-index: -2;
-            border-radius: var(--spacingTiny) var(--spacingTiny) 0 0;
-          }
-          .drop-down-item{
-            padding: var(--spacingMedium);
-            font-size: var(--FontSizeLarge);
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: center;
-            margin: 0 !important;
-            .icon{
-              height: var(--spacingLarge);
-              width: var(--spacingLarge);
-              position: absolute;
-              right: 5%;
-            }
+      &.is-open {
+        .drop-down {
+          .icon.chevron-down {
+            transform: rotate(180deg);
           }
         }
       }
-      .drop-down{
-        
-        height: 100%;
-        border-radius: 100vw 0 0 100vw !important;
 
-        justify-content: center;
-        align-items: center;
-        
-        button.k-btn{
-          width: var(--buttonSmall);
-          height: var(--buttonSmall);
-          position: relative;
-          background-color: transparent !important;
-          padding: calc(var(--spacingMedium) * 1.25) var(--spacingMedium) var(--spacingMedium) 0 !important;
-          .icon{
-            transition: transform 0.2s ease-in-out;
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            .filled{
-              fill: var(--colorDarkRoast) !important;
-            }
+      .column.panel {
+        box-shadow: 0 0 var(--spacingSmall) 0 rgba(0, 0, 0, .25);
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        right: 0;
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        transform: translateY(-100%);
+
+        .panel-bg {
+          top: 0;
+          bottom: calc(var(--spacingMedium) * -1);
+          z-index: -2;
+          border-radius: var(--spacingTiny) var(--spacingTiny) 0 0;
+        }
+
+        .drop-down-item {
+          padding: var(--spacingMedium);
+          font-size: var(--FontSizeLarge);
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: center;
+          margin: 0 !important;
+
+          .icon {
+            height: var(--spacingLarge);
+            width: var(--spacingLarge);
+            position: absolute;
+            right: 5%;
           }
         }
       }
-  
-    .action{
+    }
+
+    .drop-down {
+
+      height: 100%;
+      border-radius: 100vw 0 0 100vw !important;
+
+      justify-content: center;
+      align-items: center;
+
+      button.k-btn {
+        width: var(--buttonSmall);
+        height: var(--buttonSmall);
+        position: relative;
+        background-color: transparent !important;
+        padding: calc(var(--spacingMedium) * 1.25) var(--spacingMedium) var(--spacingMedium) 0 !important;
+
+        .icon {
+          transition: transform 0.2s ease-in-out;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+
+          .filled {
+            fill: var(--colorDarkRoast) !important;
+          }
+        }
+      }
+    }
+
+    .action {
       flex-basis: 80%;
       border-radius: 0 100vw 100vw 0;
     }
   }
-  
+
   .k-btn {
-    padding: var(--spacingLarge) var(--spacingLarge) !important;
+    padding: var(--spacingLarge) var(--spacingLarge);
 
     label {
       font-size: var(--FontSizeMedium);
     }
   }
-  
+
 
   .coupon-area {
-    padding: var(--spacingMedium);
-    border: 1px dashed var(--colorDarkRoast);
-    background-color: var(--colorFaded);
+    padding: var(--spacingMedium) var(--spacingLarge);
+    border: 1px dashed var(--colorFaded);
+    background-color: transparent;
     align-items: center;
     margin: var(--spacingMedium) 0;
-    &:empty{
+
+    &:empty {
       background-color: transparent;
-      border : none;
+      border: none;
       padding: 0;
     }
 
@@ -148,13 +168,14 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       justify-content: flex-start;
       flex-wrap: nowrap;
       gap: var(--spacingSmall);
-      
-      .coupon-message-area{
+
+      .coupon-message-area {
         display: flex;
         flex-direction: row;
         flex: 0 0 65%;
       }
-      .coupon-applied{
+
+      .coupon-applied {
         display: flex;
         font-size: var(--FontSizeSmall);
         align-content: center;
@@ -163,35 +184,38 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         color: var(--colorOK);
         font-weight: 600;
       }
-      
-      .k-btn.learn-more{
+
+      .k-btn.learn-more {
         padding: 0 !important;
         float: inside;
         border-radius: 0 !important;
         height: var(--FontSizeSmall) !important;
         display: inline-flex !important;
       }
-      
-      .icon.launch-pop-up{
+
+      .icon.launch-pop-up {
         height: var(--FontSizeSmall) !important;
         width: var(--FontSizeSmall) !important;
         display: flex;
         margin-left: var(--spacingTiny) !important;
       }
-      
-      
-      .checkmark-circled{
+
+
+      .checkmark-circled {
         width: var(--buttonMedium);
         height: var(--buttonMedium);
         margin-right: var(--spacingSmall);
-        .stroked{
+
+        .stroked {
           stroke-width: 2px;
           stroke: var(--colorOK);
         }
       }
-      .coupon-message{
+
+      .coupon-message {
         padding-left: var(--spacingSmall);
-        span, p, label{
+
+        span, p, label {
           font-size: var(--FontSizeSmall);
         }
       }
@@ -199,17 +223,18 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       .k-btn {
         padding: var(--spacingTiny) var(--spacingLarge) !important;
         flex: 1 0 0;
+        background-color: transparent !important;
+
         label {
           font-size: var(--FontSizeSmall);
-
         }
       }
     }
   }
-  
+
   .product-info-container {
-    .coupon-item{
-      p{
+    .coupon-item {
+      p {
         font-size: var(--FontSizeSmall);
       }
     }
@@ -222,7 +247,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 0.3fr 0.8fr;
+    grid-template-columns: 0.2fr 0.8fr;
     grid-template-rows: 1fr 1fr;
 
     * {

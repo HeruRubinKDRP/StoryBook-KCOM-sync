@@ -22,8 +22,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   --spacingLarge: calc(var(--overallWidth) * 0.05 + 12px);
   --spacingMedium: calc(var(--overallWidth) * 0.025 + 5px);
   --spacingSmall: calc(var(--overallWidth) * 0.015 + 4px);
-  --spacingTiny: calc(var(--overallWidth) * 0.003 + 2px);
-  
+  --spacingTiny: calc(var(--overallWidth) * 0.003 + 2px); 
 
   border-radius: var(--spacingTiny);
   overflow: hidden;
@@ -38,6 +37,23 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   width: 100%;
   max-height: 90vh;
   margin: 0 auto; 
+  
+   
+  
+  .k-btn{
+    padding: calc(var(--spacingLarge)*1.2) calc(var(--spacingLarge)*1.2) !important;
+  }
+  
+  .item-only-option{
+    border:0;
+  } 
+  
+  
+  
+  
+  .drop-down-container{
+    border: 1px solid var(--colorDarkRoast);
+  }
 
   .expander {
     border-radius: 100vw !important;
@@ -93,7 +109,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     .k-carousel {
       width: 100%;
       height: 25vh !important;
-      
+      margin: 5vh 0 5vh 0 !important;
       .nav-dots-container {
         display: none;
       }
@@ -227,27 +243,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     margin-top: 0;
     width: 100%;
 
-    & > div {
-      &:first-child {
-        &:last-child{
-          border-radius: var(--spacingTiny) !important;
-          border-bottom: 1px solid var(--colorDarkRoast) !important;
-          .deal-area{
-            grid-template-columns: auto 1fr;
-          }
-        }
-        border-radius: var(--spacingTiny) var(--spacingTiny) 0 0 !important;
-        border-bottom: none !important;
-      }
-
-      &:last-child {
-        border-radius: 0 0 var(--spacingTiny) var(--spacingTiny) !important;
-      }
-    }
-
-    & > div {
-      border-radius: 0 !important;
-    } 
+    
 
   }
 
@@ -279,7 +275,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     flex-direction: column-reverse;
     justify-content: center;
     max-width: calc(var(--overallWidth) * 0.5);
-    
+    margin: auto;
     .slides-container {
       width: 100%;
       height: 100%;
@@ -360,6 +356,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
+    justify-content: center;
     max-width: calc(var(--overallWidth) * 0.5);
   }
 

@@ -61,6 +61,8 @@ export type podItemT = {
   boxImagePath : string;
   additionalImages? : string[]
   inventory : number;
+  productPrices : number[];
+  boxSizes : number[];
   subscribed : {
     SMART:{
       activeSub : boolean;
@@ -172,6 +174,8 @@ export const podLibrary : podItemT[] = [
     inventory : 4,
     podName : "Breakfast Blend Coffee",
     brand : brands.gmcr,
+    productPrices : [10.49, 16.99, 49.99, 53.96],
+    boxSizes : [12, 24, 72, 96],
 
     variant : [
       {
@@ -211,6 +215,8 @@ export const podLibrary : podItemT[] = [
     pricePerPod : 0.73,
     podName : "Dark Magic® Coffee",
     brand : brands.gmcr,
+    productPrices : [10.49, 16.99, 47.99, 71.96],
+    boxSizes : [12, 24, 72, 96],
     subscribed : {
       SMART:{
         activeSub : true,
@@ -261,6 +267,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 2,
     podName : "Nantucket Blend® Coffee",
+    productPrices : [10.49, 17.99, 49.99, 53.96],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.65,
     subscribed : {
       SMART:{
@@ -313,6 +321,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 3,
     podName : "Caramel Vanilla Cream Coffee",
+    productPrices : [10.49, 16.99, 53.97, 71.96],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.65,
     subscribed : {
       SMART:{
@@ -365,6 +375,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 4,
     podName : "Original Blend Coffee",
+    productPrices : [19.49, 38.98, 58.47, 67.86],
+    boxSizes : [22, 44, 66, 88],
     pricePerPod : 0.74,
     subscribed : {
       SMART:{
@@ -417,6 +429,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 5,
     podName : "The Original Donut Shop® Coffee",
+    productPrices : [10.49, 17.49, 49.99, 53.96],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.67,
     subscribed : {
       SMART:{
@@ -469,6 +483,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 6,
     podName : "Pike Place® Roast Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.92,
     subscribed : {
       SMART:{
@@ -514,6 +530,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 7,
     podName : "Sumatra Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.89,
     subscribed : {
       SMART:{
@@ -566,6 +584,8 @@ export const podLibrary : podItemT[] = [
   {
     podId : 8,
     podName : "Half-Caff Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     pricePerPod : 0.87,
     subscribed : {
       SMART:{
@@ -620,6 +640,8 @@ export const podLibrary : podItemT[] = [
     podId : 9,
     pricePerPod : 0.78,
     podName : "Major Dickason's Blend® Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     subscribed : {
       SMART:{
         activeSub : false,
@@ -672,6 +694,8 @@ export const podLibrary : podItemT[] = [
     podId : 10,
     pricePerPod : 0.86,
     podName : "French Roast Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     subscribed : {
       SMART:{
         activeSub : false,
@@ -724,6 +748,8 @@ export const podLibrary : podItemT[] = [
     podId : 11,
     pricePerPod : 0.67,
     podName : "Breakfast Blend Decaf Coffee",
+    productPrices : [9.99, 19.99, 29.99, 39.99],
+    boxSizes : [12, 24, 72, 96],
     subscribed : {
       SMART:{
         activeSub : false,

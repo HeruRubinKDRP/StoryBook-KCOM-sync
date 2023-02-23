@@ -32,9 +32,9 @@ export const ClassicCardsContainer = (props: iClassicCardsContainer) => {
                     productName={props.podLibrary[i].podName}
                     bannerType={"none"}
                     brandName={props.podLibrary[i].brand}
-                    productPrices={[10.49, 16.99, 49.99, 53.96]}
+                    productPrices={props.podLibrary[i].productPrices}
                     alwaysShowCTA={props.alwaysShowCTA}
-                    boxSizes={[12, 24, 72, 96]}
+                    boxSizes={props.podLibrary[i].boxSizes}
                     selectedProductOverride={1}
                 />
             )

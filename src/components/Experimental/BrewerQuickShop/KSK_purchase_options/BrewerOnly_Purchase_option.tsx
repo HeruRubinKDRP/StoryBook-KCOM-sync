@@ -74,7 +74,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
     }
 
     return(
-        <StyledBrewerOnly ref={ref} widthX={width || 0} heightY={height || 0}>
+        <StyledBrewerOnly className="item-only-option" ref={ref} widthX={width || 0} heightY={height || 0}>
             <div className="deal-area">
                 <div className="deal-price">$159.99</div>
                 <h3>Brewer only</h3>

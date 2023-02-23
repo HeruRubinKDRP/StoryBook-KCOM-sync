@@ -18,7 +18,7 @@ export const KSKPurchaseOption =(props : iKSKPurchaseOption)=>{
     });
 
     return(
-        <Styled_KSKPurchaseOption ref={ref} heightY={height || 0} widthX={width || 0}>
+        <Styled_KSKPurchaseOption className="preferred-option" ref={ref} heightY={height || 0} widthX={width || 0}>
 
             <Flag
                 flagLabel="Our best deal"

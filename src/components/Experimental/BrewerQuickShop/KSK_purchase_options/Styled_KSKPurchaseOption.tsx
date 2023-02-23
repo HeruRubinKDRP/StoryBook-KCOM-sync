@@ -40,6 +40,8 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledKSKPurchaseOption>`
   margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeLarge)));
   background-color: white;
   
+   
+  
   .flag-container {
     border-radius: var(--spacingTiny) 0 0 0 !important;
     font-size: var(--FontSizeSmall);
@@ -107,7 +109,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledKSKPurchaseOption>`
 .k-btn{
   background-color: var(--colorKSK) !important;
   
-  padding: var(--spacingLarge) var(--spacingLarge) !important;
+  padding: var(--spacingLarge) var(--spacingLarge);
   label{
     font-size: var(--FontSizeMedium);
   }

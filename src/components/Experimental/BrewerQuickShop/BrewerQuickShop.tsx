@@ -14,6 +14,7 @@ import {getContainerQuery} from "../Add-to-cart/reusable css/container-queries";
 import {FreeShipping} from "../../PDP_Related/FreeShipping/FreeShipping";
 import Graphic from "../../Graphic/Graphic";
 import {css} from "styled-components";
+import {ModalStyled} from "../Modal-Styled";
 
 export interface iBrewerQuickShop{
     productName : string;
@@ -85,13 +86,8 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
 
 
     return(
-        <div className="modal" style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            height:"90%",
-            width:"90%",
-            transform: "translate(-50%, -50%)"
+        <ModalStyled className={`modal modal-${getContainerQuery(width)}`} style={{
+
         }} >
             <BrewerQuickShopStyled
                 ref={ref}
@@ -185,7 +181,7 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
                         <span>{props.freeShippingMessage}</span>
                     </div> : <></>}
             </BrewerQuickShopStyled>
-        </div>
+        </ModalStyled>
     )
 
 }
