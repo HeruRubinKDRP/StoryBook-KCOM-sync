@@ -16,7 +16,7 @@ export const CardsContainerStyled = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2%;
-    row-gap: 10px;
+    row-gap: 24px;
     justify-content: center;
   }
   .program-group, .program-logo{ 

@@ -153,8 +153,8 @@ export const ClassicCardStyled = styled.div`
 
   .card-bottom-content {
     overflow: visible;
-    transition: opacity 0.15s 0.05s ease-in, height 0.25s 0.1s ease-in, transform 0.45s 0.15s ease-in;
-    transform: translateY(90%);
+    transition: opacity 0.15s 0s ease-in, height 0.25s 0s ease-in, transform 0s 0s ease-in;
+    transform: translateY(95%);
     height: 1px;
     opacity: 0;
     pointer-events: none;
