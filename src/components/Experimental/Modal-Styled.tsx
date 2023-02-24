@@ -10,14 +10,14 @@ export const ModalStyled = styled.div`
     transform: translate(-50%, -50%);
   }
   
-  &.modal-mobile-dimensions{
-
+  
+  
+  &.modal-mobile-dimensions{ 
     right: 2%;
     bottom: 0;
     height: 100%;
     width: 100%;
-    top: 0;
-    
+    top: 0; 
   }
 
 `

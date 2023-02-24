@@ -5,6 +5,7 @@ import {useResizeDetector} from "react-resize-detector";
 import {StyledBrewerOnly} from "./StyledBrewerOnly";
 import Graphic from "../../../Graphic/Graphic";
 import KDropDown from "../../../DropDown/drop-down";
+import {CTA_WithQuantity} from "../../../CTA_With_Quantity/CTA_WithQuantity";
 
 export interface iBrewerOnlyPurchaseOption{
     hasCoupon : boolean;
@@ -84,41 +85,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
             <div className="coupon-area">
                 {getCoupon()}
             </div>
-            <div className="add-to-cart-container">
-                <KDropDown
-                    classes="quantity-selection"
-                    dropDownType="medium"
-                    defaultLabel={"1"}
-                    label="1"
-                    selected="1"
-                    selectionOptions={[
-                        {
-                            label: "1",
-                            value: "1"
-                        },
-                        {
-                            label: "2",
-                            value: "2"
-                        },
-                        {
-                            label: "3",
-                            value: "3"
-                        },
-                        {
-                            label: "4",
-                            value: "4"
-                        }
-                    ]}
-                />
-                <KButton
-                    iconStandard="none"
-                    label="Add to Cart"
-                    buttonType="primary"
-                    buttonWidth="fit-width"
-                    classes="action"
-                    transitionType="expand-bg"
-                />
-            </div>
+          <CTA_WithQuantity totalQuantity={4} buttonLabel="Add to Cart" />
         </StyledBrewerOnly>
     )
 

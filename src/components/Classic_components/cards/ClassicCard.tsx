@@ -17,6 +17,31 @@ export interface iClassicCard {
   alwaysShowCTA?: boolean;
 }
 
+export function getPricePerPod(price : number, quantity : number) {
+  // calculate the price per item
+  const pricePerItem = price / quantity;
+
+  // check if the price per item is greater than $1.00
+  if (pricePerItem >= 1) {
+    // format as dollars
+    return '$' + pricePerItem.toFixed(2);
+  } else {
+    // format as cents
+    const cents = Math.round(pricePerItem * 100);
+    return cents + '¢';
+  }
+}
+
+export function getDiscountedPrice(index : number, price : number) {
+  // calculate the discounted price
+  const discountedPrice = price - (price * (25 / 100));
+
+  // format the discounted price with 2 decimal places and return as a string
+  const formattedPrice = discountedPrice.toFixed(2);
+
+  // convert the formatted price back to a number and return
+  return parseFloat(formattedPrice);
+}
 
 
 export const ClassicCard = (props: iClassicCard) => {
@@ -33,32 +58,6 @@ export const ClassicCard = (props: iClassicCard) => {
   const [currentSelectedIndex, setCurrentSelectedIndex] = useState(props.selectedProductOverride);
 
 
-  function getDiscountedPrice(index : number, price : number) {
-    // calculate the discounted price
-    const discountedPrice = price - (price * (25 / 100));
-
-    // format the discounted price with 2 decimal places and return as a string
-    const formattedPrice = discountedPrice.toFixed(2);
-
-    // convert the formatted price back to a number and return
-    return parseFloat(formattedPrice);
-  }
-
-  function getPricePerPod(price : number, quantity : number) {
-    // calculate the price per item
-    const pricePerItem = price / quantity;
-
-    // check if the price per item is greater than $1.00
-    if (pricePerItem >= 1) {
-      // format as dollars
-      return '$' + pricePerItem.toFixed(2);
-    } else {
-      // format as cents
-      const cents = Math.round(pricePerItem * 100);
-      return cents + '¢';
-    }
-  }
-
 
 const {width, height, ref} = useResizeDetector({
     refreshMode : "throttle",
@@ -72,7 +71,6 @@ const {width, height, ref} = useResizeDetector({
 
 
   const getVariants =()=>{
-
 
     return(
       <>

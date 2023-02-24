@@ -29,6 +29,8 @@ export interface iBrewerQuickShop{
         slideImageURLs :imageItemType[]
     };
 
+    maxQuantityAllowed:number
+
     colorVariants : productVariantColor[];
     mainFlagColor: colorByNameType;
     mainFlagLabel : string;
