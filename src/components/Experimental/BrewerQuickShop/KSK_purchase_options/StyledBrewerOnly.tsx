@@ -14,6 +14,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   --colorOK: ${colorNameToValue("OK-Status")};
   --colorDiscount: ${colorNameToValue("discount")};
   --colorDarkRoast: ${colorNameToValue("dark-roast")};
+  --colorMediumRoast: ${colorNameToValue("medium-roast")};
   --colorFaded: ${colorNameToValue("latteMed")};
 
   --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
@@ -43,16 +44,23 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     
    
     .expander {
-      border-radius: 0 100vw 100vw 0 !important;
+      border-radius: 100vw;
+      transition: background-color 0.5s, left 400ms, right 400ms, top 400ms, bottom 400ms, border-radius 400ms;
     }
     
     .k-btn{
+      &:hover{
+        .expander{
+          border-radius: 0 100vw 100vw 0 !important;
+        }
+      }
       label{
         transform: translateX(calc(var(--spacingLarge) * -1));
       }
     }
 
     .drop-down-container { 
+      border: 1px solid var(--colorDarkRoast);
       border-radius: 100vw 0 0 100vw;
       position: relative;
       z-index: 100;
@@ -61,7 +69,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       &.is-open {
         .drop-down {
           .icon.chevron-down {
-            transform: rotate(180deg);
+            transform: scaleY(-1);
           }
         }
       }
@@ -153,7 +161,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     border: 1px dashed var(--colorFaded);
     background-color: transparent;
     align-items: center;
-    margin: var(--spacingMedium) 0;
+    margin: var(--spacingMedium) var(--spacingLarge) var(--spacingLarge) 0;
 
     &:empty {
       background-color: transparent;
@@ -189,6 +197,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         padding: 0 !important;
         float: inside;
         border-radius: 0 !important;
+        border: 0 !important;
         height: var(--FontSizeSmall) !important;
         display: inline-flex !important;
       }
@@ -224,7 +233,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         padding: var(--spacingTiny) var(--spacingLarge) !important;
         flex: 1 0 0;
         background-color: transparent !important;
-
+        border: 1px solid var(--colorMediumRoast) !important;
         label {
           font-size: var(--FontSizeSmall);
         }

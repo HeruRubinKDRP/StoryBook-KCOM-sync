@@ -39,8 +39,9 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledKSKPurchaseOption>`
   //margin top to make room for the absolute positioned flag
   margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeLarge)));
   background-color: white;
-  
-   
+
+
+  filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0,0,0,0.25));
   
   .flag-container {
     border-radius: var(--spacingTiny) 0 0 0 !important;
@@ -70,7 +71,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledKSKPurchaseOption>`
   
   .deal-area{
     display: grid;
-    grid-template-columns: 0.3fr 0.8fr;
+    grid-template-columns: 0.2fr 0.8fr;
     grid-template-rows: 1fr 1fr;
     *{
       display: flex;

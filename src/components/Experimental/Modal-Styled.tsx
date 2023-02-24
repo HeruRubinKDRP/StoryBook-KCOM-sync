@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const ModalStyled = styled.div`
-
-  &.modal-large-dimensions{
-    position: fixed;
+  position: fixed;
+  &.modal-large-dimensions, &.modal-medium-dimensions { 
     top: 50%;
     left: 50%;
     height: auto;
@@ -12,12 +11,13 @@ export const ModalStyled = styled.div`
   }
   
   &.modal-mobile-dimensions{
-    
+
     right: 2%;
-    bottom: 5%;
+    bottom: 0;
     height: 100%;
     width: 100%;
-   
+    top: 0;
+    
   }
 
 `
