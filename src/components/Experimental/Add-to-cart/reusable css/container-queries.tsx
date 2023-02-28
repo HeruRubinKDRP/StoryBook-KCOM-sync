@@ -23,7 +23,7 @@ export const getContainerQuery = (widthX: number | undefined) => {
         return "large-dimensions";
     }else if(widthX < sss.desktop && widthX >= sss.tablet){
         return "medium-dimensions";
-    }else if(widthX < sss.tablet && widthX ){
+    }else if(widthX < sss.tablet ){
         return "mobile-dimensions";
     }
 

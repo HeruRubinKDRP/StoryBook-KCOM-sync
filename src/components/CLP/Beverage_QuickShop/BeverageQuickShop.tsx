@@ -1,7 +1,7 @@
 import {ModalStyled} from "../../Experimental/Modal-Styled";
-import React, {useState} from "react";
+import React, {ReactElement, useState} from "react";
 import {BevQuickShopStyled} from "./StyledBeverageQuickShop";
-import {CTA_WithQuantity} from "../../CTA_With_Quantity/CTA_WithQuantity";
+import {CTA_WithQuantity, getNumericalSequenceSelectionsForDropDown} from "../../CTA_With_Quantity/CTA_WithQuantity";
 import {useResizeDetector} from "react-resize-detector";
 import {KToggle} from "../../Toggle/Toggle";
 import Switch from "../../Switch/Switch";
@@ -9,6 +9,8 @@ import KButton from "../../Kbutton/KButton";
 import {Flag} from "../../Flag/Flag";
 import {getDiscountedPrice, getPricePerPod} from "../../Classic_components/cards/ClassicCard";
 import {Rating} from "../../Rating/Rating";
+import KDropDown from "../../DropDown/drop-down";
+import Graphic from "../../Graphic/Graphic";
 
 export interface iBeverageQuickShop {
     productName: string;
@@ -17,12 +19,18 @@ export interface iBeverageQuickShop {
     productPrices: number[]
     boxSizes: number[];
     selectedProductOverride?: number;
+    isSmartEligible : boolean;
+    edlpOffer : string;
 }
+
+export type subscriptionModeT = "scheduled" | "smart";
 
 export const BeverageQuickShop = (props: iBeverageQuickShop) => {
 
     const [subscriptionVisible, setSubscriptionVisible] = useState(false);
     const [isScheduled, setIsScheduled] = useState(true);
+
+    const [subscriptionMode, setSubscriptionMode] = useState<"scheduled" | "smart" >("scheduled");
 
     const [currentSelectedIndex, setCurrentSelectedIndex] = useState(props.selectedProductOverride || 0);
     const {width, height, ref} = useResizeDetector({
@@ -90,6 +98,61 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
 
     }
 
+    const getConfigurations = (mode : subscriptionModeT) => {
+
+        switch(mode){
+            case "scheduled":
+                return(
+                    <div className="scheduled-configuration config-area">
+                        <div className="configuration-item">
+                            <CTA_WithQuantity totalQuantity={20} buttonLabel="Create Auto-Delivery" />
+                        </div>
+                    </div>
+                )
+
+                case "smart":
+                    return(
+                        <div className="smart-configuration config-area">
+                            <div className="configuration-item setting">
+                                <label className="section-label">
+                                    How many boxes fo you want? <Graphic graphicName="info-icon" />
+                                </label>
+                                <KDropDown
+                                    dropDownType="large"
+                                    defaultLabel="2"
+                                    label="2"
+                                    selected="2"
+                                    selectionOptions={getNumericalSequenceSelectionsForDropDown(20)}
+                                />
+                            </div>
+                            <div className="configuration-item setting">
+                                <label className="section-label">
+                                    Do you already have pods? <Graphic graphicName="info-icon" />
+                                </label>
+                                <KDropDown
+                                    dropDownType="large"
+                                    defaultLabel="No answer"
+                                    label="2"
+                                    selected="2"
+                                    selectionOptions={getNumericalSequenceSelectionsForDropDown(20)}
+                                />
+                            </div>
+                            <KButton
+                                iconStandard="none"
+                                label="Subscribe Now"
+                                buttonType="action"
+                                buttonWidth="fit-width"
+                                classes="action cta"
+                                transitionType="expand-bg"
+                                actionFunc={() => setSubscriptionVisible(true)}
+                            />
+                        </div>
+                    )
+        }
+    }
+
+
+
     return (
         <ModalStyled className={`modal-${getContainerQueries(width || 0)}`}>
 
@@ -121,7 +184,10 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
                     <div className="configuration-container">
                         <div className="box-selection">
                             <div className="select-box-size">Select Box Size:</div>
-                            {getVariants()}
+                            <div className={"switch-container "}>
+                                {getVariants()}
+                            </div>
+
                         </div>
                         <section className="subscription-group-section">
                             <Flag
@@ -135,7 +201,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
                                 <section className="messaging-container">
 
                                     <div className="price discounted">
-                                        <div>
+                                        <div className="price-display">
                                             <span className="price-label">${getDiscountedPrice(currentSelectedIndex , props.productPrices[currentSelectedIndex])} </span>
                                             <span className="price-per-pod">({getPricePerPod(currentSelectedIndex , props.productPrices[currentSelectedIndex])} per pod)</span>
                                         </div>
@@ -155,22 +221,27 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
                                     />
                                 </div>
                                 <div className={`subscription-configuration ${subscriptionVisible}`}>
-                                    <div className={"switch-container "}>
-                                        <Switch leftValue={"Scheduled Deliver"} rightValue={"Smart Delivery"} value={isScheduled} onChange={()=>{setIsScheduled(!isScheduled)}} />
-                                    </div>
+                                    <Switch
+                                        leftValue={"Scheduled Delivery"}
+                                        rightValue={"Smart Delivery"}
+                                        value={isScheduled}
+                                        onChange={() => {
+                                            setSubscriptionMode(prevMode => prevMode === "scheduled" ? "smart" : "scheduled")
+                                    }}/>
+                                    {getConfigurations(subscriptionMode)}
                                 </div>
                             </div>
                         </section>
                         <section className="one-time-section">
                             <section className="messaging-container">
                                 <div className="price">
-                                    <div>
+                                    <div className="price-display">
                                         <span className="price-label">${ props.productPrices[currentSelectedIndex]}</span>
                                         <span className="price-per-pod"> ({getPricePerPod(currentSelectedIndex , props.productPrices[currentSelectedIndex])} per pod)</span>
                                     </div>
                                     <span className="purchase-type">One-Time Purchase</span>
                                 </div>
-
+                                {props.edlpOffer ? <div className="edlp-offer terms">{props.edlpOffer}</div> : <></>}
                             </section>
                             <div className="fader">
                                 <div className="fader"></div>

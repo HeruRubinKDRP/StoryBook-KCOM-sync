@@ -32,14 +32,14 @@ const Switch: React.FC<SwitchProps> = ({
 
 
     return (
-        <Container onClick={handleClick}>
+        <Container className="switch-container" onClick={handleClick}>
             <ValueLabel className={`left ${isSelected? "selected" : "" }`} >
                 {leftValue}
             </ValueLabel>
             <ValueLabel className={`right ${isSelected? "" : "selected" }`}>
                 {rightValue}
             </ValueLabel>
-            <Indicator selected={isSelected}  />
+            <Indicator selected={isSelected} className="indicator"  />
         </Container>
     );
 };

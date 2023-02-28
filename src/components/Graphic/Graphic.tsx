@@ -25,6 +25,7 @@ export type iconType =
   "icon-account" |
   "icon-pod-logo" |
   "icon-checkmark" |
+    "info-icon" |
   "checkmark-circled" |
   "delivery-truck" |
   "icon-pod-filled" |
@@ -97,6 +98,23 @@ export function Graphic(props: Igraphics) {
 
 
   switch (props.graphicName) {
+
+      case "info-icon":
+          graphicData=(
+
+      <svg viewBox="0 0 46 46">
+
+          <g>
+              <circle className="stroked" cx="23" cy="23" r="22.5"/>
+
+          </g>
+          <g>
+              <polygon className="filled" points="26.5 33 26.5 20 26.5 19 26.5 16 17.5 16 17.5 20 19.5 20 19.5 33 16.5 33 16.5 38 29.5 38 29.5 33 26.5 33"/>
+              <circle className="filled" cx="22.5" cy="10" r="4"/>
+          </g>
+      </svg>
+          )
+          break;
 
       case "free-shipping-truck":
           graphicData=(

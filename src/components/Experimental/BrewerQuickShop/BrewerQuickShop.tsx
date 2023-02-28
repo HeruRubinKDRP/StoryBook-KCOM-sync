@@ -87,12 +87,14 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
     }
 
 
+
+
     return(
-        <ModalStyled className={`modal modal-${getContainerQuery(width)}`} style={{
+        <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{
 
         }} >
             <BrewerQuickShopStyled
-                ref={ref}
+
                 className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
                 overallWidth={width ? width : 0}
                 calculatedOverallWidthVar={getDynamicStyles(width ? width : 0)}

@@ -8,22 +8,22 @@ export interface iCTA_withQuantity {
     buttonLabel: string;
 }
 
+export const getNumericalSequenceSelectionsForDropDown = (totalQuantity : number) => {
+    let selectionOptions : dropDownItem[] = []
+    for(let i=0; i<totalQuantity; i++){
+        selectionOptions.push(
+            {
+                label: `${i+1}`,
+                value: i+1,
+            }
+        )
+    }
 
+    return selectionOptions;
+}
 
 export const CTA_WithQuantity = (props: iCTA_withQuantity) => {
-    const getSelectionMenu = () => {
-        let selectionOptions : dropDownItem[] = []
-        for(let i=0; i<props.totalQuantity; i++){
-            selectionOptions.push(
-                {
-                    label: `${i+1}`,
-                    value: i+1,
-                }
-            )
-        }
 
-        return selectionOptions;
-    }
 
     return(
         <Styled_CTA_withQuantity>
@@ -34,7 +34,7 @@ export const CTA_WithQuantity = (props: iCTA_withQuantity) => {
                     defaultLabel={"1"}
                     label="1"
                     selected="1"
-                    selectionOptions={getSelectionMenu()}
+                    selectionOptions={getNumericalSequenceSelectionsForDropDown(props.totalQuantity)}
                 />
                 <KButton
                     iconStandard="none"

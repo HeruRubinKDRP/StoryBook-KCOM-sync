@@ -68,5 +68,6 @@ export const iconsList : iconType[] = [
   "icon-cup",
   "play-icon",
   "icon-present",
-    "free-shipping-truck"
+    "free-shipping-truck",
+    "info-icon"
 ]
