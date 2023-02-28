@@ -240,6 +240,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: flex-start;
+      max-height: none;
     }
 
     .product-container, .configuration-container {
@@ -311,10 +312,11 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
   }
 
   .config-area {
-    padding: var(--spacingLarge) 0 var(--spacingSmall) 0;
     display: flex;
     gap: var(--spacingLarge);
     justify-content: center;
+    flex-direction: column;
+    padding: var(--spacingLarge) 12%;
   }
 
   .configuration-item {
@@ -364,6 +366,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     justify-content: center;
     flex-wrap: wrap;
     padding: 5% 2%;
+    max-height: 95vh;
   }
 
   .ratings-overall-container {
@@ -575,6 +578,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     .left, .right {
       white-space: nowrap;
       margin: 0 var(--spacinglarge);
+      font-size: var(--FontSizeMedium);
     }
   }
 
