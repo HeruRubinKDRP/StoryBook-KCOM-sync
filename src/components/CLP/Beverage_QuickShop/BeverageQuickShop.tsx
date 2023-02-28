@@ -21,13 +21,14 @@ export interface iBeverageQuickShop {
     selectedProductOverride?: number;
     isSmartEligible : boolean;
     edlpOffer : string;
+    subscriptionVisible : boolean;
 }
 
 export type subscriptionModeT = "scheduled" | "smart";
 
 export const BeverageQuickShop = (props: iBeverageQuickShop) => {
 
-    const [subscriptionVisible, setSubscriptionVisible] = useState(false);
+    const [subscriptionVisible, setSubscriptionVisible] = useState(props.subscriptionVisible);
     const [isScheduled, setIsScheduled] = useState(true);
 
     const [subscriptionMode, setSubscriptionMode] = useState<"scheduled" | "smart" >("scheduled");
@@ -139,7 +140,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
                             </div>
                             <KButton
                                 iconStandard="none"
-                                label="Subscribe Now"
+                                label="Create Auto-Delivery"
                                 buttonType="action"
                                 buttonWidth="fit-width"
                                 classes="action cta"
@@ -207,7 +208,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
                                         </div>
                                         <span className="purchase-type">Subscription</span>
                                     </div>
-                                    <h3 className="terms">No fees. Cancel anytime.</h3>
+                                    <h3 className="terms">Save 25% with Auto-Delivery. No fees. Cancel anytime.</h3>
                                 </section>
                                 <div className={`starting-state-subscription ${subscriptionVisible}`}>
                                     <KButton
