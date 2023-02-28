@@ -258,7 +258,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
         }
 
         img {
-          height: 25vh;
+          height: 20vh;
           object-fit: contain;
         }
       }
