@@ -38,7 +38,7 @@ export const CTA_WithQuantity = (props: iCTA_withQuantity) => {
                 />
                 <KButton
                     iconStandard="none"
-                    label="Add to Cart"
+                    label={props.buttonLabel}
                     buttonType="primary"
                     buttonWidth="fit-width"
                     classes="action"
