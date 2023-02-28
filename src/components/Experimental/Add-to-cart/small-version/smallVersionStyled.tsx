@@ -52,8 +52,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   --spacingSmall: calc( var(--overallWidth) * 0.015 );
   --spacingTiny: calc( var(--overallWidth) * 0.0075 );
 
-  --boxShadowLarge: 0 calc(var(--button-size) * 0.12) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.5);
-  --boxShadowHuge: 0 calc(var(--button-size) * 0.36) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.5);
+  --boxShadowLarge: 0 calc(var(--button-size) * 0.12) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
+  --boxShadowHuge: 0 calc(var(--button-size) * 0.36) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
 
   box-shadow: var(--boxShadowLarge);
   display: flex;
@@ -65,7 +65,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   right:0;
   border-radius: var(--spacingTiny);
   margin: 0 10% 5% 10%;
-  
+  max-width: 80%;
+  min-width: 80%;
+  max-height: 55%;
   img{
     object-fit: contain;
   }
@@ -170,7 +172,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   .actions-container, .suggested-products-container .suggested-products {
     display: flex; 
     gap: var(--spacingTiny);
+    justify-content: center;
     .k-btn {
+      width: calc(50% - var(--spacingMedium)) !important;
       padding: var(--spacingMedium) var(--spacingLarge);
       label{
         font-size: calc(var(--fontTiny));
@@ -179,7 +183,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   } 
 
   .product-area {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -257,7 +261,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   }  
 
   .suggested-products-container {
-    width: 100%;
+    width: 50%;
     min-width: 25%;
     background-color: var(--colorSepia);
     display: flex;
@@ -508,6 +512,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   &.mobile-dimensions{
     margin: 0 2vw;
     width: 96%;
+    max-width: 96%;
+   box-shadow: 0 calc(var(--button-size) * -0.22) calc(var(--button-size) * 0.52) 0 rgba(0,0,0,0.25);
     .actions-container{
       position: fixed;
       bottom: 0;
@@ -516,10 +522,11 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       background-color: white;
       z-index: 10000;
       padding: var(--spacingSmall) var(--spacingMedium);
-    } 
+    }  
     
     .product-area{
-        flex-direction: column; 
+      flex-direction: column;
+      min-height: 15vh;
       .product-image{
         width: calc(var(--overallWidth) * 0.25);
         height: auto;
@@ -527,15 +534,19 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     }
     
     .product-area, .suggested-products-container{
-      min-height: 25vh;
+      
+      width: 100%;
     }
     
     
-    
+    .loading-graphic{
+      height: 15vh !important;
+      width: 100% !important;
+    }
     
     .checkmark-circled{
-      height: var(--fontMedium);
-      width: var(--fontMedium);
+      height: var(--fontMedium) !important;
+      width: var(--fontMedium) !important;
       .stroked{
         stroke-width: var(--iconStrokeSmall);
       }
@@ -594,7 +605,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
           z-index: 1; 
             label{
               position: absolute;
-              right: var(--buttonLarge);
+              //position label to visually center by accounting for padding
+              right: 34%;
             } 
         }
       }
@@ -627,7 +639,11 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     .suggested-products-container{
       min-height: 15vh;
       padding-bottom: ${(props) => props.actionBarHeight * 1.2 + 'px'};
-      
+      .Typist{
+        h2{
+          font-size: calc(var(--fontMedium) * 0.75);
+        }
+      }
     }
     .actions-container {
       flex-direction: row;

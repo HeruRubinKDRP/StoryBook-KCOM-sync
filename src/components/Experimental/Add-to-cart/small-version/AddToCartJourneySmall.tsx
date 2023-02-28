@@ -52,11 +52,11 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
     const doLoadSuggestions=()=>{
         setTimeout(() => {
             setSuggestionsLoaded(true);
-        }, 8000);
+        }, 4000);
 
         setTimeout(() => {
             setFreeShippingLoaded(true);
-        }, 4000);
+        }, 2000);
     }
 
 
