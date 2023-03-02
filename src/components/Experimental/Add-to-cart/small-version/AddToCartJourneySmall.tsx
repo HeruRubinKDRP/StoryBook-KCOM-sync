@@ -24,6 +24,8 @@ export interface iCartAfterSmall{
     currentCartTotal : number;
     freeShippingTarget : number;
     loadingShippingMessage? : string;
+    closeFunc? : Function;
+    addSuggestionToCartFunc? : Function;
 }
 
 export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
@@ -69,9 +71,16 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
     }
 
-
     const suggestionsSectionRef = createRef<HTMLDivElement>();
     const actionBarRef = createRef<HTMLDivElement>();
+
+    const handleAddSuggested=(index : number)=>{
+        if(!props.addSuggestionToCartFunc){
+            return;
+        }
+
+        props.addSuggestionToCartFunc(index);
+    }
 
     const getSuggestedProducts = () => {
         return props.suggestedProducts.slice(0,3).map((product, index) => {
@@ -86,6 +95,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         iconStandard="plus-icon"
                         buttonWidth="fit-to-content"
                         transitionType="expand-bg"
+                        actionFunc={() => handleAddSuggested(index)}
                     />
                     <KButton
                         label="Add"
@@ -96,6 +106,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         buttonWidth="fit-width"
                         transitionType="expand-bg"
                         classes = "add-label-btn"
+                        actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
                         <img src={product.image} alt=""/>
@@ -164,6 +175,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     iconStandard="close"
                     label=""
                     transitionType="expand-bg"
+                    actionFunc={props.closeFunc}
                 />
 
             </div>
@@ -193,6 +205,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             iconPlacement="after-label"
                             iconStandard="none"
                             transitionType={"expand-bg"}
+                            actionFunc={props.closeFunc}
                         />
                         <KButton
                             label={"Continue Shopping"}
@@ -201,6 +214,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             iconPlacement="after-label"
                             iconStandard="none"
                             transitionType={"expand-bg"}
+                            actionFunc={props.closeFunc}
                         />
                     </div>
                 </div>

@@ -59,7 +59,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left:0;
   right:0;
@@ -68,6 +68,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   max-width: 80%;
   min-width: 80%;
   max-height: 55%;
+  z-index: 200000000000;
+  background-color: white;
   img{
     object-fit: contain;
   }

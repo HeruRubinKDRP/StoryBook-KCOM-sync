@@ -16,19 +16,19 @@ export interface iDemoProps{
     currentCartValue : number;
     freeShippingTarget : number;
 }
-
+export const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
+    return pods.map((pod) => {
+        return {
+            name : pod.podName,
+            image : pod.boxImagePath,
+            brand : pod.brand,
+        }
+    })
+}
 
 const AddToCartDemo: React.FunctionComponent<iDemoProps> = (props:iDemoProps) => {
 
-    const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
-        return pods.map((pod) => {
-            return {
-                name : pod.podName,
-                image : pod.boxImagePath,
-                brand : pod.brand,
-            }
-        })
-    }
+
 
     const getComponent = ( componentName : demoComponentType) => {
 

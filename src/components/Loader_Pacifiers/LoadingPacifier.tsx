@@ -1,5 +1,7 @@
+import {StyledLoadingPacifier} from "./StyledLoadingPacifier";
+
 export interface iLoadingPacifier {
-    pacifier : "coffee-cup"
+    pacifier : "coffee-cup" | "coffee-cup-classic"
 }
 
 export const LoadingPacifier = (props: iLoadingPacifier) => {
@@ -7,6 +9,14 @@ export const LoadingPacifier = (props: iLoadingPacifier) => {
 
     const getPacifier = () => {
         switch (props.pacifier){
+
+            case "coffee-cup-classic":
+                return (
+                    <div className="loading-graphic">
+                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
+                    </div>
+                )
+
             case "coffee-cup":
 
                 return (
@@ -41,8 +51,8 @@ export const LoadingPacifier = (props: iLoadingPacifier) => {
     }
 
     return(
-        <div className="pacifier">
+        <StyledLoadingPacifier className="pacifier">
             {getPacifier()}
-        </div>
+        </StyledLoadingPacifier>
     )
 }

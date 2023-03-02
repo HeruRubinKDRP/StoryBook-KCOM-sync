@@ -1,16 +1,19 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, ReactNode, useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import {useResizeDetector} from "react-resize-detector";
 import {PanelHeader} from "../PanelHeader/PanelHeader";
+import {PopUpStyled} from "./PopUpStyled";
 
 export interface iPopUp{
   hasVeil? : boolean;
-  content? : ReactElement;
+  children?: ReactNode;
   windowTitle? : string;
   isOpen : boolean;
   hasHeader : boolean;
   closeFunc? : Function;
   hasBackButton? : boolean;
+  appendTo? : string;
+  classes? : string;
 }
 
 
@@ -45,7 +48,7 @@ export const PopUp=(props:iPopUp)=>{
   }
 
   const handleClose=()=>{
-    setIsPopUpVisible(!isPopUpVisible);
+    //setIsPopUpVisible(!isPopUpVisible);
     if(props.closeFunc){
       props.closeFunc();
     }
@@ -53,7 +56,7 @@ export const PopUp=(props:iPopUp)=>{
 
   const popUpStyle =(widthX : number)=>{
     if(!widthX){return "desktop"}
-    if(widthX < 600){
+    if(widthX < 700){
       return "mobile";
     }else{
       return "desktop"
@@ -63,19 +66,27 @@ export const PopUp=(props:iPopUp)=>{
   const createPopUp =(widthX : number)=>{
     if(isPopUpVisible){
       return(
-        <div ref={ref} className={`pop-up ${veil()} `}>
+        <PopUpStyled ref={ref} className={`pop-up ${veil()} ${props.classes}`}>
           <div className={`pop-up-contents-container ${popUpStyle(widthX)}`}>
             {getHeader()}
             <div className="pop-up-child-content">
-              {props.content}
+              {props.children}
             </div>
           </div>
-        </div>
+          {props.hasVeil ? <div className="veil" onClick={handleClose}/> : null}
+        </PopUpStyled>
       )
     }else{
       return <></>
     }
   }
 
-return ReactDOM.createPortal(createPopUp(width ? width : window.innerWidth), document.body)
+  const getAppendTo =()=>{
+    if(!props.appendTo){
+      return document.body as HTMLElement;
+    }
+    return document.getElementById(props.appendTo)  as HTMLElement
+  }
+
+return ReactDOM.createPortal(createPopUp(width ? width : window.innerWidth), getAppendTo() )
 }

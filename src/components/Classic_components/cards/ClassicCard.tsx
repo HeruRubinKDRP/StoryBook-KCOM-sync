@@ -1,4 +1,4 @@
-import {ReactElement, useState} from "react";
+import {Dispatch, ReactElement, SetStateAction, useState} from "react";
 import KButton from "../../Kbutton/KButton";
 import {Rating} from "../../Rating/Rating";
 import {KToggle} from "../../Toggle/Toggle";
@@ -6,6 +6,7 @@ import {ClassicCardStyled} from "./ClassicCardStyled";
 import {useResizeDetector} from "react-resize-detector";
 
 export interface iClassicCard {
+  productIndex : number;
   bannerType?: "feature" | "new" | "promo" | "none";
   bannerText?: string;
   brandName : string;
@@ -15,6 +16,7 @@ export interface iClassicCard {
   selectedProductOverride : number;
   boxSizes : number[];
   alwaysShowCTA?: boolean;
+  ctaAction : (open: boolean, index: number) => (void);
 }
 
 export function getPricePerPod(price : number, quantity : number) {
@@ -109,6 +111,11 @@ const {width, height, ref} = useResizeDetector({
       </>
     )
 
+  }
+
+  const handleCTA = (index : number) => {
+    console.log("index", props.ctaAction)
+    props.ctaAction(true, index);
   }
 
   return (
@@ -211,6 +218,7 @@ const {width, height, ref} = useResizeDetector({
                       iconStandard="none"
                       iconPlacement="after-label"
                       transitionType="expand-bg"
+                      actionFunc={()=>handleCTA(props.productIndex)}
                   />
                 </div>
               </div>
@@ -223,6 +231,7 @@ const {width, height, ref} = useResizeDetector({
                   iconStandard="none"
                   iconPlacement="after-label"
                   transitionType="expand-bg"
+                  actionFunc={()=>handleCTA(props.productIndex)}
               />
             </div>
           </div>

@@ -1,9 +1,114 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 
 export interface iBevQuickShopStyled {
     widthX: number;
 }
+
+export const MediumViewport = css`
+  &.medium-dimensions {
+    max-width: 100%;
+    height: 100%;
+
+    .close-btn{
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 10000;
+    }
+    .ratings-overall-container {
+      padding: 0 30% !important;
+    }
+
+    .messaging-container {
+      .terms {
+        font-size: var(--FontSizeMedium);
+      }
+
+      .price {
+        font-size: var(--FontSizeLarge);
+      }
+    }
+
+    .quick-shop-container {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      max-height: none;
+      .detail-settings{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .product-container, .configuration-container {
+      width: 100%;
+    }
+
+    .product-container {
+      .brand {
+        font-size: var(--FontSizeMedium);
+      }
+
+      .product-image {
+        h2 {
+          font-size: var(--FontSizeHuge);
+        }
+
+        img {
+          height: 20vh;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .subscription-group-section {
+      margin-top: var(--spacingHuge);
+      .flag-container {
+        transform: translateY(20%);
+        padding: calc(var(--spacingLarge)) var(--spacingLarge);
+
+        label {
+          padding: 0;
+          font-size: var(--FontSizeMedium);
+        }
+
+      }
+    }
+
+    .configure-subscription-container, .one-time-section {
+      padding: 0 var(--spacingLarge) var(--spacingLarge);
+    }
+
+    .config-area{
+      display: flex;
+      flex-direction: column;
+    }
+    .price-display{
+      flex: 1 0 auto;
+      margin-top: calc(var(--spacingHuge) * 1.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .purchase-type{
+      text-align: right;
+      font-weight: 600 !important;
+      font-size: var(--FontSizeMedium);
+      padding: var(--spacingMedium) 0 0 0;
+      display: flex;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      padding-top: calc(var(--spacingHuge) * 1.25);
+    }
+    .switch-container{
+      .left, .right{
+        margin: var(--spacingMedium) 0 !important;
+        font-size: var(--FontSizeMedium);
+      }
+    }
+
+  }
+`;
 
 export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
   --overallWidth: ${props => props.widthX + 'px'};
@@ -20,10 +125,10 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
   --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
   --buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
 
-  --FontSizeHuge: calc(var(--overallWidth) * 0.03 + 14px);
-  --FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
-  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
-  --FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
+  --FontSizeHuge: calc(var(--overallWidth) * 0.02 + 14px);
+  --FontSizeLarge: calc(var(--overallWidth) * 0.015 + 12px);
+  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 8px);
+  --FontSizeSmall: calc(var(--overallWidth) * 0.0075 + 6px);
 
   --spacingHuge: calc(var(--overallWidth) * 0.012 + 14px);
   --spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
@@ -37,6 +142,9 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
   box-shadow: 0 var(--spacingTiny) var(--spacingSmall) 0 rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   
+  
+  
+  ${MediumViewport}
   .drop-down-item {
     font-size: var(--FontSizeMedium) !important;
     padding: var(--spacingMedium) var(--spacingSmall) var(--spacingMedium) var(--spacingLarge)
@@ -55,8 +163,8 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
       }
     } 
   }
+
   
- 
   .configuration-item{
     &.setting{
       .drop-down{
@@ -137,6 +245,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
       flex-flow: column;
       max-height: 25vh;
       overflow-y: auto;
+      box-shadow: 0 var(--spacingTiny) var(--spacingSmall) 0 rgba(0, 0, 0, 0.25);
     }
 
   }
@@ -212,111 +321,20 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     }
   }
 
-  &.medium-dimensions {
-    max-width: 100%;
-    height: 100%;
-
-    .close-btn{
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 10000;
-    }
-    .ratings-overall-container {
-      padding: 0 30% !important;
-    }
-
-    .messaging-container {
-      .terms {
-        font-size: var(--FontSizeMedium);
-      }
-
-      .price {
-        font-size: var(--FontSizeLarge);
-      }
-    }
-
-    .quick-shop-container {
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      max-height: none;
-    }
-
-    .product-container, .configuration-container {
-      width: 100%;
-    }
-
-    .product-container {
-      .brand {
-        font-size: var(--FontSizeMedium);
-      }
-
-      .product-image {
-        h2 {
-          font-size: var(--FontSizeHuge);
-        }
-
-        img {
-          height: 20vh;
-          object-fit: contain;
-        }
-      }
-    }
-
-    .subscription-group-section {
-      margin-top: var(--spacingHuge);
-      .flag-container {
-        transform: translateY(20%);
-        padding: calc(var(--spacingLarge)) var(--spacingLarge);
-
-        label {
-          padding: 0;
-          font-size: var(--FontSizeMedium);
-        }
-
-      }
-    }
-
-    .configure-subscription-container, .one-time-section {
-      padding: 0 var(--spacingLarge) var(--spacingLarge);
-    }
-    
-    .config-area{
-      display: flex;
-      flex-direction: column;
-    }
-    .price-display{
-      flex: 1 0 auto;
-      margin-top: calc(var(--spacingHuge) * 1.25);
-      display: flex;
-      flex-direction: column;
-    } 
-    .purchase-type{
-      text-align: right;
-      font-weight: 600 !important;
-      font-size: var(--FontSizeMedium);
-      padding: var(--spacingMedium) 0 0 0;
-      display: flex;
-      align-content: flex-start;
-      flex-wrap: wrap;
-      padding-top: calc(var(--spacingHuge) * 1.25);
-    }
-    .switch-container{
-      .left, .right{
-        margin: var(--spacingMedium) 0 !important;
-        font-size: var(--FontSizeMedium);
-      }
-    }
-
-  }
+  
 
   .config-area {
     display: flex;
     gap: var(--spacingLarge);
     justify-content: center;
     flex-direction: column;
-    padding: var(--spacingLarge) 12%;
+    padding: var(--spacingLarge) 0;
+    .detail-settings{
+      display: flex;
+      flex-direction: row;      
+      gap: var(--spacingMedium);
+      justify-content: space-between;
+    }
   }
 
   .configuration-item {
@@ -324,8 +342,11 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
       font-size: var(--FontSizeMedium);
       display: inline-flex;
       align-items: center;
-      align-content: center;
-      flex-wrap: wrap;
+      align-content: center;      
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      gap: var(--spacingTiny);
     }
 
     .selection-label {
@@ -355,6 +376,23 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 100;
+    width: auto !important;
+    height: auto !important;
+    padding: var(--spacingLarge);
+    .icon{
+      margin-left: 0 !important;
+    }
+    &:hover{
+      .icon{
+        .filled{
+          fill: white;
+        }
+      }
+      .expander{
+        background-color: var(--colorDarkRoast);
+      }
+    }
   }
 
   .quick-shop-container {
@@ -365,7 +403,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 5% 2%;
+    padding: 1% 0 2% 2%;
     max-height: 95vh;
   }
 
@@ -541,10 +579,9 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
       gap: var(--spacingTiny);
       flex-direction: row;
       font-size: var(--FontSizeMedium);
-
+      font-weight: 600;
       &.discounted {
-        color: var(--colorDiscount);
-        font-weight: 600;
+        color: var(--colorDiscount); 
       }
     }
 
@@ -578,7 +615,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
     .left, .right {
       white-space: nowrap;
       margin: 0 var(--spacinglarge);
-      font-size: var(--FontSizeMedium);
+      font-size: var(--FontSizeSmall);
     }
   }
 
