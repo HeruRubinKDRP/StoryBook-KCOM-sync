@@ -1,13 +1,14 @@
-import React, { ReactElement, useState } from 'react'
-import { TabNavStyles } from './tabnavstyle'
+import React, {ReactElement, useState} from 'react'
+import {TabNavStyles} from './tabnavstyle'
 import KButton from "../Kbutton/KButton";
-import Graphic, { iconType } from '../Graphic/Graphic'
+import Graphic, {iconType} from '../Graphic/Graphic'
 
 export interface iTabNav {
     TabButtons: string[]
     ContentItems: ReactElement[]
     Title?: string
 }
+
 /*export interface Igraphics {
   graphicName: iconType
   className?: string
@@ -29,6 +30,7 @@ export const Tabnav = (props: iTabNav) => {
                     label={props.TabButtons[i]}
                     buttonType="secondary"
                     buttonWidth="fit-width"
+                    transitionType="expand-bg"
                     classes={`tab-button ${SelectedStateClass(i)} button01 anim01`}
                     actionFunc={() => {
                         SetSelectedIndex(i)
@@ -68,27 +70,25 @@ export const Tabnav = (props: iTabNav) => {
                     <div className="menu-contents">{createButton()}</div>
                 </div>
                 <div className="TabCta">
-                    <div className="ExpandMenu">
-                        <button onClick={() => SetExpandMenuOpened(!ExpandMenuOpened)}>
-                            <Graphic
-                                graphicName={ExpandMenuOpened ? 'chevron-down' : 'chevron-up'}
-                            />
-                            {props.TabButtons[SelectedIndex]}
-                        </button>
-                    </div>
-                    <div className="NextCTA">
-                        <button
-                            onClick={() => {
-                                navigate()
-                            }}
-                        >
-                            <label>
-                                Next
-                                <Graphic graphicName="chevron-right" />
-                            </label>
-                            <div className={'expander'}></div>
-                        </button>
-                    </div>
+                    <KButton
+                        buttonType="primary"
+                        buttonWidth="fit-width"
+                        transitionType="expand-bg"
+                        classes={`contents-menu-btn ExpandMenu`}
+                        actionFunc={() => SetExpandMenuOpened(!ExpandMenuOpened)}
+                        label={props.TabButtons[SelectedIndex]}
+                        iconPlacement="before-label"
+                        iconStandard={ExpandMenuOpened ? 'chevron-down' : 'chevron-up'}
+                    />
+                    <KButton
+                        classes="NextCTA"
+                        label="Next"
+                        buttonType="secondary"
+                        iconStandard="chevron-right"
+                        iconPlacement="after-label"
+                        transitionType="expand-bg"
+                        actionFunc={() => navigate()}
+                    />
                 </div>
             </div>
             {createContent()}

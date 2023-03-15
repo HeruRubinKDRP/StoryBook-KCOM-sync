@@ -1,18 +1,17 @@
 import React, {ReactElement, useEffect, useState} from 'react';
-import {AccordionButton, AccordionContainer, AccordionItem} from "./AccordionStyled";
+import {AccordionContainer} from "./AccordionStyled";
 import {useResizeDetector} from "react-resize-detector";
-import Graphic from "../Graphic/Graphic";
 import {sizeT} from "../KSK_Experience/KSK";
+import {AccordionItem} from "./AccordionItem/AccordionItem";
 
-
-export interface AccordionProps {
-    items: string[];
+export interface iAccordionProps {
+    items: {name: string, id: number, isOpen:boolean}[];
     children: ReactElement[];
+    accordionAction? : Function;
+    useInternalOpenClosedState : boolean;
 }
 
-
-
-const Accordion: React.FC<AccordionProps> = ({ items, children }) => {
+const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
     const [openItems, setOpenItems] = useState<number[]>([]);
     const [documentDimensions, setDocumentDimensions] = useState<{height : number, width:number}>({height : 0, width:0});
 
@@ -33,6 +32,12 @@ const Accordion: React.FC<AccordionProps> = ({ items, children }) => {
 
 
     const handleAccordionClick = (index: number) => {
+
+
+        if(props.accordionAction){
+            props.accordionAction(index);
+        }
+
         if (openItems.includes(index)) {
             setOpenItems(openItems.filter(item => item !== index));
         } else {
@@ -68,28 +73,30 @@ const Accordion: React.FC<AccordionProps> = ({ items, children }) => {
         return `width-${widthQuery} height-${heightQuery}`;
     }
 
+    const manageOpenClosedState = (index : number)=>{
+        if(props.useInternalOpenClosedState){
+            return openItems.includes(index) ? 'open' : '';
+        }
+
+        return props.items[index].isOpen ? 'open' : '';
+    }
+
     return (
         <AccordionContainer
             className={containerQueries(documentDimensions.width, documentDimensions.height)}
             dynamicStyles={getDynamicStyles(width || documentDimensions.width, height || documentDimensions.height )}
             ref={ref}
+
         >
-            {documentDimensions.height}
-            {items.map((item, index) => (
+            {props.items.map((item, index) => (
                 <AccordionItem
                     key={index}
-                    overallHeight={height || documentDimensions.height}
-                    className={`${openItems.includes(index) ? "accordion-item-open" : "closed"}`}>
-                    <AccordionButton onClick={() => handleAccordionClick(index)} className="expand-collapse">
-                        {item}<Graphic graphicName={"chevron-right"} />
-                    </AccordionButton>
-                    <div className="accordion-content-item">
-                       <div className="accordion-content">
-                           {openItems.includes(index) && children[index]}
-                       </div>
-                    </div>
-
-                </AccordionItem>
+                    index={item.id}
+                    classes={manageOpenClosedState(index)}
+                    outerContainerHeight={height || documentDimensions.height}
+                    contents={props.children[index]}
+                    menuItemLabel={item.name}
+                    handleClick={handleAccordionClick}/>
             ))}
         </AccordionContainer>
     );

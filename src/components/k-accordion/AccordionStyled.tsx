@@ -1,4 +1,5 @@
 import styled, {Interpolation} from 'styled-components';
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
 export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>}>`
   ${props => props.dynamicStyles}
@@ -8,6 +9,16 @@ export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>
   
     --spacingTiny: calc(var(--overallWidth) * 0.005);
     --spacingSmall: calc(var(--overallWidth) * 0.0075);
+  --colorKSK: ${colorNameToValue("KSK")};
+  --colorOK: ${colorNameToValue("OK-Status")};
+  --colorDiscount: ${colorNameToValue("discount")};
+  --colorDarkRoast: ${colorNameToValue("dark-roast")};
+  --colorMediumRoast: ${colorNameToValue("medium-roast")};
+  --colorLightRoast: ${colorNameToValue("light-roast")};
+  --colorFaded: ${colorNameToValue("latteMed")};
+  --colorSepia: ${colorNameToValue("sepia")};
+  --colorCTA: ${colorNameToValue("secondaryGold")};
+  
   
   display: flex;
   flex-direction: column;
@@ -15,15 +26,6 @@ export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>
     font-size: var(--fontMedium);
     font-weight: 200;
   }
-`;
-
-export const AccordionItem = styled.div<{overallHeight : number}>`
-  border: 1px solid #ddd;
-  border-radius: 4px; 
-  margin-bottom: 8px;
-  overflow: hidden;
-  height: 100%; 
-  --documentHeight: ${props => props.overallHeight + 'px'};
 
   @keyframes slideDown {
     0% {
@@ -33,9 +35,9 @@ export const AccordionItem = styled.div<{overallHeight : number}>`
       transform: translateY(0%);
     }
   }
-  
+
   .expand-collapse{
-    background-color: red;
+    background-color: white;
     display: flex;
     align-items: center;
     padding: 16px;
@@ -58,37 +60,42 @@ export const AccordionItem = styled.div<{overallHeight : number}>`
     background-color: #a59898;
     height: auto;
     overflow: hidden;
-    
-  }
 
-  &.closed {
-    .accordion-content-item {
-      .accordion-content {
-        max-height: 0;
-        animation: slideDown 1s ease-in-out reverse;
+  } 
+
+  .accordion-item{
+    border-bottom: 1px solid var(--colorSepia);
+    &.closed {
+      .accordion-content-item {
+        .accordion-content {
+          max-height: 0;
+          animation: slideDown 0.5s ease-in reverse;
+        }
       }
     }
+
+    &.open {
+      .expand-collapse{
+        .icon.chevron-right{
+          transform: rotate(90deg);
+        }
+      }
+      .accordion-content-item {
+        .accordion-content {
+          animation: slideDown 0.25s ease-in forwards;
+          max-height: var(--overallHeight);
+        }
+      }
+
+      background-color: #fff;
+    }
+  }
 
   
-  }
-
-  &.accordion-item-open {
-    .expand-collapse{
-      .icon.chevron-right{
-        transform: rotate(90deg);
-      }
-    }
-    .accordion-content-item { 
-      .accordion-content {
-        animation: slideDown 1s ease-in-out forwards;
-        max-height: var(--documentHeight);
-      }
-    }
-
-    background-color: #fff;
-  }
-
+  
 `;
+
+
 
 export const AccordionButton = styled.button`
   background: #fff;

@@ -44,7 +44,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
     useEffect(() => {
        setTimeout(() => {
            setIsloaded(true);
-       }, 1500);
+       }, 2500);
     });
 
     const getModalContainerQueries = (width: number) => {

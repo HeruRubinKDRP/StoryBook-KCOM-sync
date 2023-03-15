@@ -4,14 +4,20 @@ import { useResizeDetector } from 'react-resize-detector'
 import { UserTrainingStyled } from './UserTrainingStyled'
 import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/container-queries";
 
+export type mediaType = "video" | "image" | "text" | "audio" | "other";
+
 export interface iUserTraining {
     Title: string
     content: {
         ContentItems: {
-            Path: string
-            Type: 'video' | 'image'
-            Title: string
-            Description: string
+            MobilePath: string;
+            MobileType: mediaType;
+            MobileTitle: string
+            MobileDescription: string
+            DesktopPath: string;
+            DesktopType: mediaType;
+            DesktopTitle: string;
+            DesktopDescription: string;
         }[]
         TabButtons: string[]
     }
@@ -37,17 +43,19 @@ export const UserTraining = (props: iUserTraining) => {
         setViewportWidth(width)
     }
 
-    const CreateElements = () => {
+    const CreateContentElements = (isDesktop : boolean) => {
         const ListOfElements = []
+
+
         for (let i = 0; i < props.content.ContentItems.length; i++) {
             const contentItem = props.content.ContentItems[i]
             ListOfElements.push(
                 <div className="user-training-content">
                     <div className="user-training-imagery-container">
-                        {contentItem.Type === 'video' ? (
+                        {contentItem.DesktopType === 'video' ? (
                             <video
                                 className="user-training-imagery"
-                                src={contentItem.Path}
+                                src={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}
                                 preload="auto"
                                 autoPlay={true}
                                 loop={true}
@@ -56,14 +64,14 @@ export const UserTraining = (props: iUserTraining) => {
                         ) : (
                             <img
                                 className="user-training-imagery"
-                                src={contentItem.Path}
-                                alt={contentItem.Title}
+                                src={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}
+                                alt={isDesktop? contentItem.DesktopTitle : contentItem.MobileTitle}
                             />
                         )}
                     </div>
                     <div className="user-training-text">
-                        <h1>{props.content.ContentItems[i].Title}</h1>
-                        <p>{props.content.ContentItems[i].Description}</p>
+                        <h1>{ isDesktop? props.content.ContentItems[i].DesktopTitle : props.content.ContentItems[i].MobileTitle }</h1>
+                        <p>{ isDesktop? props.content.ContentItems[i].DesktopDescription : props.content.ContentItems[i].MobileDescription}</p>
                     </div>
                 </div>
             )
@@ -72,15 +80,12 @@ export const UserTraining = (props: iUserTraining) => {
     }
     return (
         <UserTrainingStyled
-            className={`user-training-overall-container ${getContainerQuery(
-                viewportWidth
-            )}`}
+            className={`user-training-overall-container ${getContainerQuery(viewportWidth)}`}
             ref={ref}
         >
-            {/*<p>{viewportWidth}</p>*/}
             <Tabnav
                 Title={props.Title}
-                ContentItems={CreateElements()}
+                ContentItems={CreateContentElements( viewportWidth !== undefined && viewportWidth > 768)}
                 TabButtons={props.content.TabButtons}
             />
         </UserTrainingStyled>

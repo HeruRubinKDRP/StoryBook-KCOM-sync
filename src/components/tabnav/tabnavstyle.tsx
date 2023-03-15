@@ -1,10 +1,21 @@
 import styled from 'styled-components'
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 export const TabNavStyles = styled.div`
+  
+  
+  --colorDarkRoast : ${colorNameToValue("dark-roast")};
+  
+  .TabCTA, .Title{
+    z-index: 100;
+  }
   .TabCta {
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 2vw;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--colorDarkRoast);
   }
   .buttons-container {
     .false {
@@ -17,7 +28,7 @@ export const TabNavStyles = styled.div`
 
   .NextCTA {
     width: 15vw;
-
+   
     button {
       position: relative;
       border: 3px solid rgba(241, 190, 72, 1) !important;
@@ -25,7 +36,7 @@ export const TabNavStyles = styled.div`
       width: 100%;
       height: 50px;
       padding: 10px;
-      font-size: 1.75rem !important;
+      font-size: 1.25rem !important;
       font-family: 'MarkOT-Bold', serif !important;
       label {
         position: relative;
@@ -33,11 +44,14 @@ export const TabNavStyles = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        svg {
-          fill: #3b2b2f;
-          height: 20px;
+        .icon{
+          height : 1.25rem !important;
           margin-left: 10px;
+          .filled{
+            fill: #3b2b2f;  
+          }
         }
+        
       }
       &:active {
         .expander {
@@ -92,7 +106,11 @@ export const TabNavStyles = styled.div`
     color: #eadecf;
     font-size: 3vw;
     padding: 2vw;
-    font-family: 'MarkOT-Bold', serif;
+    font-weight: 600;    
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: var(--colorDarkRoast);
   }
   .ExpandMenu {
     button {

@@ -60,7 +60,7 @@ export const PopUpStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
+    
     .k-panel-header {      
       background: transparent;
       position: absolute;
@@ -80,9 +80,11 @@ export const PopUpStyled = styled.div`
     }
 
     .pop-up-child-content {
+      //background-color: white;
       overflow-y: auto;
       height: 100%;
         width: 100%;
+      min-height: 30vh;
       display: flex;
       align-items: center;
       flex-direction: column;
