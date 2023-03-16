@@ -14,7 +14,7 @@ export interface smallAddToCartTheme {
 export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   
 
-  ${cardBorder};
+ 
   // variables
   // --overallWidth: ${(props) => props.outerWidth + 'px'};
   
@@ -55,21 +55,37 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   --boxShadowLarge: 0 calc(var(--button-size) * 0.12) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
   --boxShadowHuge: 0 calc(var(--button-size) * 0.36) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
 
-  box-shadow: var(--boxShadowLarge);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
   position: fixed;
-  bottom: 0;
-  left:0;
-  right:0;
-  border-radius: var(--spacingTiny);
-  margin: 0 10% 5% 10%;
-  max-width: 80%;
-  min-width: 80%;
-  max-height: 55%;
-  z-index: 200000000000;
-  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  
+  .back-fill{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: calc(100% - 50vh);
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), transparent);
+  }
+  
+  .modal-item{
+    ${cardBorder};
+    box-shadow: var(--boxShadowLarge);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    border-radius: var(--spacingTiny);
+    margin: 0 10% 5% 10%;
+    max-width: 80%;
+    min-width: 80%;
+    max-height: 55%;
+    z-index: 200000000000;
+    background-color: white;  
+  }
   img{
     object-fit: contain;
   }
@@ -176,7 +192,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     gap: var(--spacingTiny);
     justify-content: center;
     .k-btn {
-      width: calc(50% - var(--spacingMedium)) !important;
+      width: 50% !important;
       padding: var(--spacingMedium) var(--spacingLarge);
       label{
         font-size: calc(var(--fontTiny));
@@ -224,6 +240,10 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
           stroke-width: var(--iconStrokeSmall);
         }
       }
+    }
+    
+    .product-added, .actions-container{
+      width: 100%;
     }
     
     .product-added {
@@ -512,10 +532,18 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   } 
 
   &.mobile-dimensions{
-    margin: 0 2vw;
-    width: 96%;
-    max-width: 96%;
+    margin: 0;
+    width: 100vw;
+    max-width: none;
    box-shadow: 0 calc(var(--button-size) * -0.22) calc(var(--button-size) * 0.52) 0 rgba(0,0,0,0.25);
+    
+    .modal-item{
+      bottom: ${props => props.actionBarHeight}px !important;
+      margin: 0 5% 5% 5%;
+      max-width: 100%;
+      min-width: 90%;
+      max-height: 80vh;
+    }
     .actions-container{
       position: fixed;
       bottom: 0;
@@ -640,7 +668,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
     .suggested-products-container{
       min-height: 15vh;
-      padding-bottom: ${(props) => props.actionBarHeight * 1.2 + 'px'};
+      // padding-bottom: ${(props) => props.actionBarHeight * 1.2 + 'px'};
       .Typist{
         h2{
           font-size: calc(var(--fontMedium) * 0.75);

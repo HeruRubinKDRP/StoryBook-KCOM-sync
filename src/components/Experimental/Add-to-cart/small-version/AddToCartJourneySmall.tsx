@@ -155,7 +155,8 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
 
         >
-            <div className="header-area">
+            <div className="modal-item">
+                <div className="header-area">
                     {freeShippingLoaded ?
                         <FreeShippingIndicator targetPrice={props.freeShippingTarget} currentPrice={props.currentCartTotal}/>
                         :
@@ -167,61 +168,63 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         </div>
                     }
 
-                <KButton
-                    buttonType="text-icon-noBG"
-                    buttonWidth="fit-to-content"
-                    classes="close-btn"
-                    iconPlacement="right-edge"
-                    iconStandard="close"
-                    label=""
-                    transitionType="expand-bg"
-                    actionFunc={props.closeFunc}
-                />
+                    <KButton
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        classes="close-btn"
+                        iconPlacement="right-edge"
+                        iconStandard="close"
+                        label=""
+                        transitionType="expand-bg"
+                        actionFunc={props.closeFunc}
+                    />
 
-            </div>
+                </div>
 
-            <div className="content-area">
-                <div className="product-area">
-                    <div className="product-added">
-                        <div className="product-image">
-                            <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
-                        </div>
-                        <div className="product-status-area">
-                            <div className="cart-message">
-                                <Graphic graphicName="checkmark-circled" />
-                                <p>Successfully added to cart</p>
+                <div className="content-area">
+                    <div className="product-area">
+                        <div className="product-added">
+                            <div className="product-image">
+                                <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
                             </div>
-                            <h2 className="product-name-area">
-                                <div className="brand">{props.selectedProduct.brand}</div>
-                                <div className="product-name">{props.selectedProduct.name}</div>
-                            </h2>
+                            <div className="product-status-area">
+                                <div className="cart-message">
+                                    <Graphic graphicName="checkmark-circled" />
+                                    <p>Successfully added to cart</p>
+                                </div>
+                                <h2 className="product-name-area">
+                                    <div className="brand">{props.selectedProduct.brand}</div>
+                                    <div className="product-name">{props.selectedProduct.name}</div>
+                                </h2>
+                            </div>
+                        </div>
+                        <div className="actions-container" ref={actionBarRef}>
+                            <KButton
+                                label={"Checkout Now"}
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="none"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+                            <KButton
+                                label={"Continue Shopping"}
+                                buttonType="primary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="none"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
                         </div>
                     </div>
-                    <div className="actions-container" ref={actionBarRef}>
-                        <KButton
-                            label={"Checkout Now"}
-                            buttonType="secondary"
-                            buttonWidth="fit-width"
-                            iconPlacement="after-label"
-                            iconStandard="none"
-                            transitionType={"expand-bg"}
-                            actionFunc={props.closeFunc}
-                        />
-                        <KButton
-                            label={"Continue Shopping"}
-                            buttonType="primary"
-                            buttonWidth="fit-width"
-                            iconPlacement="after-label"
-                            iconStandard="none"
-                            transitionType={"expand-bg"}
-                            actionFunc={props.closeFunc}
-                        />
+                    <div ref={suggestionsSectionRef} className="suggested-products-container">
+                        {loadSuggestions(suggestionsLoading)}
                     </div>
                 </div>
-                <div ref={suggestionsSectionRef} className="suggested-products-container">
-                    {loadSuggestions(suggestionsLoading)}
-                </div>
             </div>
+            <div className="back-fill"></div>
         </SmallAddToCartJourneyStyled>
     )
 }
