@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, {createRef, useRef, useState} from 'react'
 import { iTabNav, Tabnav } from '../tabnav/tabnav'
 import { useResizeDetector } from 'react-resize-detector'
 import { UserTrainingStyled } from './UserTrainingStyled'
 import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/container-queries";
+import KButton from "../Kbutton/KButton";
+import {Video} from "../VideoComponent/Video";
 
 export type mediaType = "video" | "image" | "text" | "audio" | "other";
 
@@ -23,6 +25,7 @@ export interface iUserTraining {
     }
 }
 
+
 export const UserTraining = (props: iUserTraining) => {
     const { width, height, ref } = useResizeDetector({
         refreshMode: 'throttle',
@@ -35,8 +38,10 @@ export const UserTraining = (props: iUserTraining) => {
         }
     })
 
+
     // Add a state variable to keep track of the current viewport width
     const [viewportWidth, setViewportWidth] = useState<number | undefined>(width)
+
 
     // Update the viewportWidth state variable whenever the viewport width changes
     if (width !== undefined && viewportWidth !== width) {
@@ -44,8 +49,7 @@ export const UserTraining = (props: iUserTraining) => {
     }
 
     const CreateContentElements = (isDesktop : boolean) => {
-        const ListOfElements = []
-
+        const ListOfElements = [];
 
         for (let i = 0; i < props.content.ContentItems.length; i++) {
             const contentItem = props.content.ContentItems[i]
@@ -53,14 +57,7 @@ export const UserTraining = (props: iUserTraining) => {
                 <div className="user-training-content">
                     <div className="user-training-imagery-container">
                         {contentItem.DesktopType === 'video' ? (
-                            <video
-                                className="user-training-imagery"
-                                src={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}
-                                preload="auto"
-                                autoPlay={true}
-                                loop={true}
-                                muted={true}
-                            ></video>
+                            <Video videoUrl={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}></Video>
                         ) : (
                             <img
                                 className="user-training-imagery"

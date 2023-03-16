@@ -13,6 +13,7 @@ export const UserTrainingStyled = styled.div`
     }
 
     .user-training-imagery-container {
+      height: 50% !important
     }
 
     .ExpandMenu {
@@ -84,7 +85,62 @@ export const UserTrainingStyled = styled.div`
       border-radius: 0 12px 0 0;
     }
   }
+  
+  .video-container{
+    position: relative;
+    video{
+      position: relative;
+    }
+    
+    
+    
+    .video-controls{
+      position: absolute;
+      display: flex;
+      right: 2%;
+      top: 2%;
+      z-index: 100;
+      .volume-button{
+                
+      }      
+      .k-btn{
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        padding: 0.75rem 1rem;
+        .icon{
+          width: 3vh !important;
+          height: 3vh !important;
+        }
+      }
+    } 
+    
+    .play-toggle-button, .play-again-button{
+      z-index: 90;
+      inset: 0;
+      position: absolute;
+      border-radius: 0;
+      height: 100% !important;
+      border: 0 !important;
+      &.paused{
+        background-color: rgba(0,0,0,0.5) !important; 
+        .filled{
+          fill: rgba(255,255,255,0.75);
+          filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.65));
+        }
+      }
+      &.playing{
+        background-color: transparent !important;
+      } 
+    }
 
+    .icon{
+      width: 100% !important;
+      height: 100% !important;
+      display: flex;
+      justify-content: center;
+      margin: 0 !important;
+    }
+    
+  }
   max-width: 1300px;
   height: 80vh;
   min-height: 400px;
@@ -143,6 +199,7 @@ export const UserTrainingStyled = styled.div`
     height: 60%;
     max-height: 60%;
     width: 100%;
+    overflow: hidden;
   }
 
   .user-training-imagery {
@@ -163,7 +220,7 @@ export const UserTrainingStyled = styled.div`
     p {
       font-size: 1.25rem;
       line-height: 2rem;
-      text-align: left;
+      text-align: justify;
     }
 
     margin: 2%;
