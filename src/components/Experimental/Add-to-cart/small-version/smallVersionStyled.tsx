@@ -58,7 +58,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   position: fixed;
   height: 100vh;
   width: 100vw;
-  
+  z-index: 110000000000;
   .back-fill{
     position: fixed;
     bottom: 0;
@@ -83,7 +83,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     max-width: 80%;
     min-width: 80%;
     max-height: 55%;
-    z-index: 200000000000;
+    z-index: 100000000000;
     background-color: white;  
   }
   img{
