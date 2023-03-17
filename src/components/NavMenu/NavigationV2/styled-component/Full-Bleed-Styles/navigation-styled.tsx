@@ -28,6 +28,10 @@ export const NavigationStyled = styled.div`
   justify-content: center;
   max-width: 100vw;
 
+  .common-actions-container{
+    align-items: center;
+  }
+
   .empty {
     display: none !important;
   }

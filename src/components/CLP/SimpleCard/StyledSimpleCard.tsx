@@ -9,7 +9,7 @@ export const ProductInfoCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px;
+    padding: 16px 16px 0 16px;;
     .name{
       font-size: 14px;
       margin-top: 8px;
@@ -24,14 +24,12 @@ export const ProductInfoCardWrapper = styled.div`
 
     .product-image{
       max-width: 100%;
-      height: auto;
-      
+      height: auto; 
     }
 
     .price{
       font-size: 24px;
-      font-weight: bold;
-      margin-top: 16px;
+      font-weight: bold;      
     }
     
     .k-carousel{

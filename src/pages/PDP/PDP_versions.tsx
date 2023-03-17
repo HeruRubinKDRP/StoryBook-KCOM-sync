@@ -2,7 +2,8 @@ import React from "react";
 import {Kcarousel} from "../../components/Carousel/Kcarousel";
 import {ContentItem} from "../../components/ContentComponents/ContentComponent";
 import {FocalImageContent} from "../../components/ContentComponents/FocalImage/FocalImage";
-import PdpFramework from "../components/PDP";
+// import PdpFramework from "../components/PDP";
+import PdpFramework from "../../components/PDP_Related/PDP_FrameWork/PDP_FrameWork";
 import {carousel_images_KCS, carousel_images_KSS, KCS_specs_data} from "./pdp-data";
 
 export const KCS_PDP=(version : string | string[])=>{
@@ -15,6 +16,10 @@ export const KCS_PDP=(version : string | string[])=>{
             slideImageURLs: carousel_images_KCS
           }}
           productIdentity={{
+            flag: {
+              flagLabel: "New",
+              flagStyle: "alternating-sharp-round",
+            },
             productName: "K-Café® SMART",
             productNameExtended: "K-Café® SMART Single-Serve Coffee, Cappuccino and Latte Maker",
             tagline: "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations",
@@ -418,6 +423,10 @@ export const KSS_PDP=(version : string | string[])=>{
             slideImageURLs: carousel_images_KSS
           }}
           productIdentity={{
+            flag:{
+              flagLabel: "New",
+              flagStyle: "alternating-sharp-round",
+            },
             productName: "Keurig K-Supreme SMART",
             productNameExtended: "K-Supreme SMART Single-Serve Coffee Maker",
             tagline: "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless. ",

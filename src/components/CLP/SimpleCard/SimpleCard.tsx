@@ -38,21 +38,14 @@ const ProductInfoCard: React.FC<ProductInfoCardProps> = ({
                 <div className="product-image">
                     <img className="image-inner" src={image} alt={`${brand} ${name}`}/>
                 </div>
-                <div className="price">{formattedPrice} per pod</div>
-                <Kcarousel
-                    itemsPerSlide={1}
-                    component="carousel"
-                    carouselType="slider"
-                    keepNavButtons={true}
-                    slides={[
-                        <div className="size">K-Cup® Box 24 ct.</div>,
-                        <div className="size">K-Cup® Box 72 ct</div>,
-                        <div className="size">K-Cup® Box 96 ct</div>,
-                        <div className="size">K-Cup® Box 12 ct.</div>
-                    ]}
-                    navStyle="dots"
-                    navPosition="bottom"
-                />
+                <div className="price">
+                    <div className="fine-print">
+                        as low as
+                    </div>
+                    <div>
+                        {formattedPrice} per pod
+                    </div>
+                </div>
                 <div className="brand">{brand}</div>
                 <div className="product-name">{name}</div>
                 <div className="rating-section">
@@ -63,18 +56,19 @@ const ProductInfoCard: React.FC<ProductInfoCardProps> = ({
                         totalNumberOfStars={rating.totalNumberOfStars}
 
                     />}
+                    <KButton
+                        transitionType="expand-bg"
+                        classes="cta-main"
+                        buttonWidth="fit-to-content"
+                        label="Buy Now"
+                        iconStandard="icon-add"
+                        iconPlacement="after-label"
+                        buttonType="primary"
+                        actionFunc={onClick}
+                    />
                 </div>
             </div>
-            <KButton
-                transitionType="expand-bg"
-                classes="cta-main"
-                buttonWidth="fit-to-content"
-                label="Buy Now"
-                iconStandard="icon-add"
-                iconPlacement="after-label"
-                buttonType="primary"
-                actionFunc={onClick}
-            />
+
             <div className="backing"/>
         </ProductInfoCardWrapper>
     );

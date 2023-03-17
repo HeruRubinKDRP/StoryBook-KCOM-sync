@@ -78,7 +78,7 @@ export const CommonActionsMenu=(props:iCommonActiosMenu)=>{
     }
 
     return(
-        <CommonActionsMenuStyled className={getNOBO()}>
+        <CommonActionsMenuStyled className={`${getNOBO()} common-actions-container` }>
             {getActionsMenu()}
         </CommonActionsMenuStyled>
     )

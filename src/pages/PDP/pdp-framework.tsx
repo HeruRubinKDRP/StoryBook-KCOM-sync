@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router'
-import React, {ReactElement, useCallback, useEffect, useState, useRef, useLayoutEffect} from "react";
-import {Kcarousel} from "../../components/Carousel/Kcarousel";
-import {ContentItem} from "../../components/ContentComponents/ContentComponent";
-import {FocalImageContent} from "../../components/ContentComponents/FocalImage/FocalImage";
+import React, {useState} from "react";
+
 import {PanelHeader} from "../../components/PanelHeader/PanelHeader";
-import PdpFramework from "../components/PDP";
 import {KCS_PDP, KSS_PDP} from "./PDP_versions";
 import {carousel_images_KCS, KCS_specs_data} from "./pdp-data";
 

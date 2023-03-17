@@ -15,7 +15,9 @@ export const navMobileStyles = css`
     justify-content: flex-start;
     width: 100vw;
     
-   
+   .free-shipping-message{
+     display: none;
+   }
     
 
     .welcome-area {
@@ -52,7 +54,7 @@ export const navMobileStyles = css`
         justify-content: center;
 
         .k-btn.text-icon-noBG {
-          padding: 0 !important;
+          padding: 0.5rem !important;
           margin: 0 !important;
         }
 
@@ -68,7 +70,7 @@ export const navMobileStyles = css`
 
     &.slide-nav-in {
       .main-navigation-container {
-        background-color: #676A9B;
+        //background-color: #676A9B;
 
         nav {
           animation: slideInFromRight 0.5s forwards;
@@ -379,7 +381,7 @@ export const navMobileStyles = css`
       //height: 10vh;
       min-height: 8vh;
       max-height: 17vh;
-      position: fixed;
+      position: relative;
       right: 0;
       left: 0;
       top: 0;
@@ -392,10 +394,9 @@ export const navMobileStyles = css`
 
       .logo {
         width: 35vw;
-        position: fixed;
-        left: calc(50%);
-        bottom: calc(100% - 3vw);
-        transform: translate(-50%, 100%);
+        position: absolute;
+        left: calc(50%);   // center the logo   
+        transform: translate(-50%, 0);
       }
 
       .k-btn {
@@ -416,7 +417,7 @@ export const navMobileStyles = css`
 
       .secondary-importance-items {
         left: 100%;
-        position: fixed;
+        position: absolute;
         transform: translateX(calc(-100% - 2vw));
         height: clamp(4rem, 13vw, 10rem) !important;
 

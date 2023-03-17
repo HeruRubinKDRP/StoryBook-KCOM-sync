@@ -1,5 +1,5 @@
 //create a React hooks component for a header navigation that will present an alternative menu that slides down once the user has scrolled past the height of the initial header that is a container that will remain sticky as the user scrolls. when the user scrolls up to where the initial header is visible the alternative menu will fade away.
-import {createRef, useEffect, useRef, useState} from "react";
+import {createRef, ReactElement, ReactNode, useEffect, useRef, useState} from "react";
 import {StickyStyled} from "./StickyHeader.styled";
 import {useResizeDetector} from "react-resize-detector";
 import {iNavigation, Navigation} from "../NavMenu/NavigationV2/Navigation";
@@ -9,9 +9,11 @@ import {withTheme} from 'styled-components';
 import SearchBox from "../Search Box/SearchBox";
 import Graphic from "../Graphic/Graphic";
 import KButton from "../Kbutton/KButton";
+import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/container-queries";
 
 export interface iStickyHeader {
-    navigationRelated: iNavigation
+    navigationRelated: iNavigation;
+    children? : ReactNode;
 }
 
 export const StickyHeader = (props: iStickyHeader) => {
@@ -31,7 +33,7 @@ export const StickyHeader = (props: iStickyHeader) => {
 
     const {width, height, ref} = useResizeDetector({
         handleHeight: false,
-        refreshMode: 'debounce',
+        refreshMode: 'throttle',
         refreshOptions: {},
         refreshRate: 100,
         skipOnMount: false,
@@ -39,13 +41,13 @@ export const StickyHeader = (props: iStickyHeader) => {
     });
 
     useEffect(() => {
-        if (navRef.current) {
-            setNavHeight(navRef.current.offsetHeight);
-            console.log("navref useEffect ", navRef, " | ", navRef.current.offsetHeight);
+        if (ref.current) {
+            setNavHeight(ref.current.offsetHeight);
+            console.log("navref useEffect ", ref, " | ", ref.current.offsetHeight);
         } else {
             return
         }
-    }, [navRef]);
+    }, [ref]);
 
 
 
@@ -80,7 +82,7 @@ export const StickyHeader = (props: iStickyHeader) => {
     }
 
     return (
-        <StickyStyled ref={stickyRef} className="sticky-header-container">
+        <StickyStyled ref={ref} className="sticky-header-container">
             <div className="zzzyyy" ref={navRef}>
                 <Navigation
                     sizingMode={props.navigationRelated.sizingMode}
@@ -95,7 +97,8 @@ export const StickyHeader = (props: iStickyHeader) => {
                     navItems={props.navigationRelated.navItems}
                 />
                 <StickyItem>
-                    <StickyItemStyled className={getStickyMenuStyle()}>
+                    <StickyItemStyled
+                        className={`${getStickyMenuStyle()} ${getContainerQuery(width)}` }>
                         <div className="sticky-menu-placement">
                             <div className="left-area">
                                 <Graphic graphicName={"logo"}/>
@@ -108,7 +111,13 @@ export const StickyHeader = (props: iStickyHeader) => {
                                 />
                             </div>
                             <SearchBox/>
-                            <div></div>
+                            { props.children ?
+                                (<div className="child-content">
+                                    {props.children}
+                                </div>)
+                                :
+                                null
+                            }
                         </div>
                     </StickyItemStyled>
                 </StickyItem>

@@ -90,8 +90,16 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       grid-column: 1 / 1;
       grid-row: 2 / 2;
       text-align: center;
-      font-size: var(--spacingHuge);
-      margin: var(--spacingSmall) 0 var(--spacingMedium) 0;
+      font-size: var(--spacingHuge);   
+      display: flex;
+      flex-direction: column;
+      .fine-print{
+        font-size: var(--spacingSmall);
+        line-height: var(--spacingSmall);
+        text-align: center;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
     }
 
     .brand {
@@ -125,7 +133,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   }
   
   button.k-btn{
-    position: absolute;
+    position: relative;
     bottom: 0;
     z-index: 1;
     left: 50%;
@@ -143,6 +151,9 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     border-radius: var(--spacingTiny);
     inset: calc(var(--columnsize) * 0.8 * 0.5) 0 calc(var(--ctaButtonHeight) / 2) 0;
     box-shadow: 0 var(--spacingTiny) var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);
+    //-webkit-mask-image: linear-gradient(to bottom, transparent 4%, black);
+    mask-image: linear-gradient(to bottom, transparent 4%, black);
+    
   }
 
 `;
