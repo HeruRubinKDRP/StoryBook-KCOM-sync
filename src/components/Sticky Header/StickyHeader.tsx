@@ -91,7 +91,7 @@ export const StickyHeader = (props: iStickyHeader) => {
                     emailSuccessMessage={props.navigationRelated.emailSuccessMessage}
                     emailExplanationText={props.navigationRelated.emailExplanationText}
                     placeHolderText={props.navigationRelated.placeHolderText}
-                    defaultActiveHoverIndex={props.navigationRelated.defaultActiveHoverIndex}
+                    defaultActiveHoverIndex={-1}
                     submitButtonText={props.navigationRelated.submitButtonText}
                     isNobo={props.navigationRelated.isNobo}
                     navItems={props.navigationRelated.navItems}

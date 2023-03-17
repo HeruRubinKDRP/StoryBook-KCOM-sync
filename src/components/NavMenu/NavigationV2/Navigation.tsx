@@ -63,7 +63,7 @@ export const breakPoints = {
 
 export const Navigation = (props: iNavigation) => {
     // negative state for no-hover
-    const [currentHover, setCurrentHover] = useState(7);
+    const [currentHover, setCurrentHover] = useState(-1);
     const [mobileIsOpen, setMobileIsOpen] = useState(false)
     const [activeAnimationClass, setActiveAnimationClass] = useState<string>("slide-in-from-right")
 

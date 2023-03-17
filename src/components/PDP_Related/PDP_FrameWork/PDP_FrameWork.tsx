@@ -239,7 +239,7 @@ export const PdpFramework = (props: iPdpFramework) => {
                 emailSuccessMessage: props.stickyHeader.navigationRelated.emailSuccessMessage,
                 emailExplanationText: props.stickyHeader.navigationRelated.emailExplanationText,
                 placeHolderText: props.stickyHeader.navigationRelated.placeHolderText,
-                defaultActiveHoverIndex: props.stickyHeader.navigationRelated.defaultActiveHoverIndex,
+                defaultActiveHoverIndex: -1,
                 submitButtonText: props.stickyHeader.navigationRelated.submitButtonText,
                 isNobo: props.stickyHeader.navigationRelated.isNobo,
                 navItems: props.stickyHeader.navigationRelated.navItems
