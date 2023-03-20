@@ -43,6 +43,7 @@ export const StickyHeader = (props: iStickyHeader) => {
     useEffect(() => {
         if (ref.current) {
             setNavHeight(ref.current.offsetHeight);
+            document.body.style.paddingTop = `${ref.current.offsetHeight}px !important`;
             console.log("navref useEffect ", ref, " | ", ref.current.offsetHeight);
         } else {
             return

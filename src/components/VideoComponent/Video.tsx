@@ -1,23 +1,91 @@
 import KButton from "../Kbutton/KButton";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
+import Typist from "react-typist";
+
+
+export interface Caption {
+    startTime: number;
+    endTime: number;
+    text: string;
+}
 
 export interface iVideo{
     videoUrl : string;
+    captions : Caption[];
+    isPlaying : boolean;
+    manageIsPlaying? : () => void;
+    isMuted : boolean;
+    manageIsMuted? : () => void;
 }
 
 export const Video=(props:iVideo)=>{
     //video reference
-    const videoRef = useRef<HTMLVideoElement>(null!);
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(props.isPlaying);
     const [isVideoEnded, setIsVideoEnded] = useState(false);
 
     //track muted
-    const [isMuted, setIsMuted] = useState(false);
+    const [isMuted, setIsMuted] = useState(props.isMuted);
+
+    const [captionVisible, setCaptionVisible] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isFullScreen, setIsFullScreen] = useState(false);
+
+    // ******* CAPTIONS RELATED - start ********
+    const [captionText, setCaptionText] = useState("");
+    const handleTimeUpdate = () => {
+        if(!videoRef.current) return;
+        const currentCaption = props.captions.find(caption => caption.startTime <= videoRef.current!.currentTime && caption.endTime > videoRef.current!.currentTime);
+        if (currentCaption) {
+            setCaptionText(currentCaption.text);
+        } else {
+            setCaptionText("");
+        }
+    }
+
+    const handlePlay = () => {
+        setCaptionVisible(true);
+    }
+
+    const handlePause = () => {
+        setCaptionVisible(false);
+    }
+
+    useEffect(() => {
+        if(!videoRef.current) return;
+        videoRef.current!.addEventListener("timeupdate", handleTimeUpdate);
+        videoRef.current!.addEventListener("play", handlePlay);
+        videoRef.current!.addEventListener("pause", handlePause);
+        return () => {
+            videoRef.current!.removeEventListener("timeupdate", handleTimeUpdate);
+            videoRef.current!.removeEventListener("play", handlePlay);
+            videoRef.current!.removeEventListener("pause", handlePause);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!videoRef.current) return;
+        videoRef.current!.addEventListener("timeupdate", handleTimeUpdate);
+        return () => {
+            videoRef.current!.removeEventListener("timeupdate", handleTimeUpdate);
+        }
+    }, []);
+
+    // ******* CAPTIONS RELATED - end ********
+
+
+
     //toggle muted
     const toggleMute = () => {
         if (videoRef.current) {
             videoRef.current.muted = !videoRef.current.muted;
+            if(props.manageIsPlaying){
+                props.manageIsPlaying();
+            }
             setIsMuted(videoRef.current.muted);
+            if(props.manageIsMuted){
+                props.manageIsMuted();
+            }
         }
     };
 
@@ -35,23 +103,35 @@ export const Video=(props:iVideo)=>{
 
     const toggleFullScreen = () => {
         if (videoRef.current) {
-            if (videoRef.current.requestFullscreen) {
-                videoRef.current.requestFullscreen();
-            }
-        }
 
+            setIsFullScreen(!isFullScreen);
+        }
     };
+
 
     const handlePlayAgain = () => {
         if (videoRef.current) {
+            setIsPlaying(true);
             videoRef.current.currentTime = 0;
             videoRef.current.play();
             setIsVideoEnded(false);
         }
     };
 
+    const handleOverlayClick = () => {
+        setShowOverlay(false);
+        handlePlayAgain();
+    };
+
+    const handleVideoEnd = () => {
+        setIsPlaying(false);
+        setIsVideoEnded(true);
+        setShowOverlay(true);
+    };
+
+
     return(
-        <div className="video-container">
+        <div className={`video-container${isFullScreen ? ' fullscreen' : ''}`}>
             <video
                 ref={videoRef}
                 className="user-training-imagery"
@@ -59,8 +139,14 @@ export const Video=(props:iVideo)=>{
                 preload="auto"
                 autoPlay={true}
                 loop={false}
-                muted={false}
+                muted={true}
+                onEnded={handleVideoEnd}
             />
+            {captionVisible && (
+                <div className="caption-overlay">
+                    <Typist key={captionText} cursor={{show: false}} avgTypingDelay={20} stdTypingDelay={5}>{captionText}</Typist>
+                </div>)
+            }
             <div className="video-controls">
                 <KButton
                     label=""
@@ -69,6 +155,15 @@ export const Video=(props:iVideo)=>{
                     buttonType="secondary"
                     iconPlacement="after-label"
                     actionFunc={()=>toggleMute()}
+                    buttonWidth="fit-to-content"
+                />
+                <KButton
+                    label=""
+                    classes={`${ captionVisible ? "captions-on" : "captions-off"} captions-button`}
+                    iconStandard={`${ captionVisible ? "closed-captioning-icon" : "closed-captioning-off-icon"}`}
+                    buttonType="secondary"
+                    iconPlacement="after-label"
+                    actionFunc={()=>setCaptionVisible(!captionVisible)}
                     buttonWidth="fit-to-content"
                 />
                 <KButton
@@ -95,16 +190,19 @@ export const Video=(props:iVideo)=>{
             }
             {
                 isVideoEnded &&
-                <KButton
-                    label="Play Again"
-                    classes={`${ isPlaying ? "playing" : "paused"} play-toggle-button play-again-button`}
-
-                    buttonType="secondary"
-                    iconStandard="icon-play"
-                    iconPlacement="after-label"
-                    actionFunc={()=>handlePlayAgain()}
-                    buttonWidth="fit-to-content"
-                />
+                isVideoEnded && (
+                    <div className="video-overlay" onClick={handleOverlayClick}>
+                        <KButton
+                            label="Play Again"
+                            classes={`${isPlaying ? "playing" : "paused"} play-toggle-button play-again-button`}
+                            buttonType="secondary"
+                            iconStandard="replay-icon"
+                            iconPlacement="after-label"
+                            buttonWidth="fit-to-content"
+                            actionFunc={props.manageIsPlaying}
+                        />
+                    </div>
+                )
             }
 
 

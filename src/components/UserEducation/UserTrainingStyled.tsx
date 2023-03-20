@@ -85,62 +85,110 @@ export const UserTrainingStyled = styled.div`
       border-radius: 0 12px 0 0;
     }
   }
-  
-  .video-container{
+  .video-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000; /* Use a high z-index to ensure the video is on top of other content */
+  }
+
+
+  .video-container {
     position: relative;
-    video{
+    height: 100%;
+
+    .caption-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: auto;  
+      font-weight: 600;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(5px);
+      padding: 2% 12%;
+      margin: 2%;
+      border-radius: 2vw;
+      box-shadow: 0px 4px 9px rgb(0 0 0 / 25%);
+      .Typist{
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+      }
+    }
+
+    video {
       position: relative;
     }
     
-    
-    
-    .video-controls{
+
+
+    .video-controls {
       position: absolute;
       display: flex;
       right: 2%;
       top: 2%;
       z-index: 100;
-      .volume-button{
-                
-      }      
-      .k-btn{
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+      gap: 0.5vw;
+
+      .volume-button {
+
+      }
+
+      .k-btn {
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
         padding: 0.75rem 1rem;
-        .icon{
+        background-color: rgba(0,0,0,0.65) !important;
+        color: white !important;
+        border-color: white !important;
+        border-width: 1px !important;
+        backdrop-filter: blur(3vw);
+        .icon {
           width: 3vh !important;
-          height: 3vh !important;
+          height: 2vh !important;
+          .filled{
+            fill: white !important;
+          }
+          .stroked{
+            stroke: white !important;
+          }
         }
       }
-    } 
-    
-    .play-toggle-button, .play-again-button{
+    }
+
+    .play-toggle-button, .play-again-button {
       z-index: 90;
       inset: 0;
       position: absolute;
       border-radius: 0;
       height: 100% !important;
       border: 0 !important;
-      &.paused{
-        background-color: rgba(0,0,0,0.5) !important; 
-        .filled{
-          fill: rgba(255,255,255,0.75);
-          filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.65));
+
+      &.paused {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+
+        .filled {
+          fill: rgba(255, 255, 255, 0.75);
+          filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.65));
         }
       }
-      &.playing{
+
+      &.playing {
         background-color: transparent !important;
-      } 
+      }
     }
 
-    .icon{
+    .icon {
       width: 100% !important;
       height: 100% !important;
       display: flex;
       justify-content: center;
       margin: 0 !important;
     }
-    
+
   }
+
   max-width: 1300px;
   height: 80vh;
   min-height: 400px;
@@ -205,14 +253,16 @@ export const UserTrainingStyled = styled.div`
   .user-training-imagery {
     /*position: absolute;*/
     inset: 0;
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: contain;
+    background-color: white;
   }
 
   .user-training-text {
     /*background-color: #13bba4;*/
-    padding: 1rem; 
+    padding: 1rem;
+
     h1 {
       font-size: 2rem;
     }
