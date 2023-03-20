@@ -20,7 +20,7 @@ export interface iVideo{
 
 export const Video=(props:iVideo)=>{
     //video reference
-    const [isPlaying, setIsPlaying] = useState(props.isPlaying);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [isVideoEnded, setIsVideoEnded] = useState(false);
 
     //track muted
@@ -139,7 +139,7 @@ export const Video=(props:iVideo)=>{
                 preload="auto"
                 autoPlay={true}
                 loop={false}
-                muted={true}
+                muted={isMuted}
                 onEnded={handleVideoEnd}
             />
             {captionVisible && (

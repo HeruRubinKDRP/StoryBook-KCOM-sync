@@ -52,6 +52,7 @@ export const UserTrainingStyled = styled.div`
     .TabCta {
       box-shadow: inset 0px 19px 8px 5px rgb(0 0 0 / 25%);
       border-radius: 0 0 12px 12px;
+      z-index: 100;
     }
 
     .true {

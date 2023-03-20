@@ -41,7 +41,7 @@ export const UserTraining = (props: iUserTraining) => {
     })
 
     const [isPlaying, setIsPlaying] = useState(true)
-    const [isMuted, setIsMuted] = useState(false)
+    const [isMuted, setIsMuted] = useState(true)
     const manageIsPlaying =()=>{
         setIsPlaying(!isPlaying)
     }

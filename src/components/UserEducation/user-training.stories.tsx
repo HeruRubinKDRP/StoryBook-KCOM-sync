@@ -88,23 +88,61 @@ UserTrainingExample.args = {
                     {
                         startTime: 0,
                         endTime: 5,
-                        text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
-                    },
-                    {
-                        startTime : 5,
-                        endTime : 10,
-                        text: 'Then you can do some other things here'
-                    },
-                    {
-                        startTime : 10,
-                        endTime : 15,
-                        text : 'Here\'s info about another feature'
-                    },
-                    {
-                        startTime : 15,
-                        endTime : 20,
-                        text : 'Here\'s info about another feature'
+                        text: 'Here\'s how you can add an item into your existing recurring order'
+                    },{
+                        startTime: 5,
+                        endTime: 10,
+                        text: 'Hit the \"Add Item\" button, then browse or search for the product you\'d like to add'
+                    },{
+                        startTime: 10,
+                        endTime: 15,
+                        text: 'I\'m adding some hot chocolate for when my grandchildren come over to the house.'
+                    },{
+                        startTime: 15,
+                        endTime: 18,
+                        text: 'Now the shipment mode: one-time, or recurring'
+                    },{
+                        startTime: 18,
+                        endTime: 21,
+                        text: 'One-time: it\'ll just ship once with my next order'
+                    },{
+                        startTime: 21,
+                        endTime: 24,
+                        text: 'Recurring: will be included with every subsequent Auto-Delivery shipment'
+                    },{
+                        startTime: 24,
+                        endTime: 31,
+                        text: 'Now I\'m configuring the quantity how much I\'d like to receive with each shipment'
+                    },{
+                        startTime: 31,
+                        endTime: 35,
+                        text: 'This will make sure I have enough on hand, save me a trip to the grocery store and save a lot of money'
+                    },{
+                        startTime: 35,
+                        endTime: 39,
+                        text: 'Now we can see the hot chocolate is added to my order'
+                    },{
+                        startTime: 39,
+                        endTime: 43,
+                        text: 'I can see how exactly much I\'m going to be saving, and that I\'m getting free shipping'
+                    },{
+                        startTime: 43,
+                        endTime: 47,
+                        text: 'Here I can edit my shipping & payment details'
+                    },{
+                        startTime: 47,
+                        endTime: 56,
+                        text: 'There\'s the Keurig help line, Keurig people are very knowledgeable and friendly'
+                    },{
+                        startTime: 56,
+                        endTime: 59,
+                        text: 'They\'re ready to help you out, if you have any trouble'
+                    },{
+                        startTime : 59,
+                        endTime : 100,
+                        text : 'Keurig.com\'s Account Management System - putting you in full control of your Keurig beverage experience'
                     }
+
                 ]
 
             },
@@ -121,23 +159,37 @@ UserTrainingExample.args = {
                     {
                         startTime: 0,
                         endTime: 5,
-                        text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
-                    },
-                    {
-                        startTime : 5,
-                        endTime : 10,
-                        text: 'Then you can do some other things here'
-                    },
-                    {
-                        startTime : 10,
-                        endTime : 15,
-                        text : 'Here\'s info about another feature'
-                    },
-                    {
-                        startTime : 15,
-                        endTime : 20,
-                        text : 'Here\'s info about another feature'
+                        text: 'To make adjustments to an existing order, just click right on a beverage.'
+                    },{
+                        startTime: 5,
+                        endTime: 8,
+                        text: 'You can manage the quantity you receive with each shipment, or change the frequency of your order.'
+                    },{
+                        startTime: 9,
+                        endTime: 16,
+                        text: 'If you\'re going on vacation you can pause your shipments for the duration of your trip, and your shipments will resume automatically when you get back'
+                    },{
+                        startTime: 16,
+                        endTime: 20,
+                        text: 'If you\'re getting bored of this variety - swap it out with something different'
+                    },{
+                        startTime: 20,
+                        endTime: 27,
+                        text: 'You can set a backup product so  in the rare case that your product is out of stock, something you\'re gonna like will be sent in its place'
+                    },{
+                        startTime: 27,
+                        endTime: 32,
+                        text: 'You can easily edit your shipping and payment details'
+                    },{
+                        startTime: 32,
+                        endTime: 38,
+                        text: '...and through the \"Order Details\" button you can see what products you\'re getting, how much you\'re going to be saving'
+                    },{
+                        startTime : 38,
+                        endTime : 100,
+                        text : 'Keurig.com\'s Account Management System - putting you in full control of your Keurig beverage experience'
                     }
+
                 ]
             },
             {
@@ -154,21 +206,6 @@ UserTrainingExample.args = {
                         startTime: 0,
                         endTime: 5,
                         text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
-                    },
-                    {
-                        startTime : 5,
-                        endTime : 10,
-                        text: 'Then you can do some other things here'
-                    },
-                    {
-                        startTime : 10,
-                        endTime : 15,
-                        text : 'Here\'s info about another feature'
-                    },
-                    {
-                        startTime : 15,
-                        endTime : 20,
-                        text : 'Here\'s info about another feature'
                     }
                 ]
             },
@@ -241,7 +278,7 @@ UserTrainingExample.args = {
             'Quick Overview',
             'Adding New Beverages',
             'Updating Existing Orders',
-            'Easier with SMART Order',
+            'Easier with SMART Auto-Delivery',
             'Pausing Your Orders',
             'Update Shipping & Payment Info'
         ]
