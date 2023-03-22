@@ -42,7 +42,7 @@ export const PanelHeader = (props : IpanelHeader) =>{
         iconPlacement="after-label"
         iconStandard="close"
         buttonWidth="fit-to-content"
-        classes="close right"
+        classes="close"
         iconSize="2.5rem"
         transitionType="expand-bg"
         actionFunc={ ()=>action() }
@@ -68,11 +68,11 @@ export const PanelHeader = (props : IpanelHeader) =>{
           iconSize="2rem"
           buttonWidth="fit-to-content"
           transitionType="expand-bg"
-          classes="left"
+          classes=""
         />
       )
     }else{
-      return <div className="left"></div>
+      return null
     }
   }
 
@@ -80,11 +80,16 @@ export const PanelHeader = (props : IpanelHeader) =>{
   return(
     <PanelHeaderStyles className={`k-panel-header ${getContainerQuery(width)}`}>
       <header ref={ref} className="header-container">
-        {BackButton()}
+        <div className="left">
+          {BackButton()}
+        </div>
         <h2 className="panel-header-label middle">
           {props.headerText}
         </h2>
-        {CloseButton()}
+        <div className="right">
+          {CloseButton()}
+        </div>
+
       </header>
     </PanelHeaderStyles>
   )

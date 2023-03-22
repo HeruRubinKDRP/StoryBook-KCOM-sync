@@ -34,7 +34,18 @@ export const PanelHeaderStyles = styled.div`
   
   .left, .right{
     flex-basis: 20%;
+    display: flex;
+    flex-direction: row;
+    
   } 
+  .right{
+    justify-content: flex-end;
+  }
+  
+  .left{
+    justify-content: flex-start;
+  }
+  
   .middle{
     flex-basis: 60%;
   }

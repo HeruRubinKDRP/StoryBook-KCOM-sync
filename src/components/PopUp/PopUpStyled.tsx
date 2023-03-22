@@ -26,8 +26,9 @@ export const PopUpStyled = styled.div`
   }
 
   &.modal-large-dimensions, &.modal-medium-dimensions {
+    animation: moveDownFromTop 1s ease-in forwards;
     .pop-up-contents-container {
-      animation: expandElement 1s ease-in forwards;
+    
     }
   }
 
@@ -36,8 +37,9 @@ export const PopUpStyled = styled.div`
    inset: 0 !important;
     height: 100%;
     width: 100%;
+    animation: moveUpFromBottom 1s ease-in forwards;
     .pop-up-contents-container {
-      animation: moveUpFromBottom 1s ease-in forwards;
+      
     }
   }
 
