@@ -3,17 +3,19 @@ import styled from "styled-components";
 export const PopUpStyled = styled.div`
 
   position: fixed;
-  inset: 0 0 0 0;
+  inset: 5%;
   display: flex;
   z-index: 12000000;
-  width: 100%;
+  box-shadow: -1px 8px 14px rgb(0 0 0 / 25%);
+  border-radius: 1vw;
   &.modal-large-dimensions {
     //top: 50%;
     //left: 50%;
     //transform: translate(-50%, -50%);
+    
     height: auto; 
-  }
-
+  } 
+ 
   &.modal-medium-dimensions {
     top: 0;
     left: 0;
@@ -23,12 +25,20 @@ export const PopUpStyled = styled.div`
     right: 0;
   }
 
+  &.modal-large-dimensions, &.modal-medium-dimensions {
+    .pop-up-contents-container {
+      animation: expandElement 1s ease-in forwards;
+    }
+  }
+
+
   &.modal-mobile-dimensions {
-    right: 2%;
-    bottom: 0;
+   inset: 0 !important;
     height: 100%;
     width: 100%;
-    top: 0;
+    .pop-up-contents-container {
+      animation: moveUpFromBottom 1s ease-in forwards;
+    }
   }
 
   &.minimal-header{
@@ -48,8 +58,14 @@ export const PopUpStyled = styled.div`
     backdrop-filter: grayscale(1) brightness(0.75) blur(2px);
   }
 
+  &.white-bg{
+    background-color: white !important;
+  }
+  
+  
+
   .pop-up-contents-container {
-    animation: expandElement 0.75s ease-in forwards;
+   
     background-color: transparent;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -61,10 +77,11 @@ export const PopUpStyled = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     
+    }
     .k-panel-header {      
       background: transparent;
-      position: absolute;
-      top: 0;
+      //position: absolute;
+      //top: 0; 
     }
 
     .seo-item-container {

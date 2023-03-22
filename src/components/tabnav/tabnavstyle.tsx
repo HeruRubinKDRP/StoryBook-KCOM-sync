@@ -43,15 +43,14 @@ export const TabNavStyles = styled.div`
         z-index: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
-        .icon{
-          height : 1.25rem !important;
-          margin-left: 10px;
-          .filled{
-            fill: #3b2b2f;  
-          }
+        align-items: center; 
+      }
+      .icon{
+        height : 1.25rem !important;
+        margin-left: 0.5rem;
+        .filled{
+          fill: #3b2b2f;
         }
-        
       }
       &:active {
         .expander {
@@ -123,23 +122,29 @@ export const TabNavStyles = styled.div`
       padding: 10px;
       background-color: transparent;
       text-align: left;
-      border: 0px;
+      border: 0;
       font-size: 1.5rem !important;
       font-family: 'MarkOT-Bold', serif !important;
+      
       svg {
-        margin-right: 10px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
         fill: #e7e4df;
         height: 40px;
         width: 40px;
         padding: 10px;
         box-shadow: inset 0px 0px 8px 5px rgb(0 0 0 / 45%);
         border-radius: 20px;
+        .filled {
+          fill: white !important;
+        }
       }
     }
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
       svg {
-        padding: 8px;
+        .filled{
+          fill: ${colorNameToValue("dark-roast")} !important;
+        }
       }
     }
   }

@@ -5,6 +5,7 @@ import { UserTrainingStyled } from './UserTrainingStyled'
 import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/container-queries";
 import KButton from "../Kbutton/KButton";
 import {Caption, Video} from "../VideoComponent/Video";
+import {PopUp} from "../PopUp/PopUp";
 
 export type mediaType = "video" | "image" | "text" | "audio" | "other";
 
@@ -94,15 +95,17 @@ export const UserTraining = (props: iUserTraining) => {
         return ListOfElements
     }
     return (
-        <UserTrainingStyled
-            className={`user-training-overall-container ${getContainerQuery(viewportWidth)}`}
-            ref={ref}
-        >
-            <Tabnav
-                Title={props.Title}
-                ContentItems={CreateContentElements( viewportWidth !== undefined && viewportWidth > 768)}
-                TabButtons={props.content.TabButtons}
-            />
-        </UserTrainingStyled>
+        <PopUp isOpen={true} hasHeader={true} windowTitle="Learn" classes={`white-bg modal-${getContainerQuery(width)}`} hasVeil={false} >
+            <UserTrainingStyled
+                className={`user-training-overall-container ${getContainerQuery(viewportWidth)}`}
+                ref={ref}
+            >
+                <Tabnav
+                    Title={props.Title}
+                    ContentItems={CreateContentElements( viewportWidth !== undefined && viewportWidth > 768)}
+                    TabButtons={props.content.TabButtons}
+                />
+            </UserTrainingStyled>
+        </PopUp>
     )
 }

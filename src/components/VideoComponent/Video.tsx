@@ -1,6 +1,7 @@
 import KButton from "../Kbutton/KButton";
 import React, {useEffect, useRef, useState} from "react";
 import Typist from "react-typist";
+import {VideoStyled} from "./Video.styles";
 
 
 export interface Caption {
@@ -131,7 +132,7 @@ export const Video=(props:iVideo)=>{
 
 
     return(
-        <div className={`video-container${isFullScreen ? ' fullscreen' : ''}`}>
+        <VideoStyled className={`video-container${isFullScreen ? ' fullscreen' : ''}`}>
             <video
                 ref={videoRef}
                 className="user-training-imagery"
@@ -193,7 +194,7 @@ export const Video=(props:iVideo)=>{
                 isVideoEnded && (
                     <div className="video-overlay" onClick={handleOverlayClick}>
                         <KButton
-                            label="Play Again"
+                            label=""
                             classes={`${isPlaying ? "playing" : "paused"} play-toggle-button play-again-button`}
                             buttonType="secondary"
                             iconStandard="replay-icon"
@@ -205,7 +206,6 @@ export const Video=(props:iVideo)=>{
                 )
             }
 
-
-        </div>
+        </VideoStyled>
     )
 }

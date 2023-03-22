@@ -1,5 +1,8 @@
 import React, {ReactElement, useEffect, useState} from "react";
 import KButton from "../Kbutton/KButton";
+import {PanelHeaderStyles} from "./PanelHeader.styles";
+import {useResizeDetector} from "react-resize-detector";
+import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/container-queries";
 
 
 export interface IpanelHeader{
@@ -18,6 +21,19 @@ export const PanelHeader = (props : IpanelHeader) =>{
     }
   }
 
+  const {width, height, ref} = useResizeDetector(
+    {
+      refreshMode: 'throttle',
+      refreshRate: 100,
+      refreshOptions: {},
+      handleHeight: false,
+      skipOnMount: false,
+      onResize: () => {
+        return
+      }
+    }
+  )
+
   const CloseButton = ()=>{
     if(props.hasCloseButton){
       return <KButton
@@ -26,7 +42,7 @@ export const PanelHeader = (props : IpanelHeader) =>{
         iconPlacement="after-label"
         iconStandard="close"
         buttonWidth="fit-to-content"
-        classes="close"
+        classes="close right"
         iconSize="2.5rem"
         transitionType="expand-bg"
         actionFunc={ ()=>action() }
@@ -52,23 +68,24 @@ export const PanelHeader = (props : IpanelHeader) =>{
           iconSize="2rem"
           buttonWidth="fit-to-content"
           transitionType="expand-bg"
+          classes="left"
         />
       )
     }else{
-      return <div></div>
+      return <div className="left"></div>
     }
   }
 
 
-
-
   return(
-    <div className="k-panel-header">
-      {BackButton()}
-      <h2 className="panel-header-label">
-        {props.headerText}
-      </h2>
-      {CloseButton()}
-    </div>
+    <PanelHeaderStyles className={`k-panel-header ${getContainerQuery(width)}`}>
+      <header ref={ref} className="header-container">
+        {BackButton()}
+        <h2 className="panel-header-label middle">
+          {props.headerText}
+        </h2>
+        {CloseButton()}
+      </header>
+    </PanelHeaderStyles>
   )
 }

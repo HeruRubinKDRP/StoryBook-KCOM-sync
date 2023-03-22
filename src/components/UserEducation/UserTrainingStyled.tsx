@@ -1,19 +1,30 @@
 import styled from 'styled-components'
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
 export const UserTrainingStyled = styled.div`
   &.mobile-dimensions {
-    min-width: 90vw;
-    max-width: 90vw;
-    height: 90vh;
-
+    min-width: 90vw;    
+    min-heightheight: 90vh;
+    height: 100%;
+    width: 100%;
     .user-training-content {
       display: flex;
       width: 100%;
       flex-direction: column;
     }
+    
+    .user-training-text{
+      h1{
+        font-size: 1.25rem;
+      }
+      p{
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
 
     .user-training-imagery-container {
-      height: 50% !important
+      min-height: 50vh !important;
     }
 
     .ExpandMenu {
@@ -46,7 +57,7 @@ export const UserTrainingStyled = styled.div`
     }
 
     .user-training-imagery {
-      border-radius: 12px 12px 0 0;
+      border-radius: 0 !important;
     }
 
     .TabCta {
@@ -83,7 +94,7 @@ export const UserTrainingStyled = styled.div`
     }
 
     .user-training-imagery {
-      border-radius: 0 12px 0 0;
+      border-radius: 0 !important;
     }
   }
   .video-container.fullscreen {
@@ -145,6 +156,13 @@ export const UserTrainingStyled = styled.div`
         border-color: white !important;
         border-width: 1px !important;
         backdrop-filter: blur(3vw);
+        &:hover, &:active{
+          .icon{
+            .filled{
+              fill : ${colorNameToValue("dark-roast")} !important;
+            }
+          }
+        }
         .icon {
           width: 3vh !important;
           height: 2vh !important;
@@ -190,13 +208,13 @@ export const UserTrainingStyled = styled.div`
 
   }
 
-  max-width: 1300px;
-  height: 80vh;
+  max-width: none;
+  height: 100%;
   min-height: 400px;
-  margin: 0 auto;
+  margin: 0;
   background-color: #e7e4df;
-  box-shadow: 2px 6px 12px 6px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  box-shadow: 2px 6px 12px 6px rgb(0 0 0 / 25%);
+  border-radius: 0;
 
   .contents-menu-btn {
     height: auto !important;
@@ -239,7 +257,7 @@ export const UserTrainingStyled = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     background-color: #3b2b2f;
-    border-radius: 12px 0 0 12px;
+    border-radius: 0;
     overflow-y: auto;
   }
 

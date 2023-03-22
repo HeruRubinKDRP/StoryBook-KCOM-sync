@@ -24,6 +24,11 @@
   100%{transform: translateY(0);}
 }
 
+@keyframes moveUpFromBottom {
+  0%{ transform: translateY(100%); }
+  100%{transform: translateY(0);}
+}
+
 @keyframes hoverBGscale {
   from{background-size: 100%}
   to{background-size: 200% }

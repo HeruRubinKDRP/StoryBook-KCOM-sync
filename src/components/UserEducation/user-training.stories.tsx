@@ -71,7 +71,7 @@ UserTrainingExample.args = {
                     {
                         startTime : 38,
                         endTime : 100,
-                        text : 'Keurig.com\'s Account Management System - putting you in full control of your Keurig beverage experience'
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
                 ]
             },
@@ -140,7 +140,7 @@ UserTrainingExample.args = {
                     },{
                         startTime : 59,
                         endTime : 100,
-                        text : 'Keurig.com\'s Account Management System - putting you in full control of your Keurig beverage experience'
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
 
                 ]
@@ -187,9 +187,8 @@ UserTrainingExample.args = {
                     },{
                         startTime : 38,
                         endTime : 100,
-                        text : 'Keurig.com\'s Account Management System - putting you in full control of your Keurig beverage experience'
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
-
                 ]
             },
             {
@@ -205,7 +204,55 @@ UserTrainingExample.args = {
                     {
                         startTime: 0,
                         endTime: 5,
-                        text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
+                        text: 'If you happen to own one of Keurig\'s line of SMART brewers...'
+                    },{
+                        startTime: 5,
+                        endTime: 11,
+                        text: 'There\'s a wonderful little feature where the coffee maker will order you some additional coffee when you start to run low.'
+                    },{
+                        startTime: 11,
+                        endTime: 14,
+                        text: 'You\'ll notice this option labeled \"Pods at home\"'
+                    },{
+                        startTime: 14,
+                        endTime: 18,
+                        text: 'This is the number of pods in this variety that you have already at home'
+                    },{
+                        startTime: 18,
+                        endTime: 26,
+                        text: 'Input this number so your coffee maker can keep track of how many you have and know when to order you more.'
+                    },{
+                        startTime: 26,
+                        endTime: 29,
+                        text: 'This is great for me because it\'s one less thing to worry about.'
+                    },{
+                        startTime: 29,
+                        endTime: 33,
+                        text: 'You can manage the quantity you receive in each shipment.'
+                    },{
+                        startTime: 33,
+                        endTime: 40,
+                        text: 'If you\'re going on vacation you can pause your shipments for the duration of your trip, and your shipments will resume automatically when you get back'
+                    },{
+                        startTime: 40,
+                        endTime: 44,
+                        text : 'if you\'re running low \'Ship Right Away\' and we\'ll ship it out to you right away'
+                    },{
+                        startTime: 44,
+                        endTime: 48,
+                        text: 'If you\'re getting bored of this variety - swap it out with something different'
+                    },{
+                        startTime: 48,
+                        endTime: 56,
+                        text: 'You can set a backup product so  in the rare case that your product is out of stock, something you\'re gonna like will be sent in its place'
+                    },{
+                        startTime: 56,
+                        endTime: 60,
+                        text: 'You can easily edit your shipping and payment details'
+                    },{
+                        startTime : 60,
+                        endTime : 100,
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
                 ]
             },
@@ -223,22 +270,12 @@ UserTrainingExample.args = {
                         startTime: 0,
                         endTime: 5,
                         text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
-                    },
-                    {
-                        startTime : 5,
-                        endTime : 10,
-                        text: 'Then you can do some other things here'
-                    },
-                    {
-                        startTime : 10,
-                        endTime : 15,
-                        text : 'Here\'s info about another feature'
-                    },
-                    {
-                        startTime : 15,
-                        endTime : 20,
-                        text : 'Here\'s info about another feature'
+                    },{
+                        startTime : 38,
+                        endTime : 100,
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
+
                 ]
             },
             {
@@ -253,24 +290,22 @@ UserTrainingExample.args = {
                 captions: [
                     {
                         startTime: 0,
-                        endTime: 5,
-                        text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
-                    },
-                    {
-                        startTime : 5,
-                        endTime : 10,
-                        text: 'Then you can do some other things here'
-                    },
-                    {
-                        startTime : 10,
-                        endTime : 15,
-                        text : 'Here\'s info about another feature'
-                    },
-                    {
-                        startTime : 15,
-                        endTime : 20,
-                        text : 'Here\'s info about another feature'
+                        endTime: 8,
+                        text: 'Click on \"View Details\" to see every aspect of your Auto-Delivery order'
+                    },{
+                        startTime: 8,
+                        endTime: 12,
+                        text: 'Click on \"Order Details\" to see the shipping & billing information.'
+                    },{
+                        startTime: 12,
+                        endTime: 17,
+                        text: 'From here click on \"Edit Shipping & Payment\" to edit shipping addresses and payment methods.'
+                    },{
+                        startTime : 17,
+                        endTime : 100,
+                        text : 'Keurig.com\'s Order Management System - putting you in full control of your Keurig beverage experience'
                     }
+
                 ]
             }
         ],
