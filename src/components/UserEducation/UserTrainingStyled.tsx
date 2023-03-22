@@ -2,6 +2,14 @@ import styled from 'styled-components'
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
 export const UserTrainingStyled = styled.div`
+  max-width: none;
+  height: 100%;
+  min-height: 400px;
+  margin: 0;
+  background-color: #e7e4df;
+  box-shadow: 2px 6px 12px 6px rgb(0 0 0 / 25%);
+  border-radius: 0;
+  
   &.mobile-dimensions {
     min-width: 90vw;    
     min-heightheight: 90vh;
@@ -63,7 +71,13 @@ export const UserTrainingStyled = styled.div`
     .TabCta {
       box-shadow: inset 0px 19px 8px 5px rgb(0 0 0 / 25%);
       border-radius: 0 0 12px 12px;
-      z-index: 100;
+      z-index: 10000;
+      button.k-btn{
+        justify-content: flex-start !important;
+        .icon{
+          margin-left: 0.5rem;
+        }
+      }
     }
 
     .true {
@@ -208,13 +222,7 @@ export const UserTrainingStyled = styled.div`
 
   }
 
-  max-width: none;
-  height: 100%;
-  min-height: 400px;
-  margin: 0;
-  background-color: #e7e4df;
-  box-shadow: 2px 6px 12px 6px rgb(0 0 0 / 25%);
-  border-radius: 0;
+  
 
   .contents-menu-btn {
     height: auto !important;
@@ -248,6 +256,7 @@ export const UserTrainingStyled = styled.div`
     .NextCTA {
       button {
         border: none;
+        
       }
     }
 

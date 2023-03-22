@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
-export const TabNavStyles = styled.div`
-  
+
+
+export const TabNavStyles = styled.div` 
   
   --colorDarkRoast : ${colorNameToValue("dark-roast")};
   
-  .TabCTA, .Title{
-    z-index: 100;
+  .TabCta, .Title{
+    z-index: 1000000;
   }
   .TabCta {
     display: flex;
