@@ -11,8 +11,6 @@ export const UserTrainingStyled = styled.div`
   border-radius: 0;
   
   &.mobile-dimensions {
-    min-width: 90vw;    
-    min-heightheight: 90vh;
     height: 100%;
     width: 100%;
     .user-training-content {
@@ -69,7 +67,7 @@ export const UserTrainingStyled = styled.div`
     }
 
     .TabCta {
-      box-shadow: inset 0px 19px 8px 5px rgb(0 0 0 / 25%);
+      box-shadow: inset 0 19px 8px 5px rgb(0 0 0 / 25%);
       border-radius: 0 0 12px 12px;
       z-index: 10000;
       button.k-btn{
@@ -88,8 +86,7 @@ export const UserTrainingStyled = styled.div`
 
   &.extra-large-dimensions,
   &.large-dimensions,
-  &.medium-dimensions {
-    min-width: 75vw;
+  &.medium-dimensions { 
 
     .ExpandMenu {
       display: none;
@@ -220,9 +217,7 @@ export const UserTrainingStyled = styled.div`
       margin: 0 !important;
     }
 
-  }
-
-  
+  } 
 
   .contents-menu-btn {
     height: auto !important;

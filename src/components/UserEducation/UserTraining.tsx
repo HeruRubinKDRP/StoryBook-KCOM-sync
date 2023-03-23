@@ -94,8 +94,17 @@ export const UserTraining = (props: iUserTraining) => {
         }
         return ListOfElements
     }
+
+
     return (
-        <PopUp isOpen={true} hasHeader={true} windowTitle="Learn" classes={`white-bg modal-${getContainerQuery(width)}`} hasVeil={false} >
+        <PopUp
+            hasBackButton={true}
+            isOpen={true}
+            hasHeader={true}
+            windowTitle=""
+            classes={`white-bg modal-${getContainerQuery(width)}`}
+            hasVeil={false}
+        >
             <UserTrainingStyled
                 className={`user-training-overall-container ${getContainerQuery(viewportWidth)}`}
                 ref={ref}
