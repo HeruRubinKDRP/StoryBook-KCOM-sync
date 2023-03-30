@@ -215,6 +215,7 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         <ProductInfoCard
                             key={index}
                             prices={product.prices}
+                            priceDescriptor={product.priceDescriptor}
                             image={product.image}
                             brand={product.brand}
                             name={product.name}

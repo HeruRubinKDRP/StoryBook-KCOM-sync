@@ -24,6 +24,7 @@ export interface iProductInfoCardProps {
     name: string;
     prices: purchaseInfo[];
     ratingVisible: boolean;
+    priceDescriptor? : string;
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;
@@ -47,6 +48,8 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                 return "per pod";
             case "bagged":
                 return "per ounce";
+            case "bundle":
+            return " ";
         }
     }
 
@@ -94,7 +97,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                 <div className="product-info-container">
                     <div className="price">
                         <div className="fine-print">
-                            {isAllOutOfStock(props.prices) ? '' : 'as low as'}
+                            {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as') }
                         </div>
                         <div>
                             {isAllOutOfStock(props.prices) ? 'Out of Stock' : `${formattedPrice(getLowestPrice(props.prices))} ${getPriceLabel()}`   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import ProductList, { ProductListProps } from './CLP_Container';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
-import {podLibrary} from "../../../pages/myBrews";
+import {brands, podLibrary} from "../../../pages/myBrews";
 import {iProductInfoCardProps} from "../SimpleCard/SimpleCard";
 import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 
@@ -69,6 +69,76 @@ Default.args = {
         }
     }
 };
+
+export const BeverageBundleExample = Template.bind({});
+BeverageBundleExample.args = {
+    products: [
+        {
+            priceDescriptor: " ",
+            productType: "pod",
+            ratingVisible: true,
+            prices: [
+                {
+                    price: 54.36,
+                    inStock: true,
+                    variant: "12"
+                }
+            ],
+            name: "Panera Bread® Best Sellers Bundle",
+            brand: "Panera Bread®",
+            image: "https://images.keurig.com/is/image/keurig/panera-best-sellers-bundle_5000346304_bundle?fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72",
+            rating: {
+                "totalNumberOfStars": 5,
+                "totalNumberOfReviews": 4.3,
+                "ratingNumber": 1092
+            },
+            onClick: () => console.log('Add to Cart clicked'),
+        },
+        {
+            priceDescriptor: " ",
+            productType: "pod",
+            ratingVisible: true,
+            prices: [
+                {
+                    price: 54.36,
+                    inStock: false,
+                    variant: "12"
+                }
+            ],
+            name: "Decaf Best Sellers Bagged Coffee Bundle",
+            brand: brands.gmcr,
+            image: "https://images.keurig.com/is/image/keurig/decaf-best-sellers-bagged-bundle_5000198873_bundle?fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72",
+            rating: {
+                "totalNumberOfStars": 5,
+                "totalNumberOfReviews": 4.3,
+                "ratingNumber": 1092
+            },
+            onClick: () => console.log('Add to Cart clicked'),
+        }
+
+    ],
+    columns: 3,
+    pageSize: 9,
+    columnsHugeScreen : 5,
+    columnsLargeScreen : 4,
+    columnsMediumScreen : 3,
+    columnsSmallScreen : 2,
+    ratingVisible : false,
+    stickyHeader : {
+        navigationRelated : {
+            sizingMode : "liquid-design",
+            loggedIn : false,
+            emailErrorMessage : "Please enter a valid email address",
+            emailSuccessMessage : "Thank you for subscribing!",
+            emailExplanationText : "Sign up for our newsletter to receive updates on new products and promotions.",
+            placeHolderText : "Enter your email address",
+            defaultActiveHoverIndex : -1,
+            submitButtonText : "Subscribe",
+            isNobo : false,
+            navItems : navDemo
+        }
+    }
+}
 
 export const SingleProductExample = Template.bind({});
 SingleProductExample.args = {

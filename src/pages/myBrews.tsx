@@ -51,7 +51,7 @@ export type podVariant = {
   inStock : boolean
 }
 
-export type productTypeT = "brewer" | "pod" | "bagged"
+export type productTypeT = "brewer" | "pod" | "bagged" | "accessory" | "bundle";
 
 export type podItemT = {
   productType : productTypeT,
