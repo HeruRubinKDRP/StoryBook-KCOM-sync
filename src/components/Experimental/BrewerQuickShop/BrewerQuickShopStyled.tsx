@@ -38,7 +38,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   width: 100%;
   max-height: 90vh;
   margin: 0 auto;
-  
+
   
   
   .item-only-option{
@@ -393,7 +393,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     }
   }
 
-  .free-shipping-message{
+  .free-shipping-container{
     display: flex;
     flex-direction: row;
     height: var(--buttonLarge);

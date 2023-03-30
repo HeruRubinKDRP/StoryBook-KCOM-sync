@@ -1,4 +1,5 @@
 import styled, {Interpolation} from "styled-components";
+import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 
 export interface iProductListWrapper {
     columns: number;
@@ -22,10 +23,60 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   
   --ctaButtonHeight : calc(var(--spacingLarge) * 2);
 
+  --colorDarkRoast : ${colorNameToValue("dark-roast")};
+  --colorCTA : ${colorNameToValue("Bold-CTA")};
+
   display: grid;
   grid-template-columns: repeat(var(--columnCount), 1fr);
   grid-template-rows: repeat(var(--rowCount), auto);
-  grid-gap: 2%; 
+  grid-gap: 2%;
+
+  // product card types
+  .brewer{
+    height: 65vh;
+    .product-data-container{
+      padding: 0 16px 0 16px;
+    }
+    .brand{
+      display: none;
+    }
+    .product-name{
+      font-size: var(--spacingHuge);
+      font-weight: 200;
+      color: var(--colorDarkRoast);
+      text-align: center;
+      line-height: var(--spacingHuge);
+    }
+    .price{
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .fine-print{
+        font-weight: 200;
+        font-size: calc(var(--spacingSmall));
+      }
+    }
+    button.k-btn.brewer-cta{
+      padding: var(--spacingHuge) calc(var(--spacingHuge) * 2);
+      background-color: var(--colorCTA) !important;
+      box-shadow: 0 var(--spacingMedium) var(--spacingMedium) 0 rgba(0, 0, 0, 0.25);
+      .filled{
+        fill : var(--colorDarkRoast) !important;
+      }
+      label{
+        color: var(--colorDarkRoast) !important;
+        font-size: calc(var(--spacingHuge));
+      }
+    }
+  }
+
+  .pod{
+    .product-image{
+      
+      height: calc(var(--columnsize) * 0.8);
+      width: calc(var(--columnsize) * 0.8);
+    }
   
   .product-data-container {
     z-index: 1;
@@ -34,45 +85,22 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     flex-direction: column;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 0.2fr 0.1fr 0.1fr 0.1fr;
-    justify-content: flex-start;
+    justify-content: space-between;
     justify-items: center;
     align-content: center;
     height: 100%;
     width: 100%;
     align-items: center;
     margin-bottom: var(--ctaButtonHeight);
-    .k-carousel{
-      height: var(--spacingHuge) !important;
-      background-color: transparent !important;
-      .size{
-        font-size: var(--spacingLarge) !important;
-        display: flex;
-        align-items: center;
-      }
-      .right{
-        right: -1.5rem !important;
-      }
-      .left{
-        left: -1.5rem !important;
-      }
-      .right, .left, .disabled{
-        box-shadow: none !important;
-        border: none !important;
-        backdrop-filter: none !important;
-        background-color: transparent !important;
-        transition: none !important;
-        background-image: none !important;
-        &:hover{
-          
-        }
-      }
+   
+    
+      
     }
+    
     .product-image {
       grid-column: 1 / 1;
       grid-row: 1 / 1;
-      max-width: 100%;
-      height: calc(var(--columnsize) * 0.8);
-      width: calc(var(--columnsize) * 0.8);
+      max-width: 100%; 
       position: relative;
       .image-inner{
         position: absolute;
@@ -134,10 +162,10 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   
   button.k-btn{
     position: relative;
-    bottom: 0;
+    bottom: var(--ctaButtonHeight);
     z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
+    //left: 50%;
+    //transform: translateX(-50%);
     padding: var(--spacingLarge) var(--spacingHuge);
     height: var(--ctaButtonHeight);
     font-size: calc(var(--columnSize) * 0.05);
@@ -145,13 +173,9 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   
 
   .backing {
-    position: absolute;
-    z-index: 0;
-    background-color: white;
-    border-radius: var(--spacingTiny);
+    border-radius: var(--spacingTiny) !important;
     inset: calc(var(--columnsize) * 0.8 * 0.5) 0 calc(var(--ctaButtonHeight) / 2) 0;
-    box-shadow: 0 var(--spacingTiny) var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);
-    //-webkit-mask-image: linear-gradient(to bottom, transparent 4%, black);
+    box-shadow: 0 var(--spacingTiny) var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);    
     mask-image: linear-gradient(to bottom, transparent 4%, black);
     
   }
@@ -178,7 +202,7 @@ export const PaginationButton = styled.button`
 `;
 
 export const OuterMostCLP_Container = styled.div`
-
+  padding: 2%;
   .backing-main {
     background-image: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 100%);
     width: 100%;

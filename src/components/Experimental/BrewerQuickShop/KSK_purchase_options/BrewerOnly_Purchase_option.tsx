@@ -12,6 +12,7 @@ export interface iBrewerOnlyPurchaseOption{
     couponMessage : string;
     couponAppliedMessage : string;
     openExternalLearnMoreFunction : ()=>void;
+    addToCartFunction? : () => void;
 }
 
 export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
@@ -85,7 +86,11 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
             <div className="coupon-area">
                 {getCoupon()}
             </div>
-          <CTA_WithQuantity totalQuantity={4} buttonLabel="Add to Cart" />
+          <CTA_WithQuantity
+              totalQuantity={4}
+              buttonLabel="Add to Cart"
+              addToCartFunction={props.addToCartFunction}
+          />
         </StyledBrewerOnly>
     )
 

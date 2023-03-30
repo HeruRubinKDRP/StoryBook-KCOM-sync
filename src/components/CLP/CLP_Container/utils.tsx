@@ -1,37 +1,13 @@
-import { ProductInfoCardProps } from '../SimpleCard/SimpleCard';
+import { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
 import {podItemT} from "../../../pages/myBrews";
 
-export const generateProducts = (count: number): ProductInfoCardProps[] => {
-    const products: ProductInfoCardProps[] = [];
 
-    for (let i = 0; i < count; i++) {
-        const price = parseFloat((Math.random() * 100).toFixed(2));
-        const name = `Product ${i + 1}`;
-        const brand = `Brand ${i + 1}`;
-        const image = `https://picsum.photos/id/${i + 1}/300/200`;
 
-        products.push({
-            price: price,
-            name: name,
-            brand: brand,
-            image: image,
-            rating :{
-                totalNumberOfStars: 5,
-                totalNumberOfReviews: 0,
-                ratingNumber: 0
-            },
-            onClick: () => console.log(`Add to Cart clicked for ${name}`),
-        });
-    }
-
-    return products;
-};
-
-export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]): ProductInfoCardProps[] => {
-    const products: ProductInfoCardProps[] = [];
+export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]): iProductInfoCardProps[] => {
+    const products: iProductInfoCardProps[] = [];
 
     for (let i = 0; i < podLibrary.length; i++) {
-        const price = podLibrary[i].pricePerPod;
+
         const name = podLibrary[i].podName;
         const brand = podLibrary[i].brand;
         const image = podLibrary[i].productImagePrimaryPath;
@@ -45,9 +21,16 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
         let randomNum = parseFloat( (Math.random() * (max - min) + min).toFixed(1) );
 
 
-
         products.push({
-            price: price,
+            productType: podLibrary[i].productType,
+            ratingVisible: true,
+            prices: podLibrary[i].productPrices.map((price, index) => {
+                return {
+                    price: price,
+                    inStock: true,
+                    variant: podLibrary[i].boxSizes[index].toString()
+                }
+            }),
             name: name,
             brand: brand,
             image: image,
@@ -59,6 +42,8 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
             onClick: () => console.log(`Add to Cart clicked for ${name}`),
         });
     }
+
+    console.log("product example:", products[0]);
 
     return products;
 }

@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import KButton from "../../Kbutton/KButton";
 import {ProductInfoCardWrapper} from "./StyledSimpleCard";
 import {ProductImage} from "../../ProductImage/ProductImage";
 import {Kcarousel} from "../../Carousel/Kcarousel";
 import {Rating} from "../../Rating/Rating";
+import {productTypeT} from "../../../pages/myBrews";
+import {formattedPrice} from "../../_utilities/formatPrice";
+import {isValidEmail} from "../../_utilities/validation/validation";
 
-export interface ProductInfoCardProps {
+
+// Define an interface for the purchase information of a product
+export interface purchaseInfo {
+    price: number;
+    inStock: boolean;
+    variant: string;
+}
+
+export interface iProductInfoCardProps {
+    productType: productTypeT
     image: string;
     brand: string;
     name: string;
-    price: number;
+    prices: purchaseInfo[];
     ratingVisible: boolean;
     rating: {
         totalNumberOfStars: 5 | 10;
@@ -21,52 +33,143 @@ export interface ProductInfoCardProps {
 }
 
 
-const ProductInfoCard: React.FC<ProductInfoCardProps> = ({
-                                                             image,
-                                                             brand,
-                                                             name,
-                                                             price,
-                                                             rating,
-                                                             ratingVisible,
-                                                             onClick,
-                                                         }) => {
-    const formattedPrice = price < 1 ? `${Math.round(price * 100)}¢` : `$${price.toFixed(2)}`;
+const ProductInfoCard = (props: iProductInfoCardProps) => {
+    const [showEmailInput, setShowEmailInput] = useState(false);
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [submitDisabled, setSubmitDisabled] = useState(true);
+
+    const getPriceLabel = () => {
+        switch (props.productType) {
+            case "brewer":
+                return "";
+            case "pod":
+                return "per pod";
+            case "bagged":
+                return "per ounce";
+        }
+    }
+
+    useEffect(() => {
+
+    }, [props.prices]);
+
+// Define a function to check if all products are out of stock
+    const isAllOutOfStock = (products: purchaseInfo[]): boolean => {
+        return products.every(product => !product.inStock);
+    };
+
+
+// Define a function to get the lowest price from an array of products
+    const getLowestPrice = (products: purchaseInfo[]) => {
+        // Filter the products array to keep only those that are in stock
+        const inStockProducts = products.filter(product => product.inStock);
+
+        // Map the filtered array of in-stock products to an array of their prices
+        const inStockPrices = inStockProducts.map(product => product.price);
+
+        // If there are no in-stock products, return -1
+        if (inStockPrices.length === 0) {
+            return -1;
+        }
+
+        // Calculate and return the lowest price from the in-stock prices array
+        return Math.min(...inStockPrices);
+    }
+
+    const actionFunc = () => {
+        if (isAllOutOfStock(props.prices)) {
+            setShowEmailInput(true);
+        } else {
+            props.onClick();
+        }
+    }
 
     return (
-        <ProductInfoCardWrapper>
+        <ProductInfoCardWrapper className={`${props.productType}`}>
             <div className="product-data-container">
-                <div className="product-image">
-                    <img className="image-inner" src={image} alt={`${brand} ${name}`}/>
+                <div className={`product-image ${props.productType}-image`}>
+                    <img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>
                 </div>
-                <div className="price">
-                    <div className="fine-print">
-                        as low as
+                <div className="product-info-container">
+                    <div className="price">
+                        <div className="fine-print">
+                            {isAllOutOfStock(props.prices) ? '' : 'as low as'}
+                        </div>
+                        <div>
+                            {isAllOutOfStock(props.prices) ? 'Out of Stock' : `${formattedPrice(getLowestPrice(props.prices))} ${getPriceLabel()}`   }
+                        </div>
                     </div>
-                    <div>
-                        {formattedPrice} per pod
+                    <div className="brand">{props.brand}</div>
+                    <div className="product-name">{props.name}</div>
+                    <div className="rating-section">
+                        {props.ratingVisible && <Rating
+                            ratingNumber={props.rating.ratingNumber}
+                            scrollToTargetID={""}
+                            totalNumberOfReviews={props.rating.totalNumberOfReviews}
+                            totalNumberOfStars={props.rating.totalNumberOfStars}
+                        />}
                     </div>
-                </div>
-                <div className="brand">{brand}</div>
-                <div className="product-name">{name}</div>
-                <div className="rating-section">
-                    {ratingVisible && <Rating
-                        ratingNumber={rating.ratingNumber}
-                        scrollToTargetID={""}
-                        totalNumberOfReviews={rating.totalNumberOfReviews}
-                        totalNumberOfStars={rating.totalNumberOfStars}
+                    {showEmailInput && (
+                        <div className="email-input-container">
+                            <label htmlFor="email">Enter email address:</label>
+                            <div className="submit">
+                                <input
+                                    className="email-input"
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        if (!isValidEmail(e.target.value)) {
+                                            setEmailError('Enter a valid email address.');
+                                            setSubmitDisabled(true);
+                                        } else {
+                                            setEmailError('');
+                                            setSubmitDisabled(false);
+                                        }
+                                    }}
 
-                    />}
-                    <KButton
-                        transitionType="expand-bg"
-                        classes="cta-main"
-                        buttonWidth="fit-to-content"
-                        label="Buy Now"
-                        iconStandard="icon-add"
-                        iconPlacement="after-label"
-                        buttonType="primary"
-                        actionFunc={onClick}
-                    />
+                                />
+                                <KButton
+                                    transitionType="expand-bg"
+                                    classes={`submit-email ${submitDisabled ? 'disabled' : ''}`}
+                                    buttonWidth="fit-to-content"
+                                    label="Submit"
+                                    iconStandard="none"
+                                    iconPlacement="after-label"
+                                    buttonType="primary"
+                                    actionFunc={() => {
+                                        if (!isValidEmail(email)) {
+                                            setEmailError('Please enter a valid email address.');
+                                            // Add your animation class here
+                                            document.querySelector('.email-error')?.classList.add('error-active');
+                                        } else {
+                                            // Handle the valid email submission here
+                                        }
+                                    }}
+                                />
+                            </div>
+                            {emailError && <div className="email-error">{emailError}</div>}
+                        </div>
+                    )}
                 </div>
+
+                {
+                    !showEmailInput && (
+                        <KButton
+                            transitionType="expand-bg"
+                            classes={`cta-main ${props.productType}-cta`}
+                            buttonWidth="fit-to-content"
+                            label={isAllOutOfStock(props.prices) ? 'Notify Me' : 'Buy Now'}
+                            iconStandard="icon-add"
+                            iconPlacement="after-label"
+                            buttonType="primary"
+                            actionFunc={()=>actionFunc()}
+                        />
+                    )
+                }
+
             </div>
 
             <div className="backing"/>

@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react'
+import React, {ReactElement, useEffect, useState} from 'react'
 import {TabNavStyles} from './tabnavstyle'
 import KButton from "../Kbutton/KButton";
 import Graphic, {iconType} from '../Graphic/Graphic'
@@ -7,21 +7,32 @@ export interface iTabNav {
     TabButtons: string[]
     ContentItems: ReactElement[]
     Title?: string
+    //pass in a function in case you want something
+    getCurrentIndexFunction?: (selectedIndex: number) => void;
+    selectedIndex?: number;
+    shouldUpdateSelectedIndex?: boolean;
 }
 
-/*export interface Igraphics {
-  graphicName: iconType
-  className?: string
-}*/
+
 export const Tabnav = (props: iTabNav) => {
-    const [SelectedIndex, SetSelectedIndex] = useState(0)
+    const [selectedIndex, SetSelectedIndex] = useState<number>(props.selectedIndex ? props.selectedIndex : 0)
     const [ExpandMenuOpened, SetExpandMenuOpened] = useState(false)
+
+    useEffect(() => {
+        if (props.selectedIndex === undefined) {
+            return;
+        }
+        SetSelectedIndex(props.selectedIndex);
+    }, [props.selectedIndex]);
+
+
     const SelectedStateClass = (CurrentIndex: number) => {
-        if (CurrentIndex == SelectedIndex) {
+        if (CurrentIndex == selectedIndex) {
             return 'selected'
         }
         return ''
     }
+
     const createButton = () => {
         const buttons: ReactElement[] = []
         for (let i = 0; i < props.TabButtons.length; i++) {
@@ -35,6 +46,7 @@ export const Tabnav = (props: iTabNav) => {
                     actionFunc={() => {
                         SetSelectedIndex(i)
                         SetExpandMenuOpened(false)
+                        props.getCurrentIndexFunction && props.getCurrentIndexFunction(props.shouldUpdateSelectedIndex ? i+1 : i)
                     }}
 
                 />
@@ -42,10 +54,12 @@ export const Tabnav = (props: iTabNav) => {
         }
         return buttons
     }
+
+
     const createContent = () => {
         const content: ReactElement[] = []
         for (let i = 0; i < props.TabButtons.length; i++) {
-            if (i == SelectedIndex) {
+            if (i == selectedIndex) {
                 content.push(<>{props.ContentItems[i]}</>)
             }
         }
@@ -53,12 +67,14 @@ export const Tabnav = (props: iTabNav) => {
     }
     const navigate = () => {
         let UpdatedSelectedIndex = 0
-        if (SelectedIndex != props.ContentItems.length - 1) {
-            UpdatedSelectedIndex = SelectedIndex + 1
+        if (selectedIndex != props.ContentItems.length - 1) {
+            UpdatedSelectedIndex = selectedIndex + 1
         }
         SetSelectedIndex(UpdatedSelectedIndex)
         SetExpandMenuOpened(false)
+        props.getCurrentIndexFunction && props.getCurrentIndexFunction(UpdatedSelectedIndex)
     }
+
 
     return (
         <TabNavStyles className={'tab-nav-container'}>
@@ -76,7 +92,7 @@ export const Tabnav = (props: iTabNav) => {
                         transitionType="expand-bg"
                         classes={`contents-menu-btn ExpandMenu`}
                         actionFunc={() => SetExpandMenuOpened(!ExpandMenuOpened)}
-                        label={props.TabButtons[SelectedIndex]}
+                        label={props.TabButtons[selectedIndex]}
                         iconPlacement="before-label"
                         iconStandard={ExpandMenuOpened ? 'chevron-down' : 'chevron-up'}
                     />

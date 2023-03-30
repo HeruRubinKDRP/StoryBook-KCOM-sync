@@ -51,7 +51,10 @@ export type podVariant = {
   inStock : boolean
 }
 
+export type productTypeT = "brewer" | "pod" | "bagged"
+
 export type podItemT = {
+  productType : productTypeT,
   podName : string;
   podId : number;
   brand : string;
@@ -157,6 +160,7 @@ export const filtersList = [
 export const podLibrary : podItemT[] = [
   {
     podId : 0,
+    productType : "pod",
     pricePerPod : 0.76,
     subscribed : {
       SMART:{
@@ -212,6 +216,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 1,
+    productType : "pod",
     pricePerPod : 0.73,
     podName : "Dark Magic® Coffee",
     brand : brands.gmcr,
@@ -266,6 +271,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 2,
+    productType : "pod",
     podName : "Nantucket Blend® Coffee",
     productPrices : [10.49, 17.99, 49.99, 53.96],
     boxSizes : [12, 24, 72, 96],
@@ -320,6 +326,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 3,
+    productType : "pod",
     podName : "Caramel Vanilla Cream Coffee",
     productPrices : [10.49, 16.99, 53.97, 71.96],
     boxSizes : [12, 24, 72, 96],
@@ -374,6 +381,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 4,
+    productType : "pod",
     podName : "Original Blend Coffee",
     productPrices : [19.49, 38.98, 58.47, 67.86],
     boxSizes : [22, 44, 66, 88],
@@ -428,6 +436,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 5,
+    productType : "pod",
     podName : "The Original Donut Shop® Coffee",
     productPrices : [10.49, 17.49, 49.99, 53.96],
     boxSizes : [12, 24, 72, 96],
@@ -482,6 +491,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 6,
+    productType : "pod",
     podName : "Pike Place® Roast Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],
     boxSizes : [12, 24, 72, 96],
@@ -529,6 +539,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 7,
+    productType : "pod",
     podName : "Sumatra Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],
     boxSizes : [12, 24, 72, 96],
@@ -583,6 +594,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 8,
+    productType : "pod",
     podName : "Half-Caff Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],
     boxSizes : [12, 24, 72, 96],
@@ -638,6 +650,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 9,
+    productType : "pod",
     pricePerPod : 0.78,
     podName : "Major Dickason's Blend® Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],
@@ -692,6 +705,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 10,
+    productType : "pod",
     pricePerPod : 0.86,
     podName : "French Roast Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],
@@ -746,6 +760,7 @@ export const podLibrary : podItemT[] = [
   },
   {
     podId : 11,
+    productType : "pod",
     pricePerPod : 0.67,
     podName : "Breakfast Blend Decaf Coffee",
     productPrices : [9.99, 19.99, 29.99, 39.99],

@@ -12,13 +12,17 @@ export interface iPopUp{
   hasHeader : boolean;
   closeFunc? : Function;
   hasBackButton? : boolean;
+  backButtonFunc? : Function;
   appendTo? : string;
   classes? : string;
+  // if it's auto just fit its contents
+  //if it's full-screen then it'll use 90% of the screen
+  sizeMode? : "auto" | "full-screen";
 }
 
 
 export const PopUp=(props:iPopUp)=>{
-  const [isPopUpVisible, setIsPopUpVisible] = useState(props.isOpen)
+  const [isPopUpVisible, setIsPopUpVisible] = useState(props.isOpen);
   const { width, height, ref } = useResizeDetector();
 
   useEffect(()=>{
@@ -36,6 +40,7 @@ export const PopUp=(props:iPopUp)=>{
         headerText={props.windowTitle}
         hasCloseButton={true}
         hasBackButton={props.hasBackButton ? props.hasBackButton : false}
+        backButtonFunc={props.backButtonFunc}
       />
     }else{
       return <PanelHeader

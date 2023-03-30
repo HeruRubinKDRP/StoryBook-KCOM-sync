@@ -44,6 +44,9 @@ export interface iBrewerQuickShop{
         totalNumberOfReviews : number;
         totalNumberOfStars : 5 | 10;
     }
+
+    closeFunc? : () => void;
+    addToCartFunction? : () => void;
 }
 
 export const BrewerQuickShop = (props:iBrewerQuickShop) => {
@@ -131,6 +134,7 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
                     iconPlacement="right-edge"
                     iconStandard="close"
                     label=""
+                    actionFunc={props.closeFunc}
                 />
 
                 <Kcarousel
@@ -160,10 +164,12 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
                             flagLabel : props.mainFlagLabel
                         }}
                     />
-                    <ColorPicker
-                        showProductColors={true}
-                        colorVariants={props.colorVariants}
-                    />
+                    {
+                        props.colorVariants.length > 0 ? <ColorPicker
+                            showProductColors={true}
+                            colorVariants={props.colorVariants}
+                        /> : <></>
+                    }
 
                     <div className="purchase-options">
                         {props.hasKSK ? <KSKPurchaseOption/> : <></>}
@@ -172,18 +178,16 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
                             hasCoupon={props.hasCoupon}
                             couponMessage={props.couponMessage}
                             openExternalLearnMoreFunction={()=>setLearnMoreOpen(true)}
+                            addToCartFunction={props.addToCartFunction ? props.addToCartFunction : ()=>{}}
                         />
                     </div>
-                    <div className="free-shipping-message">
-                        <Graphic graphicName="free-shipping-truck" />
-                        {props.freeShippingMessage}
-                    </div>
+                    {props.hasFreeShipping ?
+                        <div className="free-shipping-container">
+                            <Graphic graphicName="free-shipping-truck" />
+                            <span>{props.freeShippingMessage}</span>
+                        </div> : <></>}
                 </div>
-                {props.hasFreeShipping ?
-                    <div className="free-shipping-container">
-                        <Graphic graphicName="free-shipping-truck" />
-                        <span>{props.freeShippingMessage}</span>
-                    </div> : <></>}
+
             </BrewerQuickShopStyled>
         </ModalStyled>
     )

@@ -7,6 +7,7 @@ export interface iCTA_withQuantity {
     totalQuantity: number;
     buttonLabel: string;
     actionFunc?: Function;
+    addToCartFunction?: Function;
 }
 
 export const getNumericalSequenceSelectionsForDropDown = (totalQuantity : number) => {
@@ -43,7 +44,7 @@ export const CTA_WithQuantity = (props: iCTA_withQuantity) => {
                     buttonWidth="fit-width"
                     classes="action"
                     transitionType="expand-bg"
-                    actionFunc={props.actionFunc}
+                    actionFunc={props.addToCartFunction}
                 />
             </div>
         </Styled_CTA_withQuantity>

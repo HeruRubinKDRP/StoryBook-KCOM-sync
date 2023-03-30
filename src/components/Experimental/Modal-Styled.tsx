@@ -4,6 +4,16 @@ export const ModalStyled = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
+  top: 0;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: grayscale(1) blur(3px);
+  .add-to-cart-journey-small{
+    top: 0;
+  }
+  .brewer-quickshop-container{
+    top: 20%;
+  }
   .pacifier{
     width: 100%;
     height: 100%;

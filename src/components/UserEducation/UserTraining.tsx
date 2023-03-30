@@ -41,6 +41,13 @@ export const UserTraining = (props: iUserTraining) => {
         }
     })
 
+    const [popUpIsOpen, setPopUpIsOpen] = useState(false);
+
+    // this is to track what the index is inside the Tabnav, assuming starts at zero
+    const [currentIndex, setCurrentIndex] = useState(0);
+    // this is to manage externally modifying the tab control's index
+    const [externalIndex, setExternalIndex] = useState(0);
+
     const [isPlaying, setIsPlaying] = useState(true)
     const [isMuted, setIsMuted] = useState(true)
     const manageIsPlaying =()=>{
@@ -95,25 +102,59 @@ export const UserTraining = (props: iUserTraining) => {
         return ListOfElements
     }
 
+    const manageBackButton = () => {
+        console.log("externalIndex in backbutton:", externalIndex);
+        if (currentIndex === 0) {
+            return;
+        }
+        setCurrentIndex(currentIndex - 1);
+    };
+
+
+    useEffect(() => {
+        if (currentIndex === 0) {
+            return;
+        }
+        setExternalIndex(currentIndex - 1);
+    }, [currentIndex]);
+
+
+
+
+    const manageCurrentTabIndex = (selectedIndex : number) => {
+        setCurrentIndex(selectedIndex);
+    }
+
+    useEffect(() => {
+        console.log("externalIndex changed:", externalIndex);
+    }, [externalIndex]);
 
     return (
         <PopUp
             hasBackButton={true}
+            backButtonFunc={manageBackButton}
             isOpen={true}
             hasHeader={true}
             windowTitle=""
             classes={`white-bg modal-${getContainerQuery(width)}`}
             hasVeil={false}
+
         >
             <UserTrainingStyled
                 className={`user-training-overall-container ${getContainerQuery(viewportWidth)}`}
                 ref={ref}
             >
                 <Tabnav
+                    shouldUpdateSelectedIndex={true}
+                    selectedIndex={externalIndex}
+                    getCurrentIndexFunction={manageCurrentTabIndex}
                     Title={props.Title}
-                    ContentItems={CreateContentElements( viewportWidth !== undefined && viewportWidth > 768)}
+                    ContentItems={CreateContentElements(viewportWidth !== undefined && viewportWidth > 768)}
                     TabButtons={props.content.TabButtons}
                 />
+
+
+
             </UserTrainingStyled>
         </PopUp>
     )

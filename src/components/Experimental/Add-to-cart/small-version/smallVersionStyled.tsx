@@ -55,6 +55,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   --boxShadowLarge: 0 calc(var(--button-size) * 0.12) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
   --boxShadowHuge: 0 calc(var(--button-size) * 0.36) calc(var(--button-size) * 0.22) calc(var(--button-size) * 0.053) rgba(0,0,0,0.25);
 
+  top: 0;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -409,9 +410,14 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
   .suggested-products{ 
     
+    @keyframes fadeInCards {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    
     .product-image{
       opacity: 0;
-      animation: fadeIn 0.5s ease-in-out forwards;
+      animation: fadeInCards 0.5s ease-in-out forwards;
       &.step2{
         animation-delay: 0.2s;
       }

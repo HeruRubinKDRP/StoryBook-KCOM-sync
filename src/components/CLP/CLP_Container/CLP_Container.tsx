@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import ProductInfoCard, { ProductInfoCardProps } from '../SimpleCard/SimpleCard';
+import ProductInfoCard, { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
 import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./Styled_CLP_container";
 import {useResizeDetector} from "react-resize-detector";
+import {BrewerQuickShop} from "../../Experimental/BrewerQuickShop/BrewerQuickShop";
+import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
+import {simplifiedPodItems} from "../../Experimental/Add-to-cart/AddToCartDemo";
+import {podLibrary} from "../../../pages/myBrews";
+import {iStickyHeader, StickyHeader} from "../../Sticky Header/StickyHeader";
+import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
+import KButton from "../../Kbutton/KButton";
 export interface ProductListProps {
-    products: ProductInfoCardProps[];
+    products: iProductInfoCardProps[];
     ratingVisible: boolean;
     columns?: number;
     promotionalContent?: React.ReactNode;
@@ -13,6 +20,7 @@ export interface ProductListProps {
     columnsLargeScreen : number;
     columnsMediumScreen : number;
     columnsSmallScreen : number;
+    stickyHeader: iStickyHeader;
 }
 
 
@@ -22,6 +30,67 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     const [rows, setRows] = useState(0);
 
     const [currentColumns, setCurrentColumns] = useState(0);
+
+    const [quickShopOpen, setQuickShopOpen] = useState(false);
+    const [snackBarOpen, setSnackBarOpen] = useState(false);
+    // TODO refactor to be generic not selected pod but selected product
+    const [selectedPod, setSelectedPod] = useState<number | 0>(0);
+
+
+    const manageQuickShop = (open: boolean, index : number) => {
+        setSelectedPod(index);
+        setSnackBarOpen(false);
+        setQuickShopOpen(open);
+    }
+
+    const manageAddToCart = () => {
+        setQuickShopOpen(false);
+        setSnackBarOpen(true);
+    }
+
+    const getModal = (open : boolean ) => {
+        if(open){
+            return <BrewerQuickShop
+                closeFunc={()=>setQuickShopOpen(false)}
+                productName={props.products[selectedPod].name}
+                productNameExtended={props.products[selectedPod].name}
+                hasKSK={true}
+                hasCoupon={true}
+                couponMessage={""}
+                couponAppliedMessage={""}
+                learnMoreMessaging={""}
+                addToCartFunction={()=>manageAddToCart()}
+                carousel={
+                    {
+                    slideImageURLs : [
+                        {
+                            path : props.products[selectedPod].image,
+                            altText : "",
+                            linkTo : ""
+                        }
+                    ]}
+                    }
+                maxQuantityAllowed={5}
+                colorVariants={[
+
+                ]}
+
+                mainFlagColor="KSK"
+                mainFlagLabel="KSK"
+                KSK_BannerMessage="KSK"
+                portalTarget="root"
+                hasFreeShipping={true}
+                freeShippingMessage="Ships for free"
+                starRating={{
+                    ratingNumber : 4,
+                    totalNumberOfReviews : 20,
+                    totalNumberOfStars : 5
+                }}
+
+            />
+        }
+
+    }
 
     const {width, height, ref } = useResizeDetector({
         refreshMode: 'debounce',
@@ -83,21 +152,79 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
         return `--overallWidth : ${widthX}px;`
     }
 
+    const manageContinueShopping = () => {
+        setQuickShopOpen(false);
+        setSnackBarOpen(false);
+    }
+
+    const manageAddSuggestionToCart = (productID : number) => {
+        setSelectedPod(productID);
+        setSnackBarOpen(false);
+        setQuickShopOpen(true);
+    }
+
+    const getSnackBar= (open : boolean) => {
+        if (open) {
+            return(
+                <AddToCartJourneySmall
+                    selectedProduct={props.products[selectedPod]}
+                    suggestedProducts={simplifiedPodItems(podLibrary.slice(0, 3))}
+                    numberOfSuggestions={3}
+                    currentCartTotal={3}
+                    freeShippingTarget={35}
+                    closeFunc={()=>manageContinueShopping()}
+                    addSuggestionToCartFunc={manageAddSuggestionToCart}
+                />
+            )
+        }
+        return <></>
+    }
+
     return (
-        <div style={{padding : "2%"}}>
+        <div >
+            <StickyHeader navigationRelated={{
+                sizingMode: props.stickyHeader.navigationRelated.sizingMode,
+                loggedIn: props.stickyHeader.navigationRelated.loggedIn,
+                emailErrorMessage: props.stickyHeader.navigationRelated.emailErrorMessage,
+                emailSuccessMessage: props.stickyHeader.navigationRelated.emailSuccessMessage,
+                emailExplanationText: props.stickyHeader.navigationRelated.emailExplanationText,
+                placeHolderText: props.stickyHeader.navigationRelated.placeHolderText,
+                defaultActiveHoverIndex: -1,
+                submitButtonText: props.stickyHeader.navigationRelated.submitButtonText,
+                isNobo: props.stickyHeader.navigationRelated.isNobo,
+                navItems: props.stickyHeader.navigationRelated.navItems
+            }}>
+                <div className="purchase-options-container">
+                    <KButton
+                        label="Filters"
+                        buttonType="primary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="chevron-down"
+                        transitionType="expand-bg"
+                    />
+                </div>
+
+            </StickyHeader>
+            {getModal(quickShopOpen)}
+            {getSnackBar(snackBarOpen)}
             <OuterMostCLP_Container ref={ref} >
                 {props.promotionalContent && <div>{props.promotionalContent}</div>}
                 <ProductListWrapper dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1} rows={rows}>
                     {visibleProducts.map((product, index) => (
                         <ProductInfoCard
-                            key={index} {...product}
+                            key={index}
+                            prices={product.prices}
+                            image={product.image}
+                            brand={product.brand}
+                            name={product.name}
+                            productType={product.productType}
                             ratingVisible={props.ratingVisible}
                             rating={{
                                 totalNumberOfStars : 5,
                                 totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,
                                 ratingNumber: product.rating.ratingNumber || 4.6,
-
-                            }} onClick={()=>{console.log(index)}} />
+                            }} onClick={()=>manageQuickShop(true, index)} />
                     ))}
                 </ProductListWrapper>
                 {totalPages > 1 && (

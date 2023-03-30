@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const PopUpStyled = styled.div`
+export interface iPopUpStyled {
+    width?: string;
+    height?: string;
+    sizeMode? : "auto" | "full-screen";
+}
+
+export const PopUpStyled = styled.div<iPopUpStyled>`
 
   position: fixed;
   inset: 5%;
@@ -9,15 +15,16 @@ export const PopUpStyled = styled.div`
   box-shadow: -1px 8px 14px rgb(0 0 0 / 25%);
   border-radius: 1vw;
 
-  &.modal-large-dimensions {
-
-    // 90% to account for 5% offset on each side
-    height: 90%;
-    width: 90%;
+  --pop-up-width: ${props => props.sizeMode === "full-screen" ? "90%" : "auto"};
+  
+  &.modal-large-dimensions { 
+    // 90% to account for 5% offset on each side 
+    // or auto depending on component sizeMode prop
+    height: var(--pop-up-width);
+    width: var(--pop-up-width);
   }
 
-  &.modal-medium-dimensions {
-   
+  &.modal-medium-dimensions { 
     height: 90%;
     width: 90%;
     transform: none;
