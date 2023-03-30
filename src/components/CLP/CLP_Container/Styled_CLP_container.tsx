@@ -71,7 +71,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     }
   }
 
-  .pod{
+  .simple-card{
     .product-image{
       
       height: calc(var(--columnsize) * 0.8);

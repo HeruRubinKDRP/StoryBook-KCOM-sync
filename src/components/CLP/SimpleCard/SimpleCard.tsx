@@ -49,7 +49,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
             case "bagged":
                 return "per ounce";
             case "bundle":
-            return " ";
+                return "";
         }
     }
 
@@ -89,7 +89,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
     }
 
     return (
-        <ProductInfoCardWrapper className={`${props.productType}`}>
+        <ProductInfoCardWrapper className={`${props.productType} simple-card`}>
             <div className="product-data-container">
                 <div className={`product-image ${props.productType}-image`}>
                     <img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>

@@ -75,7 +75,7 @@ BeverageBundleExample.args = {
     products: [
         {
             priceDescriptor: " ",
-            productType: "pod",
+            productType: "bundle",
             ratingVisible: true,
             prices: [
                 {
