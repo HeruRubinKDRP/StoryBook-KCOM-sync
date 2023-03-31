@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import KButton, {Ibutton} from "../KButton";
+import KButton, {iButton} from "../KButton";
 
 export interface iScrollToTopButtonProps {
-    buttonProps : Ibutton
+    buttonProps : iButton
     scrollToPosition : number;
     scrollDuration : number;
 }

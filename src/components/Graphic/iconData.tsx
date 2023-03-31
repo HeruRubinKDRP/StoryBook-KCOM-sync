@@ -71,7 +71,15 @@ export const iconsList: iconType[] = [
     "icon-present",
     "free-shipping-truck",
     "info-icon",
+    "icon-backup-product",
+    "icon_Edit_delivery",
+    "icon-pause-item",
+    "icon-swap-item",
+    "icon-order-details",
     "icon-volume-off",
     "icon-volume-on",
-    "icon-expand"
+    "icon-expand",
+    "remove-icon",
+    "icon-AD-Delivery",
+    "icon-product-canceled-OOO"
 ]

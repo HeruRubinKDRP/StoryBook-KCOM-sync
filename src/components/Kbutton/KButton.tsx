@@ -15,12 +15,13 @@ export type buttonType =
   "link-external" |
   "round-no-label" |
   "ecommerce-primary" |
-  "ecommerce-secondary"
+  "ecommerce-secondary" |
+    "ecommerce-secondary-2-lines"
   ;
 
 export type btnTransitionType = "rise" | "scale-up" | "none" | "expand-bg";
 
-export interface Ibutton{
+export interface iButton {
   classes? : string;
   label : string;
   secondaryLabel? : string;
@@ -50,7 +51,7 @@ export interface Ibutton{
 export type caratPositionT = "none" | "top" | "bottom" | "left" | "right"
 
 
-export function KButton(props:Ibutton){
+export function KButton(props:iButton){
 
   const [typeOfButton, setTypeofBtn] = useState(props.buttonType);
   //const [hoverAnimationType, setHoverAnimation] = useState(props.transitionType);
@@ -170,6 +171,25 @@ export function KButton(props:Ibutton){
       btnHeight = btnWidthCheck();
       btnWidth = btnWidthCheck();
       break;
+
+    case "ecommerce-secondary":
+      iconColor = KColors.darkRoast.hex;
+      fontColor = KColors.darkRoast.hex;
+      if (props.fontColorOverride) {
+        iconColor = props.fontColorOverride;
+        fontColor = props.fontColorOverride;
+      }
+      break;
+    case "ecommerce-secondary-2-lines":
+      bgColor = KColors.white.hex;
+      iconColor = KColors.darkRoast.hex;
+      fontColor = KColors.darkRoast.hex;
+      if (props.fontColorOverride) {
+        iconColor = props.fontColorOverride;
+        fontColor = props.fontColorOverride;
+      }
+      break;
+
     default:
   }
 

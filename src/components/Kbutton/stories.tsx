@@ -2,7 +2,7 @@ import {Story, Meta} from "@storybook/react/types-6-0"
 import React from "react"
 
 import {iconsList} from "../Graphic/iconData";
-import {KButton, Ibutton} from "./KButton";
+import {KButton, iButton} from "./KButton";
 
 
 export default {
@@ -23,15 +23,18 @@ export default {
       description: 'sdsdsd',
       options:
         [
-          "primary",
-          "primary-light",
-          "secondary",
-          "text-only",
-          "text-icon-noBG",
-          "action",
-          "link-internal",
-          "link-external",
-          "round-no-label"
+          "primary" ,
+          "primary-light" ,
+          "primary-cart-action" ,
+          "secondary" ,
+          "action" ,
+          "text-icon-noBG" ,
+          "link-internal" ,
+          "link-external" ,
+          "round-no-label" ,
+          "ecommerce-primary" ,
+          "ecommerce-secondary" ,
+          "ecommerce-secondary-2-lines"
         ]
     },
     iconPlacement: {
@@ -54,7 +57,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<Ibutton> = (args) => <div style={{padding: "4rem"}}><KButton {...args} /></div>
+const Template: Story<iButton> = (args) => <div style={{padding: "4rem"}}><KButton {...args} /></div>
 
 export const SandBoxButton = Template.bind({});
 SandBoxButton.args ={
