@@ -87,7 +87,8 @@ export type iconType =
     "icon-expand" |
     "closed-captioning-icon" |
     "closed-captioning-off-icon" |
-    "replay-icon"
+    "replay-icon" |
+    "icon-search"
     ;
 
 
@@ -108,6 +109,16 @@ export function Graphic(props: Igraphics) {
 
 
     switch (props.graphicName) {
+
+        case "icon-search":
+            graphicData = (
+
+                <svg viewBox="0 0 29 29" x="0px"  y="0px" width="100%" height="100%">
+                    <path id="path-1" className="filled"
+                          d="m28.54,26.05l-7.16-7.13c-.08-.08-.17-.15-.28-.21,3.47-5.02,2.41-11.86-2.43-15.6C13.84-.62,6.91.06,2.9,4.66c-4.02,4.6-3.73,11.52.66,15.77,4.39,4.25,11.34,4.35,15.85.23.03.04.07.08.11.12l7.16,7.13c.33.33.82.46,1.27.34s.81-.47.93-.93c.12-.45,0-.94-.34-1.27h0Zm-16.92-4.99c-4.91,0-8.88-3.96-8.88-8.85S6.72,3.37,11.62,3.37s8.88,3.96,8.88,8.85c0,4.88-3.98,8.84-8.88,8.85h0Z"/>
+                </svg>
+            )
+        break;
 
         case "replay-icon":
             graphicData = (

@@ -1,5 +1,6 @@
 import styled, {CSSObject, Interpolation} from "styled-components";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
+import {containerQueryBasedVariables} from "../../CLP/reusable-css-variables-CLP";
 
 export interface iBrewerQuickShopStyled {
     overallWidth: number;
@@ -9,19 +10,20 @@ export interface iBrewerQuickShopStyled {
 
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   ${props => props.calculatedOverallWidthVar}
-  --buttonHuge: calc(var(--overallWidth) * 0.06 + 16px);
-  --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
-  --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
-  --buttonSmall: calc(var(--overallWidth) * 0.025 + 8px);
-
-  --FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
-  --FontSizeMedium: calc(var(--overallWidth) * 0.0075 + 10px);
-  --FontSizeSmall: calc(var(--overallWidth) * 0.006 + 8px);
-
-  --spacingLarge: calc(var(--overallWidth) * 0.05 + 12px);
-  --spacingMedium: calc(var(--overallWidth) * 0.025 + 5px);
-  --spacingSmall: calc(var(--overallWidth) * 0.015 + 4px);
-  --spacingTiny: calc(var(--overallWidth) * 0.003 + 2px);
+  ${containerQueryBasedVariables};
+  //--buttonHuge: calc(var(--overallWidth) * 0.06 + 16px);
+  //--buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
+  //--buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
+  //--buttonSmall: calc(var(--overallWidth) * 0.025 + 8px);
+  //
+  //--FontSizeLarge: calc(var(--overallWidth) * 0.02 + 14px);
+  //--FontSizeMedium: calc(var(--overallWidth) * 0.0075 + 12px);
+  //--FontSizeSmall: calc(var(--overallWidth) * 0.006 + 10px);
+  //
+  //--spacingLarge: calc(var(--overallWidth) * 0.05 + 12px);
+  //--spacingMedium: calc(var(--overallWidth) * 0.025 + 5px);
+  //--spacingSmall: calc(var(--overallWidth) * 0.015 + 4px);
+  //--spacingTiny: calc(var(--overallWidth) * 0.003 + 2px);
 
 
   border-radius: var(--spacingTiny);
@@ -38,8 +40,6 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   width: 100%;
   max-height: 90vh;
   margin: 0 auto;
-
-  
   
   .item-only-option{
     border: 0;
@@ -70,8 +70,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       max-width: calc(var(--overallWidth) * 0.95);
       .nav-container {
         .right, .left {
-          width: var(--buttonHuge) !important;
-          height: var(--buttonHuge) !important;
+          width: var(--spacingHuge) !important;
+          height: var(--spacingHuge) !important;
         }
       }
     }
@@ -87,9 +87,6 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       .nav-dots-container {
         display: none;
       }
-
-
-
       .slides-container {
         position: absolute;
         inset: 0;
@@ -118,8 +115,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
       .nav-container {
         .right, .left {
-          width: var(--buttonHuge);
-          height: var(--buttonHuge);
+          width: var(--spacingHuge);
+          height: var(--spacingHuge);
         }
       }
 
@@ -135,11 +132,11 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   .close-btn {
     position: absolute;
-    right: var(--spacingSmall);
+    right: var(--spacingMedium);
     top: var(--spacingTiny);
-    padding: var(--spacingTiny) 0 !important;
-    height: var(--buttonSmall) !important;
-    width: var(--buttonSmall) !important;
+    padding: 0 !important;
+    height: var(--spacingHuge) !important;
+    width: var(--spacingHuge) !important;
     .close {
       width: 100% !important;
       height: 100% !important;
@@ -317,10 +314,10 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         padding: 0;
       }
       .nav-item {
-        min-width: var(--buttonLarge) !important;
-        min-height: var(--buttonLarge) !important;
-        height: var(--buttonLarge);
-        width: var(--buttonLarge);
+        min-width: var(--spacingLarge) !important;
+        min-height: var(--spacingLarge) !important;
+        height: var(--spacingLarge);
+        width: var(--spacingLarge);
         border: 1px solid var(--colorMedGrey);
         margin: 0;
       }
@@ -328,8 +325,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
     .nav-container {
       .right, .left {
-        width: var(--buttonLarge) !important;
-        height: var(--buttonLarge) !important;
+        width: var(--spacingLarge) !important;
+        height: var(--spacingLarge) !important;
         margin: 0;
         padding: var(--spacingSmall) !important;
         background-image: none !important;
@@ -337,8 +334,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
         border-radius: 100vw !important;
         &:hover{
-          width: calc(var(--buttonLarge) * 1.25) !important;
-          height: calc(var(--buttonLarge) * 1.25) !important;
+          width: calc(var(--spacingLarge) * 1.25) !important;
+          height: calc(var(--spacingLarge) * 1.25) !important;
         }
         .icon {
           width: 100% !important;
@@ -387,8 +384,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   .color-options {
     .color-dot {
-      height: var(--buttonMedium) !important;
-      width: var(--buttonMedium) !important;
+      height: var(--spacingMedium) !important;
+      width: var(--spacingMedium) !important;
       margin-right: var(--spacingSmall) !important;
     }
   }
@@ -396,7 +393,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   .free-shipping-container{
     display: flex;
     flex-direction: row;
-    height: var(--buttonLarge);
+    height: var(--spacingLarge);
     font-size: var(--FontSizeSmall);
     padding: var(--spacingMedium) 0 0 0;
     gap: var(--spacingTiny);
@@ -404,8 +401,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     width: 100%;
     justify-content: center;
     .icon{
-      height: var(--buttonLarge);
-      width: var(--buttonLarge);
+      height: var(--spacingLarge);
+      width: var(--spacingLarge);
 
     }
   }

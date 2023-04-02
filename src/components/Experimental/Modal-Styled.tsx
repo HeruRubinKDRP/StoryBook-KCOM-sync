@@ -12,7 +12,14 @@ export const ModalStyled = styled.div`
     top: 0;
   }
   .brewer-quickshop-container{
-    top: 20%;
+     top: 50%;
+    transform: translateY(-50%);
+  }
+  .beverage-quickshop-container{
+    transform: translateY(-50%);
+    top: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .pacifier{
     width: 100%;

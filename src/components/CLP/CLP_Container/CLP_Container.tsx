@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import ProductInfoCard, { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
 import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./Styled_CLP_container";
 import {useResizeDetector} from "react-resize-detector";
-import {BrewerQuickShop} from "../../Experimental/BrewerQuickShop/BrewerQuickShop";
+
+const BrewerQuickShop = lazy(() => import('../../Experimental/BrewerQuickShop/BrewerQuickShop'));
+//import {BrewerQuickShop} from "../../Experimental/BrewerQuickShop/BrewerQuickShop";
 import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
 import {simplifiedPodItems} from "../../Experimental/Add-to-cart/AddToCartDemo";
 import {podLibrary} from "../../../pages/myBrews";
 import {iStickyHeader, StickyHeader} from "../../Sticky Header/StickyHeader";
 import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import KButton from "../../Kbutton/KButton";
+import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/container-queries";
+import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
 export interface ProductListProps {
     products: iProductInfoCardProps[];
     ratingVisible: boolean;
@@ -27,9 +31,8 @@ export interface ProductListProps {
 const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
-    const [rows, setRows] = useState(0);
-
-    const [currentColumns, setCurrentColumns] = useState(0);
+    const [rows, setRows] = useState(1);
+    const [currentColumns, setCurrentColumns] = useState(1);
 
     const [quickShopOpen, setQuickShopOpen] = useState(false);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
@@ -44,50 +47,79 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     }
 
     const manageAddToCart = () => {
+        console.log("clicked add to cart");
         setQuickShopOpen(false);
         setSnackBarOpen(true);
     }
 
     const getModal = (open : boolean ) => {
         if(open){
-            return <BrewerQuickShop
-                closeFunc={()=>setQuickShopOpen(false)}
-                productName={props.products[selectedPod].name}
-                productNameExtended={props.products[selectedPod].name}
-                hasKSK={true}
-                hasCoupon={true}
-                couponMessage={""}
-                couponAppliedMessage={""}
-                learnMoreMessaging={""}
-                addToCartFunction={()=>manageAddToCart()}
-                carousel={
-                    {
-                    slideImageURLs : [
-                        {
-                            path : props.products[selectedPod].image,
-                            altText : "",
-                            linkTo : ""
-                        }
-                    ]}
-                    }
-                maxQuantityAllowed={5}
-                colorVariants={[
 
-                ]}
+            switch(props.products[selectedPod].productType){
+                case "pod":
+                    return (
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <button className="zzz" onClick={()=>manageAddToCart()} />
+                            <BeverageQuickShop
+                                productName={props.products[selectedPod].name}
+                                brand={props.products[selectedPod].name}
+                                productImageURL={props.products[selectedPod].image}
+                                productPrices={props.products[selectedPod].prices.map((price, index) => {return price.price})}
+                                boxSizes={ props.products[selectedPod].prices.map((price, index) => {return Number(price.variant) }) }
+                                isSmartEligible={true}
+                                edlpOffer={""}
+                                subscriptionVisible={true}
+                                closeFunction={()=>setQuickShopOpen(false)}
+                                addToCartFunction={()=>manageAddToCart()}
+                            />
+                        </Suspense>
+                    )
 
-                mainFlagColor="KSK"
-                mainFlagLabel="KSK"
-                KSK_BannerMessage="KSK"
-                portalTarget="root"
-                hasFreeShipping={true}
-                freeShippingMessage="Ships for free"
-                starRating={{
-                    ratingNumber : 4,
-                    totalNumberOfReviews : 20,
-                    totalNumberOfStars : 5
-                }}
+                case "brewer":
+                    return (
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <BrewerQuickShop
+                                closeFunc={()=>setQuickShopOpen(false)}
+                                productName={props.products[selectedPod].name}
+                                productNameExtended={props.products[selectedPod].name}
+                                hasKSK={true}
+                                hasCoupon={true}
+                                couponMessage={""}
+                                couponAppliedMessage={""}
+                                learnMoreMessaging={""}
+                                addToCartFunction={()=>manageAddToCart()}
+                                carousel={
+                                    {
+                                        slideImageURLs : [
+                                            {
+                                                path : props.products[selectedPod].image,
+                                                altText : "",
+                                                linkTo : ""
+                                            }
+                                        ]}
+                                }
+                                maxQuantityAllowed={5}
+                                colorVariants={[
 
-            />
+                                ]}
+
+                                mainFlagColor="KSK"
+                                mainFlagLabel="KSK"
+                                KSK_BannerMessage="KSK"
+                                portalTarget="root"
+                                hasFreeShipping={true}
+                                freeShippingMessage="Ships for free"
+                                starRating={{
+                                    ratingNumber : 4,
+                                    totalNumberOfReviews : 20,
+                                    totalNumberOfStars : 5
+                                }}
+
+                            />
+                        </Suspense>
+                    )
+            }
+
         }
 
     }
@@ -208,9 +240,10 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
             </StickyHeader>
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}
-            <OuterMostCLP_Container ref={ref} >
+            <OuterMostCLP_Container ref={ref} className={``} >
                 {props.promotionalContent && <div>{props.promotionalContent}</div>}
-                <ProductListWrapper dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1} rows={rows}>
+                <ProductListWrapper
+                    dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1} rows={rows}>
                     {visibleProducts.map((product, index) => (
                         <ProductInfoCard
                             key={index}
@@ -221,6 +254,7 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                             name={product.name}
                             productType={product.productType}
                             ratingVisible={props.ratingVisible}
+                            classes={`${getContainerQuery(width)} in-clp`}
                             rating={{
                                 totalNumberOfStars : 5,
                                 totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,

@@ -5,27 +5,41 @@ export const SearchStyled = styled.div`
   border-radius: 20px;
   background-color: white;
   display: flex;
-
-  /* Animation for the active, hover, and focus states */
-  transition: all 0.2s;
-  &:hover, &:focus, &.active {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  align-items: center;
+  flex:1;
+ 
 
   /* Styling for the text input to add padding and place the icon */
+  .search-input-area{
+    position: relative;
+    width: 100%;
+    .icon.icon-search{
+      position: absolute;
+      height: 100%;
+      width: 1.5rem;
+      top: 0;
+      left: 1rem;
+    }
+  }
   .search-input{
-    padding: 0 40px 0 10px;
-    border: none;
+    padding: 0 40px 0 3.5rem;
     font-size: 16px;
+    border: 1px solid grey;
+    border-radius: 100vw;
+    height: 3rem;
+    transition: all 0.2s;
+    width: 100%;
+    /* Animation for the active, hover, and focus states */
+    &:hover, &:focus, &.active {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
     &::placeholder {
       color: gray;
     }
   }
 `;
 
-const Input = styled.input`
-  
-`;
+
 
 const IconContainer = styled.div`
   /* Styling for the icon container to position it within the text input */

@@ -171,15 +171,15 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     font-size: calc(var(--columnSize) * 0.05);
   }
   
-
   .backing {
     border-radius: var(--spacingTiny) !important;
     inset: calc(var(--columnsize) * 0.8 * 0.5) 0 calc(var(--ctaButtonHeight) / 2) 0;
     box-shadow: 0 var(--spacingTiny) var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);    
     mask-image: linear-gradient(to bottom, transparent 4%, black);
     
-  }
-
+  } 
+  
+  
 `;
 
 export const PaginationWrapper = styled.div`
@@ -202,7 +202,8 @@ export const PaginationButton = styled.button`
 `;
 
 export const OuterMostCLP_Container = styled.div`
-  padding: 2%;
+  padding: 2%; 
+  
   .backing-main {
     background-image: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 100%);
     width: 100%;

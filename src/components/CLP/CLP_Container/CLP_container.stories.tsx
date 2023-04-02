@@ -52,7 +52,7 @@ Default.args = {
     columnsHugeScreen : 5,
     columnsLargeScreen : 4,
     columnsMediumScreen : 3,
-    columnsSmallScreen : 2,
+    columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
         navigationRelated : {
@@ -121,8 +121,8 @@ BeverageBundleExample.args = {
     pageSize: 9,
     columnsHugeScreen : 5,
     columnsLargeScreen : 4,
-    columnsMediumScreen : 3,
-    columnsSmallScreen : 2,
+    columnsMediumScreen : 1,
+    columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
         navigationRelated : {
@@ -184,8 +184,8 @@ SingleProductExample.args = {
     pageSize: 9,
     columnsHugeScreen : 5,
     columnsLargeScreen : 4,
-    columnsMediumScreen : 3,
-    columnsSmallScreen : 2,
+    columnsMediumScreen : 1,
+    columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
         navigationRelated : {

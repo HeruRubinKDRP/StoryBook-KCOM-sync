@@ -8,6 +8,7 @@ import {Rating} from "../../Rating/Rating";
 import {productTypeT} from "../../../pages/myBrews";
 import {formattedPrice} from "../../_utilities/formatPrice";
 import {isValidEmail} from "../../_utilities/validation/validation";
+import AsyncImage from "../../AsyncImage/AsyncImage";
 
 
 // Define an interface for the purchase information of a product
@@ -31,6 +32,7 @@ export interface iProductInfoCardProps {
         ratingNumber: number;
     }
     onClick: () => void;
+    classes? : string;
 }
 
 
@@ -89,10 +91,11 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
     }
 
     return (
-        <ProductInfoCardWrapper className={`${props.productType} simple-card`}>
+        <ProductInfoCardWrapper className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
             <div className="product-data-container">
                 <div className={`product-image ${props.productType}-image`}>
-                    <img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>
+                    <AsyncImage src={props.image} alt={`${props.brand} ${props.name}`} className="image-inner" />
+                    {/*<img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>*/}
                 </div>
                 <div className="product-info-container">
                     <div className="price">
@@ -156,22 +159,23 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                             {emailError && <div className="email-error">{emailError}</div>}
                         </div>
                     )}
+                    {
+                        !showEmailInput && (
+                            <KButton
+                                transitionType="expand-bg"
+                                classes={`cta-main ${props.productType}-cta`}
+                                buttonWidth="fit-to-content"
+                                label={isAllOutOfStock(props.prices) ? 'Notify Me' : 'Buy Now'}
+                                iconStandard="icon-add"
+                                iconPlacement="after-label"
+                                buttonType="primary"
+                                actionFunc={()=>actionFunc()}
+                            />
+                        )
+                    }
                 </div>
 
-                {
-                    !showEmailInput && (
-                        <KButton
-                            transitionType="expand-bg"
-                            classes={`cta-main ${props.productType}-cta`}
-                            buttonWidth="fit-to-content"
-                            label={isAllOutOfStock(props.prices) ? 'Notify Me' : 'Buy Now'}
-                            iconStandard="icon-add"
-                            iconPlacement="after-label"
-                            buttonType="primary"
-                            actionFunc={()=>actionFunc()}
-                        />
-                    )
-                }
+
 
             </div>
 

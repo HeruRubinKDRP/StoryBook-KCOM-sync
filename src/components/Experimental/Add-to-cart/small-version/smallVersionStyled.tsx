@@ -415,6 +415,11 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       100% {opacity: 1;}
     }
     
+    @keyframes scaleUp {
+        0% {transform: scale(0);}
+        100% {transform: scale(1);}
+    }
+    
     .product-image{
       opacity: 0;
       animation: fadeInCards 0.5s ease-in-out forwards;
@@ -437,7 +442,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
       .k-btn.round-no-label{
         opacity: 0;
-        animation: fadeIn 0.25s ease-in-out forwards, scaleUp 0.5s ease-in-out forwards;
+        animation: fadeInCards 0.25s ease-in-out forwards, scaleUp 0.5s ease-in-out forwards;
         animation-delay: 1s;
       }
     }

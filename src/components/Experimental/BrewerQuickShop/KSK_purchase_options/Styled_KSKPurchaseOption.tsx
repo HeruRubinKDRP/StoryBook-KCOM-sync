@@ -1,33 +1,16 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
+import {containerQueryBasedVariables, iStyledContainerQueryBased} from "../../../CLP/reusable-css-variables-CLP";
 
-export interface iStyledKSKPurchaseOption {
-    widthX: number;
-    heightY: number;
-}
 
-export const Styled_KSKPurchaseOption = styled.div<iStyledKSKPurchaseOption>`
+
+export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   --overallWidth: ${props => props.widthX + 'px'};
   --overallHeight: ${props => props.heightY + 'px'};
+  ${containerQueryBasedVariables};
+  
 
-  --colorKSK: ${colorNameToValue("KSK")};
-  --colorOK: ${colorNameToValue("OK-Status")};
-  --colorDiscount: ${colorNameToValue("discount")};
-
-  --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
-  --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
-  --buttonSmalll: calc(var(--overallWidth) * 0.025 + 12px);
-
-  --FontSizeLarge: calc(var(--overallWidth)  * 0.02 + 12px);
-  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
-  --FontSizeSmall: calc(var(--overallWidth)  * 0.005 + 8px);
-
-  --spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
-  --spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
-  --spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
-  --spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
-
-  display: flex;
+  display : flex;
   flex-direction: column;
   position: relative;
   

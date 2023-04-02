@@ -110,7 +110,7 @@ export function KDropDown(props : IdropDown){
     setIsOpen(false);
   }
 
-  useOutsideToggler(containerReference.current, clickOutsideToggle);
+  useOutsideToggler(containerReference.current, clickOutsideToggle, isOpen);
 
   const statusStyles =()=>{
     if(isOpen == true){

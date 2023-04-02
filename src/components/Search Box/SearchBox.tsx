@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import {SearchStyled} from "./search-box-styled";
+import Graphic from "../Graphic/Graphic";
 
 
 
 export interface iSearchInputProps {
     // onSearch: (searchTerm: string) => void;
+    placeHolder?: string;
 }
 
 const SearchBox = (props: iSearchInputProps) => {
@@ -28,12 +30,15 @@ const SearchBox = (props: iSearchInputProps) => {
 
     return (
         <SearchStyled>
-            <input
-                className="search-input"
-                type="text"
-                value={searchTerm}
-                onChange={handleChange}
-            />
+            <div className="search-input-area">
+                <input
+                    className="search-input"
+                    type="text"
+                    value={searchTerm}
+                    onChange={handleChange}
+                />
+                <Graphic graphicName="icon-search" />
+            </div>
             {searchTerm.length > 0 && (
                 <button onClick={handleClear}>Clear</button>
             )}
