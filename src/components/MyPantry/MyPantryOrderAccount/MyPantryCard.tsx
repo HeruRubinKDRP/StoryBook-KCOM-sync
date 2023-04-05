@@ -12,11 +12,18 @@ export interface iMyPantryCard {
     graphicIconPodFilled?: iconType;
     graphicIconDeliveryTruck?: iconType;
     graphicIconAdDelivery?: iconType;
+    graphicIconDeliveryTruckNoLogo?: iconType;
     graphicIconProductCanceledOoo?: iconType;
+    graphicChevronRight?: iconType;
     graphicIconBoxes?: iconType;
     status: statusCard;
     productImage?: string;
     countLeft?: string;
+    countBox?: string;
+    boxFormat?: string;
+    salePriceItem?: string;
+    strikePriceItem?: string;
+    priceItem?: string;
     shipDate?: string;
     brandName?: string;
     productName?: string;
@@ -25,6 +32,8 @@ export interface iMyPantryCard {
     KButtonListReactivate?: iButton[];
     KButtonListSmartActive?: iButton[];
     KButtonListAdActive?: iButton[];
+    KButtonListRecentlyPurchase?: iButton[];
+    KButtonListViewDetails?: iButton[];
     FunctionList: Function[];
 }
 
@@ -36,6 +45,8 @@ export const MyPantryDemoCardsSMART: iMyPantryCard[] = [
         graphicIconDeliveryTruck: "delivery-truck",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
+        graphicChevronRight: "chevron-right",
         countLeft: "12",
         shipDate: "May2, 2023",
         brandName: "Dunkin' Donuts®",
@@ -58,10 +69,12 @@ export const MyPantryDemoCardsSMART: iMyPantryCard[] = [
         graphicIconDeliveryTruck: "delivery-truck",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
         countLeft: "48",
         shipDate: "30+ Days From Now",
         brandName: "Starbucks®",
         productName: "Veranda Blend® Coffee",
+        graphicChevronRight: "chevron-right",
         FunctionList: [],
         KButtonListSmartActive: [
             {
@@ -80,10 +93,12 @@ export const MyPantryDemoCardsSMART: iMyPantryCard[] = [
         graphicIconDeliveryTruck: "delivery-truck",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
         countLeft: "33",
         shipDate: "30+ Days From Now",
         brandName: "Peet's Coffee®",
         productName: "Major Dickason's Blend® Coffee",
+        graphicChevronRight: "chevron-right",
         FunctionList: [],
         KButtonListSmartActive: [
             {
@@ -105,6 +120,7 @@ export const MyPantryDemoCardsSMART: iMyPantryCard[] = [
         brandName: "Green Mountain Coffee",
         productName: "Nantucket Blend® Coffee",
         graphicIconDeliveryTruck: "delivery-truck",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
         onetimeNumber: "2",
@@ -127,6 +143,7 @@ export const MyPantryDemoCardsSMART: iMyPantryCard[] = [
         brandName: "Dunkin' Donuts®",
         productName: "Original Blend Coffee",
         graphicIconProductCanceledOoo: "icon-product-canceled-OOO",
+
         KButtonListReactivate: [
             {
                 label: "Reactivate",
@@ -162,14 +179,16 @@ export const MyPantryDemoCardsAD: iMyPantryCard[] = [
         status: "AD-active",
         productImage:
             "https://images.keurig.com/is/image/keurig/Coffee-Chicory-K-Cup-Community-Coffee_en_general?fmt=png-alpha",
-        countLeft: "12",
-        shipDate: "May2, 2023121221",
-        brandName: "Green Mountain Coffee",
-        productName: "Nantucket Blend® Coffee",
+        countBox: "1",
+        shipDate: "every 4 weeks",
+        brandName: "Community® Coffee",
+        productName: "Coffee & Chicory",
         onetimeNumber: "2",
         graphicIconDeliveryTruck: "delivery-truck",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
+        graphicChevronRight: "chevron-right",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
         KButtonListAdActive: [
             {
                 label: "Dunkin' Donuts®",
@@ -189,13 +208,14 @@ export const MyPantryDemoCardsAD: iMyPantryCard[] = [
         productImage:
             "https://images.keurig.com/is/image/keurig/descaling-solution_5000367641?fmt=png-alpha",
         countLeft: "12",
-        shipDate: "May2, 2023121221",
+        shipDate: "May2, 2023",
         brandName: "Green Mountain Coffee",
         productName: "Nantucket Blend® Coffee",
         graphicIconDeliveryTruck: "delivery-truck",
         graphicIconPodFilled: "icon-pod-filled",
         graphicIconBoxes: "icon-boxes",
-        onetimeNumber: "2",
+        graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
+        onetimeNumber: "1",
         KButtonListRemove: [
             {
                 label: "Remove",
@@ -245,6 +265,133 @@ export const MyPantryDemoCardsAD: iMyPantryCard[] = [
         }],
     },
 ];
+export const DemoCardsRecentlyPurchased: iMyPantryCard[] = [
+    {
+        status: "recently-purchased",
+        productImage:
+            "https://images.keurig.com/is/image/keurig/Keurig-Signature-Mug_5000372064?fmt=png-alpha",
+        brandName: "Keurig®",
+        productName: "Keurig® Signature Mug (Yellow)",
+        FunctionList: [],
+        boxFormat: "",
+        salePriceItem: "",
+        strikePriceItem: "",
+        priceItem: "$11.99",
+        KButtonListRecentlyPurchase: [
+            {
+                label: "Buy Again",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },
+        ],
+    },
+    {
+        status: "recently-purchased",
+        productImage:
+            "https://images.keurig.com/is/image/keurig/Medium-Roast-Coffee-K-Cup-Illy_en_general?fmt=png-alpha",
+        brandName: "illy®",
+        productName: "Classico Coffee 20-Count (2 boxes of 10)",
+        FunctionList: [],
+        boxFormat: "K-Cup® Box 20 ct.",
+        salePriceItem: "",
+        strikePriceItem: "",
+        priceItem: "$25.98",
+        KButtonListRecentlyPurchase: [
+            {
+                label: "Buy Again",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },],
+    },
+    {
+        status: "recently-purchased",
+        productImage:
+            "https://images.keurig.com/is/image/keurig/K-Supreme-SMART-Coffee-Maker_5000367509?fmt=png-alpha",
+        brandName: "Keurig®",
+        productName: "K-Supreme® SMART Single Serve Coffee Maker",
+        FunctionList: [],
+        boxFormat: "",
+        salePriceItem: "",
+        strikePriceItem: "",
+        priceItem: "$179.99",
+        KButtonListRecentlyPurchase: [
+            {
+                label: "Buy Again",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },
+        ],
+    },
+    {
+        status: "recently-purchased",
+        productImage:
+            "https://images.keurig.com/is/image/keurig/Signature-Blend-Coffee-K-Cup-Gevalia_en_general?fmt=png-alpha",
+        brandName: "Gevalia",
+        productName: "Signature Blend Coffee",
+        FunctionList: [],
+        boxFormat: "K-Cup® Box 24 ct.",
+        salePriceItem: "$14.99",
+        strikePriceItem: "$19.99",
+        priceItem: "",
+        KButtonListRecentlyPurchase: [
+            {
+                label: "Add to Auto-Delivery",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },
+            {
+                label: "Buy Again",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },],
+    },
+    {
+        status: "recently-purchased",
+        productImage:
+            "https://images.keurig.com/is/image/keurig/Vanilla-Latte-K-Cup-DSC_en_general?fmt=png-alpha",
+        brandName: "The Original Donut Shop®",
+        productName: "Vanilla Latte",
+        FunctionList: [],
+        boxFormat: "K-Cup® Box 10 ct.",
+        salePriceItem: "$8.62",
+        strikePriceItem: "$11.49",
+        priceItem: "",
+        KButtonListRecentlyPurchase: [
+            {
+                label: "Add to Auto-Delivery",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },
+            {
+                label: "Buy Again",
+                buttonType: "ecommerce-secondary",
+                iconPlacement: "after-label",
+                iconStandard: "plus-icon",
+                buttonWidth: "fit-width",
+                transitionType: "expand-bg"
+            },
+        ],
+    },
+
+];
 
 
 export type statusCard =
@@ -254,7 +401,8 @@ export type statusCard =
     | "cancel"
     | "grid"
     | "add-item-smart"
-    | "add-item-ad";
+    | "add-item-ad"
+    | "recently-purchased";
 
 export const MyPantryCard = (props: iMyPantryCard) => {
 
@@ -285,12 +433,13 @@ export const MyPantryCard = (props: iMyPantryCard) => {
         return [
             <div>
                 <div className={"header-container"}>
-                    <div className={"GraphicContainer"}>
+                    <div className={"flexRow"}>
                         <Graphic graphicName={props.graphicIconSmartAD}></Graphic>
-                    </div>
-                    <div>
-                        <div className={"subscription-title"}>Smart Delivery</div>
-                        <div className={""}>53 South Ave, Burlington MA</div>
+
+                        <div>
+                            <div className={"subscription-title"}>Smart Delivery</div>
+                            <div className={""}>53 South Ave, Burlington MA</div>
+                        </div>
                     </div>
                 </div>
                 <div className="subscription-tile">{tilesSMART}</div>
@@ -307,16 +456,65 @@ export const MyPantryCard = (props: iMyPantryCard) => {
         return [
             <div>
                 <div className={"header-container"}>
-                    <div className={"GraphicContainer"}>
+                    <div className={"flexRow"}>
+                        <Graphic graphicName={props.graphicIconAdDelivery}></Graphic>
+                        <div>
+                            <div className={"subscription-title"}>Scheduled Auto-Delivery</div>
+                            <div className={""}>Name</div>
+                        </div>
+                    </div>
+
+                    <div className={"flexRow"}>
+                        <Graphic graphicName={props.graphicIconDeliveryTruckNoLogo}></Graphic>
+                            <div className={"NextShip"}>Next Ship: </div>
+                            <div className={"ShipDate"}>{props.shipDate}</div>
+                        <div>
+                            {props.KButtonListViewDetails && props.KButtonListViewDetails.map((button, index) => (
+                                <KButton
+                                    actionFunc={props.FunctionList[index]}
+                                    key={button.label}
+                                    label={button.label}
+                                    buttonType={button.buttonType}
+                                    iconPlacement={button.iconPlacement}
+                                    iconStandard={button.iconStandard}
+                                    buttonWidth={button.buttonWidth}
+                                    transitionType={button.transitionType}
+                                    iconSize={""}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div key="gridAD" className="subscription-tile">{tilesAD}</div>
+            </div>];
+    }
+    const GetGridRecentlyPurchase = (): ReactElement[] => {
+        const tilesRP = [];
+        for (let i = 0; i < DemoCardsRecentlyPurchased.length; i++) {
+            tilesRP.push(
+                GetComponentState(DemoCardsRecentlyPurchased[i].status, DemoCardsRecentlyPurchased[i])
+            );
+        }
+        return [
+            <div>
+                <div className={"header-container"}>
+                    <div className={"flexRow"}>
                         <Graphic
                             graphicName={props.graphicIconAdDelivery}></Graphic>
-                    </div>
-                    <div>
-                        <div className={"subscription-title"}>Scheduled Auto-Delivery</div>
-                        <div className={""}>Name</div>
+
+                        <div>
+                            <div className={"subscription-title"}>Recently Purchased</div>
+                            <div className={""}>Just click to reorder or create an Auto-Delivery | Save 25%. No Fees.
+                                Cancel
+                                Anytime.
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div key="gridAD" className="subscription-tile">{tilesAD}</div>
+                <div key="gridRP" className="subscription-tile">{tilesRP}</div>
             </div>];
     }
     const GetComponentState = (mode: statusCard, card: iMyPantryCard): ReactElement => {
@@ -324,73 +522,68 @@ export const MyPantryCard = (props: iMyPantryCard) => {
             case "SMART-active":
                 return (
                     <>
-                        <MyPantryCardStyled>
-                            <div className={"content-area"}>
-                                <div className={"StatusLabel"}>
-                                    <div className={"label"}>
-                                        <div className={"ActiveLabel"}></div>
-                                        <div className={"StatusTitle"}>Active</div>
-                                    </div>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"content-area"}>
+                                    <div className={"StatusLabel"}>
+                                        <div className={"label"}>
+                                            <div className={"ActiveLabel"}></div>
+                                            <div className={"StatusTitle"}>Active</div>
+                                        </div>
 
 
-                                    <div className={"LoyaltyPoints"}>+140pts/
-                                        <div className={"GraphicContainer"}>
-                                            <Graphic graphicName={card.graphicIconDeliveryTruck}></Graphic>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={"ProductContent"}>
-                                    <div className={"productImageCard"}><img src={card.productImage} alt=""/></div>
-                                    <div className={"ProductInfo"}>
-                                        <div className={"InfoContainer"}>
-                                            <div className={"icon-container"}>
-                                                <div className={"GraphicContainer"}>
-                                                    <Graphic graphicName={card.graphicIconPodFilled}></Graphic>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className={"CountContainer"}>
-                                                    <div className={"CountLeft"}>{card.countLeft}</div>
-                                                    <div className={"text"}>Left</div>
-                                                </div>
-                                                <LifeBar
-                                                    barCurrentAmount={24}
-                                                    barFullAmount={50}
-                                                    barHeight="1rem"
-                                                    barWidth="15rem"
-                                                    stylePreset="KCOM"
-                                                    borderColor={"red"}/>
-                                            </div>
-                                        </div>
-                                        <div className={"Container"}>
-                                            <div className={"icon-container"}>
-                                            <div className={"GraphicContainer"}><Graphic
-                                                graphicName={props.graphicIconDeliveryTruck}></Graphic>
-                                            </div></div>
-                                            <div>
-                                                <div className={"NextShip"}>Next Ship</div>
-                                                <div className={"ShipDate"}>{card.shipDate}</div>
+                                        <div className={"LoyaltyPoints"}>+140pts/
+                                            <div className={"GraphicTruckContainer"}>
+                                                <Graphic graphicName={card.graphicIconDeliveryTruckNoLogo}
+                                                         colorOverride="#BB9985"></Graphic>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={"bottomPart"}>
-                                    {card.KButtonListSmartActive && card.KButtonListSmartActive.map((button, index) => (
-                                        <KButton
-                                            actionFunc={card.FunctionList[index]}
-                                            key={button.label}
-                                            label={button.label}
-                                            secondaryLabel={button.secondaryLabel}
-                                            buttonType={button.buttonType}
-                                            iconPlacement={button.iconPlacement}
-                                            iconStandard={button.iconStandard}
-                                            buttonWidth={button.buttonWidth}
-                                            transitionType={button.transitionType}
-                                            iconSize={""}
-                                        />
-                                    ))}
-                                    {/*                                    <div className={"brandName"}>{card.brandName}</div>
-                                    <div className={"productName"}>{card.productName}</div>*/}
+                                    <div className={"ProductContent"}>
+                                        <div className={"productImageCard"}><img src={card.productImage} alt=""/></div>
+                                        <div className={"ProductInfo"}>
+                                            <div className={"InfoContainer"}>
+                                                <div className={"icon-container"}>
+                                                    <div className={"GraphicContainer"}>
+                                                        <Graphic graphicName={card.graphicIconPodFilled}></Graphic>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className={"CountContainer"}>
+                                                        <div className={"CountLeft"}>{card.countLeft}</div>
+                                                        <div className={"text"}>Left</div>
+                                                    </div>
+                                                    <LifeBar
+                                                        barCurrentAmount={24}
+                                                        barFullAmount={50}
+                                                        barHeight="1rem"
+                                                        barWidth="15rem"
+                                                        stylePreset="KCOM"
+                                                        borderColor={"red"}/>
+                                                </div>
+                                            </div>
+                                            <div className={"Container"}>
+                                                <div className={"icon-container"}>
+                                                    <div className={"GraphicContainer"}><Graphic
+                                                        graphicName={props.graphicIconDeliveryTruckNoLogo}></Graphic>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className={"NextShip"}>Next Ship</div>
+                                                    <div className={"ShipDate"}>{card.shipDate}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className={"bottomPart"}>
+                                        <div className={"flexRow"}>
+                                            <div>
+                                                <div className={"brandName"}>{card.brandName}</div>
+                                                <div className={"productName"}>{card.productName}</div>
+                                            </div>
+                                            <Graphic graphicName={card.graphicChevronRight}></Graphic>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </MyPantryCardStyled>
@@ -400,52 +593,53 @@ export const MyPantryCard = (props: iMyPantryCard) => {
             case "AD-active":
                 return (
                     <>
-                        <MyPantryCardStyled>
-                            <div className={"content-area"}>
-                                <div className={"StatusLabel"}>
-                                    <div className={"label"}>
-                                        <div className={"ActiveLabel"}></div>
-                                        <div className={"StatusTitle"}>Active</div>
-                                    </div>
-                                    <div className={"LoyaltyPoints"}>+140pts/
-                                        <div className={"GraphicContainer"}>
-                                            <Graphic graphicName={card.graphicIconDeliveryTruck}></Graphic>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"content-area"}>
+                                    <div className={"center"}>
+                                        <div className={"StatusLabel"}>
+                                            <div className={"label"}>
+                                                <div className={"ActiveLabel"}></div>
+                                                <div className={"StatusTitle"}>Active</div>
+                                            </div>
+                                            <div className={"LoyaltyPoints"}>+140pts/
+                                                <div className={"GraphicTruckContainer"}>
+                                                    <Graphic graphicName={card.graphicIconDeliveryTruckNoLogo}
+                                                             colorOverride="#BB9985"></Graphic>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className={"ProductContent"}>
-                                    <div className={"productImageCard"}><img src={card.productImage} alt=""/></div>
-                                    <div className={"ProductInfo"}>
-                                        <div className={"Container"}>
-                                            <div className={"icon-container"}>
-                                                <div className={"GraphicContainer"}><Graphic
-                                                    graphicName={props.graphicIconBoxes}></Graphic>
-                                                </div></div>
-                                            <div>
-                                                <div className={"NextShip"}>3 boxes</div>
-                                                <div className={"NextShip"}>every</div>
-                                                <div className={"ShipDate"}>4 weeks</div>
+                                        <div className={"ProductContent"}>
+                                            <div className={"productImageCard"}><img src={card.productImage} alt=""/>
+                                            </div>
+                                            <div className={"ProductInfo"}>
+                                                <div className={"Container"}>
+                                                    <div className={"icon-container"}>
+                                                        <div className={"GraphicContainer"}>
+                                                            <Graphic graphicName={card.graphicIconBoxes}></Graphic>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className={"CountContainer"}>
+                                                            <div className={"CountBox"}>{card.countBox}</div>
+                                                            <div className={"text"}>box</div>
+
+                                                        </div>
+                                                        <div className={"ShipDate"}>every 4 weeks</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"bottomPart"}>
+                                            <div className={"flexRow"}>
+                                                <div>
+                                                    <div className={"brandName"}>{card.brandName}</div>
+                                                    <div className={"productName"}>{card.productName}</div>
+                                                </div>
+                                                <Graphic graphicName={card.graphicChevronRight}></Graphic>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={"bottomPart"}>
-                                    {card.KButtonListAdActive && card.KButtonListAdActive.map((button, index) => (
-                                        <KButton
-                                            actionFunc={card.FunctionList[index]}
-                                            key={button.label}
-                                            label={button.label}
-                                            secondaryLabel={button.secondaryLabel}
-                                            buttonType={button.buttonType}
-                                            iconPlacement={button.iconPlacement}
-                                            iconStandard={button.iconStandard}
-                                            buttonWidth={button.buttonWidth}
-                                            transitionType={button.transitionType}
-                                            iconSize={""}
-                                        />
-                                    ))}
-                                    {/*                                    <div className={"brandName"}>{card.brandName}</div>
-                                    <div className={"productName"}>{card.productName}</div>*/}
                                 </div>
                             </div>
                         </MyPantryCardStyled>
@@ -455,36 +649,123 @@ export const MyPantryCard = (props: iMyPantryCard) => {
             case "one-time":
                 return (
                     <>
-                        <MyPantryCardStyled>
-                            <div className={"content-area"}>
-                                <div className={"center"}>
-                                    <div className={"StatusLabel"}>
-                                        <div className={"label"}>
-                                            <div className={"OneTimeLabel"}></div>
-                                            <div className={"StatusTitle"}>One-Time</div>
-                                        </div>
-                                        <div className={"LoyaltyPoints"}>+140pts/
-                                            <div className={"GraphicContainer"}>
-                                                <Graphic graphicName={card.graphicIconDeliveryTruck}></Graphic>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"content-area"}>
+                                    <div className={"center"}>
+                                        <div className={"StatusLabel"}>
+                                            <div className={"label"}>
+                                                <div className={"OneTimeLabel"}></div>
+                                                <div className={"StatusTitle"}>One-Time</div>
+                                            </div>
+                                            <div className={"LoyaltyPoints"}>+140pts/
+                                                <div className={"GraphicTruckContainer"}>
+                                                    <Graphic graphicName={card.graphicIconDeliveryTruckNoLogo}
+                                                             colorOverride="#BB9985"></Graphic>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className={"ProductContent"}>
-                                        <div className={"OneTime"}>{card.onetimeNumber}</div>
-                                        <div className={"productImageCard"}><img src={card.productImage} alt=""/>
+                                        <div className={"ProductContent"}>
+                                            <div className={"OneTime"}>{card.onetimeNumber}</div>
+                                            <div className={"productImageCard"}><img src={card.productImage} alt=""/>
+                                            </div>
+                                            <div className={"ProductInfo"}>
+                                                <div className={"Container"}>
+                                                    <div>
+                                                        <div className={"brandName"}>{card.brandName}</div>
+                                                        <div className={"productName"}>{card.productName}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className={"ProductInfo"}>
-                                            <div className={"Container"}>
-                                                <div>
-                                                    <div className={"brandName"}>{card.brandName}</div>
-                                                    <div className={"productName"}>{card.productName}</div>
+                                        <div className={"bottomPart"}>
+                                            {card.KButtonListRemove && card.KButtonListRemove.map((button, index) => (
+                                                <KButton
+                                                    actionFunc={card.FunctionList[index]}
+                                                    key={button.label}
+                                                    label={button.label}
+                                                    buttonType={button.buttonType}
+                                                    iconPlacement={button.iconPlacement}
+                                                    iconStandard={button.iconStandard}
+                                                    buttonWidth={button.buttonWidth}
+                                                    transitionType={button.transitionType}
+                                                    iconSize={""}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </MyPantryCardStyled>
+                    </>
+                )
+                break;
+            case "cancel":
+                return (
+                    <>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"canceled"}>
+                                    <div className={"center"}>
+                                        <div className={"StatusLabel"}>
+                                            <div className={"label"}>
+                                                <div className={"CanceledLabel"}></div>
+                                                <div className={"StatusTitle"}>Canceled</div>
+                                            </div>
+                                        </div>
+                                        <div className={"ProductContent"}>
+                                            <div className={"iconCanceled"}><Graphic
+                                                graphicName={card.graphicIconProductCanceledOoo}></Graphic></div>
+                                            <div className={"productImageCard"}><img src={card.productImage} alt=""/>
+                                            </div>
+                                            <div className={"ProductInfo"}>
+                                                <div className={"Container"}>
+                                                    <div>
+                                                        <div className={"brandName"}>{card.brandName}</div>
+                                                        <div className={"productName"}>{card.productName}</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className={"canceledBottomPart"}>
+                                    {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
+                                        <KButton
+                                            actionFunc={card.FunctionList[index]}
+                                            key={button.label}
+                                            label={button.label}
+                                            buttonType={button.buttonType}
+                                            iconPlacement={button.iconPlacement}
+                                            iconStandard={button.iconStandard}
+                                            buttonWidth={button.buttonWidth}
+                                            transitionType={button.transitionType}
+                                            iconSize={""}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </MyPantryCardStyled>
+                    </>
+                )
+                break;
+            case "add-item-smart":
+                return (
+                    <>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"add-items-container"}>
+                                    <div className={"StatusLabel"}>
+                                        <div className={""}>
+                                            <div className={"StatusTitle"}></div>
+                                        </div>
+                                    </div>
+                                    <div className={"GraphicSmart-AD"}>
+                                        <Graphic graphicName={card.graphicIconSmartAD}></Graphic>
+                                    </div>
                                     <div className={"bottomPart"}>
-                                        {card.KButtonListRemove && card.KButtonListRemove.map((button, index) => (
+                                        {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
                                             <KButton
                                                 actionFunc={card.FunctionList[index]}
                                                 key={button.label}
@@ -502,128 +783,110 @@ export const MyPantryCard = (props: iMyPantryCard) => {
                             </div>
                         </MyPantryCardStyled>
                     </>
-                )
-                break;
-            case "cancel":
-                return (
-                    <>
-                        <MyPantryCardStyled>
-                            <div className={"canceled"}>
-                                <div className={"center"}>
-                                    <div className={"StatusLabel"}>
-                                        <div className={"label"}>
-                                            <div className={"CanceledLabel"}></div>
-                                            <div className={"StatusTitle"}>Canceled</div>
-                                        </div>
-                                    </div>
-                                    <div className={"ProductContent"}>
-                                        <div className={"iconCanceled"}><Graphic
-                                            graphicName={card.graphicIconProductCanceledOoo}></Graphic></div>
-                                        <div className={"productImageCard"}><img src={card.productImage} alt=""/>
-                                        </div>
-                                        <div className={"ProductInfo"}>
-                                            <div className={"Container"}>
-                                                <div>
-                                                    <div className={"brandName"}>{card.brandName}</div>
-                                                    <div className={"productName"}>{card.productName}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={"canceledBottomPart"}>
-                                {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
-                                    <KButton
-                                        actionFunc={card.FunctionList[index]}
-                                        key={button.label}
-                                        label={button.label}
-                                        buttonType={button.buttonType}
-                                        iconPlacement={button.iconPlacement}
-                                        iconStandard={button.iconStandard}
-                                        buttonWidth={button.buttonWidth}
-                                        transitionType={button.transitionType}
-                                        iconSize={""}
-                                    />
-                                ))}
-                            </div>
-                        </MyPantryCardStyled>
-                    </>
-                )
-                break;
-            case "add-item-smart":
-                return (
-                    <>
-                        <MyPantryCardStyled>
-                            <div className={"add-items-container"}>
-                                <div className={"StatusLabel"}>
-                                    <div className={""}>
-                                        <div className={"StatusTitle"}></div>
-                                    </div>
-                                </div>
-                                <div className={"GraphicSmart"}>
-                                    <Graphic graphicName={card.graphicIconSmartAD}></Graphic>
-                                </div>
-                                <div className={"bottomPart"}>
-                                    {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
-                                        <KButton
-                                            actionFunc={card.FunctionList[index]}
-                                            key={button.label}
-                                            label={button.label}
-                                            buttonType={button.buttonType}
-                                            iconPlacement={button.iconPlacement}
-                                            iconStandard={button.iconStandard}
-                                            buttonWidth={button.buttonWidth}
-                                            transitionType={button.transitionType}
-                                            iconSize={""}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </MyPantryCardStyled>
-                    </>
                 );
                 break;
             case "add-item-ad":
                 return (
                     <>
-                        <MyPantryCardStyled>
-                            <div className={"add-items-container"}>
-                                <div className={"StatusLabel"}>
-                                    <div className={"label"}>
-                                    <div className={""}>
-                                        <div className={"StatusTitle"}></div>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"add-items-container"}>
+                                    <div className={"StatusLabel"}>
+                                        <div className={"label"}>
+                                            <div className={""}>
+                                                <div className={"StatusTitle"}></div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div className={"GraphicSmart-AD"}>
+                                        <Graphic graphicName={card.graphicIconAdDelivery}></Graphic>
                                     </div>
-                                </div>
-                                <div className={"GraphicSmart"}>
-                                    <Graphic graphicName={card.graphicIconAdDelivery}></Graphic>
-                                </div>
-                                <div className={"bottomPart"}>
-                                    {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
-                                        <KButton
-                                            actionFunc={card.FunctionList[index]}
-                                            key={button.label}
-                                            label={button.label}
-                                            buttonType={button.buttonType}
-                                            iconPlacement={button.iconPlacement}
-                                            iconStandard={button.iconStandard}
-                                            buttonWidth={button.buttonWidth}
-                                            transitionType={button.transitionType}
-                                            iconSize={""}
-                                        />
-                                    ))}
+                                    <div className={"bottomPart"}>
+                                        {card.KButtonListReactivate && card.KButtonListReactivate.map((button, index) => (
+                                            <KButton
+                                                actionFunc={card.FunctionList[index]}
+                                                key={button.label}
+                                                label={button.label}
+                                                buttonType={button.buttonType}
+                                                iconPlacement={button.iconPlacement}
+                                                iconStandard={button.iconStandard}
+                                                buttonWidth={button.buttonWidth}
+                                                transitionType={button.transitionType}
+                                                iconSize={""}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </MyPantryCardStyled>
                     </>
                 );
                 break;
+            case "recently-purchased":
+                return (
+                    <>
+                        <MyPantryCardStyled className={`${mode}`}>
+                            <div className={"invisible-button"}>
+                                <div className={"content-area"}>
+                                    <div className={"center"}>
+                                        {/*                                        <div className={"StatusLabel"}>
+                                            <div className={"label"}>
+                                                <div className={"OneTimeLabel"}></div>
+                                                <div className={"StatusTitle"}>One-Time</div>
+                                            </div>
+                                            <div className={"LoyaltyPoints"}>+140pts/
+                                                <div className={"GraphicTruckContainer"}>
+                                                    <Graphic graphicName={card.graphicIconDeliveryTruckNoLogo} colorOverride="#BB9985"></Graphic>
+                                                </div>
+                                            </div>
+                                        </div>*/}
+
+                                        <div className={"ProductContent"}>
+                                            <div className={"productImageCard"}><img src={card.productImage} alt=""/>
+                                            </div>
+                                            <div className={"ProductInfo"}>
+                                                <div className={"Container"}>
+                                                    <div>
+                                                        <div className={"brandName"}>{card.brandName}</div>
+                                                        <div className={"productName"}>{card.productName}</div>
+                                                        <div className={"boxFormat"}>{card.boxFormat}</div>
+                                                        <div>
+                                                            <div className={"salePriceItem"}>{card.salePriceItem}</div>
+                                                            <div
+                                                                className={"strikePriceItem"}>{card.strikePriceItem}</div>
+                                                            <div className={"priceItem"}>{card.priceItem}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className={"bottomPart"}>
+                                            {card.KButtonListRecentlyPurchase && card.KButtonListRecentlyPurchase.map((button, index) => (
+                                                <KButton
+                                                    actionFunc={card.FunctionList[index]}
+                                                    key={button.label}
+                                                    label={button.label}
+                                                    buttonType={button.buttonType}
+                                                    iconPlacement={button.iconPlacement}
+                                                    iconStandard={button.iconStandard}
+                                                    buttonWidth={button.buttonWidth}
+                                                    transitionType={button.transitionType}
+                                                    iconSize={""}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </MyPantryCardStyled>
+                    </>
+                )
+                break;
             case "grid":
                 return (
                     <>
                         <div>
-                            {[...GetGridSMART(), ...GetGridAD()]}
+                            {[...GetGridSMART(), ...GetGridAD(), ...GetGridRecentlyPurchase()]}
                         </div>
                     </>
                 );

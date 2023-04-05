@@ -4,14 +4,41 @@ export const MyPantryGridStyled = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 
+  &.mobile-dimensions,
+  &.medium-dimensions {
+    .header-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 
   .header-container {
     display: flex;
     flex-direction: row;
     padding: 15px 0;
+    justify-content: space-between;
     align-items: center;
     border-bottom: #3b2b2f 1px solid;
     margin: 0 0 20px 0;
+
+    .flexRow {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .NextShip {
+      font-weight: normal;
+      font-size: 16px;
+      padding-left: 10px;
+    }
+
+    .ShipDate {
+      font-weight: bold;
+      font-size: 16px;
+      padding-left: 10px;
+    }
 
     .icon.SMART-logo {
       padding-right: 10px;
@@ -20,6 +47,10 @@ export const MyPantryGridStyled = styled.div`
 
     .icon-AD-Delivery {
       padding-right: 10px;
+      width: 40px;
+    }
+
+    .icon-shipping-truck-no-logo {
       width: 40px;
     }
   }
@@ -46,7 +77,7 @@ export const MyPantryGridStyled = styled.div`
     .subscription-tile {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      /*  grid-template-rows: repeat(2, 1fr);*/
       grid-column-gap: 0px;
       grid-row-gap: 0px;
       gap: 10px;
@@ -57,7 +88,7 @@ export const MyPantryGridStyled = styled.div`
     .subscription-tile {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
+      /* grid-template-rows: repeat(2, 1fr);*/
       grid-column-gap: 0px;
       grid-row-gap: 0px;
       gap: 10px;
@@ -70,7 +101,7 @@ export const MyPantryGridStyled = styled.div`
     .subscription-tile {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(1, 1fr);
+      /*  grid-template-rows: repeat(1, 1fr);*/
       grid-column-gap: 0px;
       grid-row-gap: 0px;
       gap: 10px;
@@ -79,19 +110,162 @@ export const MyPantryGridStyled = styled.div`
   }
 `
 export const MyPantryCardStyled = styled.div`
-  border: #d2d2d2 1px solid;
-  padding: 1px;
-  border-radius: 5px;
   /*  flex-basis: calc(22% - 20px);
-    flex-grow: 1;*/
+  flex-grow: 1;*/
+  position: relative;
 
-  &:last-child {
+  .invisible-button {
+    /*    position: absolute;*/
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    z-index: 100;
+    background-color: transparent;
+    border: #d2d2d2 1px solid;
+    padding: 1px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
+  &.SMART-active {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: antiquewhite !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.AD-active {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: antiquewhite !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.one-time {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: antiquewhite !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.cancel {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: antiquewhite !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.add-item-smart {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: #AA8066 !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.add-item-ad {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          background-color: #AA8066 !important;
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  &.recently-purchased {
+    .invisible-button {
+      &:hover {
+        transform: scale(1.03);
+
+        .k-btn {
+          border: 2px solid #3B2B2F !important;
+        }
+
+        .expander {
+          /*
+          background-color: antiquewhite !important;
+          */
+          inset: 0 !important;
+          opacity: 1 !important;
+        }
+      }
+    }
   }
 
   &.large-dimensions {
-    max-width: 290px;
+    /*    max-width: 290px;*/
   }
+
+  /*  .GraphicContainer .icon.icon-shipping-truck-no-logo path {
+      fill: #BB9985;
+      max-width: 20px;
+    }*/
 
   .StatusLabel {
     display: flex;
@@ -138,17 +312,41 @@ export const MyPantryCardStyled = styled.div`
     min-height: 20px;
   }
 
+  .boxFormat {
+    font-family: MarkOT;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2d2926;
+  }
+
+  .salePriceItem {
+    font-family: MarkOT;
+    font-weight: bold;
+    font-size: 16px;
+    color: #d1150c;
+  }
+
+  .strikePriceItem {
+    font-family: MarkOT;
+    font-weight: normal;
+    font-size: 16px;
+    color: #2d2926;
+    text-decoration-line: line-through;
+  }
+
+  .priceItem {
+    font-family: MarkOT;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2d2926;
+  }
+
   .LoyaltyPoints {
     display: flex;
     flex-direction: row;
     font-size: 14px;
     color: #BB9985;
     align-items: center;
-
-    .icon.delivery-truck {
-      fill: #BB9985 !important;
-      height: 15px;
-    }
   }
 
   .productImageCard {
@@ -179,7 +377,7 @@ export const MyPantryCardStyled = styled.div`
     }
   }
 
-  .GraphicSmart {
+  .GraphicSmart-AD {
     display: flex;
     justify-content: center;
 
@@ -203,7 +401,7 @@ export const MyPantryCardStyled = styled.div`
 
     .InfoContainer {
       display: flex;
-      padding: 5px 0;
+      padding: 8px 0;
       border-bottom: #F2F2F2 1px solid;
       align-items: center;
 
@@ -217,8 +415,8 @@ export const MyPantryCardStyled = styled.div`
     .Container {
       display: flex;
       flex-direction: row;
-      padding: 5px 0;
-      align-items: center;
+      padding: 8px 0;
+      align-items: flex-start;
     }
 
     .brandName {
@@ -254,11 +452,23 @@ export const MyPantryCardStyled = styled.div`
     max-width: 35px;
   }
 
-  .GraphicContainer {
-    display: flex;
+  /*  .GraphicContainer {
+      display: flex;
+    }*/
+
+  .GraphicTruckContainer .icon.icon-shipping-truck-no-logo {
+    max-height: 14px;
   }
 
   .CountLeft {
+    color: rgb(45, 41, 38);
+    font-family: MarkOT-Bold;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 0 5px 0 0;
+  }
+
+  .CountBox {
     color: rgb(45, 41, 38);
     font-family: MarkOT-Bold;
     font-weight: bold;
@@ -286,8 +496,21 @@ export const MyPantryCardStyled = styled.div`
     font-size: 14px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    min-height: 65px;
+    align-items: flex-start;
     justify-content: center;
-    height: 60px;
+    .k-btn{
+      margin: 0.1rem 0;
+    }
+  }
+
+  .flexRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .life-bar-container.KCOM {
@@ -308,6 +531,11 @@ export const MyPantryCardStyled = styled.div`
     justify-content: space-between;
 
     .center {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       .ProductContent {
         align-items: center;
       }
@@ -330,6 +558,7 @@ export const MyPantryCardStyled = styled.div`
   .canceled {
     background-color: rgb(231, 228, 223);
     padding: 10px 10px 0 10px;
+    height: 100%;
 
     img {
       filter: saturate(0%) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25)) opacity(0.6);

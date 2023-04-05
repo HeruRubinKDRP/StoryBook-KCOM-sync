@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MyPantryStyle = styled.div`
+background-color: red!important;
   .ABC {
     font-size: 100px
   }

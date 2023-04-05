@@ -268,7 +268,7 @@ UserTrainingExample.args = {
                 captions: [
                     {
                         startTime: 0,
-                        endTime: 5,
+                        endTime: 38,
                         text: 'Hey there! We wanted to let you know that we\'ve made some changes to the way you manage your Keurig beverage experience. Now, all your Scheduled + SMART Auto-Delivery orders will be displayed together on one tab. This means that you won\'t have to switch between different screens anymore to see all your orders. We hope it makes managing your orders even easier!'
                     },{
                         startTime : 38,

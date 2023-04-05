@@ -261,7 +261,7 @@ export function KButton(props:iButton){
       return <Graphic
         graphicName={(props.iconStandard == undefined) ? "none" : props.iconStandard}
         iconPlacement={props.iconPlacement}
-        iconSize={!props.iconSize ? "1rem" : props.iconSize}
+        iconSize={!props.iconSize ? "1.5rem" : props.iconSize}
       />
     }
   }

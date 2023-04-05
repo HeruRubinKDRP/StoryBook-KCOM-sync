@@ -1,6 +1,6 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
 import React from "react";
-import {Graphic, Igraphics} from "./Graphic";
+import Graphic,{Igraphics} from "./Graphic";
 import {iconsList} from "./iconData";
 
 export default {
@@ -26,29 +26,40 @@ Primary.args = {
 
 export function iconExamples(){
   return(
-    <article>
-      <h1>Icons Examples</h1>
-      <ul>
-        <li>
-          <div>
+      <article>
+        <h1>Icons Examples</h1>
+        <ul>
+          <li>
+            <div>
+              <Graphic
+                  graphicName="icon-favorite"
+                  iconSize="5rem"
+              />
+              <p>Create favorite</p>
+            </div>
+          </li>
+          <li>
             <Graphic
-              graphicName="icon-favorite"
-              iconSize="5rem"
+                graphicName="close"
+                iconSize="5rem"
             />
-            <p>Create favorite</p>
-          </div>
-        </li>
-        <li>
-          <Graphic
-            graphicName="close"
-            iconSize="5rem"
-          />
-          <p>Close or clear</p>
-        </li>
-      </ul>
+            <p>Close or clear</p>
+          </li>
+        </ul>
 
-    </article>
+      </article>
   )
 }
 
-
+export const IconGrid = () => {
+  return (
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: "1rem", padding: "2rem" }}>
+        {iconsList.map((iconName) => (
+            <div key={iconName}>
+              <Graphic graphicName={iconName} iconSize="5rem" />
+              <div>{iconName}</div>
+            </div>
+        ))}
+      </div>
+  );
+};
