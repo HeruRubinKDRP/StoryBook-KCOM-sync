@@ -140,9 +140,7 @@ export const BevQuickShopStyled = styled.div<iBevQuickShopStyled>`
   overflow: hidden;
   border-radius: var(--spacingTiny);
   box-shadow: 0 var(--spacingTiny) var(--spacingSmall) 0 rgba(0, 0, 0, 0.25);
-  overflow-y: auto;
-  
-  
+  overflow-y: auto; 
   
   ${MediumViewport}
   .drop-down-item {

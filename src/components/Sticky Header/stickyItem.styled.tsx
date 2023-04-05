@@ -49,6 +49,13 @@ export const StickyItemStyled = styled.div`
     }
   }
   
+  .search-area{
+    flex: 1;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+  }
+  
   
   //Breakpoints
   

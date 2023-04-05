@@ -339,9 +339,11 @@ export function KButton(props:iButton){
 
   const action=()=>{
     if(props.actionFunc != undefined){
+      console.log("clicked!!!!!!!!")
       props.actionFunc();
     }
   }
+
   const hoverAction=()=>{
     if(!props.hoverFunc){return}
     props.hoverFunc();

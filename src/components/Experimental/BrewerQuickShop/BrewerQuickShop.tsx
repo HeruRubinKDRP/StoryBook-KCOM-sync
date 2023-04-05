@@ -49,7 +49,7 @@ export interface iBrewerQuickShop{
     addToCartFunction? : () => void;
 }
 
-export const BrewerQuickShop = (props:iBrewerQuickShop) => {
+const BrewerQuickShop = (props:iBrewerQuickShop) => {
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'throttle',
@@ -193,3 +193,5 @@ export const BrewerQuickShop = (props:iBrewerQuickShop) => {
     )
 
 }
+
+export default BrewerQuickShop;

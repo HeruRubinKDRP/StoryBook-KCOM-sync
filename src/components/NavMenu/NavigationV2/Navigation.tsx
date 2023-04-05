@@ -50,7 +50,9 @@ export interface iNavigation {
     submitButtonText: string;
     isNobo: boolean;
     mobileSpecialMenu?: iSection[];
-    navItems: iNavContentGroup[]
+    navItems: iNavContentGroup[];
+    //don't show the logo and the secondary items
+    justMenuItems? : boolean;
 }
 
 export const breakPoints = {
@@ -86,7 +88,7 @@ export const Navigation = (props: iNavigation) => {
     }
 
 
-    useOutsideToggler(hoverMenuRef.current, clickOutsideToggle);
+    useOutsideToggler(hoverMenuRef.current, clickOutsideToggle, currentHover !== -1);
 
 
     //slide in animation track
@@ -607,17 +609,19 @@ export const Navigation = (props: iNavigation) => {
                     <div className="global-navigation">
                         <header className="main-header" ref={mainMenuRef}>
                             <div className="persistent-menu-items">
-                                <MenuButton actionFunc={() => handleOpenMainNav()} isOpen={mobileIsOpen}/>
-                                <Graphic graphicName="logo" classesOverride=""/>
-                                <div className="search-container desktop">
-                                    <div className="search-placeholder"></div>
-                                </div>
-                                <div className="secondary-importance-items">
-                                    <CommonActionsMenu
-                                        isNobo={props.isNobo}
-                                        isLoggedIn={props.loggedIn}
-                                    />
-                                </div>
+                                {props.justMenuItems ? null : <>
+                                    <MenuButton actionFunc={() => handleOpenMainNav()} isOpen={mobileIsOpen}/>
+                                    <Graphic graphicName="logo" classesOverride=""/>
+                                    <div className="search-container desktop">
+                                        <div className="search-placeholder"></div>
+                                    </div>
+                                    <div className="secondary-importance-items">
+                                        <CommonActionsMenu
+                                            isNobo={props.isNobo}
+                                            isLoggedIn={props.loggedIn}
+                                        />
+                                    </div>
+                                </> }
                             </div>
                             <div className="search-container mobile">
                                 <div className="search-placeholder"></div>

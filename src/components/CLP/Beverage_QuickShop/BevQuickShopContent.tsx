@@ -146,7 +146,7 @@ export const BevQuickShopContent = (props: iBeverageQuickShop) => {
     }
 
     return(
-        <BevQuickShopStyled ref={ref} widthX={width || 0} className={`${getContainerQueries(width || 0)}`}>
+        <BevQuickShopStyled  ref={ref} widthX={width || 0} className={`${getContainerQueries(width || 0)} beverage-quickshop-container`}>
             {props.hasCloseButton?  <KButton
                 buttonType="text-icon-noBG"
                 buttonWidth="fit-to-content"
@@ -238,8 +238,7 @@ export const BevQuickShopContent = (props: iBeverageQuickShop) => {
                         <div className="fader">
                             <div className="fader"></div>
                         </div>
-
-                        <CTA_WithQuantity actionFunc={props.addToCartFunction} totalQuantity={20} buttonLabel="Add to Cart"/>
+                        <CTA_WithQuantity addToCartFunction={props.addToCartFunction} totalQuantity={20} buttonLabel="Add to Cart"/>
                     </section>
                 </div>
             </div>

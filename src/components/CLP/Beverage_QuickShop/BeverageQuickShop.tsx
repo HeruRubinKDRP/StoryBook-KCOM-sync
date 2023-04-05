@@ -95,6 +95,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
             classes={`modal-${getModalContainerQueries(width || 0)} minimal-header`}
         >
             <ModalStyled ref={ref} className={`modal-contents`}>
+
                 {isLoaded ? getBevQuickShop() : getLoader()   }
             </ModalStyled>
         </PopUp>
