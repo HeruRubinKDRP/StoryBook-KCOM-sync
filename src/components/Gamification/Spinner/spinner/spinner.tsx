@@ -53,8 +53,8 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
                     duration: 5,
                     ease: 'none',
                     onComplete: () => {
-                        setSelectedPromo(promotions[selectedIndex]);
-                        onSpinEnd(promotions[selectedIndex]);
+
+
                         const currentRotation: string = (gsap.getProperty(containerRef.current, 'rotation')).toString();
                         const finalRotation = calculateFinalRotation(parseInt(currentRotation), selectedIndex);
 
@@ -66,6 +66,8 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
                             onComplete: () => {
                                 console.log("Final rotation", gsap.getProperty(containerRef.current, 'rotation'));
                                 // Enable draggable again when the final rotation is completed
+                                onSpinEnd(promotions[selectedIndex]);
+                                setSelectedPromo(promotions[selectedIndex]);
                                 draggable[0].enable();
                             },
                         });
@@ -86,7 +88,7 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
 
     return (
         <SpinnerStyled width={wheelRadius} height={wheelRadius}>
-            <div className="spinner-outer" ref={containerRef} style={{position: 'relative', width: '300px', height: '300px'}}>
+            <div className="spinner-outer" ref={containerRef} style={{position: 'relative', width:  600 , height: 600 }}>
                 {promotions.map((promo, index) => {
                     const angle = (360 / promotions.length) * index;
                     const angleRad = (angle * Math.PI) / 180; // Convert angle to radians
