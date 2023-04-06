@@ -24,7 +24,7 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
         // Add the get it to finish line
         function calculateFinalRotation(currentRotation: number, selectedIndex: number) {
             const angle = 360 / promotions.length;
-            const targetAngle = 270 - (selectedIndex * angle); // Adjust the target angle based on the selected index
+            const targetAngle = 270 - (selectedIndex * angle) + 90; // Adjust the target angle based on the selected index
             const currentAngle = currentRotation % 360;
             const diff = targetAngle - currentAngle;
             const rotations = Math.ceil((diff + 360) / 360);
