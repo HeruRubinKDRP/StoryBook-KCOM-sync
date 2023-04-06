@@ -101,6 +101,7 @@ export const Default = Template.bind({});
 Default.args = {
     AddressesBook: Addresses,
     PaymentBook: PaymentMethod,
+    modalIsOpen:true,
     PopUp: {
         isOpen: true,
         hasHeader: true,

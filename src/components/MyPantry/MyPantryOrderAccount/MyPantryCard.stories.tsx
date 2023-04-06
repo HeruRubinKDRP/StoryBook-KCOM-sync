@@ -8,7 +8,7 @@ export default {
     argTypes: {
         status: {
             control: "select",
-            options: ["SMART-active", "AD-active", "one-time", "cancel", "grid", "add-item-smart", "add-item-ad"],
+            options: ["SMART-active", "AD-active", "one-time", "cancel", "grid", "add-item-smart", "add-item-ad", "recently-purchased"],
         },
         productImage: {control: "text"},
         countLeft: {control: "text"},
@@ -29,20 +29,22 @@ GridExample.args = {
     graphicIconAdDelivery: "icon-AD-Delivery",
     countLeft: "12",
     graphicIconDeliveryTruck: "delivery-truck",
+    graphicIconDeliveryTruckNoLogo:"icon-shipping-truck-no-logo",
     shipDate: "May2, 2023",
     brandName: "Dunkin' Donuts®",
     productName: "Original Blend Coffee",
     FunctionList: [],
-    KButtonListSmartActive: [
+    KButtonListViewDetails: [
         {
-            label: "Reactivate",
-            buttonType: "ecommerce-secondary",
+            label: "View Details",
+            buttonType: "secondary",
             iconPlacement: "right-edge",
-            iconStandard: "plus-icon",
+            iconStandard: "icon-settings",
             buttonWidth: "fit-width",
             transitionType: "expand-bg"
         },],
 };
+
 export const SmartActiveCardExample = Template.bind({});
 SmartActiveCardExample.args = {
     status: "SMART-active",
@@ -52,6 +54,7 @@ SmartActiveCardExample.args = {
     graphicIconPodFilled: "icon-pod-filled",
     countLeft: "12",
     graphicIconDeliveryTruck: "delivery-truck",
+    graphicIconDeliveryTruckNoLogo:"icon-shipping-truck-no-logo",
     shipDate: "May2, 2023",
     brandName: "Dunkin' Donuts®",
     productName: "Original Blend Coffee",
@@ -66,7 +69,9 @@ SmartActiveCardExample.args = {
             buttonWidth: "fit-width",
             transitionType: "none"
         },],
+    graphicChevronRight:"chevron-right",
 };
+
 export const ADActiveCardExample = Template.bind({});
 ADActiveCardExample.args = {
     status: "AD-active",
@@ -76,10 +81,12 @@ ADActiveCardExample.args = {
     graphicIconDeliveryTruck: "delivery-truck",
     graphicIconPodFilled: "icon-pod-filled",
     graphicIconBoxes: "icon-boxes",
-    countLeft: "12",
-    shipDate: "May2, 2023",
+    graphicIconDeliveryTruckNoLogo:"icon-shipping-truck-no-logo",
+    countBox: "1",
+    shipDate: "every 4 weeks",
     brandName: "Dunkin' Donuts®",
     productName: "Original Blend Coffee",
+    graphicChevronRight:"chevron-right",
     FunctionList: [],
     KButtonListAdActive: [
         {
@@ -90,6 +97,37 @@ ADActiveCardExample.args = {
             iconStandard: "chevron-right",
             buttonWidth: "fit-width",
             transitionType: "none"
+        },],
+};
+
+export const RecentlyPurchaseCardExample = Template.bind({});
+RecentlyPurchaseCardExample.args = {
+    status: "recently-purchased",
+    productImage:
+        "https://images.keurig.com/is/image/keurig/Medium-Roast-Coffee-K-Cup-Illy_en_general?fmt=png-alpha",
+    brandName: "illy®",
+    productName: "Classico Coffee 20-Count (2 boxes of 10)",
+    FunctionList: [],
+    boxFormat: "K-Cup® Box 20 ct.",
+    salePriceItem: "",
+    strikePriceItem: "",
+    priceItem: "$25.98",
+    KButtonListRecentlyPurchase: [
+        {
+            label: "Buy Again",
+            buttonType: "ecommerce-secondary",
+            iconPlacement: "after-label",
+            iconStandard: "plus-icon",
+            buttonWidth: "fit-width",
+            transitionType: "expand-bg"
+        },
+        {
+            label: "Add to Auto-Delivery",
+            buttonType: "ecommerce-secondary",
+            iconPlacement: "after-label",
+            iconStandard: "plus-icon",
+            buttonWidth: "fit-width",
+            transitionType: "expand-bg"
         },],
 };
 
@@ -127,6 +165,9 @@ OneTimeCardExample.args = {
     brandName: "Keurig®",
     productName: "Descaling Solution",
     onetimeNumber: "1",
+    countLeft: "12",
+    shipDate: "May2, 2023",
+    graphicIconDeliveryTruckNoLogo: "icon-shipping-truck-no-logo",
 };
 
 export const CancelCardExample = Template.bind({});
@@ -147,6 +188,7 @@ CancelCardExample.args = {
     brandName: "Green Mountain Coffee",
     productName: "Nantucket Blend® Coffee",
     graphicIconProductCanceledOoo: "icon-product-canceled-OOO",
+    graphicIconDeliveryTruckNoLogo:"icon-shipping-truck-no-logo",
 };
 
 export const AddAnItemCardADExample = Template.bind({});
