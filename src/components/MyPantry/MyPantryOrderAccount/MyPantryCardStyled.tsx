@@ -65,47 +65,45 @@ export const MyPantryGridStyled = styled.div`
 
   .subscription-tile {
     margin-bottom: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-gap: 10px;
   }
 
 
   &.large-dimensions {
     .subscription-tile {
-      display: grid;
+/*      display: grid;
       grid-template-columns: repeat(4, 1fr);
-      /*  grid-template-rows: repeat(2, 1fr);*/
+      !*  grid-template-rows: repeat(2, 1fr);*!
       grid-column-gap: 0px;
       grid-row-gap: 0px;
-      gap: 10px;
+      gap: 10px;*/
     }
   }
 
   &.medium-dimensions {
     .subscription-tile {
-      display: grid;
+/*      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      /* grid-template-rows: repeat(2, 1fr);*/
+      !* grid-template-rows: repeat(2, 1fr);*!
       grid-column-gap: 0px;
       grid-row-gap: 0px;
       gap: 10px;
-      padding: 0 20px;
+      padding: 0 20px;*/
     }
   }
 
   &.mobile-dimensions,
   &.tinyEmbedded {
     .subscription-tile {
-      display: grid;
+/*      display: grid;
       grid-template-columns: repeat(1, 1fr);
-      /*  grid-template-rows: repeat(1, 1fr);*/
+      !*  grid-template-rows: repeat(1, 1fr);*!
       grid-column-gap: 0px;
       grid-row-gap: 0px;
       gap: 10px;
-      padding: 0 20px;
+      padding: 0 20px;*/
     }
   }
 `
@@ -243,10 +241,10 @@ export const MyPantryCardStyled = styled.div`
       &:hover {
         transform: scale(1.03);
 
+      .single-cta{
         .k-btn {
           border: 2px solid #3B2B2F !important;
         }
-
         .expander {
           /*
           background-color: antiquewhite !important;
@@ -254,6 +252,21 @@ export const MyPantryCardStyled = styled.div`
           inset: 0 !important;
           opacity: 1 !important;
         }
+      }
+
+        .more-than-one-CTA {
+          .k-btn {
+            border: 2px solid #3B2B2F !important;
+          }
+          .expander {
+            /*
+            background-color: antiquewhite !important;
+            */
+            inset: 0 !important;
+            opacity: 1 !important;
+          }
+        }
+        
       }
     }
   }
@@ -500,7 +513,8 @@ export const MyPantryCardStyled = styled.div`
     min-height: 65px;
     align-items: flex-start;
     justify-content: center;
-    .k-btn{
+
+    .k-btn {
       margin: 0.1rem 0;
     }
   }

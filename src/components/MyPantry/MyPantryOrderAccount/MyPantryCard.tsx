@@ -405,7 +405,12 @@ export type statusCard =
     | "recently-purchased";
 
 export const MyPantryCard = (props: iMyPantryCard) => {
-
+    const MultipleCTA = (index:number) => {
+        if (index > 0) {
+            return "more-than-one-cta";
+        }
+        return "single-cta"
+    };
     const {width, ref} = useResizeDetector({
         refreshMode: 'throttle',
         refreshRate: 100,
@@ -466,8 +471,8 @@ export const MyPantryCard = (props: iMyPantryCard) => {
 
                     <div className={"flexRow"}>
                         <Graphic graphicName={props.graphicIconDeliveryTruckNoLogo}></Graphic>
-                            <div className={"NextShip"}>Next Ship: </div>
-                            <div className={"ShipDate"}>{props.shipDate}</div>
+                        <div className={"NextShip"}>Next Ship:</div>
+                        <div className={"ShipDate"}>{props.shipDate}</div>
                         <div>
                             {props.KButtonListViewDetails && props.KButtonListViewDetails.map((button, index) => (
                                 <KButton
@@ -861,19 +866,24 @@ export const MyPantryCard = (props: iMyPantryCard) => {
                                             </div>
                                         </div>
                                         <div className={"bottomPart"}>
-                                            {card.KButtonListRecentlyPurchase && card.KButtonListRecentlyPurchase.map((button, index) => (
-                                                <KButton
-                                                    actionFunc={card.FunctionList[index]}
-                                                    key={button.label}
-                                                    label={button.label}
-                                                    buttonType={button.buttonType}
-                                                    iconPlacement={button.iconPlacement}
-                                                    iconStandard={button.iconStandard}
-                                                    buttonWidth={button.buttonWidth}
-                                                    transitionType={button.transitionType}
-                                                    iconSize={""}
-                                                />
-                                            ))}
+                                            {card.KButtonListRecentlyPurchase && card.KButtonListRecentlyPurchase.map((button, index) =>
+                                                (
+                                                    <KButton
+                                                        actionFunc={card.FunctionList[index]}
+                                                        key={button.label}
+                                                        label={button.label}
+                                                        buttonType={button.buttonType}
+                                                        iconPlacement={button.iconPlacement}
+                                                        iconStandard={button.iconStandard}
+                                                        buttonWidth={button.buttonWidth}
+                                                        transitionType={button.transitionType}
+                                                        iconSize={""}
+                                                        classes={
+                                                        MultipleCTA(index)
+                                                        }
+                                                    />
+                                                ))
+                                            }
                                         </div>
                                     </div>
                                 </div>
