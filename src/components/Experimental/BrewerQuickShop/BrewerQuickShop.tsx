@@ -89,9 +89,6 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
         return slideImages;
     }
 
-
-
-
     return(
         <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{
 

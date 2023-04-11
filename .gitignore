@@ -1,7 +1,6 @@
-.idea/modules.xml
-.idea/Sync-with-KCOM.iml
-.idea/vcs.xml
+.idea/
+.idea/*
 node_modules/
 node_modules/*
-public/.DS_Store
 .DS_Store
+

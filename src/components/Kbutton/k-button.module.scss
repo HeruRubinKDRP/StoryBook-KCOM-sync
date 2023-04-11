@@ -187,6 +187,14 @@ button{
         }
       }
     }
+    &.ecommerce-secondary {
+      border: 2px solid #F9C606 !important;
+      background-color: #ffffff;
+
+      &:hover {
+        border: 2px solid $dark-roast !important;
+      }
+    }
     &.round-no-label{
       padding: 1.25rem;
       justify-content: center;

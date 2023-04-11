@@ -332,7 +332,7 @@ export const MyPantry = (props: iMyPantry) => {
                 props.modalIsOpen ? (
                     <>
                         <div className={"ABC"}><p>{viewportWidth}</p></div>
-                        <PopUp isOpen={props.PopUp.isOpen}
+                        <PopUp classes={"MyPantryPopUp"} isOpen={props.PopUp.isOpen}
                                hasHeader={props.PopUp.hasHeader || false}
                                hasVeil={props.PopUp.hasVeil}
                                hasBackButton={props.PopUp.hasBackButton}
