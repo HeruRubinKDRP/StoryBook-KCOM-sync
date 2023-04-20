@@ -237,8 +237,8 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
 
   .k-panel-header {
     background: transparent;
-    //position: absolute;
-    //top: 0; 
+    z-index: 1000;
+    position: relative;
   }
 
   .seo-item-container {
@@ -253,8 +253,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
     }
   }
 
-  .pop-up-child-content {
-    //background-color: white;
+  .pop-up-child-content { 
     overflow-y: auto;
     height: 100%;
     width: 100%;
@@ -262,6 +261,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
     display: flex;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
   }
 
   &.desktop {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import ProductList, { ProductListProps } from './CLP_Container';
+import ProductList, { ProductListProps } from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
 import {brands, podLibrary} from "../../../pages/myBrews";
 import {iProductInfoCardProps} from "../SimpleCard/SimpleCard";
@@ -37,6 +37,11 @@ export default {
                 step: 1,
             },
         },
+        stickyHeaderMode: {
+            control: "radio",
+            options: ["slim", "full"],
+            defaultValue: "slim",
+        }
     },
 } as Meta;
 
@@ -46,6 +51,7 @@ const products = convertPodLibraryToProductInfoCardProps(podLibrary);
 
 export const Default = Template.bind({});
 Default.args = {
+    stickyHeaderMode: "slim",
     products: products,
     columns: 3,
     pageSize: 9,
@@ -55,6 +61,7 @@ Default.args = {
     columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
+        stickyHeaderMode : "slim",
         navigationRelated : {
             sizingMode : "liquid-design",
             loggedIn : false,
@@ -72,6 +79,7 @@ Default.args = {
 
 export const BeverageBundleExample = Template.bind({});
 BeverageBundleExample.args = {
+    stickyHeaderMode: "slim",
     products: [
         {
             priceDescriptor: " ",
@@ -81,7 +89,7 @@ BeverageBundleExample.args = {
                 {
                     price: 54.36,
                     inStock: true,
-                    variant: "12"
+                    variant: {quantity : 1, variantName : ""}
                 }
             ],
             name: "Panera Bread® Best Sellers Bundle",
@@ -102,7 +110,7 @@ BeverageBundleExample.args = {
                 {
                     price: 54.36,
                     inStock: false,
-                    variant: "12"
+                    variant: {quantity : 12, variantName : "ct"}
                 }
             ],
             name: "Decaf Best Sellers Bagged Coffee Bundle",
@@ -125,6 +133,7 @@ BeverageBundleExample.args = {
     columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
+        stickyHeaderMode : "slim",
         navigationRelated : {
             sizingMode : "liquid-design",
             loggedIn : false,
@@ -142,6 +151,7 @@ BeverageBundleExample.args = {
 
 export const SingleProductExample = Template.bind({});
 SingleProductExample.args = {
+    stickyHeaderMode: "slim",
     products: [
         {
             productType: "pod",
@@ -150,22 +160,22 @@ SingleProductExample.args = {
                 {
                     price: 10.49,
                     inStock: false,
-                    variant: "12"
+                    variant: {quantity : 12, variantName : "ct"}
                 },
                 {
                     price: 16.99,
                     inStock: false,
-                    variant: "24"
+                    variant: {quantity : 24, variantName : "ct"}
                 },
                 {
                     price: 49.99,
                     inStock: false,
-                    variant: "72"
+                    variant: {quantity : 72, variantName : "ct"}
                 },
                 {
                     price: 53.96,
                     inStock: false,
-                    variant: "96"
+                    variant: {quantity : 96, variantName : "ct"}
                 }
             ],
             name: "Breakfast Blend Coffee",
@@ -188,6 +198,7 @@ SingleProductExample.args = {
     columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
+        stickyHeaderMode : "slim",
         navigationRelated : {
             sizingMode : "liquid-design",
             loggedIn : false,
@@ -215,11 +226,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 89.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 89.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -239,11 +250,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 124.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 124.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -262,11 +273,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 74.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -285,11 +296,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 12, variantName : "Black"}
             },{
                 price : 74.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 12, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -308,11 +319,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 74.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -331,11 +342,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 89.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 0,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -354,11 +365,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 74.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -377,11 +388,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 0,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -400,11 +411,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 94.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 94.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -423,11 +434,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 49.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 49.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -446,11 +457,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 74.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 74.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -469,11 +480,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 149.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 149.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Black"}
             }
         ],
         ratingVisible : false,
@@ -492,11 +503,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 49.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 49.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -515,11 +526,11 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             {
                 price : 49.99,
                 inStock : true,
-                variant : "Black"
+                variant: {quantity : 1, variantName : "Black"}
             },{
                 price : 49.99,
                 inStock : true,
-                variant : "Grey"
+                variant: {quantity : 1, variantName : "Grey"}
             }
         ],
         ratingVisible : false,
@@ -543,6 +554,7 @@ BrewerList.args = {
     columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {
+        stickyHeaderMode : "slim",
         navigationRelated : {
             sizingMode : "liquid-design",
             loggedIn : false,

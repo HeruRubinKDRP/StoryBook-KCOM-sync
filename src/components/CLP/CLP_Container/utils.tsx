@@ -28,7 +28,10 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
                 return {
                     price: price,
                     inStock: true,
-                    variant: podLibrary[i].boxSizes[index].toString()
+                    variant: {
+                        quantity: podLibrary[i].boxSizes[index],
+                        variantName: "ct"
+                    }
                 }
             }),
             name: name,

@@ -4,7 +4,6 @@ import React, {ReactElement} from "react";
 export type iconPlacementTYPE = "before-label" | "after-label" | "no-icon" | "right-edge" | "left-edge";
 
 export type iconType =
-
     "app-on-mobile" |
     "none" |
     "icon-shipping-truck" |
@@ -89,15 +88,15 @@ export type iconType =
     "icon-expand" |
     "closed-captioning-icon" |
     "closed-captioning-off-icon" |
-    "replay-icon"|
-    "icon-AD-Delivery"|
-    "icon-product-canceled-OOO"|
-    "remove-icon"|
-    "icon_Edit_delivery"|
-    "icon-pause-item"|
-    "icon-swap-item"|
-    "icon-shipping-truck-no-logo"|
-    "icon-backup-product"  |
+    "replay-icon" |
+    "icon-AD-Delivery" |
+    "icon-product-canceled-OOO" |
+    "remove-icon" |
+    "icon_Edit_delivery" |
+    "icon-pause-item" |
+    "icon-swap-item" |
+    "icon-shipping-truck-no-logo" |
+    "icon-backup-product" |
     "icon-search"
     ;
 
@@ -286,12 +285,12 @@ export function Graphic(props: Igraphics) {
         case "icon-search":
             graphicData = (
 
-                <svg viewBox="0 0 29 29" x="0px"  y="0px" width="100%" height="100%">
+                <svg viewBox="0 0 29 29" x="0px" y="0px" width="100%" height="100%">
                     <path id="path-1" className="filled"
                           d="m28.54,26.05l-7.16-7.13c-.08-.08-.17-.15-.28-.21,3.47-5.02,2.41-11.86-2.43-15.6C13.84-.62,6.91.06,2.9,4.66c-4.02,4.6-3.73,11.52.66,15.77,4.39,4.25,11.34,4.35,15.85.23.03.04.07.08.11.12l7.16,7.13c.33.33.82.46,1.27.34s.81-.47.93-.93c.12-.45,0-.94-.34-1.27h0Zm-16.92-4.99c-4.91,0-8.88-3.96-8.88-8.85S6.72,3.37,11.62,3.37s8.88,3.96,8.88,8.85c0,4.88-3.98,8.84-8.88,8.85h0Z"/>
                 </svg>
             )
-        break;
+            break;
 
         case "replay-icon":
             graphicData = (
@@ -545,7 +544,7 @@ export function Graphic(props: Igraphics) {
                 <svg viewBox="0 0 62 62" width="100%" height="100%">
                     <path className="filled" style={{fill: props.colorOverride}}
                           d="M52.05,27.78L14.03,3.75c-2.54-1.6-5.85,.22-5.85,3.22V55.02c0,3,3.31,4.83,5.85,3.22l38.02-24.02c2.37-1.5,2.37-4.95,0-6.45Z"/>
-                    m</svg>
+                </svg>
             )
             break;
 

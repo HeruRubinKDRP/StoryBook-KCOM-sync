@@ -191,11 +191,10 @@ export const BevQuickShopContent = (props: iBeverageQuickShop) => {
 
                         <div className="configure-subscription-container">
                             <section className="messaging-container">
-
                                 <div className="price discounted">
                                     <div className="price-display">
                                         <span className="price-label">${getDiscountedPrice(currentSelectedIndex , props.productPrices[currentSelectedIndex])} </span>
-                                        <span className="price-per-pod">({getPricePerPod(currentSelectedIndex , props.productPrices[currentSelectedIndex])} per pod)</span>
+                                        <span className="price-per-pod">({getPricePerPod( props.productPrices[currentSelectedIndex], props.boxSizes[currentSelectedIndex])} per pod)</span>
                                     </div>
                                     <span className="purchase-type">Subscription</span>
                                 </div>

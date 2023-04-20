@@ -174,13 +174,6 @@ const {width, height, ref} = useResizeDetector({
                <div className="all-pricing-container">
                  <div className="program-group">
                    <div className="program-logo">
-                     {/*<img*/}
-                     {/*    src="https://images.keurig.com/is/content/keurig/Keurig-ssr-storefront/storefrontImages/icons/autodel-logo-clp.svg"*/}
-                     {/*    alt="Auto-Delivery price"*/}
-                     {/*    title="Auto-Delivery price"*/}
-                     {/*    className=""*/}
-                     {/*    data-selector="BPG_AutoDelivery_Image"*/}
-                     {/*/>*/}
                      <label>
                        25% OFF with Auto-Delivery
                      </label>

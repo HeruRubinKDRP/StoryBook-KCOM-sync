@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
 import KButton from "../../Kbutton/KButton";
 import {ProductInfoCardWrapper} from "./StyledSimpleCard";
-import {ProductImage} from "../../ProductImage/ProductImage";
-import {Kcarousel} from "../../Carousel/Kcarousel";
 import {Rating} from "../../Rating/Rating";
 import {productTypeT} from "../../../pages/myBrews";
 import {formattedPrice} from "../../_utilities/formatPrice";
@@ -12,10 +9,10 @@ import AsyncImage from "../../AsyncImage/AsyncImage";
 
 
 // Define an interface for the purchase information of a product
-export interface purchaseInfo {
+export interface purchaseInfo{
     price: number;
     inStock: boolean;
-    variant: string;
+    variant: {quantity : number,variantName : string}
 }
 
 export interface iProductInfoCardProps {
@@ -71,8 +68,9 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         const inStockProducts = products.filter(product => product.inStock);
 
         // Map the filtered array of in-stock products to an array of their prices
-        const inStockPrices = inStockProducts.map(product => product.price);
+        const inStockPrices = inStockProducts.map(product => product.price/product.variant.quantity);
 
+        console.log("inStockPrices: ", inStockPrices)
         // If there are no in-stock products, return -1
         if (inStockPrices.length === 0) {
             return -1;

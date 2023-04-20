@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import ProductInfoCard, { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
-import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./Styled_CLP_container";
+import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
 
 const BrewerQuickShop = lazy(() => import('../../Experimental/BrewerQuickShop/BrewerQuickShop'));
@@ -14,6 +14,7 @@ import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameTo
 import KButton from "../../Kbutton/KButton";
 import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/container-queries";
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
+
 export interface ProductListProps {
     products: iProductInfoCardProps[];
     ratingVisible: boolean;
@@ -25,6 +26,7 @@ export interface ProductListProps {
     columnsMediumScreen : number;
     columnsSmallScreen : number;
     stickyHeader: iStickyHeader;
+    stickyHeaderMode: "slim" | "full";
 }
 
 
@@ -33,6 +35,8 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     const [totalPages, setTotalPages] = useState(0);
     const [rows, setRows] = useState(1);
     const [currentColumns, setCurrentColumns] = useState(1);
+
+    const headerRef = React.createRef<HTMLDivElement>();
 
     const [quickShopOpen, setQuickShopOpen] = useState(false);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
@@ -54,7 +58,6 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
 
     const getModal = (open : boolean ) => {
         if(open){
-
             switch(props.products[selectedPod].productType){
                 case "pod":
                     return (
@@ -65,7 +68,7 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                                 brand={props.products[selectedPod].name}
                                 productImageURL={props.products[selectedPod].image}
                                 productPrices={props.products[selectedPod].prices.map((price, index) => {return price.price})}
-                                boxSizes={ props.products[selectedPod].prices.map((price, index) => {return Number(price.variant) }) }
+                                boxSizes={ props.products[selectedPod].prices.map((price, index) => {return Number(price.variant.quantity) }) }
                                 isSmartEligible={true}
                                 edlpOffer={""}
                                 subscriptionVisible={true}
@@ -119,7 +122,6 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         </Suspense>
                     )
             }
-
         }
 
     }
@@ -213,8 +215,11 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     }
 
     return (
-        <div >
-            <StickyHeader navigationRelated={{
+        <div>
+            <StickyHeader
+
+                stickyHeaderMode={props.stickyHeaderMode}
+                navigationRelated={{
                 sizingMode: props.stickyHeader.navigationRelated.sizingMode,
                 loggedIn: props.stickyHeader.navigationRelated.loggedIn,
                 emailErrorMessage: props.stickyHeader.navigationRelated.emailErrorMessage,
@@ -225,7 +230,9 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                 submitButtonText: props.stickyHeader.navigationRelated.submitButtonText,
                 isNobo: props.stickyHeader.navigationRelated.isNobo,
                 navItems: props.stickyHeader.navigationRelated.navItems
-            }}>
+            }}
+                headerRef={headerRef}
+            >
                 <div className="purchase-options-container">
                     <KButton
                         label="Filters"
@@ -236,7 +243,6 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         transitionType="expand-bg"
                     />
                 </div>
-
             </StickyHeader>
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}

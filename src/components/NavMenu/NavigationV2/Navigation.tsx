@@ -53,6 +53,7 @@ export interface iNavigation {
     navItems: iNavContentGroup[];
     //don't show the logo and the secondary items
     justMenuItems? : boolean;
+    classes? : string;
 }
 
 export const breakPoints = {
@@ -666,7 +667,7 @@ export const Navigation = (props: iNavigation) => {
     }
 
     return (
-        <>{ getNavBasedOnSizingMode(fixedMenuPadding)}</>
+        <header className={`main-navigation ${props.classes}`}>{ getNavBasedOnSizingMode(fixedMenuPadding)}</header>
     )
 
 

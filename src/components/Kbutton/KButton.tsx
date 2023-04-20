@@ -1,8 +1,8 @@
 import React, {ReactElement, useEffect, useState} from "react";
-import styled, { keyframes } from "styled-components"
 import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
 import {Price} from "../Price/Price";
 import {KColors} from "../styles js/colors";
+import {KButtonStyled} from "./k-button.styled";
 
 export type buttonType =
   "primary" |
@@ -219,17 +219,6 @@ export function KButton(props:iButton){
     labelAlignment = "center"
   }
 
-  const stylizedBtn = ()=>{
-    let KBtnStarter = styled.button`
-      .icon {
-        margin : ${iconMargin};
-        fill : ${iconColor};
-      }
-  `
-    return KBtnStarter;
-  }
-
-
 
   const iconManaged = ()=>{
     //if we show price then no icon and the price takes place of icon
@@ -359,7 +348,7 @@ export function KButton(props:iButton){
 
   return(
     <>
-      <button
+      <KButtonStyled
         onClick={()=>action()}
         onMouseEnter={()=>hoverAction()}
         style={{
@@ -373,7 +362,7 @@ export function KButton(props:iButton){
         className={`k-btn ${props.buttonType} ${props.transitionType} ${propClasses} ` }>
         {buttonAdornment()}
         {specialHoverElements()}
-      </button>
+      </KButtonStyled>
     </>
   )
 
