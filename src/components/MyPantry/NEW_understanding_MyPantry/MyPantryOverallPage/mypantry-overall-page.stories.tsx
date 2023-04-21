@@ -14,10 +14,11 @@ Default.args = {
     test: 'Test props',
     deliveryGroups: [
         {
-            subscriptiontype: "SMART",
+            subscriptiontype: "Smart Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -26,7 +27,54 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
+                    productImage:
+                        "https://images.keurig.com/is/image/keurig/Veranda-Blend-Coffee-Starbucks_en_general?fmt=png-alpha",
+                    countLeft: "48",
+                    shipDate: "30+ Days From Now",
+                    brandName: "Starbucks®",
+                    productName: "Veranda Blend® Coffee",
+                },
+                {
+                    mode: "SMART",
+                    status: "Active",
+                    productImage:
+                        "https://images.keurig.com/is/image/keurig/Major-Dickasons-Blend-Coffee-Peets-K-Cup_en_general?fmt=png-alpha",
+                    countLeft: "33",
+                    shipDate: "30+ Days From Now",
+                    brandName: "Peet's Coffee®",
+                    productName: "Major Dickason's Blend® Coffee",
+                },
+                {
+                    mode: "one-time",
+                    status: "one-time",
+                    productImage:
+                        "https://images.keurig.com/is/image/keurig/descaling-solution_5000367641?fmt=png-alpha",
+                    brandName: "Keurig®",
+                    productName: "Descaling Solution",
+                    onetimeNumber: "1",
+                },
+                {
+                    mode: "Canceled",
+                    status: "Canceled",
+                    productImage:
+                        "https://images.keurig.com/is/image/keurig/nantucket-blend-coffee-green-mountain-coffee-k-cup_en_general?fmt=png-alpha",
+                    brandName: "Green Mountain Coffee",
+                    productName: "Nantucket Blend® Coffee",
+                },
+                {
+                    mode: "add-item-smart",
+                    status: "Add-item-smart",
+                },
+            ]
+        },
+        {
+            subscriptiontype: "Scheduled Auto-Delivery",
+            subscriptions: [
+                {
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -35,7 +83,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -44,7 +93,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -53,7 +103,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -62,7 +113,18 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
+                    productImage:
+                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
+                    countLeft: "12",
+                    shipDate: "May2, 2023",
+                    brandName: "Dunkin' Donuts®",
+                    productName: "Original Blend Coffee",
+                },
+                {
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -73,10 +135,11 @@ Default.args = {
             ]
         },
         {
-            subscriptiontype: "AD",
+            subscriptiontype: "Smart Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -85,7 +148,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -94,7 +158,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -103,7 +168,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -112,7 +178,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -121,7 +188,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -132,10 +200,11 @@ Default.args = {
             ]
         },
         {
-            subscriptiontype: "SMART",
+            subscriptiontype: "Smart Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -144,7 +213,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -153,7 +223,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -162,7 +233,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -171,7 +243,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -180,7 +253,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -191,10 +265,11 @@ Default.args = {
             ]
         },
         {
-            subscriptiontype: "SMART",
+            subscriptiontype: "Scheduled Auto-Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -203,7 +278,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -212,7 +288,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -221,7 +298,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -230,7 +308,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -239,67 +318,8 @@ Default.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-            ]
-        }
-        ,
-        {
-            subscriptiontype: "AD",
-            subscriptions: [
-                {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-                {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-                {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-                {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-                {
-                    status: "SMART-active",
-                    productImage:
-                        "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
-                    countLeft: "12",
-                    shipDate: "May2, 2023",
-                    brandName: "Dunkin' Donuts®",
-                    productName: "Original Blend Coffee",
-                },
-                {
-                    status: "SMART-active",
+                    mode: "AD",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -317,10 +337,11 @@ scenario1.args = {
     test: 'Test props',
     deliveryGroups: [
         {
-            subscriptiontype: "AD",
+            subscriptiontype: "Scheduled Auto-Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode:"SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -329,7 +350,8 @@ scenario1.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode:"SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -338,7 +360,8 @@ scenario1.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode:"SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -349,10 +372,11 @@ scenario1.args = {
             ]
         },
         {
-            subscriptiontype: "AD",
+            subscriptiontype: "Scheduled Auto-Delivery",
             subscriptions: [
                 {
-                    status: "SMART-active",
+                    mode:"SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",
@@ -361,7 +385,8 @@ scenario1.args = {
                     productName: "Original Blend Coffee",
                 },
                 {
-                    status: "SMART-active",
+                    mode:"SMART",
+                    status: "Active",
                     productImage:
                         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
                     countLeft: "12",

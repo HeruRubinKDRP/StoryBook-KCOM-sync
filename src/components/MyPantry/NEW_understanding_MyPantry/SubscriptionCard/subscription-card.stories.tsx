@@ -12,7 +12,11 @@ export default {
         status: {
             control: {
                 type: 'select',
-                options: ['SMART-active', 'AD-active'],
+                options: [    "Active"
+                , "Inactive"
+                , "one-time"
+                , "Canceled"
+                , "Add-item-smart"],
             },
         },
     },
@@ -22,20 +26,49 @@ const Template: Story<iSubscriptionCard> = (args) => <SubscriptionCard {...args}
 
 export const SmartActive = Template.bind({});
 SmartActive.args = {
-    status: "SMART-active",
+    mode: "SMART",
+    status: "Active",
     productImage:
         "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
     countLeft: "12",
-    shipDate: "May2, 2023",
+    shipDate: "30+ Days From Now",
     brandName: "Dunkin' Donuts®",
     productName: "Original Blend Coffee",
 };
 
 export const AdActive = Template.bind({});
 AdActive.args = {
-    status: "AD-active",
+    mode: "AD",
+    status: "Active",
     productImage: "https://images.keurig.com/is/image/keurig/original-blend-coffee-dd_en_general?fmt=png-alpha",
     countBox: "1",
     brandName: "Dunkin' Donuts®",
     productName: "Original Blend Coffee",
+};
+
+export const OneTime = Template.bind({});
+OneTime.args = {
+    mode: "one-time",
+    status: "one-time",
+    productImage:
+        "https://images.keurig.com/is/image/keurig/descaling-solution_5000367641?fmt=png-alpha",
+    brandName: "Keurig®",
+    productName: "Descaling Solution",
+    onetimeNumber: "1",
+};
+
+export const Canceled = Template.bind({});
+Canceled.args = {
+    mode: "Canceled",
+    status: "Canceled",
+    productImage:
+        "https://images.keurig.com/is/image/keurig/nantucket-blend-coffee-green-mountain-coffee-k-cup_en_general?fmt=png-alpha",
+    brandName: "Green Mountain Coffee",
+    productName: "Nantucket Blend® Coffee",
+};
+
+export const AddItemSmart = Template.bind({});
+AddItemSmart.args = {
+    mode: "add-item-smart",
+    status: "Add-item-smart",
 };
