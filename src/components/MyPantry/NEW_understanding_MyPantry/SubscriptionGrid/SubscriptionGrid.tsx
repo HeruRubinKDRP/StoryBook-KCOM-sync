@@ -7,8 +7,8 @@ export interface iSubscriptionGrid {
 }
 
 export type SubcriptionType =
-"SMART"
-| "AD";
+"Smart Delivery"
+| "Scheduled Auto-Delivery";
 
 
 export const SubscriptionGrid = (props: iSubscriptionGrid) => {
@@ -19,7 +19,7 @@ export const SubscriptionGrid = (props: iSubscriptionGrid) => {
             {props.subscriptions.map((card, index) => (
                 <SubscriptionCard status={card.status} productImage={card.productImage} productName={card.productName}
                                   brandName={card.brandName} countLeft={card.countLeft} shipDate={card.shipDate}
-                                  countBox={card.countBox}/>
+                                  countBox={card.countBox} onetimeNumber={card.onetimeNumber} mode={card.mode}/>
             ))}
         </SubscriptionGridStyled>
     )

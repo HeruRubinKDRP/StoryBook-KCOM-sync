@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const SubscriptionCardStyled = styled.div`
-  /*  flex-basis: calc(22% - 20px);
-  flex-grow: 1;*/
   position: relative;
 
   .invisible-button {
-    /*    position: absolute;*/
     height: 100%;
     width: 100%;
     inset: 0;
@@ -39,34 +36,24 @@ export const SubscriptionCardStyled = styled.div`
     }
   }
 
-  &.AD-active {
+  &.Active {
     .invisible-button {
       &:hover {
         transform: scale(1.03);
-
-        .k-btn {
-          border: 2px solid #3B2B2F !important;
-        }
-
-        .expander {
-          background-color: antiquewhite !important;
-          inset: 0 !important;
-          opacity: 1 !important;
-        }
       }
     }
   }
 
   &.one-time {
     .invisible-button {
+      .expander {
+        border: none;
+      }
       &:hover {
         transform: scale(1.03);
 
-        .k-btn {
-          border: 2px solid #3B2B2F !important;
-        }
-
         .expander {
+          border: none;
           background-color: antiquewhite !important;
           inset: 0 !important;
           opacity: 1 !important;
@@ -75,8 +62,11 @@ export const SubscriptionCardStyled = styled.div`
     }
   }
 
-  &.cancel {
+  &.Canceled {
     .invisible-button {
+      .expander {
+        border: none;
+      }
       &:hover {
         transform: scale(1.03);
 
@@ -85,6 +75,7 @@ export const SubscriptionCardStyled = styled.div`
         }
 
         .expander {
+          border: none;
           background-color: antiquewhite !important;
           inset: 0 !important;
           opacity: 1 !important;
@@ -93,8 +84,11 @@ export const SubscriptionCardStyled = styled.div`
     }
   }
 
-  &.add-item-smart {
+  &.Add-item-smart {
     .invisible-button {
+      .expander {
+        border: none;
+      }
       &:hover {
         transform: scale(1.03);
 
@@ -103,6 +97,7 @@ export const SubscriptionCardStyled = styled.div`
         }
 
         .expander {
+          border: none;
           background-color: #AA8066 !important;
           inset: 0 !important;
           opacity: 1 !important;
@@ -113,6 +108,9 @@ export const SubscriptionCardStyled = styled.div`
 
   &.add-item-ad {
     .invisible-button {
+      .expander {
+        border: none;
+      }
       &:hover {
         transform: scale(1.03);
 
@@ -121,6 +119,7 @@ export const SubscriptionCardStyled = styled.div`
         }
 
         .expander {
+          border: none;
           background-color: #AA8066 !important;
           inset: 0 !important;
           opacity: 1 !important;
@@ -131,35 +130,42 @@ export const SubscriptionCardStyled = styled.div`
 
   &.recently-purchased {
     .invisible-button {
+      .expander {
+        border: none;
+      }
       &:hover {
         transform: scale(1.03);
 
-      .single-cta{
-        .k-btn {
-          border: 2px solid #3B2B2F !important;
+        .single-cta {
+          .k-btn {
+            border: 2px solid #3B2B2F !important;
+          }
+
+          .expander {
+            /*
+            background-color: antiquewhite !important;
+            */
+            border: none;
+            inset: 0 !important;
+            opacity: 1 !important;
+          }
         }
-        .expander {
-          /*
-          background-color: antiquewhite !important;
-          */
-          inset: 0 !important;
-          opacity: 1 !important;
-        }
-      }
 
         .more-than-one-CTA {
           .k-btn {
             border: 2px solid #3B2B2F !important;
           }
+
           .expander {
             /*
             background-color: antiquewhite !important;
             */
+            border: none;
             inset: 0 !important;
             opacity: 1 !important;
           }
         }
-        
+
       }
     }
   }
@@ -167,11 +173,6 @@ export const SubscriptionCardStyled = styled.div`
   &.large-dimensions {
     /*    max-width: 290px;*/
   }
-
-  /*  .GraphicContainer .icon.icon-shipping-truck-no-logo path {
-      fill: #BB9985;
-      max-width: 20px;
-    }*/
 
   .StatusLabel {
     display: flex;
@@ -185,26 +186,28 @@ export const SubscriptionCardStyled = styled.div`
     align-items: center;
   }
 
-  .ActiveLabel {
-    background-color: rgb(2, 137, 21);
+  .Label {
     border-radius: 7px;
     height: 14px;
     width: 14px;
+
+    &.Active {
+      background-color: rgb(2, 137, 21);
+    }
+
+    &.Inactive {
+      background-color: rgb(249, 198, 6);
+    }
+
+    &.one-time {
+      background-color: rgb(170, 128, 102);
+    }
+
+    &.Canceled {
+      background-color: rgb(249, 198, 6);
+    }
   }
 
-  .OneTimeLabel {
-    background-color: rgb(170, 128, 102);
-    border-radius: 7px;
-    height: 14px;
-    width: 14px;
-  }
-
-  .CanceledLabel {
-    background-color: rgb(249, 198, 6);
-    border-radius: 7px;
-    height: 14px;
-    width: 14px;
-  }
 
   .StatusTitle {
     color: rgb(45, 41, 38);

@@ -28,7 +28,7 @@ export const KButtonStyled = styled.button`
 
   .icon {
     z-index: 1;
-    padding: 5%;
+    /*padding: 5%;*/
     display: flex;
     justify-content: center;
   }
