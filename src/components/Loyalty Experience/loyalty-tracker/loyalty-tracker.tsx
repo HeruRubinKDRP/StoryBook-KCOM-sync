@@ -1,5 +1,3 @@
-// @ts-ignore
-import AnimatedNumber from "animated-number-react";
 import {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {iRedemptionCard} from "../../Cards/SimpleProductRedemptionCard/RedemptionCard";
@@ -10,7 +8,8 @@ import {getPlural} from "../../_utilities/getPlural";
 import {RedemptionArea} from "../redemption-area/redemption-control";
 import {LoyaltyTrackerStyled} from "./loyalty-tracker-styles";
 
-export let LOYALTY_TRACKER_WIDTH: number  = 0;
+
+export let LOYALTY_TRACKER_WIDTH: number  = 0
 
 export interface iLoyaltyTracker {
   points: number;
@@ -76,11 +75,12 @@ export const LoyaltyTracker = (props: iLoyaltyTracker) => {
            <div className="data-area">
              <div className="points-counter-area">
                <h2 className="main-points">
-                 <AnimatedNumber
-                   value={props.points}
-                   duration={1500}
-                   formatValue={(n: number) => n.toFixed(0)}
-                 />
+                 TODO: Animated Number
+                 {/*<AnimatedNumber*/}
+                 {/*  value={props.points}*/}
+                 {/*  duration={1500}*/}
+                 {/*  formatValue={(n: number) => n.toFixed(0)}*/}
+                 {/*/>*/}
 
                </h2>
                <div className="points-label">

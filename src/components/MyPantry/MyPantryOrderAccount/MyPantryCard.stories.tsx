@@ -3,7 +3,7 @@ import {Story, Meta} from "@storybook/react/types-6-0";
 import {iMyPantryCard, MyPantryCard} from "./MyPantryCard";
 
 export default {
-    title: "WIP /MyPantry Card Style",
+    title: "WIP /MyPantry CardFlip Style",
     component: MyPantryCard,
     argTypes: {
         status: {

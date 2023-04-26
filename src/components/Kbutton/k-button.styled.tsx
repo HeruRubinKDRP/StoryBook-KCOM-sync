@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import {colorStyles} from "../_commonStyles/common.styled";
+import {ctaColorStyles} from "../_commonStyles/common.styled";
 
 export const KButtonStyled = styled.button`
-  ${colorStyles};
+  ${ctaColorStyles};
 
   box-sizing: border-box;
   position: relative;
@@ -27,8 +27,10 @@ export const KButtonStyled = styled.button`
   }
 
   .icon {
+
     z-index: 1;
     /*padding: 5%;*/
+
     display: flex;
     justify-content: center;
   }
@@ -103,7 +105,7 @@ export const KButtonStyled = styled.button`
 
     .expander {
       background-color: white;
-      border: 1px solid var(--colorDarkRoast);
+      border: none; 
     }
   }
 }

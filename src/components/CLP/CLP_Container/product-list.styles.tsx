@@ -1,5 +1,6 @@
 import styled, {Interpolation} from "styled-components";
 import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
+import {ctaColorStyles} from "../../_commonStyles/common.styled";
 
 export interface iProductListWrapper {
     columns: number;
@@ -23,8 +24,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   
   --ctaButtonHeight : calc(var(--spacingLarge) * 2);
 
-  --colorDarkRoast : ${colorNameToValue("dark-roast")};
-  --colorCTA : ${colorNameToValue("Bold-CTA")};
+  ${ctaColorStyles};
 
   display: grid;
   grid-template-columns: repeat(var(--columnCount), 1fr);
@@ -59,7 +59,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     }
     button.k-btn.brewer-cta{
       padding: var(--spacingHuge) calc(var(--spacingHuge) * 2);
-      background-color: var(--colorCTA) !important;
+      background-color: var(--colorCTAPrimary) !important;
       box-shadow: 0 var(--spacingMedium) var(--spacingMedium) 0 rgba(0, 0, 0, 0.25);
       .filled{
         fill : var(--colorDarkRoast) !important;
@@ -163,11 +163,9 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   button.k-btn{
     position: relative;
     bottom: var(--ctaButtonHeight);
-    z-index: 1;
-    //left: 50%;
-    //transform: translateX(-50%);
+    z-index: 1; 
     padding: var(--spacingLarge) var(--spacingHuge);
-    height: var(--ctaButtonHeight);
+    height: 100%;
     font-size: calc(var(--columnSize) * 0.05);
   }
   
@@ -179,7 +177,27 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     
   } 
   
-  
+  .brewer-card{
+    height: 65vh;
+    .brewer-cta, .flip-btn{
+      height: 100% !important;
+    }
+    .brewer-cta{
+     // border-radius: 100vw 0 0 100vw !important;
+    }
+    .flip-btn{
+      // border-radius: 0 100vw 100vw 0 !important;
+      bottom: 0;
+      background-color: var(--colorLightCTA) !important;
+      color: var(--colorDarkRoast) !important;
+      .filled{
+        fill: var(--colorDarkRoast) !important;
+      }
+      .stroked{
+        stroke: var(--colorDarkRoast) !important;
+      }
+    }
+  }
 `;
 
 export const PaginationWrapper = styled.div`

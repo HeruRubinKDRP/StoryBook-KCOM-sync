@@ -14,7 +14,7 @@ export interface iStickyHeader {
     navigationRelated: iNavigation;
     children? : ReactNode;
     stickyHeaderMode: "slim" | "full";
-    headerRef: Ref<HTMLDivElement>
+    headerRef?: Ref<HTMLDivElement>
 }
 
 export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, forwardedRef) => {

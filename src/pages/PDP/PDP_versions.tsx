@@ -2,9 +2,9 @@ import React from "react";
 import {Kcarousel} from "../../components/Carousel/Kcarousel";
 import {ContentItem} from "../../components/ContentComponents/ContentComponent";
 import {FocalImageContent} from "../../components/ContentComponents/FocalImage/FocalImage";
-// import PdpFramework from "../components/PDP";
 import PdpFramework from "../../components/PDP_Related/PDP_FrameWork/PDP_FrameWork";
 import {carousel_images_KCS, carousel_images_KSS, KCS_specs_data} from "./pdp-data";
+import {navDemo} from "../../components/NavMenu/NavigationV2/navigation.stories";
 
 export const KCS_PDP=(version : string | string[])=>{
 
@@ -12,6 +12,23 @@ export const KCS_PDP=(version : string | string[])=>{
     default:
       return(
         <PdpFramework
+            stickyHeader={
+              {
+                stickyHeaderMode: "slim",
+                navigationRelated: {
+                  sizingMode: "liquid-design",
+                  loggedIn: false,
+                  emailErrorMessage: "Please enter a valid email address",
+                  emailSuccessMessage: "Thank you for subscribing!",
+                  emailExplanationText: "Sign up for our newsletter to receive updates on new products and promotions.",
+                  placeHolderText: "Enter your email address",
+                  defaultActiveHoverIndex: -1,
+                  submitButtonText: "Subscribe",
+                  isNobo: false,
+                  navItems: navDemo
+                }
+              }
+            }
           carousel={{
             slideImageURLs: carousel_images_KCS
           }}
@@ -408,7 +425,9 @@ export const KCS_PDP=(version : string | string[])=>{
             </>
           }
 
-        />
+          testParams={{
+            scrollToTop: true,
+          }}/>
       )
   }
 
@@ -419,6 +438,24 @@ export const KSS_PDP=(version : string | string[])=>{
     default:
       return(
         <PdpFramework
+            testParams={{
+                scrollToTop: true,
+            }}
+            stickyHeader={{
+              stickyHeaderMode : "slim",
+              navigationRelated : {
+              sizingMode : "liquid-design",
+              loggedIn : false,
+              emailErrorMessage : "Please enter a valid email address",
+              emailSuccessMessage : "Thank you for subscribing!",
+              emailExplanationText : "Sign up for our newsletter to receive updates on new products and promotions.",
+              placeHolderText : "Enter your email address",
+              defaultActiveHoverIndex : -1,
+              submitButtonText : "Subscribe",
+              isNobo : false,
+              navItems : navDemo
+            }}
+            }
           carousel={{
             slideImageURLs: carousel_images_KSS
           }}

@@ -22,6 +22,7 @@ KCS.args = {
       scrollToTop : true,
     },
     stickyHeader : {
+        stickyHeaderMode : "slim",
         navigationRelated : {
             sizingMode : "liquid-design",
             loggedIn : false,

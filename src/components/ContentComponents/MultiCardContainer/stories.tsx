@@ -4,7 +4,7 @@ import {simpleCardPresenterExample} from "../../../data/product-data";
 import {iMultiCardPresenter, MultiCardPresenter} from "./MultiCardPresenter";
 
 export default{
-  title:"Molecules/Multi Card Presenter",
+  title:"Molecules/Multi CardFlip Presenter",
   component : MultiCardPresenter,
   argTypes:{
       cards : {control : "object"}

@@ -1,5 +1,4 @@
 import styled, {Interpolation} from "styled-components";
-import css from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
 import {cardBorder, UI_rules} from "../reusable css/reusable-css";
 

@@ -37,9 +37,7 @@ export const ProductInfoCardWrapper = styled.div`
       width: 100%;
     }
     
-    .k-btn{
-      bottom: calc(var(--ctaButtonHeight) * 0.5) !important;
-      position: absolute;
+    .k-btn{ 
       border: 1px solid rgba(255,255,255,0.5);
     }
   }
@@ -168,10 +166,10 @@ export const ProductInfoCardWrapper = styled.div`
     /* -webkit-transform: translateX(-50%); */
     -ms-transform: translateX(-50%);
     /* transform: translateX(-50%); */
-    padding: var(--spacingLarge) var(--spacingHuge);
-    margin-top: var(--spacingLarge);
+    padding: var(--spacingLarge) var(--spacingHuge); 
     height: var(--ctaButtonHeight);
     font-size: calc(var(--columnSize) * 0.05); 
+    
     &:hover{
       .filled{
         fill: rgb(71, 48, 54) !important;

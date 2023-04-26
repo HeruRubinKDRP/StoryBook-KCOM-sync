@@ -2,13 +2,13 @@ import {SmallAddToCartJourneyStyled} from "./smallVersionStyled";
 import KButton from "../../../Kbutton/KButton";
 import {useResizeDetector} from "react-resize-detector";
 
-import Typist from 'react-typist';
 import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
 import Graphic from "../../../Graphic/Graphic";
 import {createRef, RefObject, useEffect, useState} from "react";
 import {css} from "styled-components";
+import Typist from "../../../Animated Effects/Typist/Typist";
 
 
 export interface iSimpleProduct{
@@ -124,9 +124,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     <div className="loading-graphic">
                         <img src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
-                    <Typist cursor={{show: true}}>
-                        <h2>Brewing up some great recommendations for you...</h2>
-                    </Typist>
+                    <Typist message={"Brewing up some great recommendations for you..."} />
                 </div>
             )
         }

@@ -14,6 +14,8 @@ import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameTo
 import KButton from "../../Kbutton/KButton";
 import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/container-queries";
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
+import CardFlipContainer from "../../Animated Effects/CardFlip/CardFlipContainer";
+import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -217,7 +219,6 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
     return (
         <div>
             <StickyHeader
-
                 stickyHeaderMode={props.stickyHeaderMode}
                 navigationRelated={{
                 sizingMode: props.stickyHeader.navigationRelated.sizingMode,
@@ -251,21 +252,31 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                 <ProductListWrapper
                     dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1} rows={rows}>
                     {visibleProducts.map((product, index) => (
-                        <ProductInfoCard
-                            key={index}
-                            prices={product.prices}
-                            priceDescriptor={product.priceDescriptor}
-                            image={product.image}
-                            brand={product.brand}
-                            name={product.name}
-                            productType={product.productType}
-                            ratingVisible={props.ratingVisible}
-                            classes={`${getContainerQuery(width)} in-clp`}
-                            rating={{
-                                totalNumberOfStars : 5,
-                                totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,
-                                ratingNumber: product.rating.ratingNumber || 4.6,
-                            }} onClick={()=>manageQuickShop(true, index)} />
+                        <CardFlip
+                            frontContent={
+                            <ProductInfoCard
+                                key={index}
+                                prices={product.prices}
+                                priceDescriptor={product.priceDescriptor}
+                                image={product.image}
+                                brand={product.brand}
+                                name={product.name}
+                                productType={product.productType}
+                                ratingVisible={props.ratingVisible}
+                                classes={`${getContainerQuery(width)} in-clp`}
+                                rating={{
+                                    totalNumberOfStars : 5,
+                                    totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,
+                                    ratingNumber: product.rating.ratingNumber || 4.6,
+                                }} onClick={()=>manageQuickShop(true, index)}
+                            />
+                        }
+                            backContent={<h1>Back</h1>}
+                            sideShowing="front"
+                            classes={"brewer-card"}
+                        />
+
+
                     ))}
                 </ProductListWrapper>
                 {totalPages > 1 && (

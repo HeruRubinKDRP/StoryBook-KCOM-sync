@@ -1,6 +1,5 @@
 import KButton from "../Kbutton/KButton";
 import React, {useEffect, useRef, useState} from "react";
-import Typist from "react-typist";
 import {VideoStyled} from "./Video.styles";
 
 
@@ -145,7 +144,8 @@ export const Video=(props:iVideo)=>{
             />
             {captionVisible && (
                 <div className="caption-overlay">
-                    <Typist key={captionText} cursor={{show: false}} avgTypingDelay={20} stdTypingDelay={5}>{captionText}</Typist>
+                    TODO make GSAP Typist
+                    {/*<Typist key={captionText} cursor={{show: false}} avgTypingDelay={20} stdTypingDelay={5}>{captionText}</Typist>*/}
                 </div>)
             }
             <div className="video-controls">

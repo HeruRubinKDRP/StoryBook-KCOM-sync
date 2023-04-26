@@ -6,13 +6,14 @@ import {productTypeT} from "../../../pages/myBrews";
 import {formattedPrice} from "../../_utilities/formatPrice";
 import {isValidEmail} from "../../_utilities/validation/validation";
 import AsyncImage from "../../AsyncImage/AsyncImage";
+import {prop} from "cheerio/lib/api/attributes";
 
 
 // Define an interface for the purchase information of a product
-export interface purchaseInfo{
+export interface purchaseInfo {
     price: number;
     inStock: boolean;
-    variant: {quantity : number,variantName : string}
+    variant: { quantity: number, variantName: string }
 }
 
 export interface iProductInfoCardProps {
@@ -22,14 +23,15 @@ export interface iProductInfoCardProps {
     name: string;
     prices: purchaseInfo[];
     ratingVisible: boolean;
-    priceDescriptor? : string;
+    priceDescriptor?: string;
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;
         ratingNumber: number;
     }
     onClick: () => void;
-    classes? : string;
+    classes?: string;
+    flipFunction?: () => void;
 }
 
 
@@ -68,7 +70,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         const inStockProducts = products.filter(product => product.inStock);
 
         // Map the filtered array of in-stock products to an array of their prices
-        const inStockPrices = inStockProducts.map(product => product.price/product.variant.quantity);
+        const inStockPrices = inStockProducts.map(product => product.price / product.variant.quantity);
 
         console.log("inStockPrices: ", inStockPrices)
         // If there are no in-stock products, return -1
@@ -92,16 +94,16 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         <ProductInfoCardWrapper className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
             <div className="product-data-container">
                 <div className={`product-image ${props.productType}-image`}>
-                    <AsyncImage src={props.image} alt={`${props.brand} ${props.name}`} className="image-inner" />
+                    <AsyncImage src={props.image} alt={`${props.brand} ${props.name}`} className="image-inner"/>
                     {/*<img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>*/}
                 </div>
                 <div className="product-info-container">
                     <div className="price">
                         <div className="fine-print">
-                            {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as') }
+                            {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as')}
                         </div>
                         <div>
-                            {isAllOutOfStock(props.prices) ? 'Out of Stock' : `${formattedPrice(getLowestPrice(props.prices))} ${getPriceLabel()}`   }
+                            {isAllOutOfStock(props.prices) ? 'Out of Stock' : `${formattedPrice(getLowestPrice(props.prices))} ${getPriceLabel()}`}
                         </div>
                     </div>
                     <div className="brand">{props.brand}</div>
@@ -159,21 +161,21 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                     )}
                     {
                         !showEmailInput && (
-                            <KButton
-                                transitionType="expand-bg"
-                                classes={`cta-main ${props.productType}-cta`}
-                                buttonWidth="fit-to-content"
-                                label={isAllOutOfStock(props.prices) ? 'Notify Me' : 'Buy Now'}
-                                iconStandard="icon-add"
-                                iconPlacement="after-label"
-                                buttonType="primary"
-                                actionFunc={()=>actionFunc()}
-                            />
+                            <div className="cta-container">
+                                <KButton
+                                    transitionType="expand-bg"
+                                    classes={`cta-main ${props.productType}-cta`}
+                                    buttonWidth="fit-to-content"
+                                    label={isAllOutOfStock(props.prices) ? 'Notify Me' : 'Buy Now'}
+                                    iconStandard="icon-add"
+                                    iconPlacement="after-label"
+                                    buttonType="primary"
+                                    actionFunc={() => actionFunc()}
+                                />
+                            </div>
                         )
                     }
                 </div>
-
-
 
             </div>
 

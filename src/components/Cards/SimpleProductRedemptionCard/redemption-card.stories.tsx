@@ -3,7 +3,7 @@ import {brands} from "../../../pages/myBrews";
 import {iRedemptionCard, RedemptionCard} from "./RedemptionCard";
 
 export default {
-  title : "Loyalty/Simple Loyalty Redemption Card",
+  title : "Loyalty/Simple Loyalty Redemption CardFlip",
   component :RedemptionCard,
   argTypes : {
     desiredWidth : {

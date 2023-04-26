@@ -1,5 +1,4 @@
 import React, {ReactElement, useEffect, useRef, useState} from "react";
-import ScrollSpy from "react-ui-scrollspy";
 import styled, {keyframes} from "styled-components"
 import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
 import {KColors} from "../styles js/colors";
@@ -37,7 +36,7 @@ export const ScrollerSpy = (props: Iscroller) => {
 
   return (
     <ScrollerContainer ref={parentRef}>
-      <ScrollSpy activeClass={"active-zzz"} parentScrollContainerRef={parentRef} >
+
         <div id="first" className="scroll-item">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolores
           veritatis doloremque fugit. Soluta aperiam atque inventore deleniti,
@@ -62,7 +61,7 @@ export const ScrollerSpy = (props: Iscroller) => {
           voluptatibus non fuga eos magni natus vel, rerum excepturi expedita.
           Tempore, vero!
         </div>
-      </ScrollSpy>
+
     </ScrollerContainer>
   )
 }

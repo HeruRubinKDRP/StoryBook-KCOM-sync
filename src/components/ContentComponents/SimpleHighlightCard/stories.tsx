@@ -3,7 +3,7 @@ import React from "react"
 import {iSimpleHighlightCard, SimpleHighlightCard} from "./SimpleHighlightCard";
 
 export default{
-  title : "Molecules/Simple Highlight Card",
+  title : "Molecules/Simple Highlight CardFlip",
   component : SimpleHighlightCard,
   argTypes : {
     title : {control : "text"},

@@ -243,7 +243,9 @@ export const PdpFramework = (props: iPdpFramework) => {
                 submitButtonText: props.stickyHeader.navigationRelated.submitButtonText,
                 isNobo: props.stickyHeader.navigationRelated.isNobo,
                 navItems: props.stickyHeader.navigationRelated.navItems
-            }}>
+            }}
+             stickyHeaderMode={props.stickyHeader.stickyHeaderMode}
+            >
                 <div className="purchase-options-container">
                     <div className="price-area">
                         <p>As low as</p>

@@ -2,7 +2,7 @@ import {Story, Meta} from "@storybook/react/types-6-0";
 import {ClassicCard, iClassicCard} from "./ClassicCard";
 
 export default {
-    title: "Classic Components/Classic Beverage Card",
+    title: "Classic Components/Classic Beverage CardFlip",
     component: ClassicCard,
     argTypes: {
         bannerType: {control: "select", options: ["feature", "new", "promo"]},
