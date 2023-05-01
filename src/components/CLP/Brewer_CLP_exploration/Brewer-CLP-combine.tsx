@@ -4,7 +4,7 @@ import {Filters} from './Brewer-CLP-filters';
 import {ProductCard} from './Brewer-CLP-grid';
 import {BrewerCLPStyled} from "./Brewer-CLP-grid-styled"
 import {BrewerCLPFiltersStyle} from "./Brewer-CLP-filters-styled";
-import {CombinedComponentStyle, ComponentFilterStyle} from "./Brewer-CLP-combine-styled"
+import {CombinedComponentStyle, ComponentFilterStyle, FiltersContainerStyle} from "./Brewer-CLP-combine-styled"
 import {iStickyHeader, StickyHeader} from 'components/Sticky Header/StickyHeader';
 import KButton, {iButton} from 'components/Kbutton/KButton';
 
@@ -45,30 +45,31 @@ function CombinedComponent(props: iCombineComponent) {
                 </button>
             </StickyHeader>
 
-            <ComponentFilterStyle>
-                <button className="filters-button" onClick={handleClick}>
-                    {isVisible ? 'Hide Filters' : 'Show Filters'}
-                </button>
-            </ComponentFilterStyle>
             <CombinedComponentStyle>
 
-                <BrewerCLPFiltersStyle>
+                <FiltersContainerStyle>
                     <Filters isVisible={isVisible}/>
-                </BrewerCLPFiltersStyle>
+                </FiltersContainerStyle>
+                <div className="right-part">
+                    <ComponentFilterStyle>
+                        <button className="filters-button" onClick={handleClick}>
+                            {isVisible ? 'Hide Filters' : 'Show Filters'}
+                        </button>
+                    </ComponentFilterStyle>
+                    <BrewerCLPStyled>
 
-                <BrewerCLPStyled>
-                    {props.products.map((product, index) => (
-                        <ProductCard
-                            key={index}
-                            name={product.name}
-                            kskprice={product.kskprice}
-                            onetimeprice={product.onetimeprice}
-                            imageUrl={product.imageUrl}
-                            hoverUrl={product.hoverUrl}
-                        />
-                    ))}
-                </BrewerCLPStyled>
-
+                        {props.products.map((product, index) => (
+                            <ProductCard
+                                key={index}
+                                name={product.name}
+                                kskprice={product.kskprice}
+                                onetimeprice={product.onetimeprice}
+                                imageUrl={product.imageUrl}
+                                hoverUrl={product.hoverUrl}
+                            />
+                        ))}
+                    </BrewerCLPStyled>
+                </div>
             </CombinedComponentStyle>
         </>
 

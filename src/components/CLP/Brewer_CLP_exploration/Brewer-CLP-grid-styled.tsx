@@ -18,9 +18,10 @@ export const BrewerCLPStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 12px;
     &:hover {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
       label{
         color:#3B2B2F;
         font-weight: bold;

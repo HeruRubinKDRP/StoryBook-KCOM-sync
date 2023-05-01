@@ -37,7 +37,6 @@ export const Filters = (props: iFilters) => {
                             ]}
                             defaultOpen
                         />
-
                         <CategoryItem
                             title="Features"
                             subcategories={[
@@ -49,6 +48,7 @@ export const Filters = (props: iFilters) => {
                                 { checkbox: true, className: 'liFeatures', name: 'Strength Control (16)', imageSrc: '' },
                                 { checkbox: true, className: 'liFeatures', name: 'Temperature Control (5)', imageSrc: '' },
                             ]}
+                            defaultOpen
                         />
 
                         <CategoryItem
@@ -74,16 +74,29 @@ export const Filters = (props: iFilters) => {
                                 { checkbox: true, name: 'Commercial (1)', imageSrc: ''},
                             ]}
                         />
+                    <CategoryItem
+                        title="Color"
+                        subcategories={[
+                            {
+                                groupTitle: "Neutral, Black and White",
+                                colors: ['#676260','#eae8d4','#fff', '#000', '#f3f3f3'],
+                                className: 'liColor',
+                            },
+                            {
+                                groupTitle: "Green and Blue",
+                                colors: ['#a8bba2', '#405545','#578295', '#77bcda', '#b0cacb', '#32425e'],
+                                className: 'liColor',
+                            },
+                            {
+                                groupTitle: "Red",
+                                colors: ['#bb3a56', '#ff0000'],
+                                className: 'liColor',
+                            },
+                        ]}
+                        defaultOpen
+                    />
 
-                        <CategoryItem
-                            title="Color"
-                            subcategories={[
-                                { name: '', imageSrc: '', colorThumbnail: '#fff' },
-                                { name: '', imageSrc: '', colorThumbnail: '#d2d2d2' },
-                                { name: '', imageSrc: '', colorThumbnail: '#ccc' },
-                            ]}
-                            defaultOpen
-                        />
+
                 </ul>
             </div>
         </BrewerCLPFiltersStyle>

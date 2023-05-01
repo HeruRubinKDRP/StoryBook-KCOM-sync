@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 
 export const CategoryItemStyle = styled.div`
-  .liCategories{
+  .liCategories {
     border-bottom: solid 1px #AA8066;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   .category-title {
     display: flex;
     padding: 10px 0;
@@ -30,43 +31,66 @@ export const CategoryItemStyle = styled.div`
   .chevron-icon.rotate {
     transform: scaleY(-1) translateY(-20%);
   }
-  
+
   .color-thumbnail {
-    display: inline-block;
     width: 30px;
     height: 30px;
     border: 1px solid #000;
     cursor: pointer;
-    margin-right: 5px;
     border-radius: 100vw;
   }
-//subcategories
+
+  //subcategories
   .subcategories {
     height: 0;
     overflow: hidden;
     transition: height 0.3s;
   }
-  .subcategory-list{
-    /*    width: 80%;
-        box-sizing: border-box;*/
-  }
-  .subcategories.open {
-    height: auto;
-  }
-  .subcategory-image {
-    margin-left: 10px;
-    height: 75px;
-    width: auto;
-  }
-  .subcategory-checkbox{
-    margin-right: 10px;
-  }
-  .subcategory-content {
+
+  .subcategory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
   }
-  .subcategory-text {
-    flex: 1;
-    margin-left: 8px;
+
+.subcategories.open {
+  height: auto;
+}
+
+.subcategory-image {
+  margin-left: 10px;
+  height: 75px;
+  width: auto;
+}
+
+.subcategory-checkbox {
+  margin-right: 10px;
+}
+
+.subcategory-content {
+  display: flex;
+  align-items: center;
+}
+
+.subcategory-text {
+  flex: 1;
+  margin-left: 8px;
+}
+  .group-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    grid-column: 1 / span 5;
+  }
+  .color-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-group-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+/*    grid-gap: 10px;*/
   }
 `
