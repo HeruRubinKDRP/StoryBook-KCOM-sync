@@ -51,10 +51,14 @@ function CombinedComponent(props: iCombineComponent) {
                     <Filters isVisible={isVisible}/>
                 </FiltersContainerStyle>
                 <div className="right-part">
-                    <ComponentFilterStyle>
+                      <ComponentFilterStyle>
+                        <div className={"ksk-toggle"}>Keurig Starter Kit</div>
                         <button className="filters-button" onClick={handleClick}>
                             {isVisible ? 'Hide Filters' : 'Show Filters'}
                         </button>
+                          <div className={"sort-by"}>Sort by
+                          <div>Popularity (all time)</div>
+                          </div>
                     </ComponentFilterStyle>
                     <BrewerCLPStyled>
 

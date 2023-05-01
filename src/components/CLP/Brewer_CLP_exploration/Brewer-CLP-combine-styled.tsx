@@ -19,6 +19,7 @@ export const ComponentFilterStyle = styled.div`
   padding: 10px 20px;
   Display: flex;
   justify-content: flex-end;
+  align-items: center;
 
   .filters-button {
     background-color: #3B2B2F;
@@ -31,10 +32,17 @@ export const ComponentFilterStyle = styled.div`
     border-radius: 100vw;
     padding: 10px;
     min-width: 180px;
+    margin-right: 2%;
   }
 
   .filters-button:hover {
     text-decoration: underline;
+  }
+  .ksk-toggle{
+    margin-right: 2%;
+  }
+  .sort-by{
+    
   }
 `
 
