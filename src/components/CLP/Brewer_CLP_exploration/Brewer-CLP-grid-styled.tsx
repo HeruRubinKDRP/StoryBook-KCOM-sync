@@ -18,9 +18,11 @@ export const BrewerCLPStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+ /*   border: 1px solid #ccc;*/
+    box-shadow: inset 0px -20px 20px 0px rgb(0 0 0 / 5%);
+    border-radius: 12px;
     &:hover {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
       label{
         color:#3B2B2F;
         font-weight: bold;
@@ -72,13 +74,40 @@ export const BrewerCLPStyled = styled.div`
   }
 //BottomPart
   .bottom-part{
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+    .best-value{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .best-value-label{
+      color: #fff;
+      font-size: 12px;
+      display: inline-block;
+      padding: 2px 0 2px 4px;
+      background-color: #00889F;
+      white-space: nowrap;
+      position: relative;
+      margin-right: 12px;
+    }
+
+    .best-value-label::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      height: -webkit-fill-available;
+      width: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 9px solid #00889F;
+    }
     .ksk{
       width: 50%;
       border-right: #CCB3A3 1px solid;
@@ -93,6 +122,8 @@ export const BrewerCLPStyled = styled.div`
       color: #0d8296;
     }
     .ksk-price{
+      display: inline-block;
+      white-space: nowrap; /* Prevent text from wrapping */
       font-size: 16px;
       font-weight: 600;
       color:#0d8296;
@@ -112,7 +143,12 @@ export const BrewerCLPStyled = styled.div`
       font-weight: bold;
       font-size: 16px;
       color: #333333;
-      height: 40px;
+      height: 50px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
   }

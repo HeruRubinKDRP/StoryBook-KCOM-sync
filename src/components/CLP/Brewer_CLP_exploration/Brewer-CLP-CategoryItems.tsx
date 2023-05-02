@@ -4,7 +4,7 @@ import {CategoryItemStyle} from './Brewer-CLP-CategoryItems-styled';
 
 interface iCategoryItem {
     title: string;
-    subcategories: { name: string; imageSrc?: string; className?: string; colorThumbnail?: string;     checkbox?: boolean;}[];
+    subcategories: { name?: string; imageSrc?: string; className?: string; colorThumbnail?: string; checkbox?: boolean; groupTitle?:string; colors?: string[];}[];
     defaultOpen?: boolean;
 }
 
@@ -27,24 +27,30 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
             <div className="category-title" onClick={toggleSubcategories}>
                 <span>{title}</span>
                 <span className={`chevron-icon ${rotateClass}`}>
-                    <Graphic graphicName={"chevron-up"}></Graphic>
-                </span>
+          <Graphic graphicName={"chevron-up"}></Graphic>
+        </span>
             </div>
             {isOpen && (
-                <ul className="subcategory-list">
+                <ul className={`subcategory-list ${title === 'Color' ? 'color-grid' : ''}`}>
                     {subcategories.map((subcategory, index) => (
                         <li key={index} className={subcategory.className || ''}>
-                            {subcategory.colorThumbnail ? (
-                                <div
-                                    className="color-thumbnail-container"
-                                    onClick={() => handleSubcategoryClick(index)}
-                                >
-                                    <div
-                                        className="color-thumbnail"
-                                        style={{ backgroundColor: subcategory.colorThumbnail }}
-                                    ></div>
-                                </div>
-                            ) : (
+                            {subcategory.groupTitle && (
+                                <div className="group-title">{subcategory.groupTitle}</div>
+                            )}
+                            {subcategory.colors && (
+                                <ul className="color-group-list">
+                                    {subcategory.colors.map((color, colorIndex) => (
+                                        <li key={colorIndex}>
+                                            <div
+                                                className="color-thumbnail"
+                                                style={{ backgroundColor: color }}
+                                                onClick={() => handleSubcategoryClick(index)}
+                                            ></div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                            {!subcategory.groupTitle && !subcategory.colors && (
                                 <React.Fragment>
                                     <div className="subcategory-content">
                                         {subcategory.checkbox && (
@@ -68,9 +74,6 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
                         </li>
                     ))}
                 </ul>
-
-
-
             )}
         </CategoryItemStyle>
     );

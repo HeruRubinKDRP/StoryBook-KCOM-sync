@@ -29,7 +29,10 @@ export const ProductCard = (props: iCardProps): JSX.Element => {
                 <div className={"pricing"}>
                     <div className={"ksk"}>
                         <div className={"ksk-title"}>Build a Starter Kit</div>
+                        <div className={"best-value"}>
+                        <div className={"best-value-label"}>Best Value</div>
                         <div className={"ksk-price"}>{props.kskprice}</div>
+                        </div>
                     </div>
                     <div className={"onetime"}>
                         <div className={"onetime-title"}>One Time Purchase</div>
