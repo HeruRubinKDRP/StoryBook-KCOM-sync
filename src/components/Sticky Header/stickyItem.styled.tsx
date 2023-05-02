@@ -15,6 +15,11 @@ export const StickyItemStyled = styled.div`
   &.not-sticky{
     display: none;
   }
+  .secondary-btn{
+    padding: 0 !important;
+  }
+  
+  
   @keyframes moveFromTop {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(0); }

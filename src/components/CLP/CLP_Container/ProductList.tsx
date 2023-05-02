@@ -243,6 +243,25 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         iconStandard="chevron-down"
                         transitionType="expand-bg"
                     />
+                    <KButton
+                        classes="secondary-btn"
+                        label=""
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="icon-account"
+                        transitionType="expand-bg"
+                    />
+                    <KButton
+                        classes="secondary-btn"
+                        label=""
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="icon-cart"
+                        transitionType="expand-bg"
+                    />
+
                 </div>
             </StickyHeader>
             {getModal(quickShopOpen)}
@@ -273,7 +292,7 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         }
                             backContent={<h1>Back</h1>}
                             sideShowing="front"
-                            classes={"brewer-card"}
+                            classes={ product.productType == "brewer" ? "brewer-card" : "pod-card"}
                         />
 
 

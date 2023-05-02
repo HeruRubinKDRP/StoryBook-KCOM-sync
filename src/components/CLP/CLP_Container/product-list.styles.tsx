@@ -177,6 +177,33 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     
   } 
   
+  .pod-card{
+    min-height: 45vh;
+    .product-info-container {
+      z-index: 1;
+      display: flex; 
+      flex-direction: column;
+      margin-bottom: 6vh;
+    }
+    
+    .cta-container{
+      display: grid;
+      grid-template-columns: 0.5fr 0.25fr;
+      grid-template-rows: auto;
+      grid-gap: 0; 
+      align-items: end;
+      bottom: calc(var(--ctaButtonHeight) * 0.5) !important;
+      position: absolute;
+      width: 100%;
+      height: calc(var(--ctaButtonHeight) * 3) !important;
+      padding: 0 5% 0 5%;
+      justify-content: center;
+      .k-btn{
+        
+      }
+    }
+  }
+  
   .brewer-card{
     height: 65vh;
     .brewer-cta, .flip-btn{

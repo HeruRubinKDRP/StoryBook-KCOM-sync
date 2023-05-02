@@ -12,7 +12,7 @@ import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/contai
 
 export interface iStickyHeader {
     navigationRelated: iNavigation;
-    children? : ReactNode;
+    children?: ReactNode;
     stickyHeaderMode: "slim" | "full";
     headerRef?: Ref<HTMLDivElement>
 }
@@ -57,7 +57,6 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
             return
         }
     }, [ref]);
-
 
 
     const handleScroll = (scrollPastThis: number | undefined) => {
@@ -114,47 +113,47 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
                     navItems={props.navigationRelated.navItems}
                     justMenuItems={false}
                 />
-                { props.stickyHeaderMode === "slim" && <StickyItem>
+                {props.stickyHeaderMode === "slim" && <StickyItem>
                     <StickyItemStyled
-                    className={`${getStickyMenuStyle()} ${getContainerQuery(width)}` }>
-                    <div className="sticky-menu-placement">
-                    <div className="left-area">
-                    <Graphic graphicName={"logo"}/>
-                    <KButton
-                    label={"Menu"}
-                    iconStandard={(isMenuOpen ? "close" : "icon-menu")}
-                    iconPlacement={"before-label"}
-                    buttonType="primary-light"
-                    buttonWidth={"fit-to-content"}
-                    actionFunc={() => setIsMenuOpen(!isMenuOpen)}
-                    />
-                    </div>
-                    <div className="search-area">
-                    <SearchBox/>
-                    </div>
-                { props.children ?
-                    (<div className="child-content">
-                {props.children}
-                    </div>)
-                    :
-                    null
-                }
-                    </div>
-                {isMenuOpen ?   <Navigation
-                    sizingMode={props.navigationRelated.sizingMode}
-                    loggedIn={props.navigationRelated.loggedIn}
-                    emailErrorMessage={props.navigationRelated.emailErrorMessage}
-                    emailSuccessMessage={props.navigationRelated.emailSuccessMessage}
-                    emailExplanationText={props.navigationRelated.emailExplanationText}
-                    placeHolderText={props.navigationRelated.placeHolderText}
-                    defaultActiveHoverIndex={-1}
-                    submitButtonText={props.navigationRelated.submitButtonText}
-                    isNobo={props.navigationRelated.isNobo}
-                    navItems={props.navigationRelated.navItems}
-                    justMenuItems={true}
-                    /> : null}
+                        className={`${getStickyMenuStyle()} ${getContainerQuery(width)}`}>
+                        <div className="sticky-menu-placement">
+                            <div className="left-area">
+                                <Graphic graphicName={"logo"}/>
+                                <KButton
+                                    label={"Menu"}
+                                    iconStandard={(isMenuOpen ? "close" : "icon-menu")}
+                                    iconPlacement={"before-label"}
+                                    buttonType="primary-light"
+                                    buttonWidth={"fit-to-content"}
+                                    actionFunc={() => setIsMenuOpen(!isMenuOpen)}
+                                />
+                            </div>
+                            <div className="search-area">
+                                <SearchBox/>
+                            </div>
+                            {props.children ?
+                                (<div className="child-content">
+                                    {props.children}
+                                </div>)
+                                :
+                                null
+                            }
+                        </div>
+                        {isMenuOpen ? <Navigation
+                            sizingMode={props.navigationRelated.sizingMode}
+                            loggedIn={props.navigationRelated.loggedIn}
+                            emailErrorMessage={props.navigationRelated.emailErrorMessage}
+                            emailSuccessMessage={props.navigationRelated.emailSuccessMessage}
+                            emailExplanationText={props.navigationRelated.emailExplanationText}
+                            placeHolderText={props.navigationRelated.placeHolderText}
+                            defaultActiveHoverIndex={-1}
+                            submitButtonText={props.navigationRelated.submitButtonText}
+                            isNobo={props.navigationRelated.isNobo}
+                            navItems={props.navigationRelated.navItems}
+                            justMenuItems={true}
+                        /> : null}
                     </StickyItemStyled>
-                    </StickyItem> }
+                </StickyItem>}
 
             </div>
         </StickyStyled>

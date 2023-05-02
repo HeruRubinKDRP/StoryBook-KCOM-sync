@@ -4,6 +4,7 @@ export const StickyStyled= styled.div`
   position: relative;
   z-index: 2000;
   
+ 
   .main-navigation{
     &.full{
       position: fixed;
@@ -11,8 +12,11 @@ export const StickyStyled= styled.div`
       left: 0;
       right: 0;
       z-index: 2000;
-    }  
+    }
+   
   }
+  
+  
     
  
   
