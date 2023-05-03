@@ -8,6 +8,7 @@ export const CategoryItemStyle = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 0 10px 0;
+    user-select: none;
   }
   .liCategories:last-child {
     border-bottom: none;
@@ -18,6 +19,7 @@ export const CategoryItemStyle = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 0 10px 0;
+    user-select: none;
     .subcategory-image {
       max-height: 40px;
       max-width: 55px;

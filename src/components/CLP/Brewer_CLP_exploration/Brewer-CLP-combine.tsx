@@ -40,9 +40,36 @@ function CombinedComponent(props: iCombineComponent) {
                 }}
                 headerRef={headerRef}
             >
-                <button className="filters-button" onClick={handleClick}>
-                    {isVisible ? 'Hide Filters' : 'Show Filters'}
-                </button>
+                <div className="purchase-options-container">
+                    <KButton
+                        label="Filters"
+                        buttonType="primary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="chevron-down"
+                        transitionType="expand-bg"
+                        onClick={handleClick}
+                    />
+                    <KButton
+                        classes="secondary-btn"
+                        label=""
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="icon-account"
+                        transitionType="expand-bg"
+                    />
+                    <KButton
+                        classes="secondary-btn"
+                        label=""
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard="icon-cart"
+                        transitionType="expand-bg"
+                    />
+
+                </div>
             </StickyHeader>
 
             <CombinedComponentStyle>

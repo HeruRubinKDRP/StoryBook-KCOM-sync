@@ -36,7 +36,7 @@ export const BrewerCLPFiltersStyle = styled.div`
     justify-content: flex-start;
     position: sticky;
     overflow-y: auto;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 80px);
   }
 
   .filters ul {

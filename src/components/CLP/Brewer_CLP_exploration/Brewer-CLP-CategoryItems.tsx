@@ -9,18 +9,26 @@ interface iCategoryItem {
 }
 
 export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCategoryItem) => {
+
     const [isOpen, setIsOpen] = useState(defaultOpen);
     const [rotateClass, setRotateClass] = useState('');
     const handleCheckboxChange = (index: number) => {
-        // Handle the checkbox change event here
-        console.log(`Checkbox for subcategory ${index} changed`);
+        setCheckedSubcategories({ ...checkedSubcategories, [index]: !checkedSubcategories[index] });
     };
+
     const [selectedColorIndexes, setSelectedColorIndexes] = useState<Record<number, number[]>>(
         subcategories.reduce((acc: Record<number, number[]>, _, index) => {
             acc[index] = [];
             return acc;
         }, {})
     );
+    const [checkedSubcategories, setCheckedSubcategories] = useState<Record<number, boolean>>(
+        subcategories.reduce((acc: Record<number, boolean>, subcategory, index) => {
+            acc[index] = false;
+            return acc;
+        }, {})
+    );
+
 
     const handleSubcategoryClick = (subcategoryIndex: number, colorIndex: number) => {
         const newSelectedColorIndexes = { ...selectedColorIndexes };
@@ -67,7 +75,7 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
             {isOpen && (
                 <ul className={`subcategory-list ${title === 'Color' ? 'color-grid' : ''}`}>
                     {subcategories.map((subcategory, index) => (
-                        <li key={index} className={subcategory.className || ''}>
+                        <li key={index} className={subcategory.className || ''} onClick={() => handleCheckboxChange(index)}>
                             {subcategory.groupTitle && (
                                 <div className="group-title">{subcategory.groupTitle}</div>
                             )}
@@ -98,15 +106,15 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
                                 <React.Fragment>
                                     <div className="subcategory-content">
                                         {subcategory.checkbox && (
-                                            <>
+                                                <>
                                                 <input
                                                     type="checkbox"
                                                     className="subcategory-checkbox"
                                                     id={`${title}-subcategory-checkbox-${index}`}
-                                                    onChange={() => handleCheckboxChange(index)}
+                                                    checked={checkedSubcategories[index]}
                                                 />
                                                 <label htmlFor={`${title}-subcategory-checkbox-${index}`} className="checkbox-container"></label>
-                                            </>
+                                                </>
                                         )}
                                         <div className="subcategory-text">
                                             <div className={"name-number"}>
@@ -135,7 +143,5 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
         </CategoryItemStyle>
     );
 };
-function handleSubcategoryClick(index: number): void {
-    throw new Error('Function not implemented.');
-}
+
 

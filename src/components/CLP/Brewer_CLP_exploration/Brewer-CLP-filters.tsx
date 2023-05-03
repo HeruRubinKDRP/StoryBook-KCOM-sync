@@ -23,7 +23,7 @@ export const Filters = (props: iFilters) => {
     const visibility = isVisible !== undefined ? isVisible : localIsVisible;
 
     return (
-        <BrewerCLPFiltersStyle style={{width: visibility ? '340px' : '0'}}>
+        <BrewerCLPFiltersStyle className={"brewer-clp-filters"} style={{width: visibility ? '340px' : '0'}}>
             <div className="filters" style={{display: isVisible ? '340px' : '0'}}>
                 <ul>
                     <CategoryItem
@@ -126,16 +126,26 @@ export const Filters = (props: iFilters) => {
                         title="Color"
                         subcategories={[
                             {
-                                groupTitle: "Neutral, Black and White",
-                                colors: ['#676260', '#eae8d4', '#fff', '#000', '#f3f3f3'],
+                                checkbox: true,
+
+                                groupTitle: "Black and White",
+                                colors: ['#fff', '#000'],
                                 className: 'liColor',
                             },
                             {
+                                checkbox: true,
+                                groupTitle: "Metals & Metallics",
+                                colors: ['#676260', '#eae8d4', '#f3f3f3'],
+                                className: 'liColor',
+                            },
+                            {
+                                checkbox: true,
                                 groupTitle: "Green and Blue",
                                 colors: ['#a8bba2', '#405545', '#578295', '#77bcda', '#b0cacb', '#32425e'],
                                 className: 'liColor',
                             },
                             {
+                                checkbox: true,
                                 groupTitle: "Red",
                                 colors: ['#bb3a56', '#ff0000'],
                                 className: 'liColor',

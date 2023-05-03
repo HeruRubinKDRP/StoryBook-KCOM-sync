@@ -12,7 +12,7 @@ export const CombinedComponentStyle = styled.div`
 export const FiltersContainerStyle = styled.div`
   position: sticky;
   top: 80px;
-  max-height: calc(100vh - 50px);
+  max-height: calc(100vh - 80px);
 `;
 
 export const ComponentFilterStyle = styled.div`
