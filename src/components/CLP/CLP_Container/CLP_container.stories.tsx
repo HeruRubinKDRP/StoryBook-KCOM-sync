@@ -215,7 +215,6 @@ SingleProductExample.args = {
 }
 
 
-
 export const brewerLibrary : iProductInfoCardProps[] =[
     {
         productType: 'brewer',

@@ -46,6 +46,7 @@ export interface iButton {
   actionFunc? : Function;
   hoverFunc? : Function;
   carat? : caratPositionT;
+  onClick?: () => void;
 }
 
 export type caratPositionT = "none" | "top" | "bottom" | "left" | "right"
@@ -349,7 +350,12 @@ export function KButton(props:iButton){
   return(
     <>
       <KButtonStyled
-        onClick={()=>action()}
+          onClick={() => {
+            action();
+            if (props.onClick) {
+              props.onClick();
+            }
+          }}
         onMouseEnter={()=>hoverAction()}
         style={{
           border: btnBorder ,

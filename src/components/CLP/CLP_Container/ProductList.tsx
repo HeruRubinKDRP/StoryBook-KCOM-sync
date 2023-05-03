@@ -16,6 +16,9 @@ import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/con
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
 import CardFlipContainer from "../../Animated Effects/CardFlip/CardFlipContainer";
 import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
+import { ComponentFilterStyle, FiltersContainerStyle } from '../Brewer_CLP_exploration/Brewer-CLP-combine-styled';
+import { Filters } from '../Brewer_CLP_exploration/Brewer-CLP-filters';
+import { BrewerCLPStyled } from '../Brewer_CLP_exploration/Brewer-CLP-grid-styled';
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -29,6 +32,7 @@ export interface ProductListProps {
     columnsSmallScreen : number;
     stickyHeader: iStickyHeader;
     stickyHeaderMode: "slim" | "full";
+    filters: JSX.Element;
 }
 
 
@@ -199,6 +203,10 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
         setQuickShopOpen(true);
     }
 
+    const [isVisible, setIsVisible] = useState(false)
+    const handleClick = () => {
+        setIsVisible(!isVisible)
+    }
     const getSnackBar= (open : boolean) => {
         if (open) {
             return(
@@ -242,6 +250,7 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
                         iconPlacement="after-label"
                         iconStandard="chevron-down"
                         transitionType="expand-bg"
+                        onClick={handleClick}
                     />
                     <KButton
                         classes="secondary-btn"
@@ -267,6 +276,20 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}
             <OuterMostCLP_Container ref={ref} className={``} >
+                <FiltersContainerStyle>
+                    <Filters isVisible={isVisible}/>
+                </FiltersContainerStyle>
+                <div className="right-part">
+                <ComponentFilterStyle>
+                    <div className={"ksk-toggle"}>Keurig Starter Kit</div>
+                    <button className="filters-button" onClick={handleClick}>
+                        {isVisible ? 'Hide Filters' : 'Show Filters'}
+                    </button>
+                    <div className={"sort-by"}>Sort by
+                        <div>Popularity (all time)</div>
+                    </div>
+                </ComponentFilterStyle>
+                    <BrewerCLPStyled>
                 {props.promotionalContent && <div>{props.promotionalContent}</div>}
                 <ProductListWrapper
                     dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1} rows={rows}>
@@ -298,6 +321,8 @@ const ProductList: React.FC<ProductListProps> = (props : ProductListProps) => {
 
                     ))}
                 </ProductListWrapper>
+                    </BrewerCLPStyled>
+                </div>
                 {totalPages > 1 && (
                     <PaginationWrapper>
                         <PaginationButton disabled={currentPage === 0} onClick={handlePreviousPage}>

@@ -247,8 +247,12 @@ export const PaginationButton = styled.button`
 `;
 
 export const OuterMostCLP_Container = styled.div`
-  padding: 2%; 
-  
+  display: flex;
+  flex-direction: row;
+/*  padding: 2%;*/
+  .right-part {
+    width: 100%;
+  }
   .backing-main {
     background-image: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 100%);
     width: 100%;
