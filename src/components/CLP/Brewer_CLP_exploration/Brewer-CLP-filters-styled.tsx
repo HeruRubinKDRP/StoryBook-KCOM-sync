@@ -42,7 +42,7 @@ export const BrewerCLPFiltersStyle = styled.div`
   .filters ul {
     list-style: none;
     padding: 0;
-    width: 250px;
+    width: 280px;
   }
 
   .filters li {
