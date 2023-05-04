@@ -1,5 +1,5 @@
 // gamification utils.ts
-import { Promotion } from './Promotion';
+import { Promotion } from './PromoItem/Promotion';
 
 export function getRandomWeightedIndex(promotions: Promotion[]): number {
     const totalWeight = promotions.reduce((acc, p) => acc + p.weight, 0);

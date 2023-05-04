@@ -2,6 +2,7 @@ import {iconType} from "./Graphic";
 
 export const iconsList: iconType[] = [
     "none",
+    "indicator-trapezoid",
     "pointer-up",
     "app-on-mobile",
     "perks-logo",

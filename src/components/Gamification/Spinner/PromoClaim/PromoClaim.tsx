@@ -1,5 +1,5 @@
 import React from 'react';
-import { Promotion } from './Promotion';
+import { Promotion } from '../PromoItem/Promotion';
 
 export interface PromoClaimProps {
     promotion: Promotion;

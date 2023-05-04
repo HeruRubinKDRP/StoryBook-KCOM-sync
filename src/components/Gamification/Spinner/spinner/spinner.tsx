@@ -1,10 +1,11 @@
 // Spinner.tsx
 import React, {useRef, useState, useEffect} from 'react';
-import {Promotion} from '../Promotion';
+import {Promotion, PromotionItem} from '../PromoItem/Promotion';
 import {getRandomWeightedIndex} from '../gamification-utils';
 import {gsap} from 'gsap';
 import {Draggable} from 'gsap/Draggable';
 import {SpinnerStyled} from "./spinner.styled";
+import Graphic from "../../../Graphic/Graphic";
 
 export interface SpinnerProps {
     promotions: Promotion[];
@@ -87,37 +88,50 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
     }, [containerRef, promotions, canSpin, onSpinEnd]);
 
     return (
-        <SpinnerStyled width={wheelRadius} height={wheelRadius}>
-            <div className="spinner-outer" ref={containerRef} style={{position: 'relative', width:  600 , height: 600 }}>
+        <SpinnerStyled width={wheelRadius * 2} height={wheelRadius * 2}>
+            <div className="inner-ring">
+                <div className="center-dot"></div>
+            </div>
+            <div className="pointer">
+                <Graphic graphicName="indicator-trapezoid" />
+            </div>
+            <div className="spinner-outer" ref={containerRef} style={{position: 'relative', width:  wheelRadius * 2 , height: wheelRadius * 2 }}>
                 {promotions.map((promo, index) => {
                     const angle = (360 / promotions.length) * index;
                     const angleRad = (angle * Math.PI) / 180; // Convert angle to radians
-                    const radius = wheelRadius - 50; // Adjust the radius value according to the desired positioning
+                    const radius = wheelRadius * 0.5; // Adjust the radius value according to the desired positioning
 
                     // Calculate the left and top positions based on the container's dimensions and the radius
                     const leftPosition = (wheelRadius) + radius * Math.cos(angleRad);
                     const topPosition = (wheelRadius) + radius * Math.sin(angleRad);
 
+                    //calculate the height of each promo item based on the circumference of the wheel
+                    const circumference = 2 * Math.PI * wheelRadius;
+                    const promoHeight = (circumference / promotions.length) * (1 + (1 - ((promotions.length / 100)* 10) ) );
+
                     return (
                         <div
                             key={index}
-                            className="promo-item"
+                            className={`promo-item promo${index}`}
                             style={{
                                 position: 'absolute',
                                 top: `${topPosition}px`, // Use 'px' instead of '%'
                                 left: `${leftPosition}px`, // Use 'px' instead of '%'
-                                width: '100px',
-                                height: 'auto',
+                                width: `${wheelRadius}px`, // Set the width to half of the radius
+                                height: `${promoHeight}px`, // Set the height to the circumference divided by the number of items
                                 transform: `translate(-50%, -50%) rotate(${angle}deg)`, // Add translate(-50%, -50%) to adjust the rotation around the center of the item
-                            }} >
-                            <div className="promo-contents">
-                                <h3>{promo.name}</h3>
-                                <img
-                                    key={promo.name}
-                                    src={promo.link}
-                                    alt={promo.name}
-                                />
-                            </div>
+                            }}>
+
+                            <PromotionItem
+                                name={promo.name}
+                                link={promo.link}
+                                weight={promo.weight}
+                                componentType={promo.componentType}
+                                promoMode={promo.promoMode}
+                                highlightedText={promo.highlightedText}
+                                backgroundTexture={promo.backgroundTexture}
+                                highlightImage={promo.highlightImage}
+                            />
                         </div>
                     );
                 })}

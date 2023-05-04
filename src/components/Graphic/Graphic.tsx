@@ -97,7 +97,8 @@ export type iconType =
     "icon-swap-item" |
     "icon-shipping-truck-no-logo" |
     "icon-backup-product" |
-    "icon-search"
+    "icon-search" |
+    "indicator-trapezoid"
     ;
 
 
@@ -118,6 +119,19 @@ export function Graphic(props: Igraphics) {
 
 
     switch (props.graphicName) {
+
+        case "indicator-trapezoid":
+            graphicData = (
+             <svg width="100%"
+
+            viewBox = "0 0 59.02 59.83" > < defs > </defs>
+            <path className="filled" style={{fill: props.colorOverride}}
+                  d="m.83,29.4L21.97,1.6c.77-1.01,1.96-1.6,3.23-1.6h29.76c2.24,0,4.06,1.82,4.06,4.06v51.71c0,2.24-1.82,4.06-4.06,4.06h-30.56c-1.19,0-2.32-.52-3.09-1.43L.97,34.49c-1.24-1.45-1.29-3.57-.14-5.09Z"/>
+            </svg>
+
+            )
+            break;
+
         case "icon-backup-product":
             graphicData = (
                 <svg width="100%" height="100%" viewBox="0 0 22 24">
