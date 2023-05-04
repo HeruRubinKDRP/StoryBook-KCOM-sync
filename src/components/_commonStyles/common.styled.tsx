@@ -1,7 +1,7 @@
 import {css, keyframes} from 'styled-components';
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
-export const ctaColorStyles = css`
+export const ctaColorStyles = css` 
   --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};
   --colorText: ${colorNameToValue("text")};
   --colorDarkRoast: ${colorNameToValue("dark-roast")};
