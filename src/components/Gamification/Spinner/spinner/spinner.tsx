@@ -6,17 +6,44 @@ import {gsap} from 'gsap';
 import {Draggable} from 'gsap/Draggable';
 import {SpinnerStyled} from "./spinner.styled";
 import Graphic from "../../../Graphic/Graphic";
+import PromoClaim from "../PromoClaim/PromoClaim";
+
+export type spinnerModeType = "traditional" | "icons-first" | "vertical-text";
+// traditional has the text all spelled out
+// icons-first has the text hidden and a large icon until the wheel stops spinning
 
 export interface SpinnerProps {
     promotions: Promotion[];
     onSpinEnd: (selectedPromo: Promotion) => void;
     wheelRadius : number;
+    spinnerMode : spinnerModeType;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) => {
+function getAbsoluteRotation(element: HTMLElement): number {
+    let currentElement: HTMLElement | null = element;
+    let totalRotation = 0;
+
+    while (currentElement) {
+        const style = window.getComputedStyle(currentElement);
+        const transform = style.transform;
+        const match = /rotate\(([^)]+)deg\)/.exec(transform);
+
+        if (match) {
+            totalRotation += parseFloat(match[1]);
+        }
+
+        currentElement = currentElement.parentElement;
+    }
+
+    return totalRotation;
+}
+
+
+const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius, spinnerMode}) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [canSpin, setCanSpin] = useState(true);
     const [selectedPromo, setSelectedPromo] = useState<Promotion | null>(null);
+    const[spinState, setSpinState] = useState<"spinning" | "stopped" | "spin-complete">("stopped");
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -51,25 +78,46 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
 
                 gsap.to(containerRef.current, {
                     rotation: `+=${targetRotation + 360 * 12}`,
-                    duration: 5,
+                    duration: 3,
                     ease: 'none',
                     onComplete: () => {
+                        const currentRotation: number = gsap.getProperty(containerRef.current, 'rotation') as number;
 
 
-                        const currentRotation: string = (gsap.getProperty(containerRef.current, 'rotation')).toString();
-                        const finalRotation = calculateFinalRotation(parseInt(currentRotation), selectedIndex);
+                        const finalRotation = calculateFinalRotation( currentRotation , selectedIndex);
+
+                        // Create an image counter rotation a GSAP timeline
+                        const tl = gsap.timeline();
+
+                        // Add the counter-rotation animation for each image element to the timeline
+                        // Calculate and set the counter-rotation for the child images
+                        promotions.forEach((_, index) => {
+                            const sliceElement = containerRef.current!.querySelector(`[data-promo-index="${index}"]`) as HTMLDivElement;
+                            const imageElement = sliceElement.querySelector('img');
+
+                            if (sliceElement && imageElement) {
+                                const parentAbsoluteRotation = getAbsoluteRotation(sliceElement);
+                                const childAbsoluteRotation = getAbsoluteRotation(imageElement);
+                                const counterRotation = childAbsoluteRotation - parentAbsoluteRotation;
+
+                                imageElement.style.transform = `rotate(${counterRotation}deg)`;
+                            }
+                        });
+
+
 
                         // Add another GSAP animation to rotate the spinner to the final position
                         gsap.to(containerRef.current, {
                             rotation: finalRotation,
-                            duration: 2.5, // Adjust the duration as needed
+                            duration: 1, // Adjust the duration as needed
                             ease: 'power2.out',
                             onComplete: () => {
                                 console.log("Final rotation", gsap.getProperty(containerRef.current, 'rotation'));
                                 // Enable draggable again when the final rotation is completed
                                 onSpinEnd(promotions[selectedIndex]);
                                 setSelectedPromo(promotions[selectedIndex]);
-                                draggable[0].enable();
+                                setSpinState("spin-complete");
+                                //draggable[0].enable();
                             },
                         });
                     },
@@ -88,7 +136,7 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
     }, [containerRef, promotions, canSpin, onSpinEnd]);
 
     return (
-        <SpinnerStyled width={wheelRadius * 2} height={wheelRadius * 2}>
+        <SpinnerStyled width={wheelRadius * 2} height={wheelRadius * 2} className={`${spinState}`}>
             <div className="inner-ring">
                 <div className="center-dot"></div>
             </div>
@@ -113,6 +161,7 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
                         <div
                             key={index}
                             className={`promo-item promo${index}`}
+                            data-promo-index={index}
                             style={{
                                 position: 'absolute',
                                 top: `${topPosition}px`, // Use 'px' instead of '%'
@@ -131,12 +180,15 @@ const Spinner: React.FC<SpinnerProps> = ({promotions, onSpinEnd, wheelRadius}) =
                                 highlightedText={promo.highlightedText}
                                 backgroundTexture={promo.backgroundTexture}
                                 highlightImage={promo.highlightImage}
+                                spinnerMode={spinnerMode}
+                                imageCounterRotation={angle}
                             />
                         </div>
                     );
                 })}
             </div>
-            <h2>{selectedPromo?.name}</h2>
+            {selectedPromo ? <PromoClaim promotion={selectedPromo} onClaim={()=>{}} /> : null}
+
         </SpinnerStyled>
     );
 

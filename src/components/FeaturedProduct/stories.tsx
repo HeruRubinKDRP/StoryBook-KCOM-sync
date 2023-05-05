@@ -6,7 +6,7 @@ import {FeaturedProduct, iFeaturedProduct} from "./FeaturedProduct";
 
 
 export default{
-  title: "Organisms/Featured Product",
+  title: "Organisms/Featured CardBack",
   component: FeaturedProduct,
   argTypes:{
       hasFlag :{

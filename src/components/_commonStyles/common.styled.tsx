@@ -22,6 +22,15 @@ export const riseUpAnim = keyframes`
     
 `
 
+export const fadeOutAnim = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`
+
 export const pushDownAnim = keyframes` 
   0% {
     box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.56);

@@ -4,7 +4,7 @@ import {iconsList} from "../../Graphic/iconData";
 import {iProductCard, ProductCard} from "./ProductCard";
 
 export default {
-  title: "Organisms/Product CardFlip",
+  title: "Organisms/CardBack CardFlip",
   argTypes:{
     productImagePath : { control : "text"},
     productName : {control : "text"},

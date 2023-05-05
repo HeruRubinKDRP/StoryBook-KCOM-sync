@@ -88,7 +88,7 @@ export const MyPantry = (props: iMyPantry) => {
                 const KButtonFunctionList: Function[] = [
                     () => setCurrentPanel({label: 'Pause This Item', name: 'AD-pause-this-item'}),
                     () => setCurrentPanel({label: 'Swap An Item', name: 'AD-swap-an-item'}),
-                    () => setCurrentPanel({label: 'Choose a Backup Product', name: 'AD-choose-a-backup-product'}),
+                    () => setCurrentPanel({label: 'Choose a Backup CardBack', name: 'AD-choose-a-backup-product'}),
                     () => setCurrentPanel({label: 'Dynamic FieldName', name: 'AD-order-level-edit-this-delivery'}),
                     () => setCurrentPanel({label: 'Dynamic FieldName Order Details', name: 'AD-order-details'}),
                     () => setCurrentPanel({label: 'Confirm', name: 'AD-remove-this-item'}),
@@ -157,7 +157,7 @@ export const MyPantry = (props: iMyPantry) => {
                 const KButtonADFunctionList: Function[] = [
                     () => setCurrentPanel({label: 'Dynamic FieldName Order Details', name: 'AD-order-details'}),
                     () => setCurrentPanel({label: 'Edit Shipping & Payment', name: 'AD-edit-shipping-payment'}),
-                    () => setCurrentPanel({label: 'Choose a Backup Product', name: 'AD-choose-a-backup-product'}),
+                    () => setCurrentPanel({label: 'Choose a Backup CardBack', name: 'AD-choose-a-backup-product'}),
                     () => setCurrentPanel({label: 'Dynamic Field Name', name: 'AD-order-level-edit-this-delivery'}),
                 ]
                 return (

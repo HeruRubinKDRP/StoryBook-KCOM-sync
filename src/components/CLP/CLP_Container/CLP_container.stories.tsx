@@ -221,6 +221,45 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/KSPS.png",
         brand: "Keurig",
         name : "K-Supreme Plus® SMART Single Serve Coffee Maker",
+        siloImagePath : "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch?$pdp_general$&fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72&extend=0,0,0,0",
+        productFeatures : [
+            {
+                label : "BrewID™",
+                iconLink : "https://images.keurig.com/is/content/keurig/icon-BrewID"
+            },
+            {
+                label : "Connected Convenience",
+                iconLink : "https://images.keurig.com/is/content/keurig/icon-ConnectedConvenience"
+            },
+            {
+                label : "Barista Mode™",
+                iconLink : "https://images.keurig.com/is/content/keurig/icon-BaristaMode"
+            },
+            {
+                label : "SMART Delivery",
+                iconLink : "https://images.keurig.com/is/content/keurig/icon-SmartAutoDelivery"
+            },
+            {
+                label : "Complete Customization",
+                iconLink : "https://images.keurig.com/is/content/keurig/K-Iced_Icons_PDP-02_Strong"
+            },
+            {
+                label : "MultiStream™ Technology",
+                iconLink : "https://images.keurig.com/is/content/keurig/icon-MultiStream"
+            },
+            {
+                label : "4 Brew Sizes",
+                iconLink : "https://images.keurig.com/is/content/keurig/K-Iced_Icons_PDP-05_Sizes2"
+            },
+            {
+                label : "66oz Dual-Position Reservoir",
+                iconLink : "https://images.keurig.com/is/content/keurig/K-Iced_Icons_PDP-03_Reservoir"
+            },
+            {
+                label : "Brew Over Ice",
+                iconLink : "https://images.keurig.com/is/content/keurig/K-Iced_Icons_PDP-01_Iced"
+            }
+        ],
         prices : [
             {
                 price : 89.99,

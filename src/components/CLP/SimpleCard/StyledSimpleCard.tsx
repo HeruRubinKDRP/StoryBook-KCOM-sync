@@ -22,6 +22,11 @@ export const ProductInfoCardWrapper = styled.div`
     }
   }
   
+  .card-back{
+    height: 100% !important;
+    width: 100% !important;
+  }
+  
   &.brewer {
     height: 60vh;
     .backing{

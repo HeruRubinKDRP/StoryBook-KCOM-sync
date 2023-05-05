@@ -6,7 +6,7 @@ import "./images/dynamic/pod-base/pod-base.png";
 import './images/dynamic/pod-base/pod-duo-shiny.png';
 
 export default {
-    title: "Molecules/Product Image",
+    title: "Molecules/CardBack Image",
     component: ProductImage,
     argTypes: {
         elementType: {

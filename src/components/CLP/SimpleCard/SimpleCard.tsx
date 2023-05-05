@@ -7,6 +7,7 @@ import {formattedPrice} from "../../_utilities/formatPrice";
 import {isValidEmail} from "../../_utilities/validation/validation";
 import AsyncImage from "../../AsyncImage/AsyncImage";
 import {prop} from "cheerio/lib/api/attributes";
+import {iProductFeature} from "./CardBack/CardBack";
 
 
 // Define an interface for the purchase information of a product
@@ -24,6 +25,9 @@ export interface iProductInfoCardProps {
     prices: purchaseInfo[];
     ratingVisible: boolean;
     priceDescriptor?: string;
+    productDescription?: string;
+    siloImagePath?: string;
+    productFeatures? : iProductFeature[]
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;

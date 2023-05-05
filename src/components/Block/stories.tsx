@@ -6,9 +6,9 @@ export default {
   component: Block
 } as Meta
 
-// export const Default: Story<BlockProps> = (args) => <Block {...args} />
+// export const TraditionalSpinner: Story<BlockProps> = (args) => <Block {...args} />
 //
-// Default.args = {
+// TraditionalSpinner.args = {
 //   href: '#',
 //   title: 'title',
 //   description: 'description'

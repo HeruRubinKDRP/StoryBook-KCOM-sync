@@ -2,7 +2,7 @@ import { Story, Meta } from "@storybook/react/types-6-0"
 import {ProductInfoItem, IproductItem} from "./ProductInfoItem";
 
 export default {
-  title : "Molecules/ Product Data",
+  title : "Molecules/ CardBack Data",
   component : ProductInfoItem,
   argTypes:{
     currency : {control : "text"}

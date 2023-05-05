@@ -3,7 +3,7 @@ import React from "react";
 import {IproductScene, ProductScene} from "./ProductScene";
 
 export default {
-  title : "Organisms/Product Scene",
+  title : "Organisms/CardBack Scene",
   component : ProductScene,
   argTypes :{
     outerWidth : {

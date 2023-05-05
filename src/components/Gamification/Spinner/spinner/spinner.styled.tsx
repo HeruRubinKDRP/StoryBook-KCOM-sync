@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
+import {fadeOutAnim} from "../../../_commonStyles/common.styled";
 
 export interface iSpinnerStyle{
     width: number;
@@ -13,6 +14,53 @@ export const  SpinnerStyled = styled.div<iSpinnerStyle>`
   &:active{
     cursor: grabbing;
   }
+
+  .promo-claim{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100000;  
+    backdrop-filter: blur(7px);
+    border-radius: 1vw;
+  }
+
+  /* spin complete */
+  @keyframes reducerVisual {
+    0% {
+      filter: brightness(100%) saturate(1) blur(0px);
+    }
+    100% {
+      filter: brightness(150%) saturate(0) blur(2vw);
+    } 
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+    &.spin-complete{
+      /* Apply the animation to an element */
+      .pointer, .inner-ring{
+        animation-name: fadeOut;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+      }
+      .spinner-outer {
+        animation-name: reducerVisual, fadeOut;
+        animation-duration: 2s;
+        animation-iteration-count: initial ;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+      }
+    }
+  
+  
   
   //dark colors
   --colorDarkRoast: ${colorNameToValue("dark-roast")};

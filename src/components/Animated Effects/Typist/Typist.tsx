@@ -3,9 +3,10 @@ import gsap from 'gsap'
 import { TypistStyled } from './typist.styled'
 
 export interface TypingEffectProps {
-  message: string
-  speed?: speedType
-  showCursor?: boolean
+  message: string;
+  speed?: speedType;
+  showCursor?: boolean;
+  classes?: string;
 }
 
 export type speedType = 'slow' | 'medium' | 'fast'
@@ -59,7 +60,7 @@ const TypingEffect: React.FC<TypingEffectProps> = (
   }, [props.speed])
 
   return (
-    <TypistStyled>
+    <TypistStyled className={`${props.classes}`}>
       {props.message.split('').map((char, index) => (
         <span key={index} ref={(el) => (textRefs.current[index] = el)}>
           {char}

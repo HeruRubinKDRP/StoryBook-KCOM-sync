@@ -6,7 +6,7 @@ import {colorNamesList} from "../../components/_utilities/color-name-to-value/co
 
 
 export default{
-  title: "Hold/Featured Product",
+  title: "Hold/Featured CardBack",
   component: FeaturedProduct,
   argTypes:{
     hasFlag :{

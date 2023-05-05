@@ -207,7 +207,7 @@ Gridsilhouette.args = {
 export const Single: Story<{ product: iCardProps }> = (args) => <SingleProduct {...args} />;
 Single.args = {
     product: {
-        name: 'Product Name',
+        name: 'CardBack Name',
         onetimeprice: '$229.99',
         kskprice:'$114.99',
         imageUrl: 'https://example.com/product.jpg',

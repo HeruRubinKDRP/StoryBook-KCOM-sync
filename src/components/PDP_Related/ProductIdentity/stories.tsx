@@ -3,7 +3,7 @@ import React from "react";
 import {iProductIdentity, ProductIdentity} from "./ProductIdentityArea";
 
 export default{
-  title : "Molecules/Product Identity",
+  title : "Molecules/CardBack Identity",
   argTypes : {
 
   }

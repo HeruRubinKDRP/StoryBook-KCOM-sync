@@ -22,7 +22,7 @@ export const CardContainer = styled.div<iCardContainer>`
     grid-template-rows: auto;
     grid-gap: 0;
     align-items: end;
-    bottom: calc(var(--ctaButtonHeight) * 0.5) !important;
+    bottom: calc(var(--ctaButtonHeight) ) !important;
     position: absolute;
     width: 100%;
     height: calc(var(--ctaButtonHeight) * 3) !important;

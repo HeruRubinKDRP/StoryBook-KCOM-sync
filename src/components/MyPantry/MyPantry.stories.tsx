@@ -241,7 +241,7 @@ Default.args = {
                 transitionType: "expand-bg"
             },
             {
-                label: "Select Backup Product",
+                label: "Select Backup CardBack",
                 buttonType: "primary-light",
                 iconPlacement: "right-edge",
                 iconStandard: "icon-backup-product",

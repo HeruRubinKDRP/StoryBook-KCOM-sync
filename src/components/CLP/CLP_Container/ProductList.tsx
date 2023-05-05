@@ -19,6 +19,7 @@ import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
 import {ComponentFilterStyle, FiltersContainerStyle} from '../Brewer_CLP_exploration/Brewer-CLP-combine-styled';
 import {Filters} from '../Brewer_CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../Brewer_CLP_exploration/Brewer-CLP-grid-styled';
+import CardBack from "../SimpleCard/CardBack/CardBack";
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -114,7 +115,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                 }
                                 maxQuantityAllowed={5}
                                 colorVariants={[]}
-
                                 mainFlagColor="KSK"
                                 mainFlagLabel="KSK"
                                 KSK_BannerMessage="KSK"
@@ -326,7 +326,10 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                             }} onClick={() => manageQuickShop(true, index)}
                                         />
                                     }
-                                    backContent={<h1>Back</h1>}
+                                    backContent={
+                                        <CardBack name={product.name} description={product.productDescription}
+                                                  imageSrc={product.siloImagePath} features={product.productFeatures ?? []}/>
+                                    }
                                     sideShowing="front"
                                     classes={product.productType == "brewer" ? "brewer-card" : "pod-card"}
                                 />

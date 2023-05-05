@@ -9,6 +9,25 @@ export const PromotionStyled = styled.a`
   text-decoration: none;
   flex-wrap: wrap;
   padding: 25% 10% 25% 25%;
+
+  &.spinner-mode-traditional{
+    
+  } 
+  
+  &.spinner-mode-icons-first{
+    .text-area{
+      display: none !important;
+    }
+    img{
+        height: 60% !important;
+        width: 70% !important;
+    }
+  } 
+  
+  &.spinner-mode-vertical-text{
+    
+  };
+  
   .text-area{
     p{
      font-size: 1.5vw
@@ -16,13 +35,12 @@ export const PromotionStyled = styled.a`
     h2{
         font-size: 2vw;
     }
-  }
+  };
   
   &.default {
     h2{
       font-size: 2vw;      
-    }
-    
+    } 
   }
   
   &.highlighted{
