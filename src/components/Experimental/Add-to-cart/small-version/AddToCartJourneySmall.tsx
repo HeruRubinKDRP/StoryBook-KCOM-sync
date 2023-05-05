@@ -11,21 +11,21 @@ import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
 
 
-export interface iSimpleProduct{
+export interface iSimpleProduct {
     name: string,
     brand: string,
     image: string
 }
 
-export interface iCartAfterSmall{
-    selectedProduct : iSimpleProduct
-    suggestedProducts : iSimpleProduct[]
+export interface iCartAfterSmall {
+    selectedProduct: iSimpleProduct
+    suggestedProducts: iSimpleProduct[]
     numberOfSuggestions: number;
-    currentCartTotal : number;
-    freeShippingTarget : number;
-    loadingShippingMessage? : string;
-    closeFunc? : Function;
-    addSuggestionToCartFunc? : Function;
+    currentCartTotal: number;
+    freeShippingTarget: number;
+    loadingShippingMessage?: string;
+    closeFunc?: Function;
+    addSuggestionToCartFunc?: Function;
 }
 
 export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
@@ -35,7 +35,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
 
     const [freeShippingLoaded, setFreeShippingLoaded] = useState(false);
 
-    const {width, height, ref }=useResizeDetector({
+    const {width, height, ref} = useResizeDetector({
         refreshMode: 'debounce',
         refreshRate: 100,
         refreshOptions: {
@@ -43,7 +43,8 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             trailing: false
         },
         handleHeight: false, skipOnMount: false,
-        onResize: () => {},
+        onResize: () => {
+        },
     });
 
     useEffect(() => {
@@ -51,7 +52,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         setSuggestionsLoaded(false);
     }, [width]);
 
-    const doLoadSuggestions=()=>{
+    const doLoadSuggestions = () => {
         setTimeout(() => {
             setSuggestionsLoaded(true);
         }, 4000);
@@ -66,16 +67,16 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         doLoadSuggestions();
     }, [width]);
 
-    const upDateDimensions =()=>{
-        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width/2);
+    const upDateDimensions = () => {
+        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
         setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
     }
 
     const suggestionsSectionRef = createRef<HTMLDivElement>();
     const actionBarRef = createRef<HTMLDivElement>();
 
-    const handleAddSuggested=(index : number)=>{
-        if(!props.addSuggestionToCartFunc){
+    const handleAddSuggested = (index: number) => {
+        if (!props.addSuggestionToCartFunc) {
             return;
         }
 
@@ -83,9 +84,9 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
     }
 
     const getSuggestedProducts = () => {
-        return props.suggestedProducts.slice(0,3).map((product, index) => {
+        return props.suggestedProducts.slice(0, 3).map((product, index) => {
 
-            return(
+            return (
                 <div className={`product-image step${index}`} key={index}>
                     <KButton
                         label=""
@@ -105,7 +106,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         iconStandard="none"
                         buttonWidth="fit-width"
                         transitionType="expand-bg"
-                        classes = "add-label-btn"
+                        classes="add-label-btn"
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
@@ -117,37 +118,37 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         })
     }
 
-    const loadSuggestions = (isLoaded : boolean) => {
-        if(!isLoaded){
+    const loadSuggestions = (isLoaded: boolean) => {
+        if (!isLoaded) {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
                         <img src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
-                    <Typist message={"Brewing up some great recommendations for you..."} />
+                    {/*<Typist message={"Brewing up some great recommendations for you..."} />*/}
                 </div>
             )
         }
 
-        return(
+        return (
             <div className="suggested-products">
                 {getSuggestedProducts()}
             </div>
         )
     }
 
-    const getDynamicStyles =(widthX : number)=>{
+    const getDynamicStyles = (widthX: number) => {
         return css`
-        --overallWidth : ${widthX}px;
+          --overallWidth: ${widthX}px;
         `
     }
 
 
-    return(
+    return (
         <SmallAddToCartJourneyStyled
             ref={ref}
             dynamicStyles={getDynamicStyles(width || screen.width)}
-            heightY={height? height : 122}
+            heightY={height ? height : 122}
             outerWidth={width ? width : screen.width}
             actionBarHeight={actionBarHeight}
             className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
@@ -156,10 +157,11 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             <div className="modal-item">
                 <div className="header-area">
                     {freeShippingLoaded ?
-                        <FreeShippingIndicator targetPrice={props.freeShippingTarget} currentPrice={props.currentCartTotal}/>
+                        <FreeShippingIndicator targetPrice={props.freeShippingTarget}
+                                               currentPrice={props.currentCartTotal}/>
                         :
                         <div className="free-shipping-placeholder-inner">
-                            <Graphic graphicName="free-shipping-truck" />
+                            <Graphic graphicName="free-shipping-truck"/>
                             <p>
                                 {props.loadingShippingMessage ? props.loadingShippingMessage : "Loading..."}
                             </p>
@@ -172,7 +174,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         classes="close-btn"
                         iconPlacement="right-edge"
                         iconStandard="close"
-                        label=""
+                        label="Continue Shopping"
                         transitionType="expand-bg"
                         actionFunc={props.closeFunc}
                     />
@@ -187,7 +189,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">
-                                    <Graphic graphicName="checkmark-circled" />
+                                    <Graphic graphicName="checkmark-circled"/>
                                     <p>Successfully added to cart</p>
                                 </div>
                                 <h2 className="product-name-area">
@@ -202,11 +204,11 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                                 buttonType="secondary"
                                 buttonWidth="fit-width"
                                 iconPlacement="after-label"
-                                iconStandard="none"
+                                iconStandard="icon-cart"
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
                             />
-                            <KButton
+                            {/*                       <KButton
                                 label={"Continue Shopping"}
                                 buttonType="primary"
                                 buttonWidth="fit-width"
@@ -214,11 +216,34 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                                 iconStandard="none"
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
-                            />
+                            />*/}
                         </div>
                     </div>
                     <div ref={suggestionsSectionRef} className="suggested-products-container">
+                        <Typist className="typist" message={"You might be interested in"}/>
                         {loadSuggestions(suggestionsLoading)}
+                        <div className={"shop-all-cta"}>
+                            <KButton
+                                label={"Shop Beverages"}
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="chevron-right"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+
+                            <KButton
+                                label={"Shop Accessories"}
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="chevron-right"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+
+                        </div>
                     </div>
                 </div>
             </div>

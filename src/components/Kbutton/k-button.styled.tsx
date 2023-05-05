@@ -75,7 +75,7 @@ export const KButtonStyled = styled.button`
         }
 
         .expander {
-          background-color: white;
+/*          background-color: white;*/
           border: 1px solid var(--colorDarkRoast);
         }
 
@@ -104,7 +104,7 @@ export const KButtonStyled = styled.button`
     }
 
     .expander {
-      background-color: white;
+/*      background-color: white;*/
       border: none; 
     }
   }
