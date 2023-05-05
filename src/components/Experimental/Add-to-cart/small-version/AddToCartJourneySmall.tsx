@@ -156,17 +156,27 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         >
             <div className="modal-item">
                 <div className="header-area">
-                    {freeShippingLoaded ?
-                        <FreeShippingIndicator targetPrice={props.freeShippingTarget}
-                                               currentPrice={props.currentCartTotal}/>
-                        :
-                        <div className="free-shipping-placeholder-inner">
-                            <Graphic graphicName="free-shipping-truck"/>
-                            <p>
-                                {props.loadingShippingMessage ? props.loadingShippingMessage : "Loading..."}
-                            </p>
-                        </div>
-                    }
+                   <div className="cart-info">
+                       {/*{freeShippingLoaded ?*/}
+                       {/*    <FreeShippingIndicator targetPrice={props.freeShippingTarget}*/}
+                       {/*                           currentPrice={100}/>*/}
+                       {/*    :*/}
+                       {/*    <div className="free-shipping-placeholder-inner">*/}
+                       {/*        <Graphic graphicName="free-shipping-truck"/>*/}
+                       {/*        <p>*/}
+                       {/*            {props.loadingShippingMessage ? props.loadingShippingMessage : "Loading..."}*/}
+                       {/*        </p>*/}
+                       {/*    </div>*/}
+                       {/*}*/}
+                       <div className="cart-total">
+                           <span className="label"> Cart Total:</span>
+                           <span className="value">$124.99</span>
+                       </div>
+                   </div>
+                    <div className="cart-message">
+                        <Graphic graphicName="checkmark-circled"/>
+                        <p>You're getting free shipping!</p>
+                    </div>
 
                     <KButton
                         buttonType="text-icon-noBG"
@@ -220,25 +230,27 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         </div>
                     </div>
                     <div ref={suggestionsSectionRef} className="suggested-products-container">
-                        <Typist className="typist" message={"You might be interested in"}/>
+                        <Typist classes="typist" message={"You might be interested in"}/>
                         {loadSuggestions(suggestionsLoading)}
                         <div className={"shop-all-cta"}>
                             <KButton
-                                label={"Shop Beverages"}
+                                label="Shop Beverages"
                                 buttonType="secondary"
                                 buttonWidth="fit-width"
                                 iconPlacement="after-label"
-                                iconStandard="chevron-right"
+                                iconStandard="none"
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
+                                classes="shop-more-btn left"
                             />
 
                             <KButton
-                                label={"Shop Accessories"}
+                                classes="shop-more-btn right"
+                                label="Shop Accessories"
                                 buttonType="secondary"
                                 buttonWidth="fit-width"
                                 iconPlacement="after-label"
-                                iconStandard="chevron-right"
+                                iconStandard="none"
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
                             />

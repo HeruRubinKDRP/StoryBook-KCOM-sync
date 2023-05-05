@@ -102,7 +102,6 @@ export const BrewerCLPStyled = styled.div`
       position: absolute;
       top: 0;
       left: 100%;
-      height: -webkit-fill-available;
       width: 0;
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;

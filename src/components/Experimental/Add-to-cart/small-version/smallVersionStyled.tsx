@@ -58,6 +58,44 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   width: 100vw;
   z-index: 110000000000;
 
+  .cart-info{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
+
+  //top area that informs of success
+  .cart-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: clamp(4px, ${(props) => props.theme.heightY * 0.005}px, 24px);
+
+    p {
+      color: var(--colorGreen);
+      font-size: var(--fontTiny);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .checkmark-circled {
+      margin-right: var(--spacingTiny);
+      margin-bottom: 0;
+      height: var(--fontTiny);
+      width: var(--fontTiny);
+
+      .filled {
+        fill: var(--colorGreen);
+      }
+
+      .stroked {
+        stroke: var(--colorGreen);
+        stroke-width: var(--iconStrokeSmall);
+      }
+    }
+  }
+  
+  
   .back-fill {
     position: fixed;
     bottom: 0;
@@ -130,6 +168,18 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   animation: slideInFromBottom 0.6s ease-in-out forwards;
   animation-delay: 0.2s;
 
+  .shop-all-cta{
+    .shop-more-btn{
+      margin: 0 !important;
+      &.left{
+        border-radius: 100vw 0 0 100vw !important;
+        border-right-width: 0 !important ;
+      }
+      &.right{
+        border-radius: 0 100vw 100vw 0 !important;
+      }
+    }
+  }
 
   .close-btn {
     padding: var(--spacingTiny);
@@ -164,7 +214,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     padding: 10px;
     border-bottom: 1px solid var(--colorLatte);
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-content: space-between;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -222,36 +272,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     /*    gap: calc(var(--spacingSmall) );*/
     padding: var(--spacingTiny) var(--spacingSmall);
 
-    //top area that informs of success
-    .cart-message {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: clamp(4px, ${(props) => props.theme.heightY * 0.005}px, 24px);
-
-      p {
-        color: var(--colorGreen);
-        font-size: var(--fontTiny);
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      .checkmark-circled {
-        margin-right: var(--spacingTiny);
-        margin-bottom: 0;
-        height: var(--fontTiny);
-        width: var(--fontTiny);
-
-        .filled {
-          fill: var(--colorGreen);
-        }
-
-        .stroked {
-          stroke: var(--colorGreen);
-          stroke-width: var(--iconStrokeSmall);
-        }
-      }
-    }
+    
 
     .product-added, .actions-container {
       width: 100%;
