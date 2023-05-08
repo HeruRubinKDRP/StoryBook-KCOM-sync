@@ -172,24 +172,25 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                            <span className="label"> Cart Total:</span>
                            <span className="value">$124.99</span>
                        </div>
+                       <div className="cart-message">
+                           <Graphic graphicName="checkmark-circled"/>
+                           <p>You're getting free shipping!</p>
+                       </div>
+                       <div className="hide-label-mobile">
+                           <KButton
+                               buttonType="text-icon-noBG"
+                               buttonWidth="fit-to-content"
+                               classes="close-btn"
+                               iconPlacement="right-edge"
+                               iconStandard="close"
+                               label="Continue Shopping"
+                               transitionType="expand-bg"
+                               actionFunc={props.closeFunc}
+                           /></div>
+
                    </div>
-                    <div className="cart-message">
-                        <Graphic graphicName="checkmark-circled"/>
-                        <p>You're getting free shipping!</p>
-                    </div>
+                   </div>
 
-                    <KButton
-                        buttonType="text-icon-noBG"
-                        buttonWidth="fit-to-content"
-                        classes="close-btn"
-                        iconPlacement="right-edge"
-                        iconStandard="close"
-                        label="Continue Shopping"
-                        transitionType="expand-bg"
-                        actionFunc={props.closeFunc}
-                    />
-
-                </div>
 
                 <div className="content-area">
                     <div className="product-area">
@@ -209,7 +210,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             </div>
                         </div>
                         <div className="actions-container" ref={actionBarRef}>
-                            <KButton
+                 <KButton
                                 label={"Checkout Now"}
                                 buttonType="secondary"
                                 buttonWidth="fit-width"

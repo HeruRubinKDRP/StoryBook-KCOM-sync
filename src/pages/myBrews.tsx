@@ -54,19 +54,19 @@ export type podVariant = {
 export type productTypeT = "brewer" | "pod" | "bagged" | "accessory" | "bundle";
 
 export type podItemT = {
-  productType : productTypeT,
+  productType? : productTypeT,
   podName : string;
-  podId : number;
+  podId? : number;
   brand : string;
-  pricePerPod : number;
-  variant : podVariant[],
-  productImagePrimaryPath : string,
-  boxImagePath : string;
+  pricePerPod? : number;
+  variant? : podVariant[],
+  productImagePrimaryPath? : string,
+  boxImagePath? : string;
   additionalImages? : string[]
-  inventory : number;
-  productPrices : number[];
-  boxSizes : number[];
-  subscribed : {
+  inventory? : number;
+  productPrices? : number[];
+  boxSizes? : number[];
+  subscribed? : {
     SMART:{
       activeSub : boolean;
       podInventory : number;

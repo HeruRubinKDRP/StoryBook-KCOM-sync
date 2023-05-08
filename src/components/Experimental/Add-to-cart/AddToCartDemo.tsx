@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {SmallAddToCartJourneyStyled} from "./small-version/smallVersionStyled";
-import {AfterCartActionLarge} from "./large-version/AddToCartJourneyLarge";
+import {AddToCartJourneyLarge} from "./large-version/AddToCartJourneyLarge";
 import {AddToCartJourneySmall, iSimpleProduct} from "./small-version/AddToCartJourneySmall";
 import {podItemT} from "../../../pages/myBrews";
 import {AddToCartDemoStyled} from "./AddToCartDemoStyled";
@@ -44,9 +44,12 @@ const AddToCartDemo: React.FunctionComponent<iDemoProps> = (props:iDemoProps) =>
                     />
                 )
             case "large-after-add":
-                return <AfterCartActionLarge
+                return <AddToCartJourneyLarge
+                    freeShippingTarget={props.freeShippingTarget}
                     selectedProduct={simplifiedPodItems(props.products.slice(0))[0]}
-                    suggestedProducts={[]}/>
+                    suggestedProducts={simplifiedPodItems(props.products.slice(1, 4))}
+                    numberOfSuggestions={props.numberOfSuggestions}
+                    currentCartTotal={props.currentCartValue}/>
         }
         return<></>
     }

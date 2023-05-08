@@ -22,7 +22,6 @@ const Template: Story<iDemoProps> = (args) => (
 );
 
 export const SmallDemo = Template.bind({});
-// Update this line to include the products you want to add using the "podItemT" type
 const customPodLibrary: podItemT[] = [
     {
         brand: "Keurig®",
@@ -48,6 +47,37 @@ const customPodLibrary: podItemT[] = [
 SmallDemo.args = {
     selectedComponent : "small-after-add",
     products : customPodLibrary,
+    currentCartValue : 14.95,
+    numberOfSuggestions : 3,
+    freeShippingTarget : 35
+}
+
+export const LargeDemo = Template.bind({});
+const customPodLibraryL: podItemT[] = [
+    {
+        brand: "Keurig®",
+        podName : "K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker",
+        boxImagePath : "https://images.keurig.com/is/image/keurig/K-Cafe-Special-Edition-Coffee-Latte-Cappuccino-Maker_5000341465_swatch?fmt=png-alpha",
+    },
+    {
+        brand: "Green Mountain Coffee Roasters®",
+        podName : "Dark Magic® Coffee",
+        boxImagePath : "https://images.keurig.com/is/image/keurig/dark-magic-coffee-green-mountain-coffee-k-cup_en_general?fmt=png-alpha",
+    },
+    {
+        brand: "Caribou® Coffee",
+        podName : "Caribou® Blend Coffee",
+        boxImagePath : "https://images.keurig.com/is/image/keurig/Caribou-Blend-Coffee-K-Cup-Caribou_en_general?fmt=png-alpha"},
+    {
+        brand: "Keurig®",
+        podName : "Keurig® Signature Mug",
+        boxImagePath : "https://images.keurig.com/is/image/keurig/Keurig-Signature-Mug_5000368222_swatch?fmt=png-alpha",
+    },
+];
+
+LargeDemo.args = {
+    selectedComponent : "large-after-add",
+    products : customPodLibraryL,
     currentCartValue : 14.95,
     numberOfSuggestions : 3,
     freeShippingTarget : 35
