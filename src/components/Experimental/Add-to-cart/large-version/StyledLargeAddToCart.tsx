@@ -91,39 +91,8 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
 
     p {
       color: var(--colorGreen);
-      font-size: 14px;
+      font-size: var(--fontTiny);
       font-weight: 600;
-      /*   white-space: nowrap;*/
-    }
-
-    .checkmark-circled {
-      margin-right: var(--spacingTiny);
-      margin-bottom: 0;
-      height: 18px;
-      width: 18px;
-
-      .filled {
-        fill: var(--colorGreen);
-      }
-
-      .stroked {
-        stroke: var(--colorGreen);
-        stroke-width: var(--iconStrokeSmall);
-      }
-    }
-  }
-
-  .product-message {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: clamp(4px, ${(props) => props.theme.heightY * 0.005}px, 24px);
-
-    p {
-      color: var(--colorGreen);
-      font-size: 16px;
-      font-weight: 400;
-      /*     white-space: nowrap;*/
     }
 
     .checkmark-circled {
@@ -142,22 +111,13 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
       }
     }
   }
-
-  /*  .back-fill {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: calc(100% - 50vh);
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
-    }*/
-
+  
   .modal-item {
     ${cardBorder};
     box-shadow: var(--boxShadowLarge);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
     /*    position: fixed;
         bottom: 0;
         left: 0;
@@ -323,9 +283,9 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
       */
       /*      padding: var(--spacingSmall) var(--spacingSmall);*/
 
-            label {
-              font-size: calc(var(--fontTiny));
-            }
+/*      label {
+        font-size: calc(var(--fontTiny));
+      }*/
     }
   }
 
@@ -349,15 +309,14 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
       display: flex;
       flex: 1;
       align-items: center;
-      height: 180px;
       width: 100%;
 
       .product-image {
         padding-right: 2%;
         width: calc(var(--productImageSize) * 0.4);
         height: calc(var(--productImageSize) * 0.3);
-        min-width: 160px;
-        min-height: 140px;
+        min-width: 100px;
+     //   min-height: 140px;
 
         img {
           width: 100%;
@@ -472,10 +431,6 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
         button.k-btn {
           width: var(--buttonMedium) !important;
           height: var(--buttonMedium) !important;
-          max-height: 50px;
-          min-height: 50px;
-          min-width: 50px;
-          /*max-width: 50px;*/
           z-index: 2;
           /* padding: 8% !important;*/
           padding: 10px !important;
@@ -704,7 +659,14 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     .hide-label-mobile .k-btn label {
       display: none;
     }
-
+    button.k-btn.add-label-btn {
+      label {
+        position: absolute;
+        //position label to visually center by accounting for padding
+        right: 25%!important;
+        font-size: 14px;
+      }
+    }
     .modal-item {
       bottom: ${props => props.actionBarHeight}px !important;
       margin: 0 5% 5% 5%;
@@ -779,25 +741,26 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
         .product-image-inner {
           width: auto;
           height: auto;
-
-          img {
-            max-height: 100px;
-          }
         }
 
         button.k-btn {
+          max-width: 40px;
+          max-height: 40px;
+
           label {
+            /*
             font-size: calc(var(--fontSmall) * 0.65);
+            */
           }
         }
 
         button.k-btn.round-no-label {
-/*          width: var(--buttonSmall) !important;
-          height: var(--buttonSmall) !important;*/
+          width: var(--buttonSmall) !important;
+          height: var(--buttonSmall) !important;
           pointer-events: none;
           left: 0;
           right: 0;
-          bottom: 0;
+          //bottom: 0;
           top: calc(100% - var(--buttonLarge));
           z-index: 2;
         }
@@ -833,13 +796,17 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
       }
 
       .actions-container {
-                background-color: #3B2B2F;
+        background-color: #3B2B2F;
+        /*        background-color: var(--colorSepia);*/
         /*
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, var(--colorSepia) 40%, var(--colorSepia) 100%);
         */
 
         .k-btn {
-          /*height: auto !important;*/
+          width: 100% !important;
+          /*
+          height: auto !important;
+          */
 
           label {
             font: var(--fontMedium);
@@ -861,11 +828,6 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
 
     .actions-container {
       flex-direction: row;
-    }
-
-    .product-area .product-added .product-image {
-      min-width: 100px;
-      min-height: 100px;
     }
   }
 

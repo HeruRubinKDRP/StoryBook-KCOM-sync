@@ -57,14 +57,16 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   height: 100vh;
   width: 100vw;
   z-index: 110000000000;
-.product-name{
-  height: 40px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
+  .product-name {
+    height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .cart-info {
     display: flex;
     flex-direction: row;
@@ -78,6 +80,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   .hide-label-mobile .k-btn label {
     font-size: 12px;
   }
+
   .cart-message {
     display: flex;
     justify-content: flex-start;
@@ -88,7 +91,6 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       color: var(--colorGreen);
       font-size: var(--fontTiny);
       font-weight: 600;
-      white-space: nowrap;
     }
 
     .checkmark-circled {
@@ -122,7 +124,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     box-shadow: var(--boxShadowLarge);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -195,7 +197,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       &.left {
         border-radius: 100vw 0 0 100vw !important;
         border-right-width: 0 !important;
-        .expander{
+
+        .expander {
           border-radius: 100vw 0 0 100vw !important;
           border-right-width: 0 !important;
         }
@@ -203,7 +206,8 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
       &.right {
         border-radius: 0 100vw 100vw 0 !important;
-        .expander{
+
+        .expander {
           border-radius: 0 100vw 100vw 0 !important;
         }
       }
@@ -284,9 +288,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       width: 50% !important;
       /*      padding: var(--spacingSmall) var(--spacingSmall);*/
 
-      label {
+/*      label {
         font-size: calc(var(--fontTiny));
-      }
+      }*/
     }
   }
 
@@ -311,11 +315,14 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       display: flex;
       flex: 1;
       align-items: center;
+      width: 100%;
 
       .product-image {
-        padding-right: 5%;
-        width: calc(var(--productImageSize) * 0.5);
-        height: calc(var(--productImageSize) * 0.5);
+        padding-right: 2%;
+        width: calc(var(--productImageSize) * 0.4);
+        height: calc(var(--productImageSize) * 0.3);
+        min-width: 100px;
+      //  min-height: 140px;
 
         img {
           width: 100%;
@@ -429,8 +436,6 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
         button.k-btn {
           width: var(--buttonMedium) !important;
           height: var(--buttonMedium) !important;
-          max-height: 50px;
-          max-width: 50px;
           z-index: 2;
           /* padding: 8% !important;*/
           padding: 10px !important;
@@ -659,7 +664,14 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     .hide-label-mobile .k-btn label {
       display: none;
     }
-
+    button.k-btn.add-label-btn {
+      label {
+        position: absolute;
+        //position label to visually center by accounting for padding
+        right: 25%!important;
+        font-size: 14px;
+      }
+    }
     .modal-item {
       bottom: ${props => props.actionBarHeight}px !important;
       margin: 0 5% 5% 5%;
@@ -713,7 +725,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       flex-wrap: wrap;
       align-items: stretch;
       margin-bottom: 20px;
-      
+
       .product-image {
         width: calc(var(--overallWidth) * 0.25);
         height: auto;
@@ -737,6 +749,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
         }
 
         button.k-btn {
+          max-width: 40px;
+          max-height: 40px;
+
           label {
             /*
             font-size: calc(var(--fontSmall) * 0.65);
@@ -750,7 +765,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
           pointer-events: none;
           left: 0;
           right: 0;
-          bottom: 0;
+          //bottom: 0;
           top: calc(100% - var(--buttonLarge));
           z-index: 2;
         }
@@ -793,7 +808,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
         */
 
         .k-btn {
-          width: 100%!important;
+          width: 100% !important;
           /*
           height: auto !important;
           */

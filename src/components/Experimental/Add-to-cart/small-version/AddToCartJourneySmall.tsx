@@ -1,7 +1,6 @@
 import {SmallAddToCartJourneyStyled} from "./smallVersionStyled";
 import KButton from "../../../Kbutton/KButton";
 import {useResizeDetector} from "react-resize-detector";
-
 import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
@@ -125,7 +124,6 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     <div className="loading-graphic">
                         <img src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
-                    {/*<Typist message={"Brewing up some great recommendations for you..."} />*/}
                 </div>
             )
         }
@@ -156,40 +154,28 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         >
             <div className="modal-item">
                 <div className="header-area">
-                   <div className="cart-info">
-                       {/*{freeShippingLoaded ?*/}
-                       {/*    <FreeShippingIndicator targetPrice={props.freeShippingTarget}*/}
-                       {/*                           currentPrice={100}/>*/}
-                       {/*    :*/}
-                       {/*    <div className="free-shipping-placeholder-inner">*/}
-                       {/*        <Graphic graphicName="free-shipping-truck"/>*/}
-                       {/*        <p>*/}
-                       {/*            {props.loadingShippingMessage ? props.loadingShippingMessage : "Loading..."}*/}
-                       {/*        </p>*/}
-                       {/*    </div>*/}
-                       {/*}*/}
-                       <div className="cart-total">
-                           <span className="label"> Cart Total:</span>
-                           <span className="value">$124.99</span>
-                       </div>
-                       <div className="cart-message">
-                           <Graphic graphicName="checkmark-circled"/>
-                           <p>You're getting free shipping!</p>
-                       </div>
-                       <div className="hide-label-mobile">
-                           <KButton
-                               buttonType="text-icon-noBG"
-                               buttonWidth="fit-to-content"
-                               classes="close-btn"
-                               iconPlacement="right-edge"
-                               iconStandard="close"
-                               label="Continue Shopping"
-                               transitionType="expand-bg"
-                               actionFunc={props.closeFunc}
-                           /></div>
-
-                   </div>
-                   </div>
+                    <div className="cart-info">
+                        <div className="cart-total">
+                            <span className="label">Cart Total: </span>
+                            <span className="value">$124.99</span>
+                        </div>
+                        <div className="cart-message">
+                            <Graphic graphicName="checkmark-circled"/>
+                            <p>You're getting free shipping!</p>
+                        </div>
+                        <div className="hide-label-mobile">
+                            <KButton
+                                buttonType="text-icon-noBG"
+                                buttonWidth="fit-to-content"
+                                classes="close-btn"
+                                iconPlacement="right-edge"
+                                iconStandard="close"
+                                label="Continue Shopping"
+                                transitionType="expand-bg"
+                                actionFunc={props.closeFunc}
+                            /></div>
+                    </div>
+                </div>
 
 
                 <div className="content-area">
@@ -210,7 +196,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             </div>
                         </div>
                         <div className="actions-container" ref={actionBarRef}>
-                 <KButton
+                            <KButton
                                 label={"Checkout Now"}
                                 buttonType="secondary"
                                 buttonWidth="fit-width"
@@ -219,15 +205,6 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
                             />
-                            {/*                       <KButton
-                                label={"Continue Shopping"}
-                                buttonType="primary"
-                                buttonWidth="fit-width"
-                                iconPlacement="after-label"
-                                iconStandard="none"
-                                transitionType={"expand-bg"}
-                                actionFunc={props.closeFunc}
-                            />*/}
                         </div>
                     </div>
                     <div ref={suggestionsSectionRef} className="suggested-products-container">
@@ -255,7 +232,6 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
                             />
-
                         </div>
                     </div>
                 </div>

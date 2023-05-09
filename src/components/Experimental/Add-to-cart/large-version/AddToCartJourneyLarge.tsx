@@ -1,7 +1,6 @@
 import {StyledLargeAddToCart} from "./StyledLargeAddToCart";
 import KButton from "../../../Kbutton/KButton";
 import {useResizeDetector} from "react-resize-detector";
-
 import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
@@ -125,7 +124,6 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                     <div className="loading-graphic">
                         <img src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
-                    {/*<Typist message={"Brewing up some great recommendations for you..."} />*/}
                 </div>
             )
         }
@@ -157,17 +155,6 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
             <div className="modal-item">
                 <div className="header-area">
                     <div className="cart-info">
-                        {/*{freeShippingLoaded ?*/}
-                        {/*    <FreeShippingIndicator targetPrice={props.freeShippingTarget}*/}
-                        {/*                           currentPrice={100}/>*/}
-                        {/*    :*/}
-                        {/*    <div className="free-shipping-placeholder-inner">*/}
-                        {/*        <Graphic graphicName="free-shipping-truck"/>*/}
-                        {/*        <p>*/}
-                        {/*            {props.loadingShippingMessage ? props.loadingShippingMessage : "Loading..."}*/}
-                        {/*        </p>*/}
-                        {/*    </div>*/}
-                        {/*}*/}
                         <div className="cart-total">
                             <span className="label">Cart Total: </span>
                             <span className="value">$124.99</span>
@@ -188,9 +175,6 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                                 actionFunc={props.closeFunc}
                             /></div>
                     </div>
-
-
-
                 </div>
 
                 <div className="content-area">
@@ -200,7 +184,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                                 <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
                             </div>
                             <div className="product-status-area">
-                                <div className="product-message">
+                                <div className="cart-message">
                                     <Graphic graphicName="checkmark-circled"/>
                                     <p>Successfully added to cart</p>
                                 </div>
@@ -219,18 +203,8 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                                     transitionType={"expand-bg"}
                                     actionFunc={props.closeFunc}
                                 />
-                                {/*                       <KButton
-                                label={"Continue Shopping"}
-                                buttonType="primary"
-                                buttonWidth="fit-width"
-                                iconPlacement="after-label"
-                                iconStandard="none"
-                                transitionType={"expand-bg"}
-                                actionFunc={props.closeFunc}
-                            />*/}
                             </div>
                         </div>
-
                     </div>
                     <div ref={suggestionsSectionRef} className="suggested-products-container">
                         <Typist classes="typist" message={"You might be interested in"}/>
@@ -257,7 +231,6 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                                 transitionType={"expand-bg"}
                                 actionFunc={props.closeFunc}
                             />
-
                         </div>
                     </div>
                 </div>
