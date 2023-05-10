@@ -7,6 +7,12 @@ export const CombinedComponentStyle = styled.div`
 
   .right-part {
     width: 100%;
+    .filters{
+      margin-right: 2%;
+    }
+    .sale-toggle{
+      margin-left: 10px;
+    }
   }
 `
 export const FiltersContainerStyle = styled.div`
@@ -39,7 +45,11 @@ export const ComponentFilterStyle = styled.div`
     text-decoration: underline;
   }
   .ksk-toggle{
+    color: #00889F;
+    font-weight: 600;
     margin-right: 2%;
+    display: flex;
+    align-items: center;
   }
   .sort-by{
     
@@ -63,5 +73,40 @@ export const StickyHeader = styled.div`
 
   .filters-button:hover {
     text-decoration: underline;
+  }
+`
+export const SortSelect = styled.select`
+  margin-left: 8px;
+  padding: 15px 8px;
+  padding-right: 30px;
+  border: 2px solid #3B2B2F;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    border-color: #3B2B2F;
+  }
+  option{
+    background-color: red;
+  }
+`
+export const SortSelectWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    fill: #333;
+    pointer-events: none;
   }
 `

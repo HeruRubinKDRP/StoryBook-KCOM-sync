@@ -83,5 +83,6 @@ export const iconsList: iconType[] = [
     "remove-icon",
     "icon-AD-Delivery",
     "icon-product-canceled-OOO",
-    "icon-shipping-truck-no-logo"
+    "icon-shipping-truck-no-logo",
+    "icon-filters"
 ]

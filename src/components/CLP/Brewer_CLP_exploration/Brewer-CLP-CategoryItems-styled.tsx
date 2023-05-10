@@ -147,15 +147,15 @@ export const CategoryItemStyle = styled.div`
     border-radius: 100vw;
   }
   .color-thumbnail .checkmark-container {
-    outline: 2px solid #3B2B2F;
-    outline-offset: 1px;
+    border: 2px solid #3B2B2F;
+    border-offset: 1px;
     border-radius: 100vw;
     .icon-checkmark{
       width: 20px;
     }
   }
   .color-thumbnail.selected {
-    outline: none;
+    border: none;
     box-shadow: 3px 3px 4px 3px rgba(0,0,0,0.3);
   }
   .color-group-list {

@@ -127,7 +127,6 @@ export const Filters = (props: iFilters) => {
                         subcategories={[
                             {
                                 checkbox: true,
-
                                 groupTitle: "Black and White",
                                 colors: ['#fff', '#000'],
                                 className: 'liColor',
