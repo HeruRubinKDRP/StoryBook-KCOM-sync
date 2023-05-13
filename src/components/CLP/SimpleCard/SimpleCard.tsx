@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import KButton from "../../Kbutton/KButton";
-import {ProductInfoCardWrapper} from "./StyledSimpleCard";
+import {ProductInfoCardWrapper} from "./simple-card.styled";
 import {Rating} from "../../Rating/Rating";
 import {productTypeT} from "../../../pages/myBrews";
 import {formattedPrice} from "../../_utilities/formatPrice";
@@ -8,6 +8,7 @@ import {isValidEmail} from "../../_utilities/validation/validation";
 import AsyncImage from "../../AsyncImage/AsyncImage";
 import {prop} from "cheerio/lib/api/attributes";
 import {iProductFeature} from "./CardBack/CardBack";
+import {iFeatureBullet} from "../../FeatureBullets/FeatureBulletItem/FeatureBullet";
 
 
 // Define an interface for the purchase information of a product
@@ -27,7 +28,7 @@ export interface iProductInfoCardProps {
     priceDescriptor?: string;
     productDescription?: string;
     siloImagePath?: string;
-    productFeatures? : iProductFeature[]
+    productFeatures? : iFeatureBullet[];
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;

@@ -165,12 +165,9 @@ export const ProductInfoCardWrapper = styled.div`
   
   button.k-btn{
     position: relative;
-    bottom: 0 !important;; 
-    z-index: 1;
-    /* left: 50%; */
-    /* -webkit-transform: translateX(-50%); */
-    -ms-transform: translateX(-50%);
-    /* transform: translateX(-50%); */
+    bottom: 0 !important;  
+    z-index: 1; 
+    -ms-transform: translateX(-50%); 
     padding: var(--spacingLarge) var(--spacingHuge); 
     height: var(--ctaButtonHeight);
     font-size: calc(var(--columnSize) * 0.05); 
@@ -215,9 +212,6 @@ export const ProductInfoCardWrapper = styled.div`
   }
   
 `;
-
-
-
 
 export const CTAButton = styled.button`
   margin-top: 16px;

@@ -294,9 +294,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                             transitionType="expand-bg"
                             onClick={handleClick}
                         />
-                        {/*                    <button className="filters-button" onClick={handleClick}>
-                        {isVisible ? 'Hide Filters' : 'Show Filters'}
-                    </button>*/}
                         <div className={"sort-by"}>Sort by
                             <div>Popularity (all time)</div>
                         </div>

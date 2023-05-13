@@ -49,7 +49,7 @@ export const CardInner = styled.div<{ isFlipped: boolean }>`
   width: 100%;
   height: 100%;
   
-  .card-front, .card-back{
+  .card-front{
     height: auto;
   }
   

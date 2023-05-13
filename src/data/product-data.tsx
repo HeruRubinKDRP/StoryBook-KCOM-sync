@@ -10,6 +10,7 @@ import {featureItemT} from "../components/ProductDetails/FeaturesList/features-l
 import {Itoggle, toggleItem} from "../components/Toggle/Toggle";
 import {productVariantColor} from "../components/colorPicker/colorPicker";
 import {iContentItem} from "../components/ContentComponents/ContentComponent";
+import {iProductInfoCardProps} from "../components/CLP/SimpleCard/SimpleCard";
 
 export const buttonTypesList : buttonType[] =[
   "primary",
@@ -22,6 +23,391 @@ export const buttonTypesList : buttonType[] =[
   "link-external",
   "round-no-label"
 ]
+
+export const brewerLibrary : iProductInfoCardProps[] =[
+  {
+    productType: 'brewer',
+    image: "./brewer-images/KSPS.png",
+    brand: "Keurig",
+    name : "K-Supreme Plus® SMART Single Serve Coffee Maker",
+    siloImagePath : "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch?$pdp_general$&fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72&extend=0,0,0,0",
+    productFeatures : [
+      {
+        featureLabel : "BrewID™",
+        featureIcon : "brew-id",
+        showChevron : false,
+        featureDetails : "BrewID™ allows you to save your favorite settings to create your perfect cup every time."
+      },
+      {
+        featureLabel : "Connected Convenience",
+        featureIcon : "icon-wifi",
+        showChevron : false,
+        featureDetails : "Brew a cup from anywhere with the Keurig® app."
+      },
+      {
+        featureLabel : "Barista Mode™",
+        featureIcon : "barista-mode",
+        showChevron : false,
+        featureDetails : "Guided coffee house style recipes in the Keurig® app."
+      },
+      {
+        featureLabel : "SMART Delivery",
+        featureIcon : "SMART-logo",
+        showChevron : false,
+        featureDetails : "Get beverages delivered just enough pods just in time."
+      },
+      {
+        featureLabel : "Complete Customization",
+        featureIcon : "icon-settings",
+        showChevron : false,
+        featureDetails : "Customize your cup with 3 strength and 3 temperature options, or make it iced."
+      },
+      {
+        featureLabel : "MultiStream™ Technology",
+        featureIcon : "multistream",
+        showChevron : false,
+        featureDetails : "Extracts more flavor and aroma* in every brew."
+      },
+      {
+        featureLabel : "4 Brew Sizes",
+        featureIcon : "icon-cup",
+        showChevron : false,
+        featureDetails : "6, 8, 10, and 12 oz."
+      },
+      {
+        featureLabel : "66oz Dual-Position Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "Choose the perfect position for optimal counter space. Removable for easy refilling."
+      },
+      {
+        featureLabel : "Brew Over Ice",
+        featureIcon : "icon-iced-coffee",
+        showChevron : false,
+        featureDetails : "Brew over ice with bold, full-flavored iced coffee."
+      }
+    ],
+    prices : [
+      {
+        price : 89.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 89.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },
+  {
+    productType: 'brewer',
+    image: "./brewer-images/k-cafe.png",
+    brand: "Keurig",
+    name : "K-Café® SMART Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 124.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 124.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-supreme.png",
+    brand: "Keurig",
+    name : "K-Supreme® SMART Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-slim1.png",
+    brand: "Keurig",
+    name : "K-Slim® Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 12, variantName : "Black"}
+      },{
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 12, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-elite.png",
+    brand: "Keurig",
+    name : "Keurig® K-Elite® Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-mini.png",
+    brand: "Keurig",
+    name : "K-Mini® Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 89.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 0,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-select.png",
+    brand: "Keurig",
+    name : "Keurig® K-Select® Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-mini-plus.png",
+    brand: "Keurig",
+    name : "K-Mini Plus® Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 0,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-duo.png",
+    brand: "Keurig",
+    name : "K-Duo™ Single Serve & Carafe Coffee Maker",
+    prices : [
+      {
+        price : 94.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 94.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-duo-special.png",
+    brand: "Keurig",
+    name : "K-Duo® Special Edition Single Serve & Carafe Coffee Maker",
+    prices : [
+      {
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-classic.png",
+    brand: "Keurig",
+    name : "Keurig® K-Classic® Coffee Maker",
+    prices : [
+      {
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 74.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-duo-plus.png",
+    brand: "Keurig",
+    name : "K-Duo Plus™ Single Serve & Carafe Coffee Maker",
+    prices : [
+      {
+        price : 149.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 149.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-slim-iced.png",
+    brand: "Keurig",
+    name : "K-Slim + ICED™ Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  },{
+    productType: 'brewer',
+    image: "./brewer-images/k-express.png",
+    brand: "Keurig",
+    name : "K-Express™ Single Serve Coffee Maker",
+    prices : [
+      {
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Black"}
+      },{
+        price : 49.99,
+        inStock : true,
+        variant: {quantity : 1, variantName : "Grey"}
+      }
+    ],
+    ratingVisible : false,
+    rating : {
+      totalNumberOfStars : 5,
+      totalNumberOfReviews : 1023,
+      ratingNumber : 4.25
+    },
+    onClick: () => console.log('Add to Cart clicked'),
+  }
+]
+
 
 const stepByStepData: featureItemT[] = [
   {
