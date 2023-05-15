@@ -4,9 +4,11 @@ import {Filters} from './Brewer-CLP-filters';
 import {ProductCard} from './Brewer-CLP-grid';
 import {BrewerCLPStyled} from "./Brewer-CLP-grid-styled"
 import {BrewerCLPFiltersStyle} from "./Brewer-CLP-filters-styled";
-import {CombinedComponentStyle, ComponentFilterStyle, FiltersContainerStyle} from "./Brewer-CLP-combine-styled"
+import {CombinedComponentStyle, ComponentFilterStyle, FiltersContainerStyle, SortSelect, SortSelectWrapper} from "./Brewer-CLP-combine-styled"
 import {iStickyHeader, StickyHeader} from 'components/Sticky Header/StickyHeader';
 import KButton, {iButton} from 'components/Kbutton/KButton';
+import SaleToggle from 'components/SaleToggle/sale-toggle';
+import Graphic from 'components/Graphic/Graphic';
 
 export interface iCombineComponent {
     stickyHeader: iStickyHeader;
@@ -22,6 +24,11 @@ function CombinedComponent(props: iCombineComponent) {
     const handleClick = () => {
         setIsVisible(!isVisible)
     }
+    const [sortBy, setSortBy] = useState("popularity");
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSortBy(event.target.value);
+    };
+
     return (
         <>
             <StickyHeader
@@ -46,7 +53,7 @@ function CombinedComponent(props: iCombineComponent) {
                         buttonType="primary"
                         buttonWidth="fit-to-content"
                         iconPlacement="after-label"
-                        iconStandard="chevron-down"
+                        iconStandard="icon-filters"
                         transitionType="expand-bg"
                         onClick={handleClick}
                     />
@@ -71,7 +78,6 @@ function CombinedComponent(props: iCombineComponent) {
 
                 </div>
             </StickyHeader>
-
             <CombinedComponentStyle>
 
                 <FiltersContainerStyle>
@@ -79,12 +85,30 @@ function CombinedComponent(props: iCombineComponent) {
                 </FiltersContainerStyle>
                 <div className="right-part">
                       <ComponentFilterStyle>
-                        <div className={"ksk-toggle"}>Keurig Starter Kit</div>
-                        <button className="filters-button" onClick={handleClick}>
-                            {isVisible ? 'Hide Filters' : 'Show Filters'}
-                        </button>
-                          <div className={"sort-by"}>Sort by
-                          <div>Popularity (all time)</div>
+                       <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                         <div className={"filters"}>
+                          <KButton
+                              label="Filters"
+                              buttonType="secondary"
+                              buttonWidth="fit-to-content"
+                              iconPlacement="after-label"
+                              iconStandard="icon-filters"
+                              transitionType="expand-bg"
+                              onClick={handleClick}
+                          />
+                         </div>
+                          <div className={"sort-by"}>
+                              Sort by
+                              <SortSelectWrapper>
+                              <SortSelect value={sortBy} onChange={handleSortChange}>
+                                  <option value="popularity">Popularity (all time)</option>
+                                  <option value="priceLowest">Price (lowest first)</option>
+                                  <option value="priceHighest">Price (highest first)</option>
+                                  <option value="nameAZ">Name (A-Z)</option>
+                                  <option value="nameZA">Name (Z-A)</option>
+                              </SortSelect>
+                                  <Graphic graphicName={"chevron-down"}></Graphic>
+                                  </SortSelectWrapper>
                           </div>
                     </ComponentFilterStyle>
                     <BrewerCLPStyled>

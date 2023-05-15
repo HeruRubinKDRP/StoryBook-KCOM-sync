@@ -1,15 +1,24 @@
 import Graphic from 'components/Graphic/Graphic';
-import React, {useEffect, useState} from 'react';
-import {CategoryItemStyle} from './Brewer-CLP-CategoryItems-styled';
+import React, { useEffect, useState } from 'react';
+import { CategoryItemStyle } from './Brewer-CLP-CategoryItems-styled';
 
 interface iCategoryItem {
     title: string;
-    subcategories: { name?: string; imageSrc?: string; className?: string; colorThumbnail?: string; checkbox?: boolean; groupTitle?:string; colors?: string[]; description?: string;productnumber?: string}[];
+    subcategories: {
+        name?: string;
+        imageSrc?: string;
+        className?: string;
+        colorThumbnail?: string;
+        checkbox?: boolean;
+        groupTitle?: string;
+        colors?: string[];
+        description?: string;
+        productnumber?: string;
+    }[];
     defaultOpen?: boolean;
 }
 
-export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCategoryItem) => {
-
+export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCategoryItem) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
     const [rotateClass, setRotateClass] = useState('');
     const handleCheckboxChange = (index: number) => {
@@ -29,6 +38,12 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
         }, {})
     );
 
+    const [checkedColorRows, setCheckedColorRows] = useState<Record<number, boolean>>(
+        subcategories.reduce((acc: Record<number, boolean>, subcategory, index) => {
+            acc[index] = false;
+            return acc;
+        }, {})
+    );
 
     const handleSubcategoryClick = (subcategoryIndex: number, colorIndex: number) => {
         const newSelectedColorIndexes = { ...selectedColorIndexes };
@@ -45,6 +60,10 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
         setSelectedColorIndexes(newSelectedColorIndexes);
     };
 
+    const handleColorCheckboxChange = (index: number) => {
+        setCheckedColorRows({ ...checkedColorRows, [index]: !checkedColorRows[index] });
+    };
+
     const isLightColor = (color: string): boolean => {
         if (color === "#fff" || color.toLowerCase() === "#ffffff") {
             return true;
@@ -57,10 +76,10 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
         return brightness > 200; // Keep the threshold at 200
     };
 
-
     const toggleSubcategories = () => {
         setIsOpen(!isOpen);
     };
+
     useEffect(() => {
         setRotateClass(isOpen ? 'rotate' : '');
     }, [isOpen]);
@@ -69,15 +88,25 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
             <div className="category-title" onClick={toggleSubcategories}>
                 <span>{title}</span>
                 <span className={`chevron-icon ${rotateClass}`}>
-          <Graphic graphicName={"chevron-up"}></Graphic>
-        </span>
+        <Graphic graphicName={"chevron-up"}></Graphic>
+      </span>
             </div>
             {isOpen && (
                 <ul className={`subcategory-list ${title === 'Color' ? 'color-grid' : ''}`}>
                     {subcategories.map((subcategory, index) => (
-                        <li key={index} className={subcategory.className || ''} onClick={() => handleCheckboxChange(index)}>
+                        <li key={index} className={subcategory.className || ''} onClick={() => !subcategory.colors && handleCheckboxChange(index)}>
                             {subcategory.groupTitle && (
-                                <div className="group-title">{subcategory.groupTitle}</div>
+                                <div className="group-title">
+                                    <input
+                                        type="checkbox"
+                                        className="color-row-checkbox"
+                                        id={`${title}-color-row-checkbox-${index}`}
+                                        onChange={() => handleColorCheckboxChange(index)}
+                                        checked={checkedColorRows[index]}
+                                    />
+                                    <label htmlFor={`${title}-color-row-checkbox-${index}`} className="checkbox-container"></label>
+                                    {subcategory.groupTitle}
+                                </div>
                             )}
                             {subcategory.colors && (
                                 <ul className="color-group-list">
@@ -86,7 +115,10 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
                                             <div
                                                 className={`color-thumbnail ${isLightColor(color) ? 'light-background' : ''} ${selectedColorIndexes[index]?.includes(colorIndex) ? 'selected' : ''}`}
                                                 style={{ backgroundColor: color }}
-                                                onClick={() => handleSubcategoryClick(index, colorIndex)}
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
+                                                    handleSubcategoryClick(index, colorIndex);
+                                                }}
                                             >
                                                 {selectedColorIndexes[index]?.includes(colorIndex) && (
                                                     <div className="checkmark-container">
@@ -106,7 +138,7 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
                                 <React.Fragment>
                                     <div className="subcategory-content">
                                         {subcategory.checkbox && (
-                                                <>
+                                            <>
                                                 <input
                                                     type="checkbox"
                                                     className="subcategory-checkbox"
@@ -114,25 +146,26 @@ export const CategoryItem = ({title, subcategories, defaultOpen = false}: iCateg
                                                     checked={checkedSubcategories[index]}
                                                 />
                                                 <label htmlFor={`${title}-subcategory-checkbox-${index}`} className="checkbox-container"></label>
-                                                </>
+                                            </>
                                         )}
                                         <div className="subcategory-text">
                                             <div className={"name-number"}>
-                                            {subcategory.name && (<div className="subcategory-name">{subcategory.name}</div>)}
-                                            {subcategory.productnumber && (<div className="productnumber">{subcategory.productnumber}</div>)}</div>
+                                                {subcategory.name && (<div className="subcategory-name">{subcategory.name}</div>)}
+                                                {subcategory.productnumber && (<div className="productnumber">{subcategory.productnumber}</div>)}
+                                            </div>
                                             {subcategory.description && (
                                                 <div className="subcategory-description">{subcategory.description}</div>
                                             )}
                                         </div>
                                     </div>
                                     <div className={"image-container"}>
-                                    {subcategory.imageSrc && (
-                                        <img
-                                            className="subcategory-image"
-                                            src={subcategory.imageSrc}
-                                            alt={subcategory.name}
-                                        />
-                                    )}
+                                        {subcategory.imageSrc && (
+                                            <img
+                                                className="subcategory-image"
+                                                src={subcategory.imageSrc}
+                                                alt={subcategory.name}
+                                            />
+                                        )}
                                     </div>
                                 </React.Fragment>
                             )}
