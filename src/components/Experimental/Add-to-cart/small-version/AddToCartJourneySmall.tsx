@@ -177,7 +177,6 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     </div>
                 </div>
 
-
                 <div className="content-area">
                     <div className="product-area">
                         <div className="product-added">

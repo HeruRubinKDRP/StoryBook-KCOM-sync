@@ -50,7 +50,7 @@ export const CardInner = styled.div<{ isFlipped: boolean }>`
   height: 100%;
   
   .card-front, .card-back{
-    height: auto;
+    height: 100%;
   }
   
   .backing{
