@@ -159,6 +159,16 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       grid-row: 5 / 5;
     }
   }
+
+  .cta-container {
+    button.k-btn{
+      bottom: 0 !important;  
+    }  
+    
+    .flip-btn{
+      
+    }
+  }
   
   button.k-btn{
     position: relative;
@@ -213,10 +223,21 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
      // border-radius: 100vw 0 0 100vw !important;
     }
     .flip-btn{
-      // border-radius: 0 100vw 100vw 0 !important;
+       
       bottom: 0;
-      background-color: var(--colorLightCTA) !important;
-      color: var(--colorDarkRoast) !important;
+      background-color: rgba(0,0,0,0.65) !important;
+      color: white !important;
+      position: relative;
+      z-index: 1;
+      padding: 10px;
+      display: flex;
+      justify-content: center !important;
+      margin-left: var(--spacingSmall);
+      .icon{
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+      }
       .filled{
         fill: var(--colorDarkRoast) !important;
       }
@@ -224,6 +245,20 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
         stroke: var(--colorDarkRoast) !important;
       }
     }
+    
+    .cta-container{
+      display: grid;
+      grid-template-columns: 0.65fr 0.35fr;
+      grid-template-rows: auto;
+      grid-gap: 0;
+      align-items: end;
+      bottom: calc(var(--ctaButtonHeight) ) !important;
+      position: absolute;
+      width: 100%;
+      height: calc(var(--ctaButtonHeight) * 3) !important;
+      padding: 0 5% 0 5%;
+    }
+    
   }
 `;
 

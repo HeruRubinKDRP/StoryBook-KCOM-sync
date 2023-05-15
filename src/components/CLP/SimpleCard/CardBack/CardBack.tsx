@@ -1,6 +1,8 @@
 import React from 'react';
 import {CardBackStyled} from "./card-back.styles";
 import KButton from "../../../Kbutton/KButton";
+import {FeatureBulletsArea} from "../../../FeatureBullets/FeatureBulletsArea/FeatureBulletsArea";
+import {iFeatureBullet} from "../../../FeatureBullets/FeatureBulletItem/FeatureBullet";
 
 export interface iProductFeature {
     label: string;
@@ -11,23 +13,24 @@ export interface iProductProps {
     name: string;
     description?: string;
     imageSrc?: string;
-    features: iProductFeature[];
+    features: iFeatureBullet[];
 }
 
 const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, features }) => {
     return (
         <CardBackStyled className="card-back">
             <div className="info-container">
-                <img className="product-silo" src={imageSrc} alt={name} />
-                <h1>{name}</h1>
+                <div className="product-title-area">
+                    <img className="product-silo" src={imageSrc} alt={name} />
+                    <h1>{name}</h1>
+                </div>
                 <p>{description}</p>
                 <ul className="features-list-container">
-                    {features.map((feature) => (
-                        <li key={feature.label}>
-                            <img src={feature.iconLink} alt={feature.label} />
-                            <span>{feature.label}</span>
-                        </li>
-                    ))}
+                    <FeatureBulletsArea
+                        height={"100%"}
+                        featuresAreaName={""}
+                        features={features}
+                    />
                 </ul>
             </div>
             <div className="cta-container">

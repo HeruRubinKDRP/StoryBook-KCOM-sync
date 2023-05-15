@@ -44,13 +44,13 @@ export const CardInner = styled.div<{ isFlipped: boolean }>`
   transform: ${({ isFlipped }) => (isFlipped ? "rotateY(180deg)" : "rotateY(0deg)")};
   transform-style: preserve-3d;
   transition: transform 0.8s;
-  transform-origin: center center; // adjust the transform-origin
-   
+  transform-origin: center center; // adjust the transform-origin 
   width: 100%;
   height: 100%;
   
+
   .card-front, .card-back{
-    height: 100%;
+    height: 100%; 
   }
   
   .backing{
