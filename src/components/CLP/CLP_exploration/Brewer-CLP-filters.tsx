@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {CategoryItem} from './Brewer-CLP-CategoryItems';
+import {CategoryItem} from './Filters-CLP-CategoryItems';
 import {BrewerCLPFiltersStyle} from "./Brewer-CLP-filters-styled";
 
 export interface iFilters {

@@ -16,10 +16,12 @@ import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/con
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
 import CardFlipContainer from "../../Animated Effects/CardFlip/CardFlipContainer";
 import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
-import {ComponentFilterStyle, FiltersContainerStyle} from '../Brewer_CLP_exploration/Brewer-CLP-combine-styled';
-import {Filters} from '../Brewer_CLP_exploration/Brewer-CLP-filters';
-import {BrewerCLPStyled} from '../Brewer_CLP_exploration/Brewer-CLP-grid-styled';
 import CardBack from "../SimpleCard/CardBack/CardBack";
+import SaleToggle from 'components/SaleToggle/sale-toggle';
+import Graphic from 'components/Graphic/Graphic';
+import {ComponentFilterStyle, FiltersContainerStyle, SortSelect, SortSelectWrapper } from '../CLP_exploration/Brewer-CLP-combine-styled';
+import { Filters } from '../CLP_exploration/Beverages-CLP-filters';
+import { BrewerCLPStyled } from '../CLP_exploration/Brewer-CLP-grid-styled';
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -56,7 +58,10 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setSnackBarOpen(false);
         setQuickShopOpen(open);
     }
-
+    const [sortBy, setSortBy] = useState("popularity");
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSortBy(event.target.value);
+    };
     const manageAddToCart = () => {
         console.log("clicked add to cart");
         setQuickShopOpen(false);
@@ -251,7 +256,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                         buttonType="primary"
                         buttonWidth="fit-to-content"
                         iconPlacement="after-label"
-                        iconStandard="chevron-down"
+                        iconStandard="icon-filters"
                         transitionType="expand-bg"
                         onClick={handleClick}
                     />
@@ -284,18 +289,30 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                 </FiltersContainerStyle>
                 <div className="right-part">
                     <ComponentFilterStyle>
-                        <div className={"ksk-toggle"}>Keurig Starter Kit</div>
-                        <KButton
-                            label="Filters"
-                            buttonType="primary"
-                            buttonWidth="fit-to-content"
-                            iconPlacement="after-label"
-                            iconStandard="chevron-down"
-                            transitionType="expand-bg"
-                            onClick={handleClick}
-                        />
-                        <div className={"sort-by"}>Sort by
-                            <div>Popularity (all time)</div>
+                        <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        <div className={"filters"}>
+                            <KButton
+                                label="Filters"
+                                buttonType="secondary"
+                                buttonWidth="fit-to-content"
+                                iconPlacement="after-label"
+                                iconStandard="icon-filters"
+                                transitionType="expand-bg"
+                                onClick={handleClick}
+                            />
+                        </div>
+                        <div className={"sort-by"}>
+                            Sort by
+                            <SortSelectWrapper>
+                                <SortSelect value={sortBy} onChange={handleSortChange}>
+                                    <option value="popularity">Popularity (all time)</option>
+                                    <option value="priceLowest">Price (lowest first)</option>
+                                    <option value="priceHighest">Price (highest first)</option>
+                                    <option value="nameAZ">Name (A-Z)</option>
+                                    <option value="nameZA">Name (Z-A)</option>
+                                </SortSelect>
+                                <Graphic graphicName={"chevron-down"}></Graphic>
+                            </SortSelectWrapper>
                         </div>
                     </ComponentFilterStyle>
                     <BrewerCLPStyled>
