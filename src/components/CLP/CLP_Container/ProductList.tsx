@@ -19,9 +19,15 @@ import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
 import CardBack from "../SimpleCard/CardBack/CardBack";
 import SaleToggle from 'components/SaleToggle/sale-toggle';
 import Graphic from 'components/Graphic/Graphic';
-import {ComponentFilterStyle, FiltersContainerStyle, SortSelect, SortSelectWrapper } from '../CLP_exploration/Brewer-CLP-combine-styled';
-import { Filters } from '../CLP_exploration/Beverages-CLP-filters';
-import { BrewerCLPStyled } from '../CLP_exploration/Brewer-CLP-grid-styled';
+import {
+    ComponentFilterStyle,
+    FiltersContainerStyle,
+    SortSelect,
+    SortSelectWrapper
+} from '../CLP_exploration/Brewer-CLP-combine-styled';
+import {Filters as BeveragesFilters} from '../CLP_exploration/Beverages-CLP-filters';
+import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
+import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -36,7 +42,23 @@ export interface ProductListProps {
     stickyHeader: iStickyHeader;
     stickyHeaderMode: "slim" | "full";
     filters: JSX.Element;
+    pageType: 'beverages' | 'brewer';
 }
+
+/*const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+    return type === 'beverages'
+        ? <BeveragesFilters isVisible={isVisible}/>
+        : <BrewerFilters isVisible={isVisible}/>;
+};*/
+const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+    if (type === 'beverages') {
+        return <BeveragesFilters isVisible={isVisible}/>;
+    } else if (type === 'brewer') {
+        return <BrewerFilters isVisible={isVisible}/>;
+    } else {
+        return null;
+    }
+};
 
 
 const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
@@ -44,15 +66,11 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     const [totalPages, setTotalPages] = useState(0);
     const [rows, setRows] = useState(1);
     const [currentColumns, setCurrentColumns] = useState(1);
-
     const headerRef = React.createRef<HTMLDivElement>();
-
     const [quickShopOpen, setQuickShopOpen] = useState(false);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
     // TODO refactor to be generic not selected pod but selected product
     const [selectedPod, setSelectedPod] = useState<number | 0>(0);
-
-
     const manageQuickShop = (open: boolean, index: number) => {
         setSelectedPod(index);
         setSnackBarOpen(false);
@@ -67,7 +85,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setQuickShopOpen(false);
         setSnackBarOpen(true);
     }
-
     const getModal = (open: boolean) => {
         if (open) {
             switch (props.products[selectedPod].productType) {
@@ -231,7 +248,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         }
         return <></>
     }
-
     return (
         <div>
             <StickyHeader
@@ -285,7 +301,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             {getSnackBar(snackBarOpen)}
             <OuterMostCLP_Container ref={ref} className={``}>
                 <FiltersContainerStyle>
-                    <Filters isVisible={isVisible}/>
+                    <Filters type={props.pageType} isVisible={isVisible}/>
                 </FiltersContainerStyle>
                 <div className="right-part">
                     <ComponentFilterStyle>
@@ -342,7 +358,8 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                     }
                                     backContent={
                                         <CardBack name={product.name} description={product.productDescription}
-                                                  imageSrc={product.siloImagePath} features={product.productFeatures ?? []}/>
+                                                  imageSrc={product.siloImagePath}
+                                                  features={product.productFeatures ?? []}/>
                                     }
                                     sideShowing="front"
                                     classes={product.productType == "brewer" ? "brewer-card" : "pod-card"}

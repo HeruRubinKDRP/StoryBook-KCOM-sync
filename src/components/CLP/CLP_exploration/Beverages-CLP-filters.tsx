@@ -5,6 +5,7 @@ import { CategoryItem } from './Filters-CLP-CategoryItems';
 
 export interface iFilters {
     isVisible?: boolean;
+    type?: string;
     onButtonClick?: () => void;
     defaultVisible?: boolean;
 }

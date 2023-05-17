@@ -4,6 +4,7 @@ import {BrewerCLPFiltersStyle} from "./Brewer-CLP-filters-styled";
 
 export interface iFilters {
     isVisible?: boolean;
+    type?: string;
     onButtonClick?: () => void;
     defaultVisible?: boolean;
 }

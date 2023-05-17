@@ -53,6 +53,7 @@ const products = convertPodLibraryToProductInfoCardProps(podLibrary);
 export const Default = Template.bind({});
 Default.args = {
     stickyHeaderMode: "slim",
+    pageType: 'beverages',
     products: products,
     columns: 3,
     pageSize: 9,
@@ -81,6 +82,7 @@ Default.args = {
 export const BeverageBundleExample = Template.bind({});
 BeverageBundleExample.args = {
     stickyHeaderMode: "slim",
+    pageType: 'beverages',
     products: [
         {
             priceDescriptor: " ",
@@ -153,6 +155,7 @@ BeverageBundleExample.args = {
 export const SingleProductExample = Template.bind({});
 SingleProductExample.args = {
     stickyHeaderMode: "slim",
+    pageType: 'beverages',
     products: [
         {
             productType: "pod",
@@ -220,6 +223,7 @@ SingleProductExample.args = {
 
 export const BrewerList = Template.bind({});
 BrewerList.args = {
+    pageType: 'brewer',
     products: brewerLibrary,
     columns: 3,
     pageSize: 9,
