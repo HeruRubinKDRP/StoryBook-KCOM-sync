@@ -104,6 +104,20 @@ export const brewerLibrary : iProductInfoCardProps[] =[
       totalNumberOfReviews : 1023,
       ratingNumber : 4.25
     },
+    filterData : [
+      {
+        filterName : "category",
+        filterValues : ["smart", "single-serve" ]
+      },
+      {
+        filterName : "features",
+        filterValues : ["display-screen", "strength-control", "temperature-controls" ]
+      },
+      {
+        filterName : "color",
+        filterValues : ["black", "grey", "stainless-steel"]
+      }
+    ],
     onClick: () => console.log('Add to Cart clicked'),
   },
   {

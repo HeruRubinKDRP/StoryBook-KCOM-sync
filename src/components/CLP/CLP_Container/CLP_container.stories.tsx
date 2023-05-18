@@ -3,7 +3,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import ProductList, { ProductListProps } from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
 import {brands, podLibrary} from "../../../pages/myBrews";
-import {iProductInfoCardProps} from "../SimpleCard/SimpleCard";
 import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 import {brewerLibrary} from "../../../data/product-data";
 

@@ -3,9 +3,9 @@ import {CardBackStyled} from "./card-back.styles";
 import KButton from "../../../Kbutton/KButton";
 import {FeatureBulletsArea} from "../../../FeatureBullets/FeatureBulletsArea/FeatureBulletsArea";
 import {iFeatureBullet} from "../../../FeatureBullets/FeatureBulletItem/FeatureBullet";
-import Accordion from "../../../k-accordion/KAccordion";
 import AsyncImage from "../../../AsyncImage/AsyncImage";
 import {Kcarousel} from "../../../Carousel/Kcarousel";
+import {useResizeDetector} from "react-resize-detector";
 
 export interface iProductFeature {
     label: string;
@@ -19,9 +19,13 @@ export interface iProductProps {
     features: iFeatureBullet[];
 }
 
+
+
 const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, features }) => {
+
+
     return (
-        <CardBackStyled className="card-back">
+        <CardBackStyled  className="card-back"  >
             <div className="info-container">
                 <div className="product-title-area">
                     <img className="product-silo" src={imageSrc} alt={name} />

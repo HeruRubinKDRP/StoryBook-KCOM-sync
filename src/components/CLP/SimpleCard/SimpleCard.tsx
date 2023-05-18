@@ -18,6 +18,11 @@ export interface purchaseInfo {
     variant: { quantity: number, variantName: string }
 }
 
+export type filterDataItemT = {
+    filterName: string;
+    filterValues: string[];
+}
+
 export interface iProductInfoCardProps {
     productType: productTypeT
     image: string;
@@ -29,6 +34,7 @@ export interface iProductInfoCardProps {
     productDescription?: string;
     siloImagePath?: string;
     productFeatures? : iFeatureBullet[];
+    filterData?: filterDataItemT[];
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;

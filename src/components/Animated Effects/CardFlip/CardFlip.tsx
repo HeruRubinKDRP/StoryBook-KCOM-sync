@@ -56,7 +56,7 @@ const CardFlip: React.FC<CardProps> = ({
 
 
     return (
-        <CardContainer ref={ref} className={`product-card ${classes}`} overallWidth={width ? width : 0}>
+        <CardContainer ref={ref} className={`product-card ${classes}`} overallWidth={width ?? 0} overallHeight={height ?? 0}>
             <CardInner isFlipped={isFlipped !== "front"}>
                 <Front className="card-front">
                     {frontContent}

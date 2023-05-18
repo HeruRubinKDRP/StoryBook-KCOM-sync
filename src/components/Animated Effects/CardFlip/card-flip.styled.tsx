@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 interface iCardContainer{
     overallWidth: number;
+    overallHeight: number;
 }
 
 export const CardContainer = styled.div<iCardContainer>`
   --overallWidth: ${props => props.overallWidth + 'px'};
+  --overallHeight: ${props => props.overallHeight + 'px'};
   --spacingLarge: calc(var(--overallWidth) * 0.008 + 8px);
   --ctaButtonHeight: calc(var(--spacingLarge) * 2);
   
@@ -15,6 +17,10 @@ export const CardContainer = styled.div<iCardContainer>`
   height: 100%;
   width: 100%;
   position: relative;
+  
+  .features-list-container{
+    height: calc(var(--overallHeight) * 0.55) !important;
+  }
   
   .cta-container{
     display: grid;

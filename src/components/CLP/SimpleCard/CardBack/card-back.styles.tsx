@@ -2,22 +2,26 @@ import styled from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
 import {attentionCTA, ctaColorStyles, gradientSlide} from "../../../_commonStyles/common.styled";
 
-export const CardBackStyled = styled.div` 
+
+
+export const CardBackStyled = styled.div ` 
   
-  ${ctaColorStyles};
+  ${ctaColorStyles};  
   
-        
   height: 100% !important;
   background-color: var(--colorDarkRoast);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
 
-  .nav-dots-container{
-    background-color: transparent;
+  .nav-dots-container{ 
     border: none;
     padding: 0;
-    backdrop-filter: none;
+    backdrop-filter: none; 
+    background-color: white;
+    &.top{
+      top: 0 !important;
+    };
     &.bottom{
       bottom: 0;
     }
@@ -56,6 +60,9 @@ export const CardBackStyled = styled.div`
   }
   
   .dimensions-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     img{
       width: 100%;
       margin-top: 15%;
@@ -101,6 +108,15 @@ export const CardBackStyled = styled.div`
     }
     
   }
+
+  .slides-container {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .slides-container{
+      overflow: hidden;
+    }
+  }
   
   .accordion-container{
     padding: 4%;
@@ -115,7 +131,7 @@ export const CardBackStyled = styled.div`
     .feature-bullet-container {
       margin: 0.25rem;
       width: 25%;
-      height: 6rem;
+      height: 5rem;
       box-shadow: -1px 6px 7px rgba(0,0,0,0.4);
       background-color: rgba(255, 255, 255, 1);
       transition: transform 0.3s ease-in-out;
@@ -133,8 +149,8 @@ export const CardBackStyled = styled.div`
         transform: scale(1.1);
       }
       .feature-name{
-        font-size: 12px;
-        line-height: 12px;
+        font-size: 10px;
+        line-height: 10px;
       }
     }
     .left, .right{

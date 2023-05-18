@@ -73,7 +73,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     const [selectedPod, setSelectedPod] = useState<number | 0>(0);
 
     const {width, height, ref} = useResizeDetector({
-        refreshMode: 'debounce',
+        refreshMode: 'throttle',
         refreshRate: 100,
         refreshOptions: {
             leading: true,
@@ -168,7 +168,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         }
 
     }
-
 
 
     useEffect(() => {
@@ -297,7 +296,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                         iconStandard="icon-cart"
                         transitionType="expand-bg"
                     />
-
                 </div>
             </StickyHeader>
             {getModal(quickShopOpen)}
