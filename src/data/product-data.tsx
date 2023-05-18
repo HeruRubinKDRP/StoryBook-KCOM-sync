@@ -23,6 +23,104 @@ export const buttonTypesList : buttonType[] =[
   "link-external",
   "round-no-label"
 ]
+const filterValues = [
+  {
+    filterName: "categories",
+    filterValues: [
+      "smart wi-fi® enabled",
+      "single-serve coffee makers",
+      "coffeehouse beverages at home",
+      "dual coffee makers",
+      "brew over ice coffee makers"
+    ]
+  },
+  {
+    filterName: "features",
+    filterValues: [
+      "digital clock",
+      "display screen",
+      "froths milk",
+      "iced setting",
+      "multi-position water reservoir",
+      "strength control",
+      "temperature control"
+    ]
+  },
+  {
+    filterName: "color-GreenAndBlueShades",
+    filterValues: [
+      'Alpine Blue',
+      'Chill Green',
+      'Cool Aqua',
+      'Evergreen',
+      'Misty Green',
+      'Oasis',
+      'Tropical Blue'
+    ]
+  },
+  {
+    filterName: "color-BlackAndWhiteShades",
+    filterValues: [
+      'Black',
+      'Black Stainless',
+      'Brushed Slate',
+      'Farmhouse White',
+      'Matte Black',
+      'Matte Black Custom',
+      'Matte Navy',
+      'Matte White',
+      'Silver',
+      'Stainless Steel',
+      'Studio Gray',
+      'White'
+    ]
+  },
+  {filterName: "color-RedShades",
+    filterValues: [
+      'Cardinal Red',
+      'Dusty Rose',
+      'Poppy Red',
+      'Red',
+      'Rhubarb',
+      'Scarlet Red',
+      'Vintage Red'
+]
+},
+  {filterName: "color-NeutralAndOtherShades",
+    filterValues: [
+      'Arctic Gray',
+      'Brushed Gold',
+      'Brushed Silver',
+      'Dark Charcoal',
+      'Gold',
+      'Gray',
+      'Nickel',
+      'Sandstone',
+      'Silver Sage'
+    ]
+  },
+  {
+    filterName: "brew type",
+    filterValues: [
+      "bagged coffee",
+      "k-cup"
+    ]
+  },
+  {
+    filterName: "reservoir",
+    filterValues: [
+      "60 oz or more",
+      "add water each time",
+      "upto 52 oz"
+    ]
+  },
+  {
+    filterName: "commercial",
+    filterValues: [
+      "commercial"
+    ]
+  }
+];
 
 export const brewerLibrary : iProductInfoCardProps[] =[
   {
