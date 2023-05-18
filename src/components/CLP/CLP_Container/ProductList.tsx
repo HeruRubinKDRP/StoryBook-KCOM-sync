@@ -50,6 +50,16 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     // TODO refactor to be generic not selected pod but selected product
     const [selectedPod, setSelectedPod] = useState<number | 0>(0);
 
+    const {width, height, ref} = useResizeDetector({
+        refreshMode: 'debounce',
+        refreshRate: 100,
+        refreshOptions: {
+            leading: true,
+            trailing: false
+        },
+        onResize: () => {
+        },
+    });
 
     const manageQuickShop = (open: boolean, index: number) => {
         setSelectedPod(index);
@@ -135,16 +145,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     }
 
-    const {width, height, ref} = useResizeDetector({
-        refreshMode: 'debounce',
-        refreshRate: 100,
-        refreshOptions: {
-            leading: true,
-            trailing: false
-        },
-        onResize: () => {
-        },
-    });
+
 
     useEffect(() => {
         const totalRows = Math.ceil(props.products.length / (props.columns || 1));
@@ -305,6 +306,11 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                             rows={rows}>
                             {visibleProducts.map((product, index) => (
                                 <CardFlip
+                                    key={index}
+                                    flipToBackButtonLabel="Features"
+                                    flipToBackButtonIcon="icon-features"
+                                    flipToFrontButtonLabel="Images"
+                                    flipToFrontButtonIcon="icon-images"
                                     frontContent={
                                         <ProductInfoCard
                                             key={index}

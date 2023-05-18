@@ -1,6 +1,6 @@
-import {AccordionButton} from "../AccordionStyled";
+import {AccordionButton} from "../accordion.styled.";
 import Graphic from "../../Graphic/Graphic";
-import React, {ReactElement} from "react";
+import React, {ReactElement, useEffect} from "react";
 import {AccordionItemStyled} from "./AccordionItem.styled";
 
 export interface iAccordionItem{
@@ -14,9 +14,14 @@ export interface iAccordionItem{
 
 export const AccordionItem = (props:iAccordionItem) => {
 
-    const outerAccordionInteraction=(i : number)=>{
-        props.handleClick(i);
+    const outerAccordionInteraction=(index : number)=>{
+        console.log('accordion clicked accordion item: ', index);
+        props.handleClick(index);
     }
+    useEffect(() => {
+        console.log(`Accordion item ${props.index} classes: ${props.classes}`);
+    }, [props.classes]);
+
 
     return(
         <AccordionItemStyled

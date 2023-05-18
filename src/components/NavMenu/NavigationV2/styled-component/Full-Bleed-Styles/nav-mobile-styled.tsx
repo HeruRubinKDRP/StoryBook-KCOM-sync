@@ -69,8 +69,7 @@ export const navMobileStyles = css`
     }
 
     &.slide-nav-in {
-      .main-navigation-container {
-        //background-color: #676A9B;
+      .main-navigation-container { 
 
         nav {
           animation: slideInFromRight 0.5s forwards;

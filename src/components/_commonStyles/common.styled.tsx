@@ -10,6 +10,22 @@ export const ctaColorStyles = css`
   --colorLightCTA: ${colorNameToValue("faintWarm")};
 `;
 
+export const attentionCTA = css` 
+  background: linear-gradient(-45deg,hsl(47 95% 80% / 1),hsl(47 95% 59% / 1),hsl(47 95% 80% / 1),hsl(47 95% 80% / 1));
+  background-size: 200% 265%;  
+ 
+`;
+
+export const gradientSlide = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+
+`;
+
 
 
 export const riseUpAnim = keyframes`
@@ -18,8 +34,7 @@ export const riseUpAnim = keyframes`
   }
   to {
     top: 200px;
-  }
-    
+  } 
 `
 
 export const fadeOutAnim = keyframes`

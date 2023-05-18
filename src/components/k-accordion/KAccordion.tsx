@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect, useState} from 'react';
-import {AccordionContainer} from "./AccordionStyled";
+import {AccordionContainer} from "./accordion.styled.";
 import {useResizeDetector} from "react-resize-detector";
 import {sizeT} from "../KSK_Experience/KSK";
 import {AccordionItem} from "./AccordionItem/AccordionItem";
@@ -9,10 +9,12 @@ export interface iAccordionProps {
     children: ReactElement[];
     accordionAction? : Function;
     useInternalOpenClosedState : boolean;
+    initialOpenItems? : number[];
+    onlyOneOpenAtOnce? : boolean;
 }
 
 const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
-    const [openItems, setOpenItems] = useState<number[]>([]);
+    const [openItems, setOpenItems] = useState<number[]>(props.initialOpenItems ?? []);
     const [documentDimensions, setDocumentDimensions] = useState<{height : number, width:number}>({height : 0, width:0});
 
     const {width, height, ref } = useResizeDetector({
@@ -30,20 +32,28 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
         setDocumentDimensions({height: document.body.offsetHeight, width: document.body.offsetWidth});
     }, [document.body.offsetHeight, document.body.offsetWidth]);
 
+    useEffect(() => {
+        console.log(openItems);
+    }, [openItems]);
 
     const handleAccordionClick = (index: number) => {
 
-
+        console.log('accordion clicked');
         if(props.accordionAction){
             props.accordionAction(index);
         }
 
-        if (openItems.includes(index)) {
-            setOpenItems(openItems.filter(item => item !== index));
+        if (props.onlyOneOpenAtOnce) {
+            setOpenItems([index]);
         } else {
-            setOpenItems([...openItems, index]);
+            if (openItems.includes(index)) {
+                setOpenItems(openItems.filter(item => item !== index));
+            } else {
+                setOpenItems([...openItems, index]);
+            }
         }
     };
+
 
     const getDynamicStyles =(widthX : number, heightY : number)=>{
         return(
@@ -75,15 +85,15 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
 
     const manageOpenClosedState = (index : number)=>{
         if(props.useInternalOpenClosedState){
-            return openItems.includes(index) ? 'open' : '';
+            return openItems.includes(index) ? 'open' : 'closed';
         }
-
-        return props.items[index].isOpen ? 'open' : '';
+        return props.items[index].isOpen ? 'open' : 'closed';
     }
+
 
     return (
         <AccordionContainer
-            className={containerQueries(documentDimensions.width, documentDimensions.height)}
+            className={`${containerQueries(documentDimensions.width, documentDimensions.height)} accordion-container`}
             dynamicStyles={getDynamicStyles(width || documentDimensions.width, height || documentDimensions.height )}
             ref={ref}
 

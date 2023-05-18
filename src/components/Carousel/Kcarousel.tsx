@@ -36,11 +36,12 @@ export interface iCarousel {
     contentWidthOverride? : string;
   }
   useContainerQueries? : "use" | "ignore";
+  setInitialSlidePosition? : number;
 }
 
 
-export const Kcarousel = (props: iCarousel) => {
-  const [currentSlide, setCurrentSlide] = useState({slide: 0, doAnimate: false});
+export const  Kcarousel = (props: iCarousel) => {
+  const [currentSlide, setCurrentSlide] = useState({slide: props.setInitialSlidePosition ?? 0, doAnimate: false});
   const [slidesCount, setSlidesCount]=useState(props.slides.length);
   const {width, height, ref} = useResizeDetector({
     handleHeight: false,

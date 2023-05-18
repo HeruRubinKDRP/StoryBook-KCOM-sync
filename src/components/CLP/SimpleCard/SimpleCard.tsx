@@ -100,7 +100,6 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
             <div className="product-data-container">
                 <div className={`product-image ${props.productType}-image`}>
                     <AsyncImage src={props.image} alt={`${props.brand} ${props.name}`} className="image-inner"/>
-                    {/*<img className="image-inner" src={props.image} alt={`${props.brand} ${props.name}`}/>*/}
                 </div>
                 <div className="product-info-container">
                     <div className="price">

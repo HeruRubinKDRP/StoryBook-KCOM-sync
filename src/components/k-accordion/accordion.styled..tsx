@@ -3,9 +3,9 @@ import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToVal
 
 export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>}>`
   ${props => props.dynamicStyles}
-    --fontSmall: calc(var(--overallWidth) * 0.01);
-    --fontMedium: calc(var(--overallWidth) * 0.02);
-    --fontLarge: calc(var(--overallWidth) * 0.03);
+    --fontSmall: calc(var(--overallWidth) * 0.01 + 10px);
+    --fontMedium: calc(var(--overallWidth) * 0.02 + 12px);
+    --fontLarge: calc(var(--overallWidth) * 0.03 + 16px);
   
     --spacingTiny: calc(var(--overallWidth) * 0.005);
     --spacingSmall: calc(var(--overallWidth) * 0.0075);
@@ -18,7 +18,11 @@ export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>
   --colorFaded: ${colorNameToValue("latteMed")};
   --colorSepia: ${colorNameToValue("sepia")};
   --colorCTA: ${colorNameToValue("secondaryGold")};
-  
+  width: 100%;
+  user-select: none;
+  *{
+    user-select: none;
+  }
   
   display: flex;
   flex-direction: column;
@@ -65,6 +69,8 @@ export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>
 
   .accordion-item{
     border-bottom: 1px solid var(--colorSepia);
+    display: flex;
+    flex-direction: column;
     &.closed {
       .accordion-content-item {
         .accordion-content {

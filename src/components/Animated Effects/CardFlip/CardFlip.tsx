@@ -2,16 +2,29 @@ import React, { ReactElement } from "react";
 import { CardInner, Front, Back, CardContainer } from "./card-flip.styled";
 import {useResizeDetector} from "react-resize-detector";
 import KButton from "../../Kbutton/KButton";
+import {iconType, Igraphics} from "../../Graphic/Graphic";
 
 interface CardProps {
     sideShowing: "front" | "back";
     frontContent: ReactElement;
     backContent: ReactElement;
     classes? : string;
+    flipToBackButtonLabel? : string;
+    flipToBackButtonIcon? : iconType;
+    flipToFrontButtonLabel? : string;
+    flipToFrontButtonIcon? : iconType;
+
 }
 
 
-const CardFlip: React.FC<CardProps> = ({ sideShowing, frontContent, backContent, classes }) => {
+const CardFlip: React.FC<CardProps> = ({
+                                           flipToBackButtonLabel,
+                                           flipToBackButtonIcon,
+                                           flipToFrontButtonLabel,
+                                           flipToFrontButtonIcon,
+                                           sideShowing,
+                                           frontContent, backContent,
+                                           classes }) => {
     const [isInitialized, setIsInitialized] = React.useState(false);
     const [isFlipped, setIsFlipped] = React.useState<"front" | "back">(sideShowing);
 
@@ -52,8 +65,8 @@ const CardFlip: React.FC<CardProps> = ({ sideShowing, frontContent, backContent,
                             transitionType="expand-bg"
                             classes={`flip-btn`}
                             buttonWidth="fit-to-content"
-                            label="Details"
-                            iconStandard="info-icon"
+                            label={ flipToBackButtonLabel ?? "Features"}
+                            iconStandard={flipToBackButtonIcon ?? "info-icon"}
                             iconPlacement="after-label"
                             buttonType="primary"
                             actionFunc={ handleFlip  }
@@ -67,8 +80,8 @@ const CardFlip: React.FC<CardProps> = ({ sideShowing, frontContent, backContent,
                             transitionType="expand-bg"
                             classes={`flip-btn`}
                             buttonWidth="fit-to-content"
-                            label="Back"
-                            iconStandard="chevron-right"
+                            label={ flipToFrontButtonLabel ?? "Back"}
+                            iconStandard={flipToFrontButtonIcon ?? "chevron-right"}
                             iconPlacement="after-label"
                             buttonType="primary"
                             actionFunc={ handleFlip  }

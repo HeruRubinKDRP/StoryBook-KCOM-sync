@@ -3,6 +3,9 @@ import {CardBackStyled} from "./card-back.styles";
 import KButton from "../../../Kbutton/KButton";
 import {FeatureBulletsArea} from "../../../FeatureBullets/FeatureBulletsArea/FeatureBulletsArea";
 import {iFeatureBullet} from "../../../FeatureBullets/FeatureBulletItem/FeatureBullet";
+import Accordion from "../../../k-accordion/KAccordion";
+import AsyncImage from "../../../AsyncImage/AsyncImage";
+import {Kcarousel} from "../../../Carousel/Kcarousel";
 
 export interface iProductFeature {
     label: string;
@@ -26,11 +29,35 @@ const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, featur
                 </div>
                 <p>{description}</p>
                 <ul className="features-list-container">
-                    <FeatureBulletsArea
-                        height={"100%"}
-                        featuresAreaName={""}
-                        features={features}
+                    <Kcarousel
+                        dragRule="no-drag"
+                        customClasses={"parent-carousel"}
+                        carouselType="slider"
+                        component="carousel"
+                        keepNavButtons={true}
+                        navLabels={[
+                            'Features',
+                            'Dimensions',
+                            'Specs'
+                        ]}
+                        navPosition="top"
+                        navStyle="text"
+                        slides={[
+                            <FeatureBulletsArea
+                                height={"100%"}
+                                featuresAreaName={""}
+                                features={features}
+                            />,
+                            <div className="dimensions-container">
+                                <AsyncImage src="https://images.keurig.com/is/image/keurig/KSPS-black-size?fmt=png-alpha&wid=1000" alt="" />
+                            </div>,
+                            <div>Specifications</div>,
+                        ]}
+
+                     itemsPerSlide={1}
                     />
+
+
                 </ul>
             </div>
             <div className="cta-container">

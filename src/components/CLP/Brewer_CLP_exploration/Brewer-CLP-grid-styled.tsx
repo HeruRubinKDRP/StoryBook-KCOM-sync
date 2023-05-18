@@ -143,9 +143,7 @@ export const BrewerCLPStyled = styled.div`
       font-size: 16px;
       color: #333333;
       height: 50px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      display: -webkit-box; 
       overflow: hidden;
       text-overflow: ellipsis;
     }

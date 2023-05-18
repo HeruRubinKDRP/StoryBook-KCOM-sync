@@ -10,7 +10,9 @@ export interface iProductListWrapper {
 
 export const ProductListWrapper = styled.div<iProductListWrapper>`
   ${props => props.dynamicStyles};
-
+  *{
+    user-select: none;
+  }
   --spacingTiny: calc(var(--overallWidth) * 0.005 + 2px);
   --spacingSmall: calc(var(--overallWidth) * 0.006 + 4px);
   --spacingMedium: calc(var(--overallWidth) * 0.007 + 5px);
@@ -41,11 +43,11 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       display: none;
     }
     .product-name{
-      font-size: var(--spacingHuge);
+      font-size: var(--spacingMedium);
       font-weight: 200;
       color: var(--colorDarkRoast);
-      text-align: center;
-      line-height: var(--spacingHuge);
+      line-height: var(--spacingMedium);
+      padding: 3% 10%;
     }
     .price{
       font-weight: 600;
@@ -58,22 +60,20 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       }
     }
     button.k-btn.brewer-cta{
-      padding: var(--spacingHuge) calc(var(--spacingHuge) * 2);
+      padding: calc( var(--spacingHuge) * 0.5 ) calc(var(--spacingHuge) * 1.5);
       background-color: var(--colorCTAPrimary) !important;
       box-shadow: 0 var(--spacingMedium) var(--spacingMedium) 0 rgba(0, 0, 0, 0.25);
       .filled{
         fill : var(--colorDarkRoast) !important;
       }
       label{
-        color: var(--colorDarkRoast) !important;
-        font-size: calc(var(--spacingHuge));
+        color: var(--colorDarkRoast) !important; 
       }
     }
   }
 
   .simple-card{
-    .product-image{
-      
+    .product-image{ 
       height: calc(var(--columnsize) * 0.8);
       width: calc(var(--columnsize) * 0.8);
     }
@@ -139,8 +139,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
 
     .product-name {
       grid-column: 1 / 1;
-      grid-row: 4 / 4;
-      font-size: var(--spacingLarge);
+      grid-row: 4 / 4; 
       text-align: center;
     }
     
@@ -218,37 +217,39 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     height: 65vh;
     .brewer-cta, .flip-btn{
       height: 100% !important;
+      grid-row-start: 1;
+      grid-row-end: 2;
     }
     .brewer-cta{
      // border-radius: 100vw 0 0 100vw !important;
     }
-    .flip-btn{
-       
+    .flip-btn{ 
       bottom: 0;
       background-color: rgba(0,0,0,0.65) !important;
       color: white !important;
       position: relative;
       z-index: 1;
-      padding: 10px;
+      padding: calc( var(--spacingHuge) * 0.5 ) calc(var(--spacingHuge) * 0.75);
       display: flex;
       justify-content: center !important;
       margin-left: var(--spacingSmall);
       .icon{
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0;
+        width: 60% !important;
+        height: 60% !important;
+        margin: 0 0 0 10%;
+        min-width: 1rem;
       }
       .filled{
-        fill: var(--colorDarkRoast) !important;
+        fill: white !important;
       }
       .stroked{
-        stroke: var(--colorDarkRoast) !important;
+        stroke: white !important;
       }
     }
     
     .cta-container{
       display: grid;
-      grid-template-columns: 0.65fr 0.35fr;
+      grid-template-columns: 0.6fr 0.4fr;
       grid-template-rows: auto;
       grid-gap: 0;
       align-items: end;
@@ -258,6 +259,14 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       height: calc(var(--ctaButtonHeight) * 3) !important;
       padding: 0 5% 0 5%;
     }
+        
+    
+    //mobile
+   .brewer{
+     &.mobile-dimensions{
+       border: 1px solid red;
+     }
+   }
     
   }
 `;

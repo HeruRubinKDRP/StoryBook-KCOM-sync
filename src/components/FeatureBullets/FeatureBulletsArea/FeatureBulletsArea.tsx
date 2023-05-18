@@ -71,6 +71,7 @@ export const FeatureBulletsArea =(props : iFeatureBulletsArea)=>{
           navStyle="dots"
           navPosition="bottom"
           heightMethod="stretch-to-parent"
+          setInitialSlidePosition={activeIndex}
         />
       </div>
     )

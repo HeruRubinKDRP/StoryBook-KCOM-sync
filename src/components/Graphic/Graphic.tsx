@@ -1,4 +1,5 @@
 import React, {ReactElement} from "react";
+import {GraphicStyled} from "./graphic.styled";
 
 
 export type iconPlacementTYPE = "before-label" | "after-label" | "no-icon" | "right-edge" | "left-edge";
@@ -99,7 +100,9 @@ export type iconType =
     "icon-backup-product" |
     "icon-search" |
     "indicator-trapezoid" |
-    "icon-filters"
+    "icon-filters" |
+    "icon-images" |
+    "icon-features"
     ;
 
 
@@ -120,6 +123,39 @@ export function Graphic(props: Igraphics) {
 
 
     switch (props.graphicName) {
+
+        case "icon-features":
+            graphicData = (
+               <svg viewBox = "0 0 46.83 46.83" >
+            <g className="filled">
+                <rect x="15.41" y="8.63" width="28.7" height="3.93" rx="1.5" ry="1.5"/>
+                <rect x="15.41" y="21.56" width="24.48" height="3.93" rx="1.5" ry="1.5"/>
+                <rect x="15.41" y="35.13" width="17.96" height="3.93" rx="1.5" ry="1.5"/>
+                <polygon
+                         points="7.16 5.4 8.58 8.28 11.76 8.75 9.46 10.99 10 14.15 7.16 12.66 4.31 14.15 4.86 10.99 2.56 8.75 5.73 8.28 7.16 5.4"/>
+                <polygon
+                         points="7.16 19.11 8.58 21.99 11.76 22.45 9.46 24.69 10 27.86 7.16 26.36 4.31 27.86 4.86 24.69 2.56 22.45 5.73 21.99 7.16 19.11"/>
+                <polygon
+                         points="7.16 32.72 8.58 35.6 11.76 36.06 9.46 38.3 10 41.47 7.16 39.97 4.31 41.47 4.86 38.3 2.56 36.06 5.73 35.6 7.16 32.72"/>
+            </g>
+        </svg>
+            )
+            break;
+
+        case "icon-images":
+            graphicData = (
+                <svg width="100%" height="100%" viewBox = "0 0 53.83 53.83" >
+                <path className="stroked" id="picture_frame"
+                      d="m49.39,3.14c.28,0,.51.23.51.51v39.71c0,.28-.23.51-.51.51H11.04c-.28,0-.51-.23-.51-.51V3.65c0-.28.23-.51.51-.51h38.35m0-3H11.04c-1.94,0-3.51,1.57-3.51,3.51v39.71c0,1.94,1.57,3.51,3.51,3.51h38.35c1.94,0,3.51-1.57,3.51-3.51V3.65c0-1.94-1.57-3.51-3.51-3.51h0Z"/>
+             <circle  id="sun" className="filled" cx="20.75" cy="16.12" r="4.06"/>
+            <path id="mountain" className="stroked"
+                  d="m20.68,35.17h22.8c.79,0,1.24-.89.78-1.53l-8.43-11.62c-.4-.55-1.22-.58-1.65-.06l-4.19,5.04c-.34.4-.92.5-1.36.21l-1.98-1.26c-.47-.3-1.09-.18-1.41.27l-5.33,7.41c-.46.64,0,1.53.78,1.53Z"/>
+            <path id="outer_line" className="stroked" d="m2.56,7.69v40.25c0,2.23,1.81,4.03,4.03,4.03h39.88"/>
+        </svg>
+
+            )
+            break
+
         case "icon-filters":
             graphicData = (
                 <svg width="100%"
@@ -1548,7 +1584,7 @@ export function Graphic(props: Igraphics) {
 
 
     return (
-        <div
+        <GraphicStyled
             style={{
                 width: size,
                 height: size
@@ -1556,7 +1592,7 @@ export function Graphic(props: Igraphics) {
             className={`icon ${props.graphicName} ${props.classesOverride}`}
         >
             {graphicData}
-        </div>)
+        </GraphicStyled>)
 }
 
 
