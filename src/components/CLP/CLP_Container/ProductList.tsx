@@ -16,10 +16,18 @@ import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/con
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
 import CardFlipContainer from "../../Animated Effects/CardFlip/CardFlipContainer";
 import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
-import {ComponentFilterStyle, FiltersContainerStyle} from '../Brewer_CLP_exploration/Brewer-CLP-combine-styled';
-import {Filters} from '../Brewer_CLP_exploration/Brewer-CLP-filters';
-import {BrewerCLPStyled} from '../Brewer_CLP_exploration/Brewer-CLP-grid-styled';
 import CardBack from "../SimpleCard/CardBack/CardBack";
+import SaleToggle from 'components/SaleToggle/sale-toggle';
+import Graphic from 'components/Graphic/Graphic';
+import {
+    ComponentFilterStyle,
+    FiltersContainerStyle,
+    SortSelect,
+    SortSelectWrapper
+} from '../CLP_exploration/Brewer-CLP-combine-styled';
+import {Filters as BeveragesFilters} from '../CLP_exploration/Beverages-CLP-filters';
+import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
+import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -34,7 +42,23 @@ export interface ProductListProps {
     stickyHeader: iStickyHeader;
     stickyHeaderMode: "slim" | "full";
     filters: JSX.Element;
+    pageType: 'beverages' | 'brewer';
 }
+
+/*const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+    return type === 'beverages'
+        ? <BeveragesFilters isVisible={isVisible}/>
+        : <BrewerFilters isVisible={isVisible}/>;
+};*/
+const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+    if (type === 'beverages') {
+        return <BeveragesFilters isVisible={isVisible}/>;
+    } else if (type === 'brewer') {
+        return <BrewerFilters isVisible={isVisible}/>;
+    } else {
+        return null;
+    }
+};
 
 
 const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
@@ -42,9 +66,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     const [totalPages, setTotalPages] = useState(0);
     const [rows, setRows] = useState(1);
     const [currentColumns, setCurrentColumns] = useState(1);
-
     const headerRef = React.createRef<HTMLDivElement>();
-
     const [quickShopOpen, setQuickShopOpen] = useState(false);
     const [snackBarOpen, setSnackBarOpen] = useState(false);
     // TODO refactor to be generic not selected pod but selected product
@@ -66,13 +88,15 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setSnackBarOpen(false);
         setQuickShopOpen(open);
     }
-
+    const [sortBy, setSortBy] = useState("popularity");
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSortBy(event.target.value);
+    };
     const manageAddToCart = () => {
         console.log("clicked add to cart");
         setQuickShopOpen(false);
         setSnackBarOpen(true);
     }
-
     const getModal = (open: boolean) => {
         if (open) {
             switch (props.products[selectedPod].productType) {
@@ -227,7 +251,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         }
         return <></>
     }
-
     return (
         <div>
             <StickyHeader
@@ -252,7 +275,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                         buttonType="primary"
                         buttonWidth="fit-to-content"
                         iconPlacement="after-label"
-                        iconStandard="chevron-down"
+                        iconStandard="icon-filters"
                         transitionType="expand-bg"
                         onClick={handleClick}
                     />
@@ -281,22 +304,34 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             {getSnackBar(snackBarOpen)}
             <OuterMostCLP_Container ref={ref} className={``}>
                 <FiltersContainerStyle>
-                    <Filters isVisible={isVisible}/>
+                    <Filters type={props.pageType} isVisible={isVisible}/>
                 </FiltersContainerStyle>
                 <div className="right-part">
                     <ComponentFilterStyle>
-                        <div className={"ksk-toggle"}>Keurig Starter Kit</div>
-                        <KButton
-                            label="Filters"
-                            buttonType="primary"
-                            buttonWidth="fit-to-content"
-                            iconPlacement="after-label"
-                            iconStandard="chevron-down"
-                            transitionType="expand-bg"
-                            onClick={handleClick}
-                        />
-                        <div className={"sort-by"}>Sort by
-                            <div>Popularity (all time)</div>
+                        <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        <div className={"filters"}>
+                            <KButton
+                                label="Filters"
+                                buttonType="secondary"
+                                buttonWidth="fit-to-content"
+                                iconPlacement="after-label"
+                                iconStandard="icon-filters"
+                                transitionType="expand-bg"
+                                onClick={handleClick}
+                            />
+                        </div>
+                        <div className={"sort-by"}>
+                            Sort by
+                            <SortSelectWrapper>
+                                <SortSelect value={sortBy} onChange={handleSortChange}>
+                                    <option value="popularity">Popularity (all time)</option>
+                                    <option value="priceLowest">Price (lowest first)</option>
+                                    <option value="priceHighest">Price (highest first)</option>
+                                    <option value="nameAZ">Name (A-Z)</option>
+                                    <option value="nameZA">Name (Z-A)</option>
+                                </SortSelect>
+                                <Graphic graphicName={"chevron-down"}></Graphic>
+                            </SortSelectWrapper>
                         </div>
                     </ComponentFilterStyle>
                     <BrewerCLPStyled>
@@ -331,7 +366,8 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                     }
                                     backContent={
                                         <CardBack name={product.name} description={product.productDescription}
-                                                  imageSrc={product.siloImagePath} features={product.productFeatures ?? []}/>
+                                                  imageSrc={product.siloImagePath}
+                                                  features={product.productFeatures ?? []}/>
                                     }
                                     sideShowing="front"
                                     classes={product.productType == "brewer" ? "brewer-card" : "pod-card"}

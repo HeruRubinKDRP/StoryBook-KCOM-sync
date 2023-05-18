@@ -296,6 +296,12 @@ export const OuterMostCLP_Container = styled.div`
 
   .right-part {
     width: 100%;
+    .filters{
+      margin-right: 2%;
+    }
+    .sale-toggle{
+      margin-left: 10px;
+    }
   }
 
   .backing-main {

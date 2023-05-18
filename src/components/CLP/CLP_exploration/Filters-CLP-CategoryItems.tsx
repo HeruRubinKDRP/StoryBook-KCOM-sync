@@ -1,6 +1,6 @@
 import Graphic from 'components/Graphic/Graphic';
 import React, { useEffect, useState } from 'react';
-import { CategoryItemStyle } from './Brewer-CLP-CategoryItems-styled';
+import { CategoryItemStyle } from './Filters-CLP-CategoryItems-styled';
 
 interface iCategoryItem {
     title: string;

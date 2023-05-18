@@ -164,7 +164,7 @@ export const navMobileStyles = css`
         opacity: 0.5
       }
       100% {
-        opacity: 0
+        opacity: 1
       }
     }
     @keyframes fadeOut {

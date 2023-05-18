@@ -677,8 +677,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       margin: 0 5% 5% 5%;
       max-width: 100%;
       min-width: 90%;
-      /*max-height: 80vh;*/
-      max-height: 80vh;
+      max-height: 85vh;
     }
 
     .actions-container {
