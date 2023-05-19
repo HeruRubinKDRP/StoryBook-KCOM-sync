@@ -8,6 +8,7 @@ import Graphic from "../../../Graphic/Graphic";
 import {createRef, RefObject, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
+import { ExpandCollapse } from "components/ExpandCollapse/expand-collapse";
 
 
 export interface iSimpleProduct {
@@ -206,32 +207,73 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             />
                         </div>
                     </div>
+                    <div className="suggested-products-container-desktop">
                     <div ref={suggestionsSectionRef} className="suggested-products-container">
                         <Typist classes="typist" message={"You might be interested in"}/>
-                        {loadSuggestions(suggestionsLoading)}
-                        <div className={"shop-all-cta"}>
-                            <KButton
-                                label="Shop Beverages"
-                                buttonType="secondary"
-                                buttonWidth="fit-width"
-                                iconPlacement="after-label"
-                                iconStandard="none"
-                                transitionType={"expand-bg"}
-                                actionFunc={props.closeFunc}
-                                classes="shop-more-btn left"
-                            />
+                                <>
+                                    {loadSuggestions(suggestionsLoading)}
+                                    <div className={"shop-all-cta"}>
+                                        <KButton
+                                            label="Shop Beverages"
+                                            buttonType="secondary"
+                                            buttonWidth="fit-width"
+                                            iconPlacement="after-label"
+                                            iconStandard="none"
+                                            transitionType={"expand-bg"}
+                                            actionFunc={props.closeFunc}
+                                            classes="shop-more-btn left"
+                                        />
 
-                            <KButton
-                                classes="shop-more-btn right"
-                                label="Shop Accessories"
-                                buttonType="secondary"
-                                buttonWidth="fit-width"
-                                iconPlacement="after-label"
-                                iconStandard="none"
-                                transitionType={"expand-bg"}
-                                actionFunc={props.closeFunc}
-                            />
-                        </div>
+                                        <KButton
+                                            classes="shop-more-btn right"
+                                            label="Shop Accessories"
+                                            buttonType="secondary"
+                                            buttonWidth="fit-width"
+                                            iconPlacement="after-label"
+                                            iconStandard="none"
+                                            transitionType={"expand-bg"}
+                                            actionFunc={props.closeFunc}
+                                        />
+                                    </div>
+                                </>
+                    </div>
+                    </div>
+                    <div className="suggested-products-container-mobile">
+                    <div ref={suggestionsSectionRef} className="suggested-products-container">
+                        <ExpandCollapse
+                            expanderStyle="minimalist"
+                            expandText="You might be interested in"
+                            isExpandedText="You might be interested in"
+                            content={
+                        <>
+                            {loadSuggestions(suggestionsLoading)}
+                            <div className={"shop-all-cta"}>
+                                <KButton
+                                    label="Shop Beverages"
+                                    buttonType="secondary"
+                                    buttonWidth="fit-width"
+                                    iconPlacement="after-label"
+                                    iconStandard="none"
+                                    transitionType={"expand-bg"}
+                                    actionFunc={props.closeFunc}
+                                    classes="shop-more-btn left"
+                                />
+
+                                <KButton
+                                    classes="shop-more-btn right"
+                                    label="Shop Accessories"
+                                    buttonType="secondary"
+                                    buttonWidth="fit-width"
+                                    iconPlacement="after-label"
+                                    iconStandard="none"
+                                    transitionType={"expand-bg"}
+                                    actionFunc={props.closeFunc}
+                                />
+                            </div>
+                        </>
+                            }
+                        />
+                    </div>
                     </div>
                 </div>
             </div>
