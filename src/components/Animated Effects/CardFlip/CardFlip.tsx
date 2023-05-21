@@ -69,7 +69,7 @@ const CardFlip: React.FC<CardProps> = ({
                             iconStandard={flipToBackButtonIcon ?? "info-icon"}
                             iconPlacement="after-label"
                             buttonType="primary"
-                            actionFunc={ handleFlip  }
+                            actionFunc={ handleFlip}
                         />
                     </div>
                 </Front>

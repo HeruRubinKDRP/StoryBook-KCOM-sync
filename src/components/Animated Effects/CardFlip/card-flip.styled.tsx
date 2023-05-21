@@ -10,23 +10,24 @@ export const CardContainer = styled.div<iCardContainer>`
   --overallHeight: ${props => props.overallHeight + 'px'};
   --spacingLarge: calc(var(--overallWidth) * 0.008 + 8px);
   --ctaButtonHeight: calc(var(--spacingLarge) * 2);
-  
+  --featureBulletHeight : calc(var(--overallHeight) * 0.3 * 0.5) !important;
   perspective: 1000px;
   min-width: 200px; // Adjust the card width as needed
   min-height: 300px; // Adjust the card height as needed
   height: 100%;
   width: 100%;
-  position: relative;
+  position: relative; 
   
-  .features-list-container{
-    height: calc(var(--overallHeight) * 0.55) !important;
+  .feature-bullet-container{
+    height: var(--featureBulletHeight)!important;
+    width:  var(--featureBulletHeight) !important; 
   }
   
   .cta-container{
     display: grid;
-    grid-template-columns: 1fr 0.25fr;
+    grid-template-columns: 1fr 0.25fr ;
     grid-template-rows: auto;
-    grid-gap: 0;
+    grid-gap: calc(var(--ctaButtonHeight) * 0.2 );
     align-items: end;
     bottom: calc(var(--ctaButtonHeight) ) !important;
     position: absolute;
@@ -34,16 +35,17 @@ export const CardContainer = styled.div<iCardContainer>`
     height: calc(var(--ctaButtonHeight) * 3) !important;
     padding: 0 5% 0 5%;
     .flip-btn{
-      grid-column: 2 / 2;
+      grid-column: 1 / 1;
       grid-row: 1 / 1;
     }
     .cta-main{
-      grid-column: 1 / 1;
+      grid-column: 2 / 2;
       grid-row: 1 / 1; 
-    } 
-    
-    
+    }
   }
+  
+   
+  
 `;
 
 export const CardInner = styled.div<{ isFlipped: boolean }>`

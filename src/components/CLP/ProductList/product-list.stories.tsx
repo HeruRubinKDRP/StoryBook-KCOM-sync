@@ -2,9 +2,10 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import ProductList, { ProductListProps } from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
-import {brands, podLibrary} from "../../../pages/myBrews";
+import {brands} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
-import {brewerLibrary} from "../../../data/product-data";
+import {brewerLibrary} from "../../../data/brewer-library";
 
 export default {
     title: 'CLP/ProductList',
@@ -56,9 +57,9 @@ Default.args = {
     products: products,
     columns: 3,
     pageSize: 9,
-    columnsHugeScreen : 5,
-    columnsLargeScreen : 4,
-    columnsMediumScreen : 3,
+    columnsHugeScreen : 4,
+    columnsLargeScreen : 3,
+    columnsMediumScreen : 2,
     columnsSmallScreen : 1,
     ratingVisible : false,
     stickyHeader : {

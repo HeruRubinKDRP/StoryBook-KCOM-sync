@@ -182,6 +182,7 @@ export const Navigation = (props: iNavigation) => {
             for(let j=0; j <  props.mobileSpecialMenu[i].sectionNavItems.length; j++){
                 sectionItems.push(
                     <NavItem
+                        key={j + "NavItem"}
                         mode={props.mobileSpecialMenu[i].sectionNavItems[j].mode}
                         label={props.mobileSpecialMenu[i].sectionNavItems[j].label}
                         textLook={props.mobileSpecialMenu[i].sectionNavItems[j].textLook}
@@ -197,7 +198,7 @@ export const Navigation = (props: iNavigation) => {
                     />
                 )
             }
-            sections.push(<div className={props.mobileSpecialMenu[i].sectionMode}>{sectionItems}</div>)
+            sections.push(<div key={"section"+i} className={props.mobileSpecialMenu[i].sectionMode}>{sectionItems}</div>)
         }
 
         return(
@@ -242,6 +243,7 @@ export const Navigation = (props: iNavigation) => {
             }
             menuNavItems.push(
                 <KButton
+                    key={props.navItems[i].navLabel + i}
                     label={props.navItems[i].navLabel}
                     buttonType="secondary"
                     classes={`main-nav ${props.navItems[i].highlighted} ${getActiveClass(i)} ${props.navItems[i].mobilePriority} `}
@@ -412,6 +414,7 @@ export const Navigation = (props: iNavigation) => {
 
                     let constructedNavItem: ReactElement = (
                         <div
+                            key={i + j + k + "constructedNavItem"}
                             className={`nav-item-container ${getModeWithSpecialCases(props.navItems[i].hoverMenu[j].sectionNavItems[k].mode)}`}
                             style={getGrid()}>
                             {getProperCard()}
@@ -451,7 +454,7 @@ export const Navigation = (props: iNavigation) => {
                         }
 
                         const sectionItem: ReactElement = (
-                            <section className={`section-container ${props.navItems[i].hoverMenu[j].sectionMode}`}>
+                            <section key={"section-container" + i + j + k} className={`section-container ${props.navItems[i].hoverMenu[j].sectionMode}`}>
                                 <NavItem
                                     mode="section-main"
                                     label={props.navItems[i].hoverMenu[j].sectionLabel}

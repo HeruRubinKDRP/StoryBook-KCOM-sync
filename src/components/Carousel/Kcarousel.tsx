@@ -56,8 +56,8 @@ export const  Kcarousel = (props: iCarousel) => {
   let dragTl = gsap.timeline();
 
   const getSnaps = (width: number, count: number, negativeVals: boolean) => {
-    console.clear();
-    console.log("get snaps width:", width);
+
+
     let snaps: number[] = [];
     for (let i = 0; i < count; i++) {
       let val = i * width;

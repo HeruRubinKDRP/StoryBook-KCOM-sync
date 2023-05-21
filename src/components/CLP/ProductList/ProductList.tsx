@@ -1,24 +1,24 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react';
-import styled from 'styled-components';
+import Fuse from 'fuse.js';
 import ProductInfoCard, {iProductInfoCardProps} from '../SimpleCard/SimpleCard';
 import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
 
 const BrewerQuickShop = lazy(() => import('../../Experimental/BrewerQuickShop/BrewerQuickShop'));
-//import {BrewerQuickShop} from "../../Experimental/BrewerQuickShop/BrewerQuickShop";
 import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
 import {simplifiedPodItems} from "../../Experimental/Add-to-cart/AddToCartDemo";
-import {podLibrary} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import {iStickyHeader, StickyHeader} from "../../Sticky Header/StickyHeader";
-import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import KButton from "../../Kbutton/KButton";
 import {getContainerQuery} from "../../Experimental/Add-to-cart/reusable css/container-queries";
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
-import CardFlipContainer from "../../Animated Effects/CardFlip/CardFlipContainer";
 import CardFlip from "../../Animated Effects/CardFlip/CardFlip";
 import CardBack from "../SimpleCard/CardBack/CardBack";
 import SaleToggle from 'components/SaleToggle/sale-toggle';
 import Graphic from 'components/Graphic/Graphic';
+
+
+
 import {
     ComponentFilterStyle,
     FiltersContainerStyle,
@@ -51,15 +51,20 @@ export interface ProductListProps {
         : <BrewerFilters isVisible={isVisible}/>;
 };*/
 const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+
+    console.log("filters component")
     if (type === 'beverages') {
         return <BeveragesFilters isVisible={isVisible}/>;
     } else if (type === 'brewer') {
+        console.log("confirmed: brewer type is fired")
         return <BrewerFilters isVisible={isVisible}/>;
     } else {
         return null;
     }
 };
 
+
+export type searchObject = {searchType : "filter" | "free-text" }
 
 const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     const [currentPage, setCurrentPage] = useState(0);
@@ -72,12 +77,15 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     // TODO refactor to be generic not selected pod but selected product
     const [selectedPod, setSelectedPod] = useState<number | 0>(0);
 
+    const [searchObjects, setSearchObjects] = useState<searchObject[]>([])
+    const [filtersVisible, setFiltersVisible] = useState(false)
+
     const {width, height, ref} = useResizeDetector({
-        refreshMode: 'throttle',
-        refreshRate: 100,
+        refreshMode: 'debounce',
+        refreshRate: 400,
         refreshOptions: {
             leading: true,
-            trailing: false
+            trailing: true
         },
         onResize: () => {
         },
@@ -183,11 +191,11 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
 
     const dynamicColumns = (widthX: number) => {
-        if (widthX > 1600) {
+        if (widthX > 1800) {
             setCurrentColumns(props.columnsHugeScreen);
-        } else if (widthX > 800 && widthX <= 1600) {
+        } else if (widthX > 900 && widthX <= 1800) {
             setCurrentColumns(props.columnsLargeScreen);
-        } else if (widthX > 420 && widthX <= 800) {
+        } else if (widthX > 420 && widthX <= 900) {
             setCurrentColumns(props.columnsMediumScreen);
         } else {
             setCurrentColumns(props.columnsSmallScreen);
@@ -195,7 +203,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
         console.log("dynamic column setCurrentColumns");
     }
-
 
     const handlePreviousPage = () => {
         setCurrentPage((prev) => prev - 1);
@@ -207,7 +214,14 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
+    //SEARCH
     const getVisibleProducts = () => {
+        let fuse = new Fuse(props.products, { keys: ['title', 'author.firstName', 'author.lastName'] });
+
+
+
+
+
         const startIndex = currentPage * (props.pageSize || 0) * (props.columns || 0);
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
         return props.products.slice(startIndex, endIndex);
@@ -230,9 +244,11 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setQuickShopOpen(true);
     }
 
-    const [isVisible, setIsVisible] = useState(false)
+
     const handleClick = () => {
-        setIsVisible(!isVisible)
+        setFiltersVisible(!filtersVisible)
+
+        console.log("filter click", filtersVisible)
     }
     const getSnackBar = (open: boolean) => {
         if (open) {
@@ -300,11 +316,13 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             </StickyHeader>
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}
-            <OuterMostCLP_Container ref={ref} className={``}>
-                <FiltersContainerStyle>
-                    <Filters type={props.pageType} isVisible={isVisible}/>
-                </FiltersContainerStyle>
-                <div className="right-part">
+            <OuterMostCLP_Container  className={``}>
+
+                    <FiltersContainerStyle>
+                        <Filters type={props.pageType} isVisible={filtersVisible}/>
+                    </FiltersContainerStyle>
+
+                <div className="right-part" ref={ref}>
                     <ComponentFilterStyle>
                         <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
                         <div className={"filters"}>

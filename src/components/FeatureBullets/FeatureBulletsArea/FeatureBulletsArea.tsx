@@ -50,7 +50,7 @@ export const FeatureBulletsArea =(props : iFeatureBulletsArea)=>{
 
     for(let i=0; i < props.features.length; i++){
       slides.push(
-        <div className="feature-details-container">
+        <div key={i + "feature-details"} className="feature-details-container">
           <Graphic graphicName={props.features[i].featureIcon} iconSize="4rem"/>
           <h2>{props.features[i].featureLabel}</h2>
           <p>

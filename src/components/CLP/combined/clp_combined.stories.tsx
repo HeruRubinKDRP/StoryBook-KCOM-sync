@@ -4,7 +4,7 @@ import { CLP_Combined, iCLP_Combined } from './clp_combined';
 import {podLibrary} from "../../../pages/myBrews";
 
 export default {
-    title: 'CLP/CLP Combined',
+    title: 'CLP/Price-Per-Pod and Box Counts',
     component: CLP_Combined,
     argTypes: {
         podLibrary: { control: 'array' },

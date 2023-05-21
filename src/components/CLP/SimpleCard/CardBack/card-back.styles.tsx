@@ -34,10 +34,10 @@ export const CardBackStyled = styled.div `
   }
   .nav-container {
     .right {
-      right: 0 !important;
+      right: 5% !important;
     }
     .left{
-      left: 0 !important;
+      left: 5% !important;
     }
   }
   
@@ -130,8 +130,13 @@ export const CardBackStyled = styled.div `
     align-self: flex-end;
     .feature-bullet-container {
       margin: 0.25rem;
+<<<<<<< Updated upstream
       width: 25%;
       height: 5rem;
+=======
+      //width: 25%;
+      //height: 6rem;
+>>>>>>> Stashed changes
       box-shadow: -1px 6px 7px rgba(0,0,0,0.4);
       background-color: rgba(255, 255, 255, 1);
       transition: transform 0.3s ease-in-out;

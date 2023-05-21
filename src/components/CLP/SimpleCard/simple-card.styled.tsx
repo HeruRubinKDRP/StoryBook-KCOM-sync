@@ -28,7 +28,7 @@ export const ProductInfoCardWrapper = styled.div`
   }
   
   &.brewer {
-    height: 60vh;
+    height: 65vh;
     .backing{
       display: none;
     }
@@ -44,7 +44,15 @@ export const ProductInfoCardWrapper = styled.div`
     
     .k-btn{ 
       border: 1px solid rgba(255,255,255,0.5);
-    }
+    } 
+  }
+  
+  &.brewer.mobile-dimensions{
+      .product-image.brewer-image{
+        max-width: 100%;
+        height: 100%;
+        width: 100%;
+      }
   }
   
   .backing {

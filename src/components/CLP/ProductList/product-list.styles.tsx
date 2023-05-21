@@ -43,10 +43,10 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       display: none;
     }
     .product-name{
-      font-size: var(--spacingMedium);
+      font-size: var(--spacingHuge);
       font-weight: 200;
       color: var(--colorDarkRoast);
-      line-height: var(--spacingMedium);
+      line-height: var(--spacingHuge);
       padding: 3% 10%;
     }
     .price{
@@ -154,7 +154,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     
 
     .cta-main {
-      grid-column: 1 / 1;
+      grid-column: 2 / 2;
       grid-row: 5 / 5;
     }
   }
@@ -249,24 +249,17 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
     
     .cta-container{
       display: grid;
-      grid-template-columns: 0.6fr 0.4fr;
+      grid-template-columns: 0.4fr 0.6fr;
       grid-template-rows: auto;
-      grid-gap: 0;
+      grid-gap: 5%;
       align-items: end;
       bottom: calc(var(--ctaButtonHeight) ) !important;
       position: absolute;
       width: 100%;
       height: calc(var(--ctaButtonHeight) * 3) !important;
       padding: 0 5% 0 5%;
-    }
-        
+    } 
     
-    //mobile
-   .brewer{
-     &.mobile-dimensions{
-       border: 1px solid red;
-     }
-   }
     
   }
 `;

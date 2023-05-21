@@ -7,12 +7,23 @@ export const SearchStyled = styled.div`
   display: flex;
   align-items: center;
   flex:1;
- 
+ .search-results-area{
+   position: absolute;
+   bottom: -50%;
+   background-color: aqua;
+   left: 0;
+   right: 0;
+ }
 
   /* Styling for the text input to add padding and place the icon */
   .search-input-area{
     position: relative;
     width: 100%;
+    .clear-btn{
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
     .icon.icon-search{
       position: absolute;
       height: 100%;

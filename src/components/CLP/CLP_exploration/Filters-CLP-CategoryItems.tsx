@@ -6,6 +6,7 @@ interface iCategoryItem {
     title: string;
     subcategories: {
         name?: string;
+        filterID:number;
         imageSrc?: string;
         className?: string;
         colorThumbnail?: string;

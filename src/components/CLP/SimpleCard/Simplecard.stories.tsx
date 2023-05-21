@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import ProductInfoCard, { iProductInfoCardProps } from './SimpleCard';
-import {podLibrary} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 
 export default {
     title: 'CLP/ProductInfoCard',
@@ -55,7 +55,10 @@ Default.args = {
     prices: [{
             price : 74.99,
             inStock : true,
-            variant : "64 ct"
+            variant : {
+                quantity : 1,
+                variantName : "64 ct"
+            }
     }],
     onClick: () => console.log('Add to Cart clicked'),
 };
@@ -69,11 +72,17 @@ brewerCard.args = {productType: 'brewer',
             {
                 price : 199.99,
                 inStock : true,
-                variant : "Black"
+                variant : {
+                    quantity : 1,
+                    variantName : "Black"
+                }
             },{
                 price : 99.99,
                 inStock : true,
-                variant : "Stainless Steel"
+                variant : {
+                    quantity: 1,
+                    variantName: "Stainless Steel"
+                }
             },
         ],
     onClick : () => console.log('Add to Cart clicked')
