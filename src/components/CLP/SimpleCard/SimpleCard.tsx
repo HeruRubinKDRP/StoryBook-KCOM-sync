@@ -35,6 +35,7 @@ export interface iProductInfoCardProps {
     siloImagePath?: string;
     productFeatures? : iFeatureBullet[];
     filterData?: filterDataItemT[];
+    searchTerms? : string[];
     rating: {
         totalNumberOfStars: 5 | 10;
         totalNumberOfReviews: number;

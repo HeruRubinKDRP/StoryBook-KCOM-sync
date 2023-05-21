@@ -131,8 +131,28 @@ export const brewerFeatures : iFeatureBullet[] = [
         showChevron : false,
         featureDetails : "6, 8, 10, and 12 oz."
     },
+    //Space saving design : 13
+    {
+        featureLabel : "Space Saving Design",
+        featureIcon : "icon-cup",
+        showChevron : false,
+        featureDetails : "Less than 5 inches wide"
+    },
 
 ]
+
+export const searchTerms = {
+    commonTerms: ["coffee maker", "coffee machine", "brewer", "keurig", "machine"],
+    smartRelate : ["wifi", "wi-fi", "wi fi", "app", "ios", "android", "phone", "smart"],
+    singleServe : ["Moka Pot", "pour over", "makes-pods", "single serve"],
+    lowEnd : ["cheap", "affordable", "simple"],
+    highEnd: ["premium", "fancy", "nice", "elegant"],
+    audiencesCommon :["parents", "mom", "dad", "remote", "worker" ],
+    audiencesYoung : ["teen", "student", "budget"],
+    audiencesMid : ["first apartment"],
+    audiencesMature : ["grand", "gradparents", "grandmother", "grandfather"]
+
+}
 
 export const brewerLibrary : iProductInfoCardProps[] =[
     {
@@ -160,6 +180,14 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             brewerFeatures[9],
             // 5 cup sizes
             brewerFeatures[12],
+        ],
+        searchTerms:[
+            ...searchTerms.smartRelate,
+            ...searchTerms.smartRelate,
+            ...searchTerms.singleServe,
+            ...searchTerms.highEnd,
+            ...searchTerms.audiencesCommon,
+            ...searchTerms.audiencesMature
         ],
         prices : [
             {
@@ -266,6 +294,14 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             //brew over ice
             brewerFeatures[6],
         ],
+        searchTerms : [
+            ...searchTerms.commonTerms,
+            ...searchTerms.smartRelate,
+            ...searchTerms.highEnd,
+            ...searchTerms.singleServe,
+            ...searchTerms.audiencesCommon,
+            ...searchTerms.audiencesMature
+        ],
         ratingVisible : false,
         rating : {
             totalNumberOfStars : 5,
@@ -298,6 +334,10 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         productFeatures :[
             //Smart delivery
             brewerFeatures[3],
+            //multi stream
+            brewerFeatures[5],
+            //space saving design
+            brewerFeatures[13],
         ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
@@ -340,13 +380,8 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 featureIcon : "icon-iced-coffee",
                 showChevron : false,
                 featureDetails : "Brew over ice with bold, full-flavored iced coffee."
-            },
-            {
-                featureLabel : "ZZZ",
-                featureIcon : "icon-iced-coffee",
-                showChevron : false,
-                featureDetails : "ZZZ aaa"
             }
+
         ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
