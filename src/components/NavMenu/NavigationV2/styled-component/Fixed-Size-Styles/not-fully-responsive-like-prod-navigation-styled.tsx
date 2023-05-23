@@ -31,7 +31,7 @@ export const NotFullyResponsiveLikeProdNavigationStyled = styled.div`
   //width media queries
   @media (max-width: 2400px) {
     .global-navigation {
-      max-width: 1600px;
+      //max-width: 2000px;
     }
   }
   //CLEAN EMPTIES

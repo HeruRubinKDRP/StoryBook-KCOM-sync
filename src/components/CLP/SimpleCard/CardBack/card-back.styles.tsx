@@ -127,6 +127,7 @@ export const CardBackStyled = styled.div `
     width: 100%;
     height: 80%;
     margin-bottom: 5%;
+    align-items: flex-start;
     align-self: flex-end;
     .feature-bullet-container {
       margin: 0.25rem; 

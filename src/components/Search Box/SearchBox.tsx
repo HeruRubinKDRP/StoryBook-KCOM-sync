@@ -41,7 +41,8 @@ const SearchBox = (props: iSearchInputProps) => {
                     includeScore: true,
                     findAllMatches: true,
                     threshold : 0.2,
-                    minMatchCharLength : 3
+                    minMatchCharLength : 3,
+                    ignoreLocation:true
               });
         let result = fuse.search(searchTerm);
         console.log(searchTerm)
