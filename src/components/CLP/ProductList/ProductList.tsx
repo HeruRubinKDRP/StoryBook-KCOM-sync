@@ -1,6 +1,6 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react';
 import Fuse from 'fuse.js';
-import ProductInfoCard, {iProductInfoCardProps} from '../SimpleCard/SimpleCard';
+import ProductInfoCard, {filterDataItemT, iProductInfoCardProps} from '../SimpleCard/SimpleCard';
 import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
 
@@ -28,6 +28,8 @@ import {
 import {Filters as BeveragesFilters} from '../CLP_exploration/Beverages-CLP-filters';
 import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
+import {filterOptionsT} from "../../../data/brewer-library";
+import FuseResult = Fuse.FuseResult;
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -50,14 +52,21 @@ export interface ProductListProps {
         ? <BeveragesFilters isVisible={isVisible}/>
         : <BrewerFilters isVisible={isVisible}/>;
 };*/
-const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
+
+interface iFiltersWrapper {
+    type: string,
+    isVisible: boolean,
+    filtersFunction : ()=>filterDataItemT[];
+}
+
+const Filters = (props:iFiltersWrapper) => {
 
     console.log("filters component")
-    if (type === 'beverages') {
-        return <BeveragesFilters isVisible={isVisible}/>;
-    } else if (type === 'brewer') {
+    if (props.type === 'beverages') {
+        return <BeveragesFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction} />;
+    } else if (props.type === 'brewer') {
         console.log("confirmed: brewer type is fired")
-        return <BrewerFilters isVisible={isVisible}/>;
+        return <BrewerFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction}/>;
     } else {
         return null;
     }
@@ -79,6 +88,8 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     const [searchObjects, setSearchObjects] = useState<searchObject[]>([])
     const [filtersVisible, setFiltersVisible] = useState(false)
+
+    const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>(["bagged-coffee"])
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'debounce',
@@ -216,15 +227,18 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     //SEARCH
     const getVisibleProducts = () => {
-        let fuse = new Fuse(props.products, { keys: ['title', 'author.firstName', 'author.lastName'] });
 
-
-
-
+        let productsFiltered = props.products;
+        if(activeFilters.length > 0){
+            let fuse: Fuse<iProductInfoCardProps> = new Fuse(productsFiltered, { keys: ['filterData.filterValues'] });
+            productsFiltered = activeFilters.flatMap(activeFilter =>
+                fuse.search(activeFilter).map((result: FuseResult<iProductInfoCardProps>) => result.item)
+            );
+        }
 
         const startIndex = currentPage * (props.pageSize || 0) * (props.columns || 0);
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
-        return props.products.slice(startIndex, endIndex);
+        return productsFiltered.slice(startIndex, endIndex);
     };
 
     const visibleProducts = getVisibleProducts();
@@ -266,6 +280,13 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         }
         return <></>
     }
+
+    const manageFilters =():filterDataItemT[]=>{
+        console.log("manage filters")
+        return []
+    }
+
+    //render
     return (
         <div>
             <StickyHeader
@@ -319,7 +340,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             <OuterMostCLP_Container  className={``}>
 
                     <FiltersContainerStyle>
-                        <Filters type={props.pageType} isVisible={filtersVisible}/>
+                        <Filters type={props.pageType} isVisible={filtersVisible} filtersFunction={manageFilters}/>
                     </FiltersContainerStyle>
 
                 <div className="right-part" ref={ref}>

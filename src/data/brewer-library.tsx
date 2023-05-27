@@ -311,7 +311,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             },
             {
                 filterName : "brew-type",
-                filterValues : ["bagged-coffee", "k-cup"]
+                filterValues : ["k-cup"]
             },
             {
                 filterName : "reservoir",
@@ -588,6 +588,12 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         ratingVisible : false,
+        filterData :[
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee"]
+            }
+        ],
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,

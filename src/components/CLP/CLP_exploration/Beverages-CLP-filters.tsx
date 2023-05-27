@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { BrewerCLPFiltersStyle } from './Brewer-CLP-filters-styled';
 import { CategoryItem } from './Filters-CLP-CategoryItems';
+import {filterDataItemT} from "../SimpleCard/SimpleCard";
 
 
 export interface iFilters {
@@ -8,7 +9,7 @@ export interface iFilters {
     type?: string;
     onButtonClick?: () => void;
     defaultVisible?: boolean;
-
+    filtersFunction? : ()=>filterDataItemT[];
 }
 
 export const Filters = (props: iFilters) => {

@@ -2,22 +2,26 @@ import Graphic from 'components/Graphic/Graphic';
 import React, { useEffect, useState } from 'react';
 import { CategoryItemStyle } from './Filters-CLP-CategoryItems-styled';
 
-interface iCategoryItem {
+export interface iCategoryItem {
     title: string;
-    subcategories: {
-        name?: string;
-        filterID:number;
-        imageSrc?: string;
-        className?: string;
-        colorThumbnail?: string;
-        checkbox?: boolean;
-        groupTitle?: string;
-        colors?: string[];
-        description?: string;
-        productnumber?: string;
-    }[];
+    subcategories: iCategorySubcategory[];
     defaultOpen?: boolean;
 }
+
+export interface iCategorySubcategory {
+    name?: string;
+    filterID:number;
+    imageSrc?: string;
+    className?: string;
+    colorThumbnail?: string;
+    checkbox?: boolean;
+    groupTitle?: string;
+    colors?: string[];
+    description?: string;
+    productnumber?: string;
+}
+
+
 
 export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCategoryItem) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
