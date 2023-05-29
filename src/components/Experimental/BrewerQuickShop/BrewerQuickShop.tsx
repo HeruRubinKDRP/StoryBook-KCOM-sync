@@ -16,40 +16,44 @@ import Graphic from "../../Graphic/Graphic";
 import {css} from "styled-components";
 import {ModalStyled} from "../Modal-Styled";
 
-export interface iBrewerQuickShop{
-    productName : string;
-    productNameExtended : string;
-    tagline? : string;
-    hasKSK : boolean;
-    hasCoupon : boolean;
+export interface iBrewerQuickShop {
+    productName: string;
+    productNameExtended: string;
+    tagline?: string;
+    hasKSK: boolean;
+    hasCoupon: boolean;
     couponMessage: string;
-    couponAppliedMessage : string;
-    learnMoreMessaging : string
-    carousel : {
-        slideImageURLs :imageItemType[]
+    couponAppliedMessage: string;
+    learnMoreTitleKSK: string;
+    learnMoreTitleBrewerOnly: string;
+    learnMoreMessaging: string;
+    learnMoreMessagingKSK: string
+    learnMoreMessagingBrewerOnly: string
+    carousel: {
+        slideImageURLs: imageItemType[]
     };
 
-    maxQuantityAllowed:number
+    maxQuantityAllowed: number
 
-    colorVariants : productVariantColor[];
+    colorVariants: productVariantColor[];
     mainFlagColor: colorByNameType;
-    mainFlagLabel : string;
-    KSK_BannerMessage : string;
-    portalTarget : string;
-    hasFreeShipping : boolean;
-    freeShippingMessage : string;
+    mainFlagLabel: string;
+    KSK_BannerMessage: string;
+    portalTarget: string;
+    hasFreeShipping: boolean;
+    freeShippingMessage: string;
 
-    starRating : {
-        ratingNumber : number;
-        totalNumberOfReviews : number;
-        totalNumberOfStars : 5 | 10;
+    starRating: {
+        ratingNumber: number;
+        totalNumberOfReviews: number;
+        totalNumberOfStars: 5 | 10;
     }
 
-    closeFunc? : () => void;
-    addToCartFunction? : () => void;
+    closeFunc?: () => void;
+    addToCartFunction?: () => void;
 }
 
-const BrewerQuickShop = (props:iBrewerQuickShop) => {
+const BrewerQuickShop = (props: iBrewerQuickShop) => {
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'throttle',
@@ -59,12 +63,13 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
             trailing: false,
         },
         handleHeight: false, skipOnMount: false,
-        onResize: () => {},
+        onResize: () => {
+        },
     })
 
-    const getDynamicStyles =(widthX : number)=>{
+    const getDynamicStyles = (widthX: number) => {
         return css`
-          --overallWidth : ${widthX}px;
+          --overallWidth: ${widthX}px;
           --colorKSK: ${colorNameToValue("KSK")};
           --colorOK: ${colorNameToValue("OK-Status")};
           --colorDiscount: ${colorNameToValue("discount")};
@@ -72,16 +77,18 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
           --colorDarkRoast: ${colorNameToValue("dark-roast")};
         `
     }
-
+    const [learnMoreTitle, setLearnMoreTitle] = React.useState("");
+    const [learnMoreContent, setLearnMoreContent] = React.useState<React.ReactNode>("");
     const [learnMoreOpen, setLearnMoreOpen] = React.useState(false);
 
-    const getImageSlides=()=>{
-        let slideImages : ReactElement[] = [];
+    const getImageSlides = () => {
+        let slideImages: ReactElement[] = [];
 
-        for(let i=0; i < props.carousel.slideImageURLs.length; i++){
+        for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-                    <img alt={props.carousel.slideImageURLs[i].altText} className="image-item" src={props.carousel.slideImageURLs[i].path} title=""/>
+                    <img alt={props.carousel.slideImageURLs[i].altText} className="image-item"
+                         src={props.carousel.slideImageURLs[i].path} title=""/>
                 </div>
             )
         }
@@ -89,10 +96,8 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
         return slideImages;
     }
 
-    return(
-        <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{
-
-        }} >
+    return (
+        <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{}}>
             <BrewerQuickShopStyled
 
                 className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
@@ -104,16 +109,15 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
                         <div className="learn-more-container">
                             <div className="learn-more-content">
                                 <div className="messaging-area">
-                                    <h3>{props.couponMessage}</h3>
-                                    <p>
-                                        {props.learnMoreMessaging}
+                                    <h3>{learnMoreTitle}</h3>
+                                    <p>{learnMoreContent}
                                     </p>
                                 </div>
                                 <div className="actions">
                                     <KButton
                                         buttonWidth="fit-width"
                                         buttonType="secondary"
-                                        actionFunc={()=>setLearnMoreOpen(false)}
+                                        actionFunc={() => setLearnMoreOpen(false)}
                                         label="Close"
                                         iconPlacement="right-edge"
                                         iconStandard="close"
@@ -150,15 +154,15 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
                         productNameExtended={props.productNameExtended}
                         tagline={props.tagline}
                         rating={{
-                            totalNumberOfStars : props.starRating.totalNumberOfStars,
-                            ratingNumber : props.starRating.ratingNumber,
-                            totalNumberOfReviews : props.starRating.totalNumberOfReviews,
-                            scrollToTargetID : "reviews"
+                            totalNumberOfStars: props.starRating.totalNumberOfStars,
+                            ratingNumber: props.starRating.ratingNumber,
+                            totalNumberOfReviews: props.starRating.totalNumberOfReviews,
+                            scrollToTargetID: "reviews"
                         }}
                         flag={{
-                            flagStyle : "alternating-sharp-round",
-                            flagColorClass : props.mainFlagColor,
-                            flagLabel : props.mainFlagLabel
+                            flagStyle: "alternating-sharp-round",
+                            flagColorClass: props.mainFlagColor,
+                            flagLabel: props.mainFlagLabel
                         }}
                     />
                     {
@@ -169,18 +173,58 @@ const BrewerQuickShop = (props:iBrewerQuickShop) => {
                     }
 
                     <div className="purchase-options">
-                        {props.hasKSK ? <KSKPurchaseOption/> : <></>}
+                        {props.hasKSK ?
+                            <KSKPurchaseOption
+                                openExternalLearnMoreFunction={() => {
+                                    setLearnMoreTitle(props.learnMoreTitleKSK);
+                                    setLearnMoreContent(
+                                        <div className={"ksk-info-content"}>
+                                            <img src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
+                                            <div>
+                                                <h2>The best way to buy your Keurig Coffee Maker.</h2>
+                                                <div><img src="./images/quickshop-ksk/fpo-ksk-learnmore.png" alt="Choose Your Savings" className={"ksk-title-img"}/></div>
+                                                <div className={"kit-title"}>What's in your Kit:</div>
+                                                <div className={"content-container"}>
+                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> 50% off on your brewer</div>
+                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> 4 boxes of beverages of your choice</div>
+                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Recurring delivery at 25% off</div>
+                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Earn rewards on purchases</div>
+                                                </div>
+                                            </div>
+                                            <div className={"how-to-title"}>How to build your Starter Kit</div>
+                                            <div className={"how-to-container"}>
+
+                                            <div><img src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/></div>
+                                            <div><img src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/></div>
+                                            <div><img src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/></div>
+                                            <div><img src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/></div>
+                                                </div>
+
+                                            {/* {props.learnMoreMessagingKSK}*/}
+                                        </div>);
+                                    setLearnMoreOpen(true);
+                                }}
+                            />
+                            :
+                            <></>
+                        }
                         <BrewerOnlyPurchaseOption
                             couponAppliedMessage={props.couponAppliedMessage}
                             hasCoupon={props.hasCoupon}
                             couponMessage={props.couponMessage}
-                            openExternalLearnMoreFunction={()=>setLearnMoreOpen(true)}
-                            addToCartFunction={props.addToCartFunction ? props.addToCartFunction : ()=>{}}
+                            openExternalLearnMoreFunction={() => {
+                                setLearnMoreTitle(props.learnMoreTitleBrewerOnly);
+                                setLearnMoreContent(<div>{props.learnMoreMessagingBrewerOnly}
+                                </div>);
+                                setLearnMoreOpen(true);
+                            }}
+                            addToCartFunction={props.addToCartFunction ? props.addToCartFunction : () => {
+                            }}
                         />
                     </div>
                     {props.hasFreeShipping ?
                         <div className="free-shipping-container">
-                            <Graphic graphicName="free-shipping-truck" />
+                            <Graphic graphicName="free-shipping-truck"/>
                             <span>{props.freeShippingMessage}</span>
                         </div> : <></>}
                 </div>

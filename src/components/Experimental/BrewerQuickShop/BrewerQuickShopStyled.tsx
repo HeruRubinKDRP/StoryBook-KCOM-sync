@@ -4,7 +4,7 @@ import {containerQueryBasedVariables} from "../../CLP/reusable-css-variables-CLP
 
 export interface iBrewerQuickShopStyled {
     overallWidth: number;
-    calculatedOverallWidthVar : Interpolation<any>
+    calculatedOverallWidthVar: Interpolation<any>
 }
 
 
@@ -30,9 +30,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   overflow: hidden;
   background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 100%);
   position: relative;
-  display: flex; 
+  display: flex;
   align-items: center;
-  
+
   box-shadow: 0 var(--spacingTiny) var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);
   max-width: 90vw;
 
@@ -40,17 +40,19 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   width: 100%;
   max-height: 90vh;
   margin: 0 auto;
-  
-  .item-only-option{
+
+  .item-only-option {
     border: 0;
   }
 
-  .add-to-cart-container{
-    .expander{border-radius: 0 100vw 100vw 0 !important;}
+  .add-to-cart-container {
+    .expander {
+      border-radius: 0 100vw 100vw 0 !important;
+    }
   }
 
   .expander {
-    border-radius:100vw !important;
+    border-radius: 100vw !important;
   }
 
   &.medium-dimensions {
@@ -60,14 +62,16 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   &.small-dimensions, &.mobile-dimensions {
     height: 100%;
+
     .product-info-container {
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
       max-width: calc(var(--overallWidth) * 0.95);
       justify-content: flex-start;
     }
 
-    .k-carousel{
+    .k-carousel {
       max-width: calc(var(--overallWidth) * 0.95);
+
       .nav-container {
         .right, .left {
           width: var(--spacingHuge) !important;
@@ -87,6 +91,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       .nav-dots-container {
         display: none;
       }
+
       .slides-container {
         position: absolute;
         inset: 0;
@@ -137,6 +142,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     padding: 0 !important;
     height: var(--spacingHuge) !important;
     width: var(--spacingHuge) !important;
+
     .close {
       width: 100% !important;
       height: 100% !important;
@@ -149,7 +155,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
 
   &.medium-dimensions, &.extra-large-dimensions, &.large-dimensions {
-    .learn-more-container{
+    .learn-more-container {
       background-color: #fff;
       inset: 2% 52% 2% 1%;
     }
@@ -163,16 +169,16 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     z-index: 10000;
     border-radius: inherit;
     padding: var(--spacingMedium) var(--spacingMedium);
-    box-shadow: 0 0 var(--spacingTiny) 0 rgba(0,0,0,0.25);
+    box-shadow: 0 0 var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);
 
-     
+
     .learn-more-content {
       position: relative;
       height: 100%;
       display: flex;
       flex-direction: column;
 
-      .messaging-area{
+      .messaging-area {
         flex-grow: 1;
         flex-basis: 80%;
         height: 80%;
@@ -180,11 +186,11 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         margin-bottom: var(--spacingSmall);
       }
 
-      .actions{
+      .actions {
         flex-grow: 0;
         flex-basis: auto;
       }
-      
+
 
       h3 {
         margin-bottom: var(--spacingMedium);
@@ -193,19 +199,20 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         background-color: white;
         padding: 0 var(--spacingMedium) var(--spacingTiny) 0;
         border-bottom: 1px solid var(--colorDarkRoast);
-      
+
       }
 
       .actions {
-        
+
       }
     }
-    
-    
+
 
     p {
       font-size: var(--FontSizeSmall);
+      /*
       line-height: var(--FontSizeLarge);
+      */
       padding-right: var(--spacingMedium);
     }
   }
@@ -219,22 +226,25 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       font-size: var(--FontSizeMedium);
     }
 
-    .flag-ratings-area{
+    .flag-ratings-area {
       max-height: var(--FontSizeLarge);
       height: var(--FontSizeLarge);
       display: grid;
       grid-template-rows: var(--FontSizeLarge);
       grid-template-columns:  auto auto 1fr;
       align-items: center;
-      .flag-container{
+
+      .flag-container {
         grid-column: 1 / 1;
         grid-row: 1 / 1;
       }
-      .brand-label{
+
+      .brand-label {
         grid-column: 2 / 2;
         grid-row: 1 / 1;
       }
-      .ratings-overall-container{
+
+      .ratings-overall-container {
         grid-column: 3 / 3;
         grid-row: 1 / 1;
         max-height: var(--FontSizeSmall);
@@ -259,7 +269,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   .purchase-options {
     margin-top: 0;
-    width: 100%; 
+    width: 100%;
 
   }
 
@@ -292,6 +302,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     justify-content: center;
     max-width: calc(var(--overallWidth) * 0.5);
     height: 100% !important;
+
     .slides-container {
       width: 100%;
       height: 100%;
@@ -310,9 +321,11 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       background: none;
       backdrop-filter: none;
       border: 0;
+
       .image-item-container {
         padding: 0;
       }
+
       .nav-item {
         min-width: var(--spacingLarge) !important;
         min-height: var(--spacingLarge) !important;
@@ -333,10 +346,12 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         box-shadow: 0px 0px var(--spacingTiny) 0 rgb(0 0 0 / 30%);
         transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
         border-radius: 100vw !important;
-        &:hover{
+
+        &:hover {
           width: calc(var(--spacingLarge) * 1.25) !important;
           height: calc(var(--spacingLarge) * 1.25) !important;
         }
+
         .icon {
           width: 100% !important;
           height: 100% !important;
@@ -390,7 +405,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     }
   }
 
-  .free-shipping-container{
+  .free-shipping-container {
     display: flex;
     flex-direction: row;
     height: var(--spacingLarge);
@@ -400,11 +415,65 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     align-items: center;
     width: 100%;
     justify-content: center;
-    .icon{
+
+    .icon {
       height: var(--spacingLarge);
       width: var(--spacingLarge);
 
     }
   }
 
+  .ksk-info-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .kit-title {
+      font-size: var(--FontSizeMedium);
+      font-weight: bolder;
+      padding-bottom: 10px;
+      background-color: #EADECF;
+    }
+.how-to-title{
+  
+  font-size: var(--FontSizeSmall);
+  font-weight: bolder;
+  padding-top: 20px;
+}
+    .icon-checkmark, .checkmark-circled{
+      width: 20px;
+      .filled{
+        fill:var(--colorKSK);
+      }
+    }
+
+    .content-container {
+      display: flex;
+      background-color: #FDF6ED;
+      padding: 1rem 0;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+    }
+    .how-to-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      justify-content: space-evenly;
+    }
+    h2 {
+      color: #AA8066
+    }
+
+    .ksk-title-img {
+      max-width: 360px;
+      padding: 5px 0px;
+    }
+  }
 `;

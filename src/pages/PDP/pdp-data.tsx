@@ -193,7 +193,7 @@ export const KCS_specs_data : getElementType[]  = [
 
 export const carousel_images_KCS : imageItemType[] = [
   {
-    path : "/product-images/kcs/kcs-0.png",
+    path : "/product-images/kcs/scene.jpg",
     altText : "",
     linkTo : ""
   },
@@ -208,7 +208,7 @@ export const carousel_images_KCS : imageItemType[] = [
     linkTo : ""
   },
   {
-    path : "/product-images/kcs/scene.jpg",
+    path : "/product-images/kcs/kcs-0.png",
     altText : "",
     linkTo : ""
   },

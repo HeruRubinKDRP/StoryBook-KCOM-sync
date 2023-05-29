@@ -18,7 +18,8 @@ export interface iFlag{
     fontSize : sizeT;
     fontWeight? : fontWeightT;
   }
-  flagStyle : flagStylesT
+  flagStyle : flagStylesT;
+  children?: React.ReactNode;
 }
 
 
@@ -53,7 +54,7 @@ export const Flag =(props : iFlag)=>{
           color : props.flagTextColorOverride
         }}>
           {props.flagLabel}
-
+          {props.children}
         </label>
         {adornment}
       </>
