@@ -24,7 +24,7 @@ export const ClassicCardsContainer = (props: iClassicCardsContainer) => {
 
     })
 
-    console.log("in classic card container", props.ctaAction)
+
 
     const getCards = () => {
         let cards: ReactElement[] = [];

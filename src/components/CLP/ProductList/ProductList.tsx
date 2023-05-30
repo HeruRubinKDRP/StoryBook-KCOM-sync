@@ -1,5 +1,4 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react';
-import Fuse from 'fuse.js';
 import ProductInfoCard, {filterDataItemT, iProductInfoCardProps} from '../SimpleCard/SimpleCard';
 import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
@@ -29,9 +28,8 @@ import {Filters as BeveragesFilters} from '../CLP_exploration/Beverages-CLP-filt
 import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
 import {filterOptionsT} from "../../../data/brewer-library";
-import FuseResult = Fuse.FuseResult;
 import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
-import {CheckboxItem} from "../../Filters/filterableList/FilterableCheckboxList";
+
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -66,11 +64,10 @@ interface iFiltersWrapper {
 
 const Filters = (props:iFiltersWrapper) => {
 
-    console.log("filters component")
+
     if (props.type === 'beverages') {
         return <BeveragesFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction} />;
     } else if (props.type === 'brewer') {
-        console.log("confirmed: brewer type is fired")
         return <BrewerFilters isVisible={props.isVisible} filtersDefiniton={props.filtersDefinition} filtersFunction={props.filtersFunction}/>;
     } else {
         return null;
@@ -93,6 +90,7 @@ const ProductList = (props: ProductListProps) => {
 
     const [searchObjects, setSearchObjects] = useState<searchObject[]>([])
     const [filtersVisible, setFiltersVisible] = useState(false)
+    const [visibleProducts, setVisibleProducts] = useState<iProductInfoCardProps[]>([]);
 
     const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>([])
     const [sortBy, setSortBy] = useState("popularity");
@@ -115,7 +113,20 @@ const ProductList = (props: ProductListProps) => {
         setQuickShopOpen(open);
     }
 
+    useEffect(() => {
+        const totalRows = Math.ceil(props.products.length / (props.columns || 1));
+        setRows(totalRows);
+        setTotalPages(Math.ceil(totalRows / (props.pageSize || 1)));
+        setCurrentPage(0);
+    }, [props.products, props.columns, props.pageSize]);
 
+    useEffect(() => {
+        dynamicColumns(width || screen.width);
+    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
+
+    useEffect(() => {
+        setVisibleProducts(getVisibleProducts());
+    },[currentPage, sortBy, activeFilters, props.products]);
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
@@ -199,17 +210,7 @@ const ProductList = (props: ProductListProps) => {
     }
 
 
-    useEffect(() => {
-        const totalRows = Math.ceil(props.products.length / (props.columns || 1));
-        setRows(totalRows);
-        setTotalPages(Math.ceil(totalRows / (props.pageSize || 1)));
-        setCurrentPage(0);
-    }, [props.products, props.columns, props.pageSize]);
 
-    useEffect(() => {
-        dynamicColumns(width || screen.width);
-        console.log("dynamic column use effect");
-    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
 
     const dynamicColumns = (widthX: number) => {
         if (widthX > 1800) {
@@ -222,7 +223,7 @@ const ProductList = (props: ProductListProps) => {
             setCurrentColumns(props.columnsSmallScreen);
         }
 
-        console.log("dynamic column setCurrentColumns");
+
     }
 
     const handlePreviousPage = () => {
@@ -239,11 +240,18 @@ const ProductList = (props: ProductListProps) => {
     const getVisibleProducts = () => {
 
         let productsFiltered = props.products;
-        if(activeFilters.length > 0){
-            let fuse: Fuse<iProductInfoCardProps> = new Fuse(productsFiltered, { keys: ['filterData.filterValues'] });
-
-            productsFiltered = activeFilters.flatMap(activeFilter =>
-                fuse.search(activeFilter).map((result: FuseResult<iProductInfoCardProps>) => result.item)
+        if (activeFilters.length > 0) {
+            productsFiltered = productsFiltered.filter(product =>
+                // If filterData does not exist, return false (exclude this product)
+                product.filterData ?
+                    activeFilters.every(activeFilter => {
+                        // find a filterData in the product that includes the active filter
+                        const filterDataItem = product.filterData!.find(data =>
+                            data.filterValues.includes(activeFilter)
+                        );
+                        // if no such filterData was found, exclude this product
+                        return Boolean(filterDataItem);
+                    }) : false
             );
         }
         console.log("productsFiltered", productsFiltered);
@@ -254,7 +262,8 @@ const ProductList = (props: ProductListProps) => {
         return productsFiltered.slice(startIndex, endIndex);
     };
 
-    const visibleProducts = getVisibleProducts();
+
+
 
     const getDynamicStyles = (widthX: number) => {
         return `--overallWidth : ${widthX}px;`
@@ -275,7 +284,6 @@ const ProductList = (props: ProductListProps) => {
     const handleClick = () => {
         setFiltersVisible(!filtersVisible)
 
-        console.log("filter click", filtersVisible)
     }
     const getSnackBar = (open: boolean) => {
         if (open) {
@@ -306,7 +314,7 @@ const ProductList = (props: ProductListProps) => {
                 }
             )
         )
-        console.log("filterItems: ", filterItems);
+
     }, []);
 
 
@@ -314,7 +322,7 @@ const ProductList = (props: ProductListProps) => {
     const [filterItems, setFilterItems] = useState<iCategoryItem[]>([]);
 
     useEffect(() => {
-        console.log("filterItems: ", filterItems);
+
     },[filterItems]);
 
     const manageFilters =(index:number, sectionIndex : number)=> {
@@ -349,13 +357,10 @@ const ProductList = (props: ProductListProps) => {
             }
             filterItemsCopy.push(filtersReference[i]);
         }
-        console.log("filterItemsCopy: ", filterItemsCopy);
+
         setFilterItems(filterItemsCopy);
         setActiveFilters(activeFiltersCopy); // update activeFilters state
     }
-
-
-
 
     //render
     return (

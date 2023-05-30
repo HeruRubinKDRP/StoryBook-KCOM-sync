@@ -346,7 +346,26 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             ratingNumber : 4.25
         },
         filterData :[
-
+            {
+                filterName : "category",
+                filterValues : ["smart-wifi-enabled", "single-serve-coffee-maker" ]
+            },
+            {
+                filterName : "features",
+                filterValues : ["display-screen", "strength-control", "temperature-control", "froths-milk" ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "brew-type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-or-more", "multi-position-reservoir"]
+            }
         ],
         productFeatures : [
             //BrewID
@@ -366,7 +385,8 @@ export const brewerLibrary : iProductInfoCardProps[] =[
 
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-supreme.png",
         brand: "Keurig",
@@ -412,8 +432,31 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "smart-wifi-enabled" ]
+            },
+            {
+                filterName : "features",
+                filterValues : ["strength-control", "temperature-control"  ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "brew-type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-or-more" ]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-slim1.png",
         brand: "Keurig",
@@ -435,6 +478,28 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+        {
+            filterName : "category",
+            filterValues : [ "single-serve-coffee-maker" ]
+        },
+        {
+            filterName : "features",
+            filterValues : ["strength-control", "temperature-control" ]
+        },
+        {
+            filterName : "color",
+            filterValues : ["black", "grey", "stainless-steel"]
+        },
+        {
+            filterName : "brew-type",
+            filterValues : ["k-cup"]
+        },
+        {
+            filterName : "reservoir",
+            filterValues : ["60oz-or-more" ]
+        }
+        ],
         productFeatures :[
             //Smart delivery
             brewerFeatures[3],
@@ -444,7 +509,8 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             brewerFeatures[14],
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-elite.png",
         brand: "Keurig",

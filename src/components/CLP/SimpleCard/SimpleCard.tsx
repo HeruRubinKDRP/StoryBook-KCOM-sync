@@ -16,7 +16,10 @@ import {filterOptionsT} from "../../../data/brewer-library";
 export interface purchaseInfo {
     price: number;
     inStock: boolean;
-    variant: { quantity: number, variantName: string }
+    variant: {
+        quantity: number,
+        variantName: string
+    }
 }
 
 export type filterDataItemT = {
@@ -85,7 +88,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         // Map the filtered array of in-stock products to an array of their prices
         const inStockPrices = inStockProducts.map(product => product.price / product.variant.quantity);
 
-        // console.log("inStockPrices: ", inStockPrices)
+
         // If there are no in-stock products, return -1
         if (inStockPrices.length === 0) {
             return -1;

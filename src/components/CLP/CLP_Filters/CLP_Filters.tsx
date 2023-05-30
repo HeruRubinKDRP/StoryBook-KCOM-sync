@@ -40,8 +40,7 @@ export const CLP_Filters = (props : iCLP_Filters) => {
             usedFilter.isOpen = !usedFilter.isOpen;
             setFilterSections([...props.filterSections]);
         }
-        console.log("test", filterID)
-        console.log("filters updated", props.filterSections)
+
     }
 
     useEffect(()=>{
