@@ -9,6 +9,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 0,
+                filterTerm: "smart-wifi-enabled",
                 className: 'liCategories',
                 name: 'SMART Wi-Fi® Enabled',
                 description: 'Get high tech features, wi-fi enable, lorem ipsum',
@@ -17,6 +18,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 1,
+                filterTerm: "single-serve-coffee-maker",
                 className: 'liCategories',
                 name: 'Single-Serve Coffee Makers',
                 description: 'Get high tech features, wi-fi enable, lorem ipsum',
@@ -25,6 +27,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 2,
+                filterTerm: "coffee-house-beverages-at-home",
                 className: 'liCategories',
                 name: 'Coffeehouse Beverages at Home',
                 description: 'Get high tech features, wi-fi enable, lorem ipsum',
@@ -33,6 +36,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 3,
+                filterTerm: "dual-coffee-makers",
                 className: 'liCategories',
                 name: 'Dual Coffee Makers',
                 description: 'Get high tech features, wi-fi enable, lorem ipsum',
@@ -41,6 +45,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 4,
+                filterTerm: "brew-over-ice-coffee-makers",
                 className: 'liCategories',//no border here
                 name: 'Brew Over Ice Coffee Makers',
                 description: 'Get high tech features, wi-fi enable, lorem ipsum',
@@ -57,6 +62,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 5,
+                filterTerm: "digital-clock",
                 className: 'liFeatures',
                 name: 'Digital Clock',
                 productNumber: '(6)',
@@ -65,6 +71,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 6,
+                filterTerm: "display-screen",
                 className: 'liFeatures',
                 name: 'Display Screen',
                 productNumber: '(10)',
@@ -73,6 +80,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 7,
+                filterTerm: "froths-milk",
                 className: 'liFeatures',
                 name: 'Froths Milk',
                 productNumber: '(10)',
@@ -81,6 +89,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 8,
+                filterTerm: "iced-setting",
                 className: 'liFeatures',
                 name: 'Iced Setting',
                 productNumber: '(10)',
@@ -89,6 +98,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 9,
+                filterTerm: "multi-position-reservoir",
                 className: 'liFeatures',
                 name: 'Multi-Position Water Reservoir',
                 productNumber: '(3)',
@@ -97,6 +107,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 10,
+                filterTerm: "strength-control",
                 className: 'liFeatures',
                 name: 'Strength Control',
                 productNumber: '(16)',
@@ -105,6 +116,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 11,
+                filterTerm: "temperature-control",
                 className: 'liFeatures',
                 name: 'Temperature Control',
                 productNumber: '(5)',
@@ -120,6 +132,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 12,
+                filterTerm: "white",
                 groupTitle: "Black and White",
                 colors: ['#fff', '#000'],
                 className: 'liColor',
@@ -127,6 +140,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 13,
+                filterTerm: "black",
                 groupTitle: "Metals & Metallics",
                 colors: ['#676260', '#eae8d4', '#f3f3f3'],
                 className: 'liColor',
@@ -134,6 +148,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 14,
+                filterTerm: "grey",
                 groupTitle: "Green and Blue",
                 colors: ['#a8bba2', '#405545', '#578295', '#77bcda', '#b0cacb', '#32425e'],
                 className: 'liColor',
@@ -141,6 +156,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 15,
+                filterTerm: "bronze",
                 groupTitle: "Red",
                 colors: ['#bb3a56', '#ff0000'],
                 className: 'liColor',
@@ -157,6 +173,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
                 isChecked: false,
                 filterID: 16,
                 name: 'Bagged Coffee',
+                filterTerm: "bagged-coffee",
                 productNumber: '(2)',
                 imageSrc: ''
             },
@@ -164,6 +181,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
                 isChecked: false,
                 filterID: 17,
                 name: 'K-Cup',
+                filterTerm: "k-cup",
                 productNumber: '(21)',
                 imageSrc: ''
             },
@@ -177,6 +195,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
             isChecked: false,
             filterID: 18,
+            filterTerm: "60oz-or-more",
             name: '60 oz or more',
             productNumber: '(7)',
             imageSrc: ''
@@ -184,6 +203,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 19,
+                filterTerm: "add-water-each-time",
                 name: 'Add Water Each Time',
                 productNumber: '(2)',
                 imageSrc: ''
@@ -191,6 +211,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked: false,
                 filterID: 20,
+                filterTerm: "up-to-52-ounces",
                 name: 'Upto 52 oz',
                 productNumber: '(4)',
                 imageSrc: ''
@@ -204,12 +225,14 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
                 isChecked:false,
                 filterID: 21,
+                filterTerm: "commercial",
                 name: 'Commercial',
                 productNumber: '(1)',
                 imageSrc: ''
             },{
                 isChecked:false,
                 filterID: 21,
+                filterTerm: "home",
                 name: 'Home',
                 productNumber: '(1)',
                 imageSrc: ''

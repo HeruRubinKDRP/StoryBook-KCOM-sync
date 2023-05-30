@@ -19,6 +19,7 @@ export interface iCategoryItem {
 
 export interface iCategorySubcategory {
     name?: string;
+    filterTerm?: filterOptionsT;
     filterID:number;
     imageSrc?: string;
     className?: string;

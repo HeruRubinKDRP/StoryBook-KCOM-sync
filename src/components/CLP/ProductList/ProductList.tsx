@@ -94,7 +94,7 @@ const ProductList = (props: ProductListProps) => {
     const [searchObjects, setSearchObjects] = useState<searchObject[]>([])
     const [filtersVisible, setFiltersVisible] = useState(false)
 
-    const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>(["bagged-coffee"])
+    const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>([])
     const [sortBy, setSortBy] = useState("popularity");
 
 
@@ -241,10 +241,13 @@ const ProductList = (props: ProductListProps) => {
         let productsFiltered = props.products;
         if(activeFilters.length > 0){
             let fuse: Fuse<iProductInfoCardProps> = new Fuse(productsFiltered, { keys: ['filterData.filterValues'] });
+
             productsFiltered = activeFilters.flatMap(activeFilter =>
                 fuse.search(activeFilter).map((result: FuseResult<iProductInfoCardProps>) => result.item)
             );
         }
+        console.log("productsFiltered", productsFiltered);
+
 
         const startIndex = currentPage * (props.pageSize || 0) * (props.columns || 0);
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
@@ -324,24 +327,33 @@ const ProductList = (props: ProductListProps) => {
 
         let filterItemsCopy: iCategoryItem[] = [];
         const filtersReference: iCategoryItem[] = [...filterItems];
+        let activeFiltersCopy: filterOptionsT[] = [...activeFilters]; // make a copy of activeFilters
         i: for (let i = 0; i < filtersReference.length; i++) {
             if (i === sectionIndex) {
                 let filterItem = filtersReference[i];
                 for (let j = 0; j < filtersReference[i].subcategories.length; j++) {
                     if (j === index) {
                         filterItem.subcategories[j].isChecked = !filterItem.subcategories[j].isChecked;
+                        if (filterItem.subcategories[j].isChecked) {
+                            // if checkbox is checked, add filterID to activeFilters
+                            activeFiltersCopy.push(filterItem.subcategories[j].filterTerm ?? "not-found")
+                        } else {
+                            // if checkbox is unchecked, remove filterID from activeFilters
+                            activeFiltersCopy = activeFiltersCopy.filter(filterID => filterID !== filterItem.subcategories[j].filterTerm);
+                        }
                         filterItemsCopy.push(filterItem);
                         continue i;
                     }
                 }
                 filterItemsCopy.push(filterItem);
-
             }
             filterItemsCopy.push(filtersReference[i]);
         }
         console.log("filterItemsCopy: ", filterItemsCopy);
         setFilterItems(filterItemsCopy);
+        setActiveFilters(activeFiltersCopy); // update activeFilters state
     }
+
 
 
 

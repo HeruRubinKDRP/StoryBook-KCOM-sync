@@ -70,7 +70,10 @@ export type filterOptionsT = "smart-wifi-enabled" |
     "k-cup" |
     "60oz-or-more" |
     "add-water-each-time" |
-    "up-to-52-ounces"
+    "up-to-52-ounces" |
+    "commercial" |
+    "home" |
+    "not-found";
 
 export const brewerFeatures : iFeatureBullet[] = [
     //BrewID 0
