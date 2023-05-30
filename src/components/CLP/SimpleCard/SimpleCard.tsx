@@ -9,6 +9,7 @@ import AsyncImage from "../../AsyncImage/AsyncImage";
 import {prop} from "cheerio/lib/api/attributes";
 import {iProductFeature} from "./CardBack/CardBack";
 import {iFeatureBullet} from "../../FeatureBullets/FeatureBulletItem/FeatureBullet";
+import {filterOptionsT} from "../../../data/brewer-library";
 
 
 // Define an interface for the purchase information of a product
@@ -20,7 +21,7 @@ export interface purchaseInfo {
 
 export type filterDataItemT = {
     filterName: string;
-    filterValues: string[];
+    filterValues: filterOptionsT[];
 }
 
 export interface iProductInfoCardProps {

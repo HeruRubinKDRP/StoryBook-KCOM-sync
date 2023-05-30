@@ -286,7 +286,7 @@ export const PaginationButton = styled.button`
 export const OuterMostCLP_Container = styled.div`
   display: flex;
   flex-direction: row;
-
+  padding: 2%;
   .right-part {
     width: 100%;
     .filters{

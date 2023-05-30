@@ -39,6 +39,39 @@ import {iFeatureBullet} from "../components/FeatureBullets/FeatureBulletItem/Fea
 //     flipFunction?: () => void;
 // }
 
+export type filterOptionsT = "smart-wifi-enabled" |
+    "single-serve-coffee-maker" |
+    "coffee-house-beverages-at-home" |
+    "dual-coffee-makers" |
+    "brew-over-ice-coffee-makers" |
+    "digital-clock" |
+    "display-screen" |
+    "froths-milk" |
+    "iced-setting" |
+    "multi-position-reservoir" |
+    "strength-control" |
+    "temperature-control" |
+    "white" |
+    "black" |
+    "grey" |
+    "bronze" |
+    "gold" |
+    "copper" |
+    "stainless-steel" |
+    "green" |
+    "dark-green" |
+    "blue" |
+    "light-blue" |
+    "steel-blue" |
+    "midnight-blue" |
+    "vintage-red" |
+    "cardinal-red" |
+    "bagged-coffee" |
+    "k-cup" |
+    "60oz-or-more" |
+    "add-water-each-time" |
+    "up-to-52-ounces"
+
 export const brewerFeatures : iFeatureBullet[] = [
     //BrewID 0
     {
@@ -117,26 +150,82 @@ export const brewerFeatures : iFeatureBullet[] = [
         showChevron : false,
         featureDetails : "8, 10, 12 oz."
     },
-    //4 Cup Sizes : 11
+    //3 Cup Sizes : 10
+    {
+        featureLabel : "3 Cup Sizes",
+        featureIcon : "icon-cup",
+        showChevron : false,
+        featureDetails : "8, 10, 12 oz."
+    },
+    //4 Cup Sizes : 12
     {
         featureLabel : "4 Brew Sizes",
         featureIcon : "icon-cup",
         showChevron : false,
         featureDetails : "6, 8, 10, and 12 oz."
     },
-    //5 Cup Sizes : 12
+    //5 Cup Sizes : 13
     {
         featureLabel : "5 Brew Sizes",
         featureIcon : "icon-cup",
         showChevron : false,
         featureDetails : "6, 8, 10, and 12 oz."
     },
-    //Space saving design : 13
+    //Space saving design : 14
     {
         featureLabel : "Space Saving Design",
-        featureIcon : "icon-cup",
+        featureIcon : "icon-space-saver",
         showChevron : false,
         featureDetails : "Less than 5 inches wide"
+    },
+    //75oz Removable Reservoir 15
+    {
+        featureLabel : "75oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 75oz removable water reservoir lets you brew 8 cups between refills."
+    },
+    //Less than 1 minute brew time 16
+    {
+        featureLabel : "Fast Brew Time",
+        featureIcon : "icon-stop-watch",
+        showChevron : false,
+        featureDetails : "Brew time is less than a minute."
+    },
+    //46oz Removable Reservoir 17
+    {
+        featureLabel : "46oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 46oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //75oz Removable Reservoir 18
+    {
+        featureLabel : "75oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 75oz removable water reservoir lets you brew 8 cups between refills."
+    },
+    //52oz Removable Reservoir 19
+    {
+        featureLabel : "52oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 52oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //Removable One Cup Reservoir 20
+    {
+        featureLabel : "Removable One Cup Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 52oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //fast & fresh brewed 21
+    {
+        featureLabel : "Fast & Fresh Brewed",
+        featureIcon : "icon-stop-watch",
+        showChevron : false,
+        featureDetails : "Delivers fresh brewed, delicious coffee from your favorite K-Cup® pods in minutes."
     },
 
 ]
@@ -161,6 +250,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         brand: "Keurig",
         name : "K-Supreme Plus® SMART Single Serve Coffee Maker",
         siloImagePath : "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch?$pdp_general$&fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72&extend=0,0,0,0",
+
         productFeatures : [
             //BrewID
             brewerFeatures[0],
@@ -209,15 +299,23 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         filterData : [
             {
                 filterName : "category",
-                filterValues : ["smart", "single-serve" ]
+                filterValues : ["smart-wifi-enabled", "single-serve-coffee-maker" ]
             },
             {
                 filterName : "features",
-                filterValues : ["display-screen", "strength-control", "temperature-controls" ]
+                filterValues : ["display-screen", "strength-control", "temperature-control" ]
             },
             {
                 filterName : "color",
                 filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "brew-type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-or-more", "multi-position-reservoir"]
             }
         ],
         onClick: () => console.log('Add to Cart clicked'),
@@ -244,6 +342,9 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+
+        ],
         productFeatures : [
             //BrewID
             brewerFeatures[0],
@@ -337,7 +438,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             //multi stream
             brewerFeatures[5],
             //space saving design
-            brewerFeatures[13],
+            brewerFeatures[14],
         ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
@@ -363,25 +464,14 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             ratingNumber : 4.25
         },
         productFeatures :[
-            {
-                featureLabel : "4 Brew Sizes",
-                featureIcon : "icon-cup",
-                showChevron : false,
-                featureDetails : "6, 8, 10, and 12 oz."
-            },
-            {
-                featureLabel : "66oz Dual-Position Reservoir",
-                featureIcon : "water-drop",
-                showChevron : false,
-                featureDetails : "Choose the perfect position for optimal counter space. Removable for easy refilling."
-            },
-            {
-                featureLabel : "Brew Over Ice",
-                featureIcon : "icon-iced-coffee",
-                showChevron : false,
-                featureDetails : "Brew over ice with bold, full-flavored iced coffee."
-            }
-
+            //5 Cup Sizes : 12
+            brewerFeatures[13],
+            //75oz Removable Reservoir 15
+            brewerFeatures[15],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
+            //brew over ice 6
+            brewerFeatures[6],
         ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
@@ -401,6 +491,18 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         ratingVisible : false,
+        productFeatures:[
+            //multi stream 5
+            brewerFeatures[5],
+            //Space saving design : 14
+            brewerFeatures[14],
+            //3 Cup Sizes : 10
+            brewerFeatures[10],
+            //46oz Removable Reservoir 17
+            brewerFeatures[17],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
+        ],
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
@@ -422,6 +524,14 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 inStock : true,
                 variant: {quantity : 1, variantName : "Grey"}
             }
+        ],
+        productFeatures :[
+            //4 Cup Sizes : 12
+            brewerFeatures[12],
+            //52oz Removable Reservoir 19
+            brewerFeatures[19],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
         ],
         ratingVisible : false,
         rating : {
@@ -445,6 +555,14 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 inStock : true,
                 variant: {quantity : 1, variantName : "Grey"}
             }
+        ],
+        productFeatures:[
+            //Space saving design : 14
+            brewerFeatures[14],
+            //Removable One Cup Reservoir 20
+            brewerFeatures[20],
+            //fast & fresh brewed 21
+            brewerFeatures[21],
         ],
         ratingVisible : false,
         rating : {
@@ -470,6 +588,12 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         ratingVisible : false,
+        filterData :[
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee"]
+            }
+        ],
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
