@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
-import {attentionCTA, ctaColorStyles, gradientSlide} from "../../../_commonStyles/common.styled";
+import {attentionCTA, ctaColorStyles} from "../../../_commonStyles/common.styled";
 
 
 

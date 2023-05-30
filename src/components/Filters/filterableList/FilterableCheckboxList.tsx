@@ -1,60 +1,78 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import {Graphic, iconType} from "../../Graphic/Graphic";
+import {iIllustration} from "../../Graphic/Illustrations";
+import KButton from "../../Kbutton/KButton";
+import {FilterableCheckboxListStyled} from "./filterable-toggle-list.styled";
 
-interface CheckboxItem {
+export interface CheckboxItem {
     label: string;
-    value: string;
+    detailsText?: string;
+    isChecked: boolean;
+    imageSrc?: string | iconType | iIllustration;
 }
 
-interface FilterableCheckboxListProps {
+export interface FilterableCheckboxListProps {
+    useFilter?: boolean;
+    sectionIndex: number;
     items: CheckboxItem[];
-    onSelectionChange: (selectedItems: string[]) => void;
+    onSelectionChange: (index: number, sectionIndex: number) => void;
 }
 
-const FilterableCheckboxList: React.FC<FilterableCheckboxListProps> = ({ items, onSelectionChange }) => {
+const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
     const [filterText, setFilterText] = useState('');
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFilterText(event.target.value);
+
+
     };
 
-    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value, checked } = event.target;
-        if (checked) {
-            setSelectedItems([...selectedItems, value]);
-        } else {
-            setSelectedItems(selectedItems.filter(item => item !== value));
-        }
-    };
 
-    const filteredItems = items.filter(item => item.label.toLowerCase().includes(filterText.toLowerCase()));
+
+    const filteredItems = props.items.filter(item => item.label.toLowerCase().includes(filterText.toLowerCase()));
 
     return (
-        <Wrapper>
-            <Input type="text" placeholder="Filter..." value={filterText} onChange={handleInputChange} />
+        <FilterableCheckboxListStyled>
+            {
+                props.useFilter &&  <Input className="filter-input" type="text" placeholder="Filter..." value={filterText} onChange={handleInputChange} />
+            }
             {filteredItems.length === 0 ? (
                 <NoResults>
                     No results found. <ClearButton onClick={() => setFilterText('')}>Clear filters</ClearButton>
                 </NoResults>
             ) : (
-                <List>
-                    {filteredItems.map(item => (
-                        <ListItem key={item.value}>
-                            <Checkbox id={item.value} value={item.value} checked={selectedItems.includes(item.value)} onChange={handleCheckboxChange} />
-                            <Label htmlFor={item.value}>{item.label}</Label>
-                        </ListItem>
-                    ))}
-                </List>
+                <ul className="list-container">
+                    {filteredItems.map((item, index: number) => {
+
+                        return(
+                            <ListItem className="check-list-item" key={index}>
+                                <KButton classes="overlay-btn" label={""} buttonType={"text-icon-noBG"}  actionFunc={()=>props.onSelectionChange(index, props.sectionIndex)} />
+                                <div className={`${item.isChecked ? "is-checked" : ""} check-list-item-container`} >
+                                    <div className="check-container">
+                                        {item.isChecked && <Graphic graphicName={"icon-checkmark"} />}
+                                    </div>
+                                    <div className="text-area">
+                                        <Label>{item.label}</Label>
+                                        {
+                                            item.detailsText &&
+                                            <p className="checkbox-item-details">
+                                                {item.detailsText}
+                                            </p>
+                                        }
+                                    </div>
+                                </div>
+                            </ListItem>
+                        )
+                    })}
+                </ul>
             )}
-        </Wrapper>
+        </FilterableCheckboxListStyled>
     );
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+
 
 const Input = styled.input`
   margin-bottom: 10px;
@@ -63,11 +81,6 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
 
 const ListItem = styled.li`
   display: flex;

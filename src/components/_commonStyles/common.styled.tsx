@@ -1,5 +1,6 @@
 import {css, keyframes} from 'styled-components';
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import {fadeInAnim} from "./common.keyframes";
 
 export const ctaColorStyles = css` 
   --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};
@@ -10,41 +11,33 @@ export const ctaColorStyles = css`
   --colorLightCTA: ${colorNameToValue("faintWarm")};
 `;
 
+export const absolutePositionStretch = css`
+  position: absolute;
+  inset: 0;
+`;
+
+export const flexRow = css`
+  display: flex;
+  flex-direction: row;
+`
+
+export const flexCentered = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const attentionCTA = css` 
   background: linear-gradient(-45deg,hsl(47 95% 80% / 1),hsl(47 95% 59% / 1),hsl(47 95% 80% / 1),hsl(47 95% 80% / 1));
-  background-size: 200% 265%;  
- 
-`;
-
-export const gradientSlide = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-
+  background-size: 200% 265%;   
 `;
 
 
 
-export const riseUpAnim = keyframes`
-  from {
-    top: 0px;
-  }
-  to {
-    top: 200px;
-  } 
-`
+export const AnimFadeIn = css`
+    animation: ${fadeInAnim} 1s ease-in-out forwards normal 
+`;
 
-export const fadeOutAnim = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-`
 
 export const pushDownAnim = keyframes` 
   0% {

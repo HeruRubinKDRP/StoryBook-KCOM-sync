@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {CategoryItem, iCategorySubcategory} from './Filters-CLP-CategoryItems';
+import {CategoryItem} from './Filters-CLP-CategoryItems';
 import {BrewerCLPFiltersStyle} from "./Brewer-CLP-filters-styled";
 import {filterDataItemT} from "../SimpleCard/SimpleCard";
+import {FiltersCenter, iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
 
 export interface iFilters {
     isVisible?: boolean;
     type?: string;
     onButtonClick?: () => void;
     defaultVisible?: boolean;
-    filtersFunction? : ()=>filterDataItemT[];
+    filtersFunction : (index: number, sectionIndex : number) => void;
+    filtersDefiniton : iCategoryItem[];
 }
-
-
 
 
 export const Filters = (props: iFilters) => {
@@ -39,56 +39,7 @@ export const Filters = (props: iFilters) => {
     return (
         <BrewerCLPFiltersStyle className={"brewer-clp-filters"} style={{width: visibility ? '340px' : '0'}}>
             <div className="filters" style={{display: isVisible ? '340px' : '0'}}>
-                <ul>
-                    <CategoryItem
-                        title="Categories"
-                        subcategories={[
-
-
-                        ]}
-                        defaultOpen
-                    />
-                    <CategoryItem
-                        title="Features"
-                        subcategories={[
-
-                        ]}
-                        defaultOpen
-                    />
-                    <CategoryItem
-                        title="Color"
-                        subcategories={[
-
-                        ]}
-                        defaultOpen
-                    />
-                    <CategoryItem
-                        title="Brew Type"
-                        subcategories={[
-
-                        ]}
-                    />
-
-                    <CategoryItem
-                        title="Reservoir"
-                        subcategories={[
-
-                        ]}
-                    />
-
-                    <CategoryItem
-                        title="Commercial"
-                        subcategories={[
-                            {
-                                checkbox: selectedIndexes[21].isChecked,
-                                filterID: 21,
-                                name: 'Commercial',
-                                productnumber: '(1)',
-                                imageSrc: ''
-                            },
-                        ]}
-                    />
-                </ul>
+                <FiltersCenter filtersFunction={props.filtersFunction} filtersDefinition={props.filtersDefiniton} />
             </div>
         </BrewerCLPFiltersStyle>
     );

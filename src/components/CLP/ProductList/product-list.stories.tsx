@@ -6,6 +6,7 @@ import {brands} from "../../../pages/myBrews";
 import {podLibrary} from "../../../data/beverage-library";
 import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 import {brewerLibrary} from "../../../data/brewer-library";
+import {brewerFiltersSettings} from "../../../data/brewerFilters";
 
 export default {
     title: 'CLP/ProductList',
@@ -225,6 +226,7 @@ export const BrewerList = Template.bind({});
 BrewerList.args = {
     pageType: 'brewer',
     products: brewerLibrary,
+    filtersDefinition: brewerFiltersSettings,
     columns: 3,
     pageSize: 9,
     columnsHugeScreen : 4,

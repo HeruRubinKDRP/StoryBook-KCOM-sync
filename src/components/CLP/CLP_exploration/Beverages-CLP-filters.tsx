@@ -9,7 +9,7 @@ export interface iFilters {
     type?: string;
     onButtonClick?: () => void;
     defaultVisible?: boolean;
-    filtersFunction? : ()=>filterDataItemT[];
+    filtersFunction? : (index: number, sectionIndex : number) => void;
 }
 
 export const Filters = (props: iFilters) => {
@@ -34,35 +34,35 @@ export const Filters = (props: iFilters) => {
                         title="Categories"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 0,
                                 className: 'liCategories',
                                 name: 'Iced',
-                                productnumber: '',
+                                productNumber: '',
                                 imageSrc: 'https://images.keurig.com/is/image/keurig/beverage%20Just_arrived'
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 1,
                                 className: 'liCategories',
                                 name: 'Seasonal',
-                                productnumber: '',
+                                productNumber: '',
                                 imageSrc: 'https://images.keurig.com/is/image/keurig/oz-seasonals'
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 2,
                                 className: 'liCategories',
                                 name: 'Best Sellers',
-                                productnumber: '',
+                                productNumber: '',
                                 imageSrc: 'https://images.keurig.com/is/image/keurig/oz-best-saller'
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 3,
                                 className: 'liCategories',
                                 name: 'Flavored',
-                                productnumber: '',
+                                productNumber: '',
                                 imageSrc: 'https://images.keurig.com/is/image/keurig/oz-flavored'
                             },
 
@@ -74,297 +74,297 @@ export const Filters = (props: iFilters) => {
                         title="Brands"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 name: 'BLK & BOLD®',
                                 filterID: 4,
-                                productnumber: '(6)',
+                                productNumber: '(6)',
                                 imageSrc: ''},
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 name: 'Barista Prima Coffeehouse®',
                                 filterID: 5,
-                                productnumber: '(7)',
+                                productNumber: '(7)',
                                 imageSrc: ''},
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 6,
                                 name: 'Bigelow®',
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 7,
                                 name: 'Café Bustelo®',
-                                productnumber: '(3)',
+                                productNumber: '(3)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 8,
                                 name: 'Café Escapes®',
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 9,
                                 name: 'Café Gila®',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 10,
                                 name: 'Caribou Coffee®',
-                                productnumber: '(17)',
+                                productNumber: '(17)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 11,
                                 name: 'Celestial Seasonings®',
-                                productnumber: '(8)',
+                                productNumber: '(8)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 12,
                                 name: 'Cinnabon®',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''},
-                            {checkbox: true,
+                            {isChecked: true,
                                 filterID: 13,
                                 name: 'Community® Coffee',
-                                productnumber: '(6)',
+                                productNumber: '(6)',
                                 imageSrc: ''},
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 14,
                                 name: "Dunkin' Donuts®",
-                                productnumber: '(22)',
+                                productNumber: '(22)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 15,
                                 name: "Eight O'Clock®",
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 16,
                                 name: "Emeril's®",
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 17,
                                 name: 'Folgers®',
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 18,
                                 name: 'French Market®',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 19,
                                 name: 'GEVALIA',
-                                productnumber: '(5)',
+                                productNumber: '(5)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 20,
                                 name: "Gloria Jean's®",
-                                productnumber: '(5)',
+                                productNumber: '(5)',
                                 imageSrc: ''
                             },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 21,
                             name: 'Green Mountain Coffee Roasters®',
-                            productnumber: '(88)',
+                            productNumber: '(88)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 22,
                             name: 'Intelligentsia®',
-                            productnumber: '(3)',
+                            productNumber: '(3)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 23,
                             name: 'Kahlúa®',
-                            productnumber: '(1)',
+                            productNumber: '(1)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 24,
                             name: 'Keurig®',
-                            productnumber: '(28)',
+                            productNumber: '(28)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 25,
                             name: "Krispy Kreme® Doughnuts Coffee",
-                            productnumber: '(12)',
+                            productNumber: '(12)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 26,
                             name: 'Laughing Man®',
-                            productnumber: '(3)',
+                            productNumber: '(3)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 27,
                             name: 'Lavazza®',
-                            productnumber: '(8)',
+                            productNumber: '(8)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 28,
                             name: 'Lipton®',
-                            productnumber: '(2)',
+                            productNumber: '(2)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 29,
                             name: 'Luzianne®',
-                            productnumber: '(2)',
+                            productNumber: '(2)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 30,
                             name: 'Maxwell House®',
-                            productnumber: '(3)',
+                            productNumber: '(3)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 31,
                             name: 'McCafé®',
-                            productnumber: '(45)',
+                            productNumber: '(45)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 32,
                             name: "Mott's®",
-                            productnumber: '(2)',
+                            productNumber: '(2)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 33,
                             name: 'New England Coffee®',
-                            productnumber: '(43)',
+                            productNumber: '(43)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 34,
                             name: "Newman's Own® Organics",
-                            productnumber: '(11)',
+                            productNumber: '(11)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 35,
                             name: 'Panera Bread®',
-                            productnumber: '(7)',
+                            productNumber: '(7)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 36,
                             name: "Peet's Coffee®",
-                            productnumber: '(13)',
+                            productNumber: '(13)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 37,
                             name: 'REVV®',
-                            productnumber: '(1)',
+                            productNumber: '(1)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 38,
                             name: "Seattle's Best Coffee®",
-                            productnumber: '(1)', imageSrc: ''
+                            productNumber: '(1)', imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 39,
                             name: 'Starbucks®',
-                            productnumber: '(20)',
+                            productNumber: '(20)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 40,
                             name: 'Swiss Miss®',
-                            productnumber: '(7)',
+                            productNumber: '(7)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 41,
                             name: 'Tazo®',
-                            productnumber: '(2)',
+                            productNumber: '(2)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 42,
                             name: 'The Original Donut Shop®',
-                            productnumber: '(32)', imageSrc: ''
+                            productNumber: '(32)', imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 43,
                             name: 'Tim Hortons®',
-                            productnumber: '(8)',
+                            productNumber: '(8)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 44,
                             name: "Tully's®",
-                            productnumber: '(13)',
+                            productNumber: '(13)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 45,
                             name: 'Twinings® of London',
-                            productnumber: '(19)',
+                            productNumber: '(19)',
                             imageSrc: ''
                         },
                         {
-                            checkbox: true,
+                            isChecked: true,
                             filterID: 46,
                             name: 'illy®',
-                            productnumber: '(6)',
+                            productNumber: '(6)',
                             imageSrc: ''
                         }
                          ]}
@@ -373,24 +373,24 @@ export const Filters = (props: iFilters) => {
                         title="Caffeine"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 47,
                                 name: 'Decaf',
-                                productnumber: '(43)',
+                                productNumber: '(43)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 48,
                                 name: 'Half Caff',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 49,
                                 name: 'Regular',
-                                productnumber: '(301)',
+                                productNumber: '(301)',
                                 imageSrc: ''
                             },
                         ]}
@@ -401,31 +401,31 @@ export const Filters = (props: iFilters) => {
                         title="Roast Type"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 50,
                                 name: 'Dark',
-                                productnumber: '(69)',
+                                productNumber: '(69)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 51,
                                 name: 'Light',
-                                productnumber: '(63)',
+                                productNumber: '(63)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 52,
                                 name: 'Medium',
-                                productnumber: '(146)',
+                                productNumber: '(146)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 53,
                                 name: 'Medium Dark',
-                                productnumber: '(14)',
+                                productNumber: '(14)',
                                 imageSrc: ''
                             },
                         ]}
@@ -436,164 +436,164 @@ export const Filters = (props: iFilters) => {
                         title="Flavor"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 54,
                                 name: 'Blueberry',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 55,
                                 name: 'Breakfast Blend',
-                                productnumber: '(8)',
+                                productNumber: '(8)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 56,
                                 name: 'Caramel',
-                                productnumber: '(18)',
+                                productNumber: '(18)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 57,
                                 name: 'Caramel Vanilla',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 58,
                                 name: 'Chai',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 59,
                                 name: 'Chocolate',
-                                productnumber: '(15)',
+                                productNumber: '(15)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 60,
                                 name: 'Cinnamon',
-                                productnumber: '(10)',
+                                productNumber: '(10)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 61,
                                 name: 'Coconut',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 62,
                                 name: 'Colombian',
-                                productnumber: '(13)',
+                                productNumber: '(13)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 63,
                                 name: 'Earl Grey',
-                                productnumber: '(3)',
+                                productNumber: '(3)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 64,
                                 name: 'English Breakfast',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 65,
                                 name: 'Espresso',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 66,
                                 name: 'Flavored',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 66,
                                 name: 'French Roast',
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 67,
                                 name: 'Green Tea',
-                                productnumber: '(5)',
+                                productNumber: '(5)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 68,
                                 name: 'Hazelnut',
-                                productnumber: '(17)',
+                                productNumber: '(17)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 69,
                                 name: 'Irish Breakfast',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 70,
                                 name: 'Italian',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 71,
                                 name: 'Lemon Ginger',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 72,
                                 name: 'Mocha',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 73,
                                 name: 'Pecan',
-                                productnumber: '(5)',
+                                productNumber: '(5)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 74,
                                 name: 'Pumpkin',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 75,
                                 name: 'Vanilla',
-                                productnumber: '(14)',
+                                productNumber: '(14)',
                                 imageSrc: ''
                             }
 
@@ -603,52 +603,52 @@ export const Filters = (props: iFilters) => {
                         title="Format"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 76,
                                 name: 'Cocoa',
-                                productnumber: '(9)',
+                                productNumber: '(9)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 77,
                                 name: 'Coffee',
-                                productnumber: '(302)',
+                                productNumber: '(302)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 78,
                                 name: 'Easy-Peel',
-                                productnumber: '(11)',
+                                productNumber: '(11)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 79,
                                 name: 'Espresso',
-                                productnumber: '(4)',
+                                productNumber: '(4)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 80,
                                 name: 'Iced Beverages',
-                                productnumber: '(17)',
+                                productNumber: '(17)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 81,
                                 name: 'Specialty',
-                                productnumber: '(27)',
+                                productNumber: '(27)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 82,
                                 name: 'Tea',
-                                productnumber: '(35)',
+                                productNumber: '(35)',
                                 imageSrc: ''
                             }
                         ]}
@@ -657,38 +657,38 @@ export const Filters = (props: iFilters) => {
                         title="Category"
                         subcategories={[
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 83,
                                 name: 'Bagged',
-                                productnumber: '(64)',
+                                productNumber: '(64)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 84,
                                 name: 'Canned',
-                                productnumber: '(7)',
+                                productNumber: '(7)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 85,
                                 name: 'Easy-Peel Lid',
-                                productnumber: '(11)',
+                                productNumber: '(11)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 86,
                                 name: 'K-Cup',
-                                productnumber: '(282)',
+                                productNumber: '(282)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 87,
                                 name: 'Other',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             }
   ]}
@@ -698,102 +698,102 @@ export const Filters = (props: iFilters) => {
                         subcategories={[
                             { name: 'K-CUP®', className: 'liCategories', filterID: -1, },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 84,
                                 name: 'Cold Brew 2 pk.',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 85,
                                 name: 'K-Cup® Box 10 ct.',
-                                productnumber: '(20)',
+                                productNumber: '(20)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 86,
                                 name: 'K-Cup® Box 12 ct.',
-                                productnumber: '(102)',
+                                productNumber: '(102)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 87,
                                 name: 'K-Cup® Box 20 ct.',
-                                productnumber: '(27)',
+                                productNumber: '(27)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 name: 'K-Cup® Box 22 ct.',
                                 filterID: 88,
-                                productnumber: '(78)',
+                                productNumber: '(78)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 89,
                                 name: 'K-Cup® Box 24 ct.',
-                                productnumber: '(237)',
+                                productNumber: '(237)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 90,
                                 name: 'K-Cup® Box 36 ct.',
-                                productnumber: '(2)',
+                                productNumber: '(2)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 91,
                                 name: 'K-Cup® Box 40 ct.',
-                                productnumber: '(11)',
+                                productNumber: '(11)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 92,
                                 name: 'K-Cup® Box 44 ct.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 93,
                                 name: 'K-Cup® Box 48 ct.',
-                                productnumber: '(5)',
+                                productNumber: '(5)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 94,
                                 name: 'K-Cup® Box 60 ct.',
-                                productnumber: '(23)',
+                                productNumber: '(23)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 95,
                                 name: 'K-Cup® Box 66 ct.',
-                                productnumber: '(66)',
+                                productNumber: '(66)',
                                 imageSrc: ''
 
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 96,
                                 name: 'K-Cup® Box 72 ct.',
-                                productnumber: '(199)',
+                                productNumber: '(199)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 96,
                                 name: 'K-Cup® Box 80 ct.',
-                                productnumber: '(21)',
+                                productNumber: '(21)',
                                 imageSrc: ''
                             },
                             {
@@ -802,59 +802,59 @@ export const Filters = (props: iFilters) => {
                                 filterID: -1,
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 name: '10 oz.',
                                 filterID: 97,
-                                productnumber: '(15)',
+                                productNumber: '(15)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 98,
                                 name: '11 oz.',
-                                productnumber: '(23)',
+                                productNumber: '(23)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 99,
                                 name: '12 oz.',
-                                productnumber: '(46)',
+                                productNumber: '(46)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 100,
                                 name: '20 oz.',
-                                productnumber: '(3)',
+                                productNumber: '(3)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 101,
                                 name: '22 oz.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 102,
                                 name: '29 oz.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 103,
                                 name: '30 oz.',
-                                productnumber: '(3)',
+                                productNumber: '(3)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 104,
                                 name: '9 oz.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
@@ -863,24 +863,24 @@ export const Filters = (props: iFilters) => {
                                 filterID: -1,
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 105,
                                 name: '10 oz.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 name: '12 oz.',
                                 filterID: 106,
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                             {
-                                checkbox: true,
+                                isChecked: true,
                                 filterID: 107,
                                 name: '20 oz.',
-                                productnumber: '(1)',
+                                productNumber: '(1)',
                                 imageSrc: ''
                             },
                         ]}

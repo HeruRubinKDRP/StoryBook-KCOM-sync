@@ -4,8 +4,13 @@ import {useResizeDetector} from "react-resize-detector";
 import {sizeT} from "../KSK_Experience/KSK";
 import {AccordionItem} from "./AccordionItem/AccordionItem";
 
+export interface iAccordionItem {
+    name: string,
+    id: number,
+    isOpen:boolean
+}
 export interface iAccordionProps {
-    items: {name: string, id: number, isOpen:boolean}[];
+    items: iAccordionItem[];
     children: ReactElement[];
     accordionAction? : Function;
     useInternalOpenClosedState : boolean;
@@ -18,8 +23,8 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
     const [documentDimensions, setDocumentDimensions] = useState<{height : number, width:number}>({height : 0, width:0});
 
     const {width, height, ref } = useResizeDetector({
-        refreshMode: 'debounce',
-        refreshRate: 100,
+        refreshMode: 'throttle',
+        refreshRate: 200,
         refreshOptions: {
             leading: true,
             trailing: false

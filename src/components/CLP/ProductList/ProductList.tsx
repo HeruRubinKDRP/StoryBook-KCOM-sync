@@ -30,6 +30,8 @@ import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
 import {filterOptionsT} from "../../../data/brewer-library";
 import FuseResult = Fuse.FuseResult;
+import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
+import {CheckboxItem} from "../../Filters/filterableList/FilterableCheckboxList";
 
 export interface ProductListProps {
     products: iProductInfoCardProps[];
@@ -45,6 +47,8 @@ export interface ProductListProps {
     stickyHeaderMode: "slim" | "full";
     filters: JSX.Element;
     pageType: 'beverages' | 'brewer';
+    filtersFunction: ()=>void;
+    filtersDefinition: iCategoryItem[];
 }
 
 /*const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
@@ -56,7 +60,8 @@ export interface ProductListProps {
 interface iFiltersWrapper {
     type: string,
     isVisible: boolean,
-    filtersFunction : ()=>filterDataItemT[];
+    filtersFunction : (index: number, sectionIndex : number) => void;
+    filtersDefinition : iCategoryItem[];
 }
 
 const Filters = (props:iFiltersWrapper) => {
@@ -66,7 +71,7 @@ const Filters = (props:iFiltersWrapper) => {
         return <BeveragesFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction} />;
     } else if (props.type === 'brewer') {
         console.log("confirmed: brewer type is fired")
-        return <BrewerFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction}/>;
+        return <BrewerFilters isVisible={props.isVisible} filtersDefiniton={props.filtersDefinition} filtersFunction={props.filtersFunction}/>;
     } else {
         return null;
     }
@@ -75,7 +80,7 @@ const Filters = (props:iFiltersWrapper) => {
 
 export type searchObject = {searchType : "filter" | "free-text" }
 
-const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
+const ProductList = (props: ProductListProps) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [rows, setRows] = useState(1);
@@ -90,6 +95,8 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     const [filtersVisible, setFiltersVisible] = useState(false)
 
     const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>(["bagged-coffee"])
+    const [sortBy, setSortBy] = useState("popularity");
+
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'debounce',
@@ -107,10 +114,13 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setSnackBarOpen(false);
         setQuickShopOpen(open);
     }
-    const [sortBy, setSortBy] = useState("popularity");
+
+
+
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
     };
+
     const manageAddToCart = () => {
         console.log("clicked add to cart");
         setQuickShopOpen(false);
@@ -281,10 +291,59 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         return <></>
     }
 
-    const manageFilters =():filterDataItemT[]=>{
-        console.log("manage filters")
-        return []
+
+
+    // manage filters selection
+
+    useEffect(() => {
+        setFilterItems(
+            props.filtersDefinition.map(
+                (item, index) => {
+                return item
+                }
+            )
+        )
+        console.log("filterItems: ", filterItems);
+    }, []);
+
+
+
+    const [filterItems, setFilterItems] = useState<iCategoryItem[]>([]);
+
+    useEffect(() => {
+        console.log("filterItems: ", filterItems);
+    },[filterItems]);
+
+    const manageFilters =(index:number, sectionIndex : number)=> {
+        createFilters(index, sectionIndex);
     }
+
+    const createFilters = (index:number, sectionIndex : number) => {
+        console.log("manageFilters zzz: ", index);
+        console.log("sectionIndex zzz:", sectionIndex);
+
+        let filterItemsCopy: iCategoryItem[] = [];
+        const filtersReference: iCategoryItem[] = [...filterItems];
+        i: for (let i = 0; i < filtersReference.length; i++) {
+            if (i === sectionIndex) {
+                let filterItem = filtersReference[i];
+                for (let j = 0; j < filtersReference[i].subcategories.length; j++) {
+                    if (j === index) {
+                        filterItem.subcategories[j].isChecked = !filterItem.subcategories[j].isChecked;
+                        filterItemsCopy.push(filterItem);
+                        continue i;
+                    }
+                }
+                filterItemsCopy.push(filterItem);
+
+            }
+            filterItemsCopy.push(filtersReference[i]);
+        }
+        console.log("filterItemsCopy: ", filterItemsCopy);
+        setFilterItems(filterItemsCopy);
+    }
+
+
 
     //render
     return (
@@ -340,7 +399,12 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             <OuterMostCLP_Container  className={``}>
 
                     <FiltersContainerStyle>
-                        <Filters type={props.pageType} isVisible={filtersVisible} filtersFunction={manageFilters}/>
+                        <Filters
+                            type={props.pageType}
+                            isVisible={filtersVisible}
+                            filtersFunction={manageFilters}
+                            filtersDefinition={props.filtersDefinition}
+                        />
                     </FiltersContainerStyle>
 
                 <div className="right-part" ref={ref}>
