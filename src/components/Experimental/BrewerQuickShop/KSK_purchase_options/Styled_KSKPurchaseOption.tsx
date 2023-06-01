@@ -55,7 +55,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       text-decoration: underline;
     }
   }
-}
+
 
 .deal-area:nth-child(2n+1) {
   padding-right: var(--spacingSmall);
@@ -125,33 +125,38 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   }
 }
 
-.ksk-visual {
+.ksk-container {
   display: flex;
-  align-items: center;
   margin: 20px 0;
-
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+  .visual-container {
+    display: flex;
+    align-items: center;
+    padding-right: var(--spacingSmall);
+  }
   .kcs-image {
     max-height: 60px;
     padding-right: var(--spacingSmall);
   }
-
+  .plus-icon {
+    width: 20px;
+    .filled {
+      fill: var(--colorKSK);
+    }
+    padding-right: var(--spacingSmall);
+  }
   .fill-pod {
     display: flex;
     flex-wrap: wrap;
   }
-
-  .plus-icon {
-    width: 20px;
-
-    .filled {
-      fill: var(--colorKSK);
-    }
-
-    padding-right: var(--spacingSmall);
+  .k-btn {
+    padding: 0!important;
   }
-  .k-btn{
-    padding:0;
-  }
+
+
+
   .k-btn.best-deal {
     background-color: #FFF !important;
     /*    margin-left: 0.5rem;*/
@@ -189,4 +194,6 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     border-radius: 100vh;
     margin-right: 5px;
   }
+  
+
 `

@@ -57,6 +57,13 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   &.medium-dimensions {
     max-width: 85vw;
+    .ksk-container{
+      .visual-container{
+        .fill-pod {
+          width: 100px;
+        }
+      }
+    }
   }
 
 
@@ -158,6 +165,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     .learn-more-container {
       background-color: #fff;
       inset: 2% 52% 2% 1%;
+    }
+    .ksk-learn-more{
+      width: 50%;
     }
   }
 

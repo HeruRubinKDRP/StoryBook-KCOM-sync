@@ -52,7 +52,8 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
                 <label className="strike-through-price">$249.99</label>
                 {/*<div className="savings-callout">Save $125.00 with Starter Kit</div>*/}
             </div>
-            <div className={"ksk-visual"}>
+            <div className={"ksk-container"}>
+                <div className="visual-container">
                 <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
                 <Graphic graphicName={"plus-icon"}></Graphic>
                 <div className={"fill-pod"}>
@@ -65,7 +66,8 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
                         <div className={"pod-ksk-container"}></div>
                     </div>
                 </div>
-                <div className=""><b>You're saving $125.00</b> with Coffee Subscription!
+                </div>
+                <div className="ksk-learn-more"><b>You're saving $125.00</b> with Coffee Subscription!
                     <KButton
                         label="What's in your Kit?"
                         buttonType="text-icon-noBG"
