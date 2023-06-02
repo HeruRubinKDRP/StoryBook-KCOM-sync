@@ -38,11 +38,13 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   height: auto;
   width: 100%;
-  max-height: 90vh;
+/*  max-height: 90vh;*/
   margin: 0 auto;
 
   .item-only-option {
+    /*
     border: 0;
+    */
   }
 
   .add-to-cart-container {
@@ -409,8 +411,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   .color-options {
     .color-dot {
-      height: var(--spacingMedium) !important;
-      width: var(--spacingMedium) !important;
+      height: var(--spacingLarge) !important;
+      width: var(--spacingLarge) !important;
       margin-right: var(--spacingSmall) !important;
     }
   }

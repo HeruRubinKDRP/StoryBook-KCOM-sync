@@ -35,12 +35,116 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   position: relative;
 
   width: 100%;
-  border: 1px solid grey;
+/*  border: 1px solid grey;*/
   border-radius: var(--spacingTiny);
-  padding: var(--spacingLarge) 0 0 var(--spacingLarge);
+  padding: var(--spacingLarge);
+  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));
+  background-color: rgb(235,231,227);
+  filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
+
+;
+  .coupon-area-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .kcs-image {
+      max-height: 60px;
+      padding-right: var(--spacingSmall);
+    }
+    .coupon-area {
+      padding: var(--spacingMedium) var(--spacingLarge);
+      border: 1px dashed #3B2B2F;
+      border-radius: var(--spacingTiny);
+      /*
+      background-color: transparent;
+      */
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 15%);
+
+      align-items: center;
+      margin: var(--spacingMedium) 0 var(--spacingLarge) var(--spacingLarge);
+      width: 100%;
+      &:empty {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+      }
+
+      .coupon-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: var(--spacingSmall);
+
+        .coupon-message-area {
+          display: flex;
+          flex-direction: row;
+          flex: 0 0 65%;
+        }
+
+        .coupon-applied {
+          display: flex;
+          font-size: var(--FontSizeSmall);
+          align-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          color: var(--colorOK);
+          font-weight: 600;
+        }
+
+        .k-btn.learn-more {
+          padding: 0 !important;
+          float: inside;
+          border-radius: 0 !important;
+          border: 0 !important;
+          height: var(--FontSizeSmall) !important;
+          display: inline-flex !important;
+        }
+
+        .icon.launch-pop-up {
+          height: var(--FontSizeSmall) !important;
+          width: var(--FontSizeSmall) !important;
+          display: flex;
+          margin-left: var(--spacingTiny) !important;
+        }
+
+
+        .checkmark-circled {
+          width: var(--buttonMedium);
+          height: var(--buttonMedium);
+          margin-right: var(--spacingSmall);
+
+          .stroked {
+            stroke-width: 2px;
+            stroke: var(--colorOK);
+          }
+        }
+
+        .coupon-message {
+          padding-left: var(--spacingSmall);
+
+          span, p, label {
+            font-size: var(--FontSizeSmall);
+          }
+        }
+
+        .k-btn {
+          padding: var(--spacingTiny) var(--spacingLarge) !important;
+          flex: 1 0 0;
+          background-color: transparent !important;
+          border: 1px solid var(--colorMediumRoast) !important;
+          label {
+            font-size: var(--FontSizeSmall);
+          }
+        }
+      }
+    }
+
+  }
 
   
-
   .k-btn {
     padding: var(--spacingLarge) var(--spacingLarge);
 
@@ -50,90 +154,6 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   }
 
 
-  .coupon-area {
-    padding: var(--spacingMedium) var(--spacingLarge);
-    border: 1px dashed var(--colorFaded);
-    background-color: transparent;
-    align-items: center;
-    margin: var(--spacingMedium) var(--spacingLarge) var(--spacingLarge) 0;
-
-    &:empty {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-    }
-
-    .coupon-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: nowrap;
-      gap: var(--spacingSmall);
-
-      .coupon-message-area {
-        display: flex;
-        flex-direction: row;
-        flex: 0 0 65%;
-      }
-
-      .coupon-applied {
-        display: flex;
-        font-size: var(--FontSizeSmall);
-        align-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        color: var(--colorOK);
-        font-weight: 600;
-      }
-
-      .k-btn.learn-more {
-        padding: 0 !important;
-        float: inside;
-        border-radius: 0 !important;
-        border: 0 !important;
-        height: var(--FontSizeSmall) !important;
-        display: inline-flex !important;
-      }
-
-      .icon.launch-pop-up {
-        height: var(--FontSizeSmall) !important;
-        width: var(--FontSizeSmall) !important;
-        display: flex;
-        margin-left: var(--spacingTiny) !important;
-      }
-
-
-      .checkmark-circled {
-        width: var(--buttonMedium);
-        height: var(--buttonMedium);
-        margin-right: var(--spacingSmall);
-
-        .stroked {
-          stroke-width: 2px;
-          stroke: var(--colorOK);
-        }
-      }
-
-      .coupon-message {
-        padding-left: var(--spacingSmall);
-
-        span, p, label {
-          font-size: var(--FontSizeSmall);
-        }
-      }
-
-      .k-btn {
-        padding: var(--spacingTiny) var(--spacingLarge) !important;
-        flex: 1 0 0;
-        background-color: transparent !important;
-        border: 1px solid var(--colorMediumRoast) !important;
-        label {
-          font-size: var(--FontSizeSmall);
-        }
-      }
-    }
-  }
 
   .product-info-container {
     .coupon-item {
@@ -174,7 +194,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       font-size: var(--FontSizeMedium);
       grid-column: 2 / 2;
       grid-row: 1 / 1;
-      font-weight: 200;
+/*      font-weight: 200;*/
     }
 
     .strike-through-price {

@@ -15,11 +15,11 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
 
   width: 100%;
-  border: 1px solid grey;
+/*  border: 1px solid grey;*/
   border-radius: var(--spacingTiny);
-  padding: var(--spacingLarge);
+  padding: var(--spacingMedium);
   //margin top to make room for the absolute positioned flag
-  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeLarge)));
+  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));
   background-color: white;
 
 
@@ -65,6 +65,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 .deal-area {
   display: grid;
   grid-template-columns: 0.2fr 0.8fr;
+  margin-top: 10px;
   /*
   grid-template-rows: 1fr 1fr;
   */
@@ -127,7 +128,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
 .ksk-container {
   display: flex;
-  margin: 20px 0;
+  margin: 0 0 10px 0;
   flex-wrap: wrap;
   flex-direction: row;
   

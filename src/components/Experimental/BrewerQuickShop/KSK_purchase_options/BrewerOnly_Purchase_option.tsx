@@ -83,8 +83,11 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                 <label className="strike-through-price">$179.99</label>
                 <div className="savings-callout"></div>
             </div>
+            <div className={"coupon-area-container"}>
+            <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
             <div className="coupon-area">
                 {getCoupon()}
+            </div>
             </div>
           <CTA_WithQuantity
               totalQuantity={4}
