@@ -11,7 +11,7 @@ export type demoComponentType = "small-after-add" | "large-after-add";
 export interface iDemoProps{
     selectedComponent: demoComponentType;
     products : podItemT[];
-    selectedProduct : iSimpleProduct;
+    selectedProduct? : iSimpleProduct;
     numberOfSuggestions : number;
     currentCartValue : number;
     freeShippingTarget : number;
@@ -20,7 +20,7 @@ export const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
     return pods.map((pod) => {
         return {
             name : pod.podName,
-            image : pod.boxImagePath,
+            image : pod.boxImagePath || "",
             brand : pod.brand,
         }
     })

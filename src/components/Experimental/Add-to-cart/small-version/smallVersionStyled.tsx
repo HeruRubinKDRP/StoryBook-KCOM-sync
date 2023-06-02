@@ -95,7 +95,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
   //top area that informs of success
   .hide-label-mobile .k-btn label {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .cart-message {
@@ -106,7 +106,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
     p {
       color: var(--colorGreen);
-      font-size: var(--fontTiny);
+      font-size: 14px;
       font-weight: 600;
     }
 
@@ -205,6 +205,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     flex-direction: row;
 
     .k-btn {
+      font-size: 1.1rem;
       margin: 0 5%;
     }
 
@@ -305,9 +306,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       width: 50% !important;
       /*      padding: var(--spacingSmall) var(--spacingSmall);*/
 
-/*      label {
-        font-size: calc(var(--fontTiny));
-      }*/
+      label {
+        font-size: 1.1rem;
+      }
     }
   }
 

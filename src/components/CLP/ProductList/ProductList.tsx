@@ -144,17 +144,15 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                 couponAppliedMessage={""}
                                 learnMoreMessaging={""}
                                 addToCartFunction={() => manageAddToCart()}
-                                carousel={
-                                    {
-                                        slideImageURLs: [
-                                            {
-                                                path: props.products[selectedPod].image,
-                                                altText: "",
-                                                linkTo: ""
-                                            }
-                                        ]
-                                    }
-                                }
+                                carousel={{
+                                    slideImageURLs: [
+                                        {
+                                            path: props.products[selectedPod].image,
+                                            altText: "",
+                                            linkTo: ""
+                                        }
+                                    ]
+                                }}
                                 maxQuantityAllowed={5}
                                 colorVariants={[]}
                                 mainFlagColor="KSK"
@@ -167,8 +165,8 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                     ratingNumber: 4,
                                     totalNumberOfReviews: 20,
                                     totalNumberOfStars: 5
-                                }}
-
+                                }} learnMoreTitleKSK={'Why choose a Keurig Starter Kit?'} learnMoreTitleBrewerOnly={''} learnMoreMessagingKSK={''}
+                                learnMoreMessagingBrewerOnly={''}
                             />
                         </Suspense>
                     )

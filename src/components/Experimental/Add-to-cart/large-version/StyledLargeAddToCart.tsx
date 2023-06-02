@@ -80,7 +80,7 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
 
   //top area that informs of success
   .hide-label-mobile .k-btn label {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .cart-message {
@@ -91,7 +91,8 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
 
     p {
       color: var(--colorGreen);
-      font-size: var(--fontTiny);
+      /*font-size: var(--fontTiny);*/
+      font-size: 14px;
       font-weight: 600;
     }
 
@@ -181,6 +182,7 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     flex-direction: row;
 
     .k-btn {
+      font-size: 1.1rem;
       margin: 0 5%;
     }
 
@@ -272,6 +274,7 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     }
   }
 
+
   .actions-container, .suggested-products-container .suggested-products {
     display: flex;
     gap: var(--spacingTiny);
@@ -283,9 +286,9 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
       */
       /*      padding: var(--spacingSmall) var(--spacingSmall);*/
 
-/*      label {
-        font-size: calc(var(--fontTiny));
-      }*/
+      label {
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -313,7 +316,10 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
 
       .product-image {
         padding-right: 2%;
+        /*
         width: calc(var(--productImageSize) * 0.4);
+        */
+width: 20%;
         height: calc(var(--productImageSize) * 0.3);
         min-width: 100px;
      //   min-height: 140px;
@@ -560,12 +566,23 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     /*    .modal-item {
           max-height: 400px;
         }*/
-
+    .actions-container{
+      width: 30%;
+    }
+    .product-status-area {
+      width: 50%;
+    }
   }
 
   &.medium-dimensions {
+    .actions-container{
+      width: 30%;
+    }
     .suggested-products-container {
       min-height: 10vh;
+    }
+    .product-status-area {
+      width: 50%;
     }
   }
 
@@ -573,11 +590,14 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     // container is less than 390
     margin: 5%;
     flex-direction: column;
-
+    .product-status-area {
+      width: 100%;
+    }
     .content-area {
       background-color: #0d8296;
 
       .actions-container {
+        width: 100%;
         .k-btn {
           label {
             font: var(--fontSmall);
@@ -677,6 +697,7 @@ export const StyledLargeAddToCart = styled.div<LargeAddToCartTheme>`
     }
 
     .actions-container {
+      width: 100%;
       position: fixed;
       bottom: 0;
       left: 0;
