@@ -33,13 +33,13 @@ export const ClassicCardsContainer = (props: iClassicCardsContainer) => {
                 <ClassicCard
                     productIndex={i}
                     key={i}
-                    productImage={props.podLibrary[i].productImagePrimaryPath}
+                    productImage={props.podLibrary[i].productImagePrimaryPath ?? ""}
                     productName={props.podLibrary[i].podName}
                     bannerType={"none"}
                     brandName={props.podLibrary[i].brand}
-                    productPrices={props.podLibrary[i].productPrices}
+                    productPrices={props.podLibrary[i].productPrices ?? []}
                     alwaysShowCTA={props.alwaysShowCTA}
-                    boxSizes={props.podLibrary[i].boxSizes}
+                    boxSizes={props.podLibrary[i].boxSizes ?? []}
                     selectedProductOverride={1}
                     ctaAction={props.ctaAction}
                 />

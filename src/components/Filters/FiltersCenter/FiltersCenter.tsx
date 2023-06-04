@@ -13,6 +13,7 @@ export interface iFiltersCenter{
 
 export interface iCategoryItem {
     title: string;
+    priority?: "high" | "medium" | "low";
     subcategories: iCategorySubcategory[];
     defaultOpen?: boolean;
 }

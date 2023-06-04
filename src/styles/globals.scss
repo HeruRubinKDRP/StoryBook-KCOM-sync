@@ -1,13 +1,11 @@
 @import "../components/GridPanel/GridPanel.module";
 @import "../components/ProductImage/productImage.module";
 @import "../components/ContainerHeader/containerHeader.module";
-@import "../components/myBrewsSubs/my-brews.module";
 @import "../components/Kbutton/k-button.module";
 @import "../components/add-products/add-products.module";
 @import "src/pages/PDP/pdp.module";
 @import "../components/ProductScene/ProductScene.module";
 @import "../components/LifeBar/life-bar.module";
-@import "../components/FlowPanel/k-flow-panel.module";
 @import "../components/Price/price.module";
 @import "../components/PanelHeader/panel-header.module";
 @import "../components/Toggle/toggle.module";
@@ -180,7 +178,6 @@ button{
   background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,241,234,1) 100%);
   height: 100%;
 }
-
 
 .padded-demo{
   padding: 4rem;

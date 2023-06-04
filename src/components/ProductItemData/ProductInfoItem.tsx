@@ -8,7 +8,7 @@ import {Rating} from "../Rating/Rating";
 import {KToggle, toggleItem} from "../Toggle/Toggle";
 
 export type ratingT = {
-  totalStars: number,
+  totalStars: 5,
   starRating: number,
   totalReviews: number
 }
@@ -107,11 +107,11 @@ export const ProductInfoItem = (props: IproductItem) => {
   const getRating=()=>{
     if(!props.rating){return}
     return <Rating
-      totalNumberOfStars={props.rating.totalStars}
+      totalNumberOfStars={props.rating.totalStars }
       totalNumberOfReviews={props.rating.totalReviews}
       ratingNumber={props.rating?.starRating}
       ratingActiveColor="Primary-CTA"
-      height={1} />
+      />
   }
 
   const getProdItem = () => {

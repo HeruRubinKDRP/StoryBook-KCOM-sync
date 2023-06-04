@@ -28,6 +28,7 @@ export type filterDataItemT = {
 }
 
 export interface iProductInfoCardProps {
+    id?: number;
     productType: productTypeT
     image: string;
     brand: string;

@@ -3,10 +3,10 @@ import {Kcarousel} from "../../components/Carousel/Kcarousel";
 import {ContentItem} from "../../components/ContentComponents/ContentComponent";
 import {FocalImageContent} from "../../components/ContentComponents/FocalImage/FocalImage";
 import PdpFramework from "../../components/PDP_Related/PDP_FrameWork/PDP_FrameWork";
-import {carousel_images_KCS, carousel_images_KSS, KCS_specs_data} from "./pdp-data";
+import KCS_specs_data, {carousel_images_KCS, carousel_images_KSS} from "../../data/pdp-data";
 import {navDemo} from "../../components/NavMenu/NavigationV2/navigation.stories";
 
-export const KCS_PDP=(version : string | string[])=>{
+const KCS_PDP=(version : string | string[])=>{
 
   switch(version){
     default:
@@ -856,3 +856,5 @@ export const KSS_PDP=(version : string | string[])=>{
       )
   }
 }
+
+export default KCS_PDP;

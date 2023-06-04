@@ -1,6 +1,6 @@
 import {Meta, Story} from '@storybook/react'
 import PdpFramework, {iPdpFramework} from "./PDP_FrameWork";
-import {carousel_images_KCS, KCS_specs_data} from "../../../pages/PDP/pdp-data";
+import KCS_specs_data, {carousel_images_KCS} from "../../../data/pdp-data";
 import {ContentItem} from "../../ContentComponents/ContentComponent";
 import {Kcarousel} from "../../Carousel/Kcarousel";
 import {FocalImageContent} from "../../ContentComponents/FocalImage/FocalImage";

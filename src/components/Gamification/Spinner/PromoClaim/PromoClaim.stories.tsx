@@ -13,6 +13,7 @@ const Template: Story<PromoClaimProps> = (args) => <PromoClaim {...args} />;
 export const Default = Template.bind({});
 Default.args = {
     promotion: {
+        promoMode: "big-image",
         name: 'Sample Promotion',
         link: 'https://example.com/sample-promo-image.png',
         weight: 1,

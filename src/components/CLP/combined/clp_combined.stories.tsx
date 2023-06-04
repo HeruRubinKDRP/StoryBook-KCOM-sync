@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { CLP_Combined, iCLP_Combined } from './clp_combined';
-import {podLibrary} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 
 export default {
     title: 'CLP/Price-Per-Pod and Box Counts',

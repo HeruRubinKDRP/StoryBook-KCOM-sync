@@ -18,7 +18,6 @@ ProductIdentityBasicView.args={
   productNameExtended : "K-Café® SMART Single-Serve Coffee, Cappuccino and Latte Maker",
   tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations",
   rating :{
-    height : 1,
     totalNumberOfStars : 5,
     ratingNumber : 4.2,
     totalNumberOfReviews : 1431,

@@ -26,7 +26,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   
   --ctaButtonHeight : calc(var(--spacingLarge) * 2);
 
-  ${ctaColorStyles};
+  ${ctaColorStyles}; 
 
   display: grid;
   grid-template-columns: repeat(var(--columnCount), 1fr);

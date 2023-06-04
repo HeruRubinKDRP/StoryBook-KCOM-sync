@@ -5,6 +5,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
    //categories
     {
         title: 'Categories',
+        priority: "high",
         subcategories: [
             {
                 isChecked: false,
@@ -58,6 +59,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
     // features
     {
         title: 'Features',
+        priority: "high",
         subcategories: [
             {
                 isChecked: false,
@@ -195,7 +197,7 @@ export const brewerFiltersSettings : iCategoryItem[] = [
             {
             isChecked: false,
             filterID: 18,
-            filterTerm: "60oz-or-more",
+            filterTerm: "60oz-removable-reservoir",
             name: '60 oz or more',
             productNumber: '(7)',
             imageSrc: ''

@@ -64,7 +64,6 @@ interface iFiltersWrapper {
 
 const Filters = (props:iFiltersWrapper) => {
 
-
     if (props.type === 'beverages') {
         return <BeveragesFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction} />;
     } else if (props.type === 'brewer') {

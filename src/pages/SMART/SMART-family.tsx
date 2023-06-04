@@ -5,13 +5,10 @@ import {Kcarousel} from "../../components/Carousel/Kcarousel";
 import {ContentItem, iContentItem} from "../../components/ContentComponents/ContentComponent";
 import {FocalImageContent} from "../../components/ContentComponents/FocalImage/FocalImage";
 import {ProductCard} from "../../components/ContentComponents/ProductCard/ProductCard";
-import {ExpandCollapse} from "../../components/ExpandCollapse/expand-collapse";
 import {iPageNav, PageNav} from "../../components/PageNav/PageNav";
 import {PanelHeader} from "../../components/PanelHeader/PanelHeader";
 import {FeaturesList} from "../../components/ProductDetails/FeaturesList/features-list";
 import {SEO_item} from "../../components/SEO_Component/SEOitem";
-import {KTable} from "../../components/Table/KTable";
-import {sampleTable} from "../../components/Table/sample-data";
 import {colorByNameType} from "../../components/_utilities/color-name-to-value/colorNameToValue";
 
 export default function SMARTdemo(){
@@ -365,16 +362,7 @@ const [isVersionsOpen, setVersionOpen]=useState<boolean>(false);
               productImagePath="/images/silos/KSPS/ksps.png"
               productName="K-Supreme® Plus SMART"
               secondarySlogan="Stainless Steel Metal Wrap, 5 Brew Sizes"
-              featuresList={[
-                {
-                  featureStyle : "just-name",
-                  featureName : "Stainless Steel Metal Wrap"
-                },
-                {
-                  featureStyle : "just-name",
-                  featureName : "5 Brew Sizes"
-                }
-              ]}
+              featuresList="MultiStream Technology™ extracts more flavor and aroma*"
               pricingMessage="$229.99 List Price"
               showPrice
               showProductColors
@@ -398,16 +386,7 @@ const [isVersionsOpen, setVersionOpen]=useState<boolean>(false);
               showPrice
               showProductColors
               pricingMessage="$249.99 List Price"
-              featuresList={[
-                {
-                  featureStyle : "just-name",
-                  featureName : "Fast & Easy Coffeehouse Drinks"
-                },
-                {
-                  featureStyle : "just-name",
-                  featureName : "Built-In Milk Frother"
-                }
-              ]}
+              featuresList=""
             />
           </>
         ]}

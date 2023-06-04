@@ -9,6 +9,11 @@ export const FiltersCenterStyled = styled.div`
   .accordion-item{
     ${AnimFadeIn};
     animation-delay: 0.25s;
+  } 
+ 
+  
+  .accordion-content-item{
+    background-color: white !important;
   }
   
     width: 100%;

@@ -44,6 +44,10 @@ export const StatefulCheckboxList: React.FC = () => {
         console.log('Selection changed');
     };
 
-    return <FilterableCheckboxList items={items} onSelectionChange={handleSelectionChange} />;
+    return <FilterableCheckboxList
+        sectionIndex={0}
+        items={items}
+        onSelectionChange={handleSelectionChange}
+    />;
 };
 

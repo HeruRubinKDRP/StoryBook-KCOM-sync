@@ -127,12 +127,17 @@ export function KSS() {
             productName="K-Supreme® SMART"
             productNameExtended="K-Supreme® SMART Single-Serve Coffee Maker"
             rating={{
-              height: 1,
               ratingNumber: 4.2,
               scrollToTargetID: 'Ratings',
               totalNumberOfReviews: 1431,
               totalNumberOfStars: 5
             }}
+            flag={
+                {
+                    flagLabel: "NEW",
+                    flagStyle: "squared-curved"
+                }
+            }
             tagline="With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless. "
           />
           <KToggle
@@ -232,10 +237,8 @@ export function KSS() {
             }}
             showStrikeThrough={true}/>
           <FreeShipping
-            colorOverride="dark-roast"
             messageText="This item ships FREE"
             showFreeShipping
-            sizeOverride="1.5rem"
           />
           <FeatureBulletsArea
             height="auto"

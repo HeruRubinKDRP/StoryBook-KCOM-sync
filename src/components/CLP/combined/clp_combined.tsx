@@ -1,6 +1,7 @@
 import {CLP_CombinedContainer_Styled} from "./Styled_CLP_Combined";
 import {ClassicCardsContainer} from "../../Classic_components/cards/ClassicCardsContainer";
-import {podItemT, podLibrary} from "../../../pages/myBrews";
+import {podItemT} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import {useState} from "react";
 import {BeverageQuickShop} from "../Beverage_QuickShop/BeverageQuickShop";
 import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
@@ -51,9 +52,9 @@ export const CLP_Combined = (props: iCLP_Combined) => {
                     <BeverageQuickShop
                         productName={props.podLibrary[selectedPod].podName}
                         brand={props.podLibrary[selectedPod].brand}
-                        productImageURL={props.podLibrary[selectedPod].productImagePrimaryPath}
-                        productPrices={props.podLibrary[selectedPod].productPrices}
-                        boxSizes={props.podLibrary[selectedPod].boxSizes}
+                        productImageURL={props.podLibrary[selectedPod].productImagePrimaryPath ?? ""}
+                        productPrices={props.podLibrary[selectedPod].productPrices ?? []}
+                        boxSizes={props.podLibrary[selectedPod].boxSizes ?? []}
                         isSmartEligible={true}
                         edlpOffer={props.edlpOffer}
                         subscriptionVisible={true}

@@ -19,8 +19,8 @@ export interface iDemoProps{
 export const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
     return pods.map((pod) => {
         return {
-            name : pod.podName,
-            image : pod.boxImagePath,
+            name : pod.podName ?? "",
+            image : pod.boxImagePath ?? "",
             brand : pod.brand,
         }
     })

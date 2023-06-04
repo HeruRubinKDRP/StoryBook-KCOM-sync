@@ -20,23 +20,23 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
         let max = 4.9;
         let randomNum = parseFloat( (Math.random() * (max - min) + min).toFixed(1) );
 
-
+    if(!podLibrary[i].productPrices){return []}
         products.push({
-            productType: podLibrary[i].productType,
+            productType: podLibrary[i].productType ?? "pod",
             ratingVisible: true,
-            prices: podLibrary[i].productPrices.map((price, index) => {
+            prices: podLibrary[i].productPrices!.map((price, index) => {
                 return {
                     price: price,
                     inStock: true,
                     variant: {
-                        quantity: podLibrary[i].boxSizes[index],
+                        quantity: podLibrary[i].boxSizes![index] ?? 0,
                         variantName: "ct"
                     }
                 }
             }),
             name: name,
             brand: brand,
-            image: image,
+            image: image ?? "",
             rating :{
                 totalNumberOfStars: 5,
                 totalNumberOfReviews: randomNum,

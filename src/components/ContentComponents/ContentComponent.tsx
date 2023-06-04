@@ -432,7 +432,13 @@ export const ContentItem =(props : iContentItem)=>{
       case "slide-down-mode":
         return content;
      default:
-        return <PopUp hasBackButton={false} closeFunc={()=>setTermsConditionsIsOpen(false)} windowTitle={""} isOpen={true} hasHeader={true} hasVeil={true} content={content}/>
+        return <PopUp
+            hasBackButton={false}
+            closeFunc={()=>setTermsConditionsIsOpen(false)}
+            windowTitle={""} isOpen={true} hasHeader={true}
+            hasVeil={true}
+            children={content}
+        />
     }
   }
 

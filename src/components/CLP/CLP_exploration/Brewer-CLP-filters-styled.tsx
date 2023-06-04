@@ -25,9 +25,7 @@ export const BrewerCLPFiltersStyle = styled.div`
   .filters {
     display: flex;
     width: 340px;
-    height: 100%;
-    background-image: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(245, 241, 234) 100%);
-    box-shadow: inset -5px 7px 13px 0px rgba(0,0,0,0.1);
+    height: 100%;  
     left: 0;
     z-index: 10;
     transition: display 0.5s ease-in-out;

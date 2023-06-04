@@ -9,9 +9,11 @@ import {iStickyHeader, StickyHeader} from 'components/Sticky Header/StickyHeader
 import KButton, {iButton} from 'components/Kbutton/KButton';
 import SaleToggle from 'components/SaleToggle/sale-toggle';
 import Graphic from 'components/Graphic/Graphic';
+import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
 
 export interface iCombineComponent {
     stickyHeader: iStickyHeader;
+    filtersDefinitions : iCategoryItem[];
     stickyHeaderMode: "slim" | "full";
     products: iCardProps[];
     filters: JSX.Element;
@@ -81,7 +83,11 @@ function CombinedComponent(props: iCombineComponent) {
             <CombinedComponentStyle>
 
                 <FiltersContainerStyle>
-                    <Filters isVisible={isVisible}/>
+                    <Filters
+                        filtersDefiniton={props.filtersDefinitions}
+                        isVisible={isVisible}
+                        filtersFunction={()=>{}}
+                    />
                 </FiltersContainerStyle>
                 <div className="right-part">
                       <ComponentFilterStyle>

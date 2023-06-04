@@ -1,5 +1,5 @@
 import { Story, Meta } from "@storybook/react/types-6-0";
-import {podLibrary} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import {ClassicCardsContainer, iClassicCardsContainer} from "./ClassicCardsContainer";
 
 export default {

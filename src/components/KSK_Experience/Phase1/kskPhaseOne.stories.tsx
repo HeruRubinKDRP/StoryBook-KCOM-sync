@@ -1,6 +1,7 @@
 import { Story, Meta } from "@storybook/react/types-6-0"
 import React from "react";
-import {filtersList, podLibrary} from "../../../pages/myBrews";
+import {filtersList} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import {iKSK_PhaseOne, KSK_Phase_One} from "./KSK_Phase_One";
 
 

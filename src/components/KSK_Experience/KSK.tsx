@@ -1,6 +1,7 @@
 import React, {ReactElement, useContext, useEffect, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
-import {podItemT, podLibrary} from "../../pages/myBrews";
+import {podItemT} from "../../pages/myBrews";
+import {podLibrary} from "../../data/beverage-library";
 import {CLP} from "../CLP/CLP";
 import {KButton} from "../Kbutton/KButton"
 import {ChooseBrewer} from "./ChooseBrewer";

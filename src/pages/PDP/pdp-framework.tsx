@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import React, {useState} from "react";
 
 import {PanelHeader} from "../../components/PanelHeader/PanelHeader";
-import {KCS_PDP, KSS_PDP} from "./PDP_versions";
-import {carousel_images_KCS, KCS_specs_data} from "./pdp-data";
+import KCS_PDP, {KSS_PDP} from "./PDP_versions";
+import KCS_specs_data, {carousel_images_KCS} from "../../data/pdp-data";
 
 export function PDPdemo() {
   const [isVersionsOpen, setVersionOpen]=useState<boolean>(true);
