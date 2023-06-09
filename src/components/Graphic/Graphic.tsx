@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react";
 import {GraphicStyled} from "./graphic.styled";
+import {brewerLibrary} from "../../data/brewer-library";
 
 
 export type iconPlacementTYPE = "before-label" | "after-label" | "no-icon" | "right-edge" | "left-edge";
@@ -102,7 +103,10 @@ export type iconType =
     "indicator-trapezoid" |
     "icon-filters" |
     "icon-images" |
-    "icon-features"
+    "icon-features" |
+    "icon-space-saver" |
+    "icon-stop-watch" |
+    "icon-bagged-and-pod"
     ;
 
 
@@ -124,10 +128,60 @@ export function Graphic(props: Igraphics) {
 
     switch (props.graphicName) {
 
+        case "icon-bagged-and-pod":
+graphicData=(
+       <svg width="100%" height="100%" viewBox = "0 0 41.54 41.54" >
+            <g className="filled" style={{fill: props.colorOverride}}>
+                <path
+                      d="m21.92,15.55c-2.5,0-4.52,3.15-4.52,7.04s2.02,7.04,4.52,7.04,4.52-3.15,4.52-7.04-2.02-7.04-4.52-7.04Zm1.32,5.89l-.87,1.73c-.15.31-.22.65-.17.99.11.89.31,2.6.29,2.52-.01-.07-1.03-1.1-1.69-1.77-.33-.33-.4-.84-.16-1.25l.96-1.68c.13-.23.17-.5.1-.76l-.69-2.62,2.1,2.05c.21.21.27.53.13.8Z"/>
+                <path
+                      d="m38.81,10.66l-2.69-4.31.03-.04V1.42c0-.36-.29-.66-.66-.66H14.73c-.36,0-.66.29-.66.66v4.89h0l-2.71,4.35c-.3.48-.45,1.03-.45,1.59v13.48h1.83v-13.58c0-.4.11-.79.31-1.13l2.62-4.19h18.16l-2.38,3.83c-.3.48-.45,1.03-.45,1.59v27.29H14.9v1.15h17.44s2.19,0,2.19,0c.07,0,.13-.03.18-.08l.71-.72c.05-.06.14-.07.19,0l.73.75s.1.07.15.07h2.5c.15,0,.27-.12.27-.27V12.25c0-.56-.16-1.11-.45-1.59ZM16.35,2.76h17.51c.16,0,.28.13.28.28v2.63h-18.08v-2.63c0-.16.13-.28.28-.28Zm21.08,33.69l-.98-2.43c-.06-.16-.22-.26-.39-.27h-1.07c-.18-.02-.34.09-.4.25l-1.77,4.36V12.15c0-.4.11-.79.31-1.13l1.93-3.22,2.06,3.22c.2.34.31.73.31,1.13v24.31Z"/>
+                <path
+                      d="m16.04,26.78H1.15v1.89h1.81l1.08,11.5c.03.31.29.55.6.55h7.9c.31,0,.57-.24.6-.55l1.08-11.5h1.81v-1.89Zm-9.06,10.28c-.54,0-.99-.45-.99-1.01s.44-1.01.99-1.01.99.45.99,1.01-.45,1.01-.99,1.01Zm0-2.3c-.54,0-.99-.45-.99-1.01s.44-1.01.99-1.01.99.45.99,1.01-.45,1.01-.99,1.01Zm0-2.31c-.54,0-.99-.45-.99-1.01s.44-1.01.99-1.01.99.45.99,1.01-.45,1.01-.99,1.01Zm5.02,4.49h-1.84l-1.88-3.18,1.86-3.2h1.85l-1.93,3.2,1.93,3.18Z"/>
+
+            </g>
+        </svg>
+)
+            break;
+
+        case "icon-stop-watch":
+            graphicData = (
+         <svg width="100%" height="100%" viewBox="0 0 40.67 40.67">
+            <path className="filled" style={{fill: props.colorOverride}}
+                  d="m20.33,8.48c7.93,0,14.38,6.45,14.38,14.38s-6.45,14.38-14.38,14.38-14.38-6.45-14.38-14.38,6.45-14.38,14.38-14.38m0-3C10.74,5.48,2.96,13.26,2.96,22.85s7.78,17.38,17.38,17.38,17.38-7.78,17.38-17.38S29.93,5.48,20.33,5.48h0Z"/>
+            <g className="filled" style={{fill: props.colorOverride}}>
+                <rect  x="13.42" y=".44" width="13.25" height="3.9" rx="1.6" ry="1.6"/>
+                <rect x="17.71" y=".44" width="4.67" height="7.56"/>
+                <path
+                      d="m29.72,13.86c-2.37-2.47-5.69-4.01-9.38-4.01-.1,0-.19.01-.29.01v13.67l9.67-9.67Z"/>
+            </g>
+        </svg>
+            )
+
+            break;
+
+        case "icon-space-saver":
+            graphicData = (
+                 <svg width="100%" height="100%" viewBox="0 0 41.33 41.33" >
+                     <path className="filled"
+                         d="m20.67,3c9.74,0,17.67,7.93,17.67,17.67s-7.93,17.67-17.67,17.67S3,30.41,3,20.67,10.93,3,20.67,3m0-3C9.25,0,0,9.25,0,20.67s9.25,20.67,20.67,20.67,20.67-9.25,20.67-20.67S32.08,0,20.67,0h0Z"/>
+
+                     <g className="stroked" style={{stroke: props.colorOverride}}>
+               <polyline points="12.44 14.69 17.87 20.11 12.44 25.53"/>
+               <line x1="1.88" y1="20.11" x2="16.75" y2="20.11"/>
+               <polyline points="28.98 14.69 23.56 20.11 28.98 25.53"/>
+               <line x1="39.55" y1="20.11" x2="24.68" y2="20.11"/>
+           </g>
+        </svg>
+
+            )
+
+            break;
+
         case "icon-features":
             graphicData = (
-               <svg viewBox = "0 0 46.83 46.83" >
-            <g className="filled">
+               <svg width="100%" height="100%" viewBox = "0 0 46.83 46.83" >
+            <g className="filled" style={{fill: props.colorOverride}}>
                 <rect x="15.41" y="8.63" width="28.7" height="3.93" rx="1.5" ry="1.5"/>
                 <rect x="15.41" y="21.56" width="24.48" height="3.93" rx="1.5" ry="1.5"/>
                 <rect x="15.41" y="35.13" width="17.96" height="3.93" rx="1.5" ry="1.5"/>
@@ -144,7 +198,7 @@ export function Graphic(props: Igraphics) {
 
         case "icon-images":
             graphicData = (
-                <svg width="100%" height="100%" viewBox = "0 0 53.83 53.83" >
+                <svg width="100%" height="100%" viewBox = "0 0 53.83 53.83" style={{fill: props.colorOverride}}>
                 <path className="stroked" id="picture_frame"
                       d="m49.39,3.14c.28,0,.51.23.51.51v39.71c0,.28-.23.51-.51.51H11.04c-.28,0-.51-.23-.51-.51V3.65c0-.28.23-.51.51-.51h38.35m0-3H11.04c-1.94,0-3.51,1.57-3.51,3.51v39.71c0,1.94,1.57,3.51,3.51,3.51h38.35c1.94,0,3.51-1.57,3.51-3.51V3.65c0-1.94-1.57-3.51-3.51-3.51h0Z"/>
              <circle  id="sun" className="filled" cx="20.75" cy="16.12" r="4.06"/>

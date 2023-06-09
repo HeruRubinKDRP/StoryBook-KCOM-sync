@@ -23,7 +23,7 @@ export const CommonActionsMenu=(props:iCommonActiosMenu)=>{
         await setAccountMenuIsOpen(false)
     }
 
-    useOutsideToggler(accountMenuRef.current, clickOutsideAccount);
+    useOutsideToggler(accountMenuRef.current, clickOutsideAccount, accountMenuIsOpen);
 
     const handleAccountMenu = async (openOrClosed:boolean) => {
         // setCurrentHover(-1);

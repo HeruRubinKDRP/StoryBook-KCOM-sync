@@ -1,6 +1,7 @@
 import React, {ReactElement, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
-import {podItemT, podLibrary} from "../../../pages/myBrews";
+import {podItemT} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import Graphic from "../../Graphic/Graphic";
 import {Illustration} from "../../Graphic/Illustrations";
 import {Incrementor} from "../../Incrementor/incrementor";

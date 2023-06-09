@@ -39,6 +39,62 @@ import {iFeatureBullet} from "../components/FeatureBullets/FeatureBulletItem/Fea
 //     flipFunction?: () => void;
 // }
 
+export type filterOptionsT = "smart-wifi-enabled" |
+    "single-serve-coffee-maker" |
+    "coffee-house-beverages-at-home" |
+    "dual-coffee-makers" |
+    "brew-over-ice-coffee-makers" |
+    "digital-clock" |
+    "display-screen" |
+    "fits-travel-mug" |
+    "froths-milk" |
+    "iced-setting" |
+    "multi-position-reservoir" |
+    "glass-carafe-&-heating-plate" |
+    "strength-control" |
+    "temperature-control" |
+    "brushed-silver" |
+    "evening-teal" |
+    "studio-grey" |
+    "matte-white" |
+    "matte-navy" |
+    "sandstone" |
+    "white" |
+    "black" |
+    "grey" |
+    "arctic-grey" |
+    "bronze" |
+    "gold" |
+    "copper" |
+    "stainless-steel" |
+    "green" |
+    "oasis" |
+    "chili-green" |
+    "dark-green" |
+    "blue" |
+    "light-blue" |
+    "steel-blue" |
+    "midnight-blue" |
+    "vintage-red" |
+    "cardinal-red" |
+    "rhubarb" |
+    "bagged-coffee" |
+    "k-cup" |
+    "42oz-removable-reservoir" |
+    "48oz-removable-reservoir" |
+    "60oz-removable-reservoir" |
+    "75oz-reservoir" |
+    "iced-tumbler-friendly" |
+    "add-water-each-time" |
+    "up-to-52-ounces" |
+    "52-ounce-removable-reservoir" |
+    "commercial" |
+    "home" |
+    "auto-on" |
+    "energy-saver-auto-off" |
+    "high-altitude-setting" |
+    "not-found";
+
 export const brewerFeatures : iFeatureBullet[] = [
     //BrewID 0
     {
@@ -117,26 +173,82 @@ export const brewerFeatures : iFeatureBullet[] = [
         showChevron : false,
         featureDetails : "8, 10, 12 oz."
     },
-    //4 Cup Sizes : 11
+    //3 Cup Sizes : 10
+    {
+        featureLabel : "3 Cup Sizes",
+        featureIcon : "icon-cup",
+        showChevron : false,
+        featureDetails : "8, 10, 12 oz."
+    },
+    //4 Cup Sizes : 12
     {
         featureLabel : "4 Brew Sizes",
         featureIcon : "icon-cup",
         showChevron : false,
         featureDetails : "6, 8, 10, and 12 oz."
     },
-    //5 Cup Sizes : 12
+    //5 Cup Sizes : 13
     {
         featureLabel : "5 Brew Sizes",
         featureIcon : "icon-cup",
         showChevron : false,
         featureDetails : "6, 8, 10, and 12 oz."
     },
-    //Space saving design : 13
+    //Space saving design : 14
     {
         featureLabel : "Space Saving Design",
-        featureIcon : "icon-cup",
+        featureIcon : "icon-space-saver",
         showChevron : false,
         featureDetails : "Less than 5 inches wide"
+    },
+    //75oz Removable Reservoir 15
+    {
+        featureLabel : "75oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 75oz removable water reservoir lets you brew 8 cups between refills."
+    },
+    //Less than 1 minute brew time 16
+    {
+        featureLabel : "Fast Brew Time",
+        featureIcon : "icon-stop-watch",
+        showChevron : false,
+        featureDetails : "Brew time is less than a minute."
+    },
+    //46oz Removable Reservoir 17
+    {
+        featureLabel : "46oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 46oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //75oz Removable Reservoir 18
+    {
+        featureLabel : "75oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 75oz removable water reservoir lets you brew 8 cups between refills."
+    },
+    //52oz Removable Reservoir 19
+    {
+        featureLabel : "52oz Removable Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 52oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //Removable One Cup Reservoir 20
+    {
+        featureLabel : "Removable One Cup Reservoir",
+        featureIcon : "water-drop",
+        showChevron : false,
+        featureDetails : "The large 52oz removable water reservoir lets you brew 5 cups between refills."
+    },
+    //fast & fresh brewed 21
+    {
+        featureLabel : "Fast & Fresh Brewed",
+        featureIcon : "icon-stop-watch",
+        showChevron : false,
+        featureDetails : "Delivers fresh brewed, delicious coffee from your favorite K-Cup® pods in minutes."
     },
 
 ]
@@ -161,6 +273,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         brand: "Keurig",
         name : "K-Supreme Plus® SMART Single Serve Coffee Maker",
         siloImagePath : "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch?$pdp_general$&fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72&extend=0,0,0,0",
+
         productFeatures : [
             //BrewID
             brewerFeatures[0],
@@ -209,15 +322,23 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         filterData : [
             {
                 filterName : "category",
-                filterValues : ["smart", "single-serve" ]
+                filterValues : ["smart-wifi-enabled", "single-serve-coffee-maker" ]
             },
             {
                 filterName : "features",
-                filterValues : ["display-screen", "strength-control", "temperature-controls" ]
+                filterValues : ["display-screen", "strength-control", "temperature-control" ]
             },
             {
                 filterName : "color",
                 filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir", "multi-position-reservoir"]
             }
         ],
         onClick: () => console.log('Add to Cart clicked'),
@@ -244,6 +365,36 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : ["smart-wifi-enabled", "single-serve-coffee-maker", "brew-over-ice-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "display-screen",
+                    "strength-control",
+                    "temperature-control",
+                    "froths-milk",
+                    "coffee-house-beverages-at-home",
+                    "energy-saver-auto-off",
+                    "auto-on"
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir", "multi-position-reservoir"]
+            }
+        ],
         productFeatures : [
             //BrewID
             brewerFeatures[0],
@@ -262,7 +413,8 @@ export const brewerLibrary : iProductInfoCardProps[] =[
 
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-supreme.png",
         brand: "Keurig",
@@ -308,8 +460,31 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "smart-wifi-enabled", "brew-over-ice-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : ["strength-control", "temperature-control"  ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir" ]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-slim1.png",
         brand: "Keurig",
@@ -331,16 +506,39 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+        {
+            filterName : "category",
+            filterValues : [ "single-serve-coffee-maker" ]
+        },
+        {
+            filterName : "features",
+            filterValues : ["strength-control", "temperature-control" ]
+        },
+        {
+            filterName : "color",
+            filterValues : ["black", "grey", "stainless-steel"]
+        },
+        {
+            filterName : "Brew Type",
+            filterValues : ["k-cup"]
+        },
+        {
+            filterName : "reservoir",
+            filterValues : ["60oz-removable-reservoir" ]
+        }
+        ],
         productFeatures :[
             //Smart delivery
             brewerFeatures[3],
             //multi stream
             brewerFeatures[5],
             //space saving design
-            brewerFeatures[13],
+            brewerFeatures[14],
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-elite.png",
         brand: "Keurig",
@@ -362,26 +560,48 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
-        productFeatures :[
+        filterData :[
             {
-                featureLabel : "4 Brew Sizes",
-                featureIcon : "icon-cup",
-                showChevron : false,
-                featureDetails : "6, 8, 10, and 12 oz."
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "brew-over-ice-coffee-makers" ]
             },
             {
-                featureLabel : "66oz Dual-Position Reservoir",
-                featureIcon : "water-drop",
-                showChevron : false,
-                featureDetails : "Choose the perfect position for optimal counter space. Removable for easy refilling."
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "iced-setting",
+                    "temperature-control",
+                    "fits-travel-mug",
+                    "75oz-reservoir",
+                    "auto-on",
+                    "energy-saver-auto-off",
+                    "display-screen",
+                    "digital-clock",
+                    "high-altitude-setting",
+                ]
             },
             {
-                featureLabel : "Brew Over Ice",
-                featureIcon : "icon-iced-coffee",
-                showChevron : false,
-                featureDetails : "Brew over ice with bold, full-flavored iced coffee."
+                filterName : "color",
+                filterValues : ["black", "grey", "stainless-steel"]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir" ]
             }
-
+        ],
+        productFeatures :[
+            //5 Cup Sizes : 12
+            brewerFeatures[13],
+            //75oz Removable Reservoir 15
+            brewerFeatures[15],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
+            //brew over ice 6
+            brewerFeatures[6],
         ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
@@ -401,11 +621,49 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         ratingVisible : false,
+        productFeatures:[
+            //multi stream 5
+            brewerFeatures[5],
+            //Space saving design : 14
+            brewerFeatures[14],
+            //3 Cup Sizes : 10
+            brewerFeatures[10],
+            //46oz Removable Reservoir 17
+            brewerFeatures[17],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
+        ],
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "brew-over-ice-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "add-water-each-time",
+                    "auto-on",
+                    "energy-saver-auto-off",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black", "studio-grey", "oasis", "chili-green"]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["add-water-each-time" ]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
         productType: 'brewer',
@@ -423,12 +681,54 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 variant: {quantity : 1, variantName : "Grey"}
             }
         ],
+        productFeatures :[
+            //4 Cup Sizes : 12
+            brewerFeatures[12],
+            //52oz Removable Reservoir 19
+            brewerFeatures[19],
+            //Less than 1 minute brew time 16
+            brewerFeatures[16],
+        ],
         ratingVisible : false,
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "energy-saver-auto-off",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : [
+                    "black",
+                    "vintage-red",
+                    "matte-white",
+                    "matte-navy",
+                    "oasis",
+                    "sandstone"
+                ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir" ]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
         productType: 'brewer',
@@ -446,12 +746,56 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 variant: {quantity : 1, variantName : "Grey"}
             }
         ],
+        productFeatures:[
+            //Space saving design : 14
+            brewerFeatures[14],
+            //Removable One Cup Reservoir 20
+            brewerFeatures[20],
+            //fast & fresh brewed 21
+            brewerFeatures[21],
+        ],
         ratingVisible : false,
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [
+                    "single-serve-coffee-maker",
+                    "brew-over-ice-coffee-makers"
+                ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "add-water-each-time",
+                    "auto-on",
+                    "energy-saver-auto-off",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : [
+                    "black",
+                    "cardinal-red",
+                    "evening-teal",
+                    "studio-grey"
+                ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues : ["k-cup"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["add-water-each-time" ]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
     },{
         productType: 'brewer',
@@ -470,6 +814,38 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         ratingVisible : false,
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "dual-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "60oz-removable-reservoir",
+                    "energy-saver-auto-off",
+                    "glass-carafe-&-heating-plate",
+                    "display-screen",
+                    "digital-clock",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir" ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee", "k-cup"]
+            }
+        ],
+
         rating : {
             totalNumberOfStars : 5,
             totalNumberOfReviews : 1023,
@@ -498,6 +874,38 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "dual-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "60oz-removable-reservoir",
+                    "energy-saver-auto-off",
+                    "glass-carafe-&-heating-plate",
+                    "display-screen",
+                    "digital-clock",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["60oz-removable-reservoir" ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee", "k-cup"]
+            }
+        ],
+
         onClick: () => console.log('Add to Cart clicked'),
     },{
         productType: 'brewer',
@@ -521,8 +929,42 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "60oz-removable-reservoir",
+                    "energy-saver-auto-off",
+                    "glass-carafe-&-heating-plate",
+                    "display-screen",
+                    "digital-clock",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : ["48oz-removable-reservoir" ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues: ["k-cup"]
+            }
+        ],
+
+
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-duo-plus.png",
         brand: "Keurig",
@@ -544,8 +986,40 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+        filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "dual-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "multi-position-reservoir",
+                    "energy-saver-auto-off",
+                    "glass-carafe-&-heating-plate",
+                    "display-screen",
+                    "digital-clock",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["black"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : [ "60oz-removable-reservoir" ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee", "k-cup"]
+            }
+        ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-slim-iced.png",
         brand: "Keurig",
@@ -560,6 +1034,35 @@ export const brewerLibrary : iProductInfoCardProps[] =[
                 inStock : true,
                 variant: {quantity : 1, variantName : "Grey"}
             }
+        ],filterData :[
+            {
+                filterName : "category",
+                filterValues : [ "single-serve-coffee-maker", "brew-over-ice-coffee-makers" ]
+            },
+            {
+                filterName : "features",
+                filterValues : [
+                    "strength-control",
+                    "fits-travel-mug",
+                    "strength-control",
+                    "iced-setting",
+                    "iced-tumbler-friendly",
+                    "energy-saver-auto-off",
+                    "high-altitude-setting",
+                ]
+            },
+            {
+                filterName : "color",
+                filterValues : ["arctic-grey", "white"]
+            },
+            {
+                filterName : "reservoir",
+                filterValues : [ "42oz-removable-reservoir" ]
+            },
+            {
+                filterName : "Brew Type",
+                filterValues: ["bagged-coffee", "k-cup"]
+            }
         ],
         ratingVisible : false,
         rating : {
@@ -567,8 +1070,10 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             totalNumberOfReviews : 1023,
             ratingNumber : 4.25
         },
+
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-express.png",
         brand: "Keurig",

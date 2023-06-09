@@ -3,9 +3,6 @@ import InertiaPlugin from "gsap/dist/InertiaPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap/dist/gsap";
 import React, {
-  createRef,
-  LegacyRef,
-  MutableRefObject,
   ReactElement,
   useEffect,
   useLayoutEffect,
@@ -184,6 +181,7 @@ export const ChooseBrewer = (props: iChooseBrewer) => {
               {/*<div className="product-name">{i}</div>*/}
 
                 <ProductInfoItem
+                    veilFunc={()=>{}}
                   actionLabel=""
                   key={`ksk-item-${i}`}
                   productImage={props.productsList[i].productImagePath}

@@ -87,7 +87,11 @@ export const PodSettings = (props: iPodSettings) => {
             <p className="brand-title">{props.brand}</p>
             <h2>{props.podName}</h2>
           </div>
-          <Rating totalNumberOfStars={5} totalNumberOfReviews={1023} ratingNumber={4.2} height={1} />
+          <Rating
+              totalNumberOfStars={5}
+              totalNumberOfReviews={1023}
+              ratingNumber={4.2}
+          />
         </div>
       </div>
 

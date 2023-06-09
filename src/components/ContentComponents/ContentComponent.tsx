@@ -372,7 +372,6 @@ export const ContentItem =(props : iContentItem)=>{
   }
   const getContainerQuery =(widthX : number | undefined)=>{
     if(!widthX){return "zzz"}
-    console.log("widthX", widthX)
     if(widthX > 200 && widthX <= 399){
       return "width-between-200-and-399 small-container";
     }else if(widthX >=400 && widthX <= 599){
@@ -433,7 +432,13 @@ export const ContentItem =(props : iContentItem)=>{
       case "slide-down-mode":
         return content;
      default:
-        return <PopUp hasBackButton={false} closeFunc={()=>setTermsConditionsIsOpen(false)} windowTitle={""} isOpen={true} hasHeader={true} hasVeil={true} content={content}/>
+        return <PopUp
+            hasBackButton={false}
+            closeFunc={()=>setTermsConditionsIsOpen(false)}
+            windowTitle={""} isOpen={true} hasHeader={true}
+            hasVeil={true}
+            children={content}
+        />
     }
   }
 

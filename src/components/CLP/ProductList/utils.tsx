@@ -1,7 +1,25 @@
-import { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
+import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-card.interfaces";
 import {podItemT} from "../../../pages/myBrews";
+import {iFlag} from "../../Flag/Flag";
 
+const flagInStock : iFlag = {
+    flagColor:"medium-roast",
+    flagLabel:"In-Stock Guarantee",
+    flagStyle:"round-top",
+    flagTextColorOverride:"white",
+    font:{
+        fontSize: 'Large',
+        fontWeight: 'heavy-weight'
+    }
+};
 
+const getFlag =(index:number)=>{
+
+        if(index === 0 || index === 3 || index === 5 || index === 6 ){
+            return flagInStock
+        }
+
+}
 
 export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]): iProductInfoCardProps[] => {
     const products: iProductInfoCardProps[] = [];
@@ -20,23 +38,24 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
         let max = 4.9;
         let randomNum = parseFloat( (Math.random() * (max - min) + min).toFixed(1) );
 
-
+    if(!podLibrary[i].productPrices){return []}
         products.push({
-            productType: podLibrary[i].productType,
+            productType: podLibrary[i].productType ?? "pod",
             ratingVisible: true,
-            prices: podLibrary[i].productPrices.map((price, index) => {
+            flag: getFlag(i),
+            prices: podLibrary[i].productPrices!.map((price, index) => {
                 return {
                     price: price,
                     inStock: true,
                     variant: {
-                        quantity: podLibrary[i].boxSizes[index],
+                        quantity: podLibrary[i].boxSizes![index] ?? 0,
                         variantName: "ct"
                     }
                 }
             }),
             name: name,
             brand: brand,
-            image: image,
+            image: image ?? "",
             rating :{
                 totalNumberOfStars: 5,
                 totalNumberOfReviews: randomNum,

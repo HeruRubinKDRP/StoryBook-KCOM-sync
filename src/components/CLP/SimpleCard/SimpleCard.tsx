@@ -2,49 +2,30 @@ import React, {useEffect, useState} from 'react';
 import KButton from "../../Kbutton/KButton";
 import {ProductInfoCardWrapper} from "./simple-card.styled";
 import {Rating} from "../../Rating/Rating";
-import {productTypeT} from "../../../pages/myBrews";
 import {formattedPrice} from "../../_utilities/formatPrice";
 import {isValidEmail} from "../../_utilities/validation/validation";
 import AsyncImage from "../../AsyncImage/AsyncImage";
-import {prop} from "cheerio/lib/api/attributes";
-import {iProductFeature} from "./CardBack/CardBack";
-import {iFeatureBullet} from "../../FeatureBullets/FeatureBulletItem/FeatureBullet";
-
+import {filterOptionsT} from "../../../data/brewer-library";
+import {iProductInfoCardProps} from "../product-card.interfaces";
+import {useResizeDetector} from "react-resize-detector";
+import {Flag, iFlag} from "../../Flag/Flag";
 
 // Define an interface for the purchase information of a product
 export interface purchaseInfo {
     price: number;
     inStock: boolean;
-    variant: { quantity: number, variantName: string }
+    variant: {
+        quantity: number,
+        variantName: string
+    }
+
 }
 
 export type filterDataItemT = {
     filterName: string;
-    filterValues: string[];
+    filterValues: filterOptionsT[];
 }
 
-export interface iProductInfoCardProps {
-    productType: productTypeT
-    image: string;
-    brand: string;
-    name: string;
-    prices: purchaseInfo[];
-    ratingVisible: boolean;
-    priceDescriptor?: string;
-    productDescription?: string;
-    siloImagePath?: string;
-    productFeatures? : iFeatureBullet[];
-    filterData?: filterDataItemT[];
-    searchTerms? : string[];
-    rating: {
-        totalNumberOfStars: 5 | 10;
-        totalNumberOfReviews: number;
-        ratingNumber: number;
-    }
-    onClick: () => void;
-    classes?: string;
-    flipFunction?: () => void;
-}
 
 
 const ProductInfoCard = (props: iProductInfoCardProps) => {
@@ -84,7 +65,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         // Map the filtered array of in-stock products to an array of their prices
         const inStockPrices = inStockProducts.map(product => product.price / product.variant.quantity);
 
-        // console.log("inStockPrices: ", inStockPrices)
+
         // If there are no in-stock products, return -1
         if (inStockPrices.length === 0) {
             return -1;
@@ -102,13 +83,46 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         }
     }
 
+
+    //Get specific card configuration
+    const {width, height, ref} = useResizeDetector({
+        refreshMode: 'debounce',
+        refreshRate: 400,
+        refreshOptions: {
+            leading: true,
+            trailing: true
+        },
+        onResize: () => {
+        },
+    });
+
+
     return (
-        <ProductInfoCardWrapper className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
+        <ProductInfoCardWrapper heightY={height ?? 0} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
+            {
+                props.flag &&
+                <Flag
+                    flagColor="medium-roast"
+                    flagLabel="Our Best Deal"
+                    flagStyle="round-top"
+                    flagTextColorOverride="white"
+                    font={{
+                        fontSize: 'Large',
+                        fontWeight: 'heavy-weight'
+                    }}
+                />
+            }
             <div className="product-data-container">
                 <div className={`product-image ${props.productType}-image`}>
-                    <AsyncImage src={props.image} alt={`${props.brand} ${props.name}`} className="image-inner"/>
+                    <AsyncImage
+                        imageType={"image"}
+                        src={props.image}
+                        alt={`${props.brand} 
+                        ${props.name}`}
+                        className="image-inner"
+                    />
                 </div>
-                <div className="product-info-container">
+                <div className="product-info-container" ref={ref}>
                     <div className="price">
                         <div className="fine-print">
                             {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as')}

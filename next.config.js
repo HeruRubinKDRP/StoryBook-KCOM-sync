@@ -28,9 +28,6 @@ module.exports = {
   images: {
     disableStaticImages: true
   },
-  build :{
-    transpile: ['gsap' ]
-  },
   experimental:{
     esmExternals: false,
   }

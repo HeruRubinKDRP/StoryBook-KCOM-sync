@@ -4,25 +4,15 @@ import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToVal
 export const GraphicStyled = styled.div`
   --colorDarkRoast: ${colorNameToValue("dark-roast")};
   
-  .cls-1{
-    fill: #203822;
-  }
-  .cls-2{
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  
+  .cls-2{ 
     stroke-width: 3px;
-  }
-  .cls-2,.cls-3{
-    fill: none;
-    stroke: #11bf22;
-  }
-  .cls-4{
-    fill: #11bf22;
-  }
+  } 
   .cls-3{
     stroke-miterlimit: 10;
     stroke-width: 2px;
   } 
+  
 
   
     .filled{

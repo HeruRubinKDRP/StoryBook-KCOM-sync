@@ -9,7 +9,6 @@ export default {
   title : "Atoms/Free Shipping",
   argTypes: {
     showFreeShipping : {control : "boolean"},
-    colorOverride : {control : "select", options:iconsList},
     sizeOverride : {control:"text"},
     messageText : { control:"text"}
   }
@@ -20,8 +19,6 @@ const Template: Story<iFreeShipping> = (args)=><FreeShipping {...args} />;
 export const FreeShippingExample = Template.bind({});
 FreeShippingExample.args = {
   showFreeShipping : true,
-  colorOverride : "dark-roast",
-  sizeOverride : "1.5rem",
   messageText : "This item ships FREE"
 }
 

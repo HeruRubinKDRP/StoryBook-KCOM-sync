@@ -478,78 +478,7 @@ export default function SMART_Family＿Content() {
         mainTextHasShadow={false}
         sectionName=""
       />
-      {/*<Kcarousel*/}
-      {/*  carouselType="slider"*/}
-      {/*  component="carousel"*/}
-      {/*  contentArea={{*/}
-      {/*    contentElement: <ContentItem*/}
-      {/*      backGroundType="movie"*/}
-      {/*      backgroundColor="sepia"*/}
-      {/*      backgroundUrlPath="/video/sample_coffee_general.mp4"*/}
-      {/*      component="content"*/}
-      {/*      contrastBackground="none"*/}
-      {/*      heightMethod="stretch-to-parent"*/}
-      {/*      heightOverride={{maxHeight: '100vh', minHeight: '60vh', overallHeight: '100%'}}*/}
-      {/*      mainMessage=""*/}
-      {/*      mainMessageColor="#3B2B2F"*/}
-      {/*      mainMessageSize="Small"*/}
-      {/*      mainMessageWeight="heavy-weight"*/}
-      {/*      messageTextAlignment="text-left"*/}
-      {/*      secondaryMessage=""*/}
-      {/*      secondaryMessageSize="Small"*/}
-      {/*      secondaryMessageWeight="regular-weight"*/}
-      {/*      sectionAppearance="inset-beveled"*/}
-      {/*      sectionName=""*/}
-      {/*      sectionType="content-front-and-center"*/}
-      {/*       hasCTA={false} hasFocalImage={false}*/}
-      {/*      mainTextHasShadow={false}/>,*/}
-      {/*    contentPosition: 'left',*/}
-      {/*    useContentArea: true*/}
-      {/*  }}*/}
-      {/*  keepNavButtons*/}
-      {/*  navLabels={[*/}
-      {/*    'Why you need it',*/}
-      {/*    'How it works',*/}
-      {/*    '96 Free Pods'*/}
-      {/*  ]}*/}
-      {/*  navPosition="top"*/}
-      {/*  navStyle="text"*/}
-      {/*  slides={[*/}
-      {/*    <div key={0}>*/}
-      {/*      <p></p>*/}
-      {/*    </div>,*/}
-      {/*    <ContentItem*/}
-      {/*      key={1}*/}
-      {/*      backGroundType="movie"*/}
-      {/*      backgroundColor="latte"*/}
-      {/*      backgroundUrlPath="/video/sample_coffee_general.mp4"*/}
-      {/*      component="content"*/}
-      {/*       contrastBackground="dark" ctaLabel="" customClasses="" heightMethod="stretch-to-parent"*/}
-      {/*       mainMessage="The SMART way to have the perfect cup, at any time, anywhere"*/}
-      {/*       mainMessageColor="white" mainMessageSize="Medium" mainTextHasShadow secondaryMessage=""*/}
-      {/*       secondaryMessageSize="Small" sectionName="" sectionType="content-front-and-center"*/}
-      {/*       hasFocalImage={false} hasCTA={false}*/}
-      {/*    />,*/}
-      {/*    <ContentItem*/}
-      {/*      key={2}*/}
-      {/*      backGroundType="movie"*/}
-      {/*      backgroundColor="latte"*/}
-      {/*      backgroundUrlPath="https://www.w3schools.com/howto/rain.mp4" component="content"*/}
-      {/*       contrastBackground="dark" ctaLabel="" customClasses="" heightMethod="stretch-to-parent"*/}
-      {/*       mainMessage="An example slide"*/}
-      {/*       mainMessageColor="white"*/}
-      {/*       mainMessageSize="Small"*/}
-      {/*       mainTextHasShadow={false}*/}
-      {/*       secondaryMessage="This is an example showing different content components inside carousel, but any array of ReactElement[] will be rendered"*/}
-      {/*       secondaryMessageSize="Small"*/}
-      {/*       sectionName="t3"*/}
-      {/*       sectionType="content-front-and-center"*/}
-      {/*       hasCTA={false}*/}
-      {/*       hasFocalImage={false}*/}
-      {/*    />*/}
-      {/*  ]}*/}
 
-      {/* itemsPerSlide={1}/>*/}
       <ContentItem
         customClasses="testimonial"
         backGroundType="image"

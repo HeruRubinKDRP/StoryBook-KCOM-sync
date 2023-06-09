@@ -3,11 +3,26 @@ import {fontWeightT} from "../ContentComponents/ContentComponent";
 import Graphic from "../Graphic/Graphic";
 import {sizeT} from "../KSK_Experience/KSK";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import {FlagStyled} from "./flag.styles";
 
-export type flagStylesT = "square" | "circle-flag" | "banner-simple" | "banner-protrude" | "squared-curved" | "curved-rect" | "alternating-sharp-round"
-export const flagStyleList : flagStylesT[] = ["square", "circle-flag", "banner-simple", "banner-protrude", "squared-curved", "curved-rect", "alternating-sharp-round"]
+export type flagStylesT = "square" |
+    "circle-flag" |
+    "banner-simple" |
+    "banner-protrude" |
+    "squared-curved" |
+    "curved-rect" |
+    "alternating-sharp-round" |
+    "round-top";
 
-export const flagStyles : flagStylesT[] = ["square" , "circle-flag" , "banner-simple", "banner-protrude", "squared-curved", "alternating-sharp-round"]
+export const flagStyles : flagStylesT[] = [
+    "square" ,
+    "circle-flag" ,
+    "banner-simple",
+    "banner-protrude",
+    "squared-curved",
+    "alternating-sharp-round",
+    "round-top"
+]
 
 export interface iFlag{
   flagLabel : string;
@@ -46,6 +61,7 @@ export const Flag =(props : iFlag)=>{
       case "squared-curved":
         adornment=<div className="squared-curved adornment"></div>
         break;
+
     }
 
     return(
@@ -63,10 +79,10 @@ export const Flag =(props : iFlag)=>{
   }
 
   return (
-    <div
+    <FlagStyled
       className={`flag-container ${props.flagStyle} ${props.flagColor} `}
     >
       {getFlag()}
-    </div>
+    </FlagStyled>
   )
 }

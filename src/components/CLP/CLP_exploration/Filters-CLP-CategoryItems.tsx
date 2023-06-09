@@ -1,23 +1,13 @@
 import Graphic from 'components/Graphic/Graphic';
 import React, { useEffect, useState } from 'react';
 import { CategoryItemStyle } from './Filters-CLP-CategoryItems-styled';
+import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
 
-interface iCategoryItem {
-    title: string;
-    subcategories: {
-        name?: string;
-        filterID:number;
-        imageSrc?: string;
-        className?: string;
-        colorThumbnail?: string;
-        checkbox?: boolean;
-        groupTitle?: string;
-        colors?: string[];
-        description?: string;
-        productnumber?: string;
-    }[];
-    defaultOpen?: boolean;
-}
+
+
+
+
+
 
 export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCategoryItem) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -136,9 +126,9 @@ export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCat
                             )}
 
                             {!subcategory.groupTitle && !subcategory.colors && (
-                                <React.Fragment>
+                                <>
                                     <div className="subcategory-content">
-                                        {subcategory.checkbox && (
+                                        {subcategory.isChecked && (
                                             <>
                                                 <input
                                                     type="checkbox"
@@ -152,7 +142,7 @@ export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCat
                                         <div className="subcategory-text">
                                             <div className={"name-number"}>
                                                 {subcategory.name && (<div className="subcategory-name">{subcategory.name}</div>)}
-                                                {subcategory.productnumber && (<div className="productnumber">{subcategory.productnumber}</div>)}
+                                                {subcategory.productNumber && (<div className="productnumber">{subcategory.productNumber}</div>)}
                                             </div>
                                             {subcategory.description && (
                                                 <div className="subcategory-description">{subcategory.description}</div>
@@ -168,7 +158,7 @@ export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCat
                                             />
                                         )}
                                     </div>
-                                </React.Fragment>
+                                </>
                             )}
                         </li>
                     ))}

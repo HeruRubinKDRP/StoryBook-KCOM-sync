@@ -2,7 +2,8 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 import React, {ReactElement, useContext, useEffect, useLayoutEffect, useRef, useState} from "react";
 
-import {podItemT, podLibrary} from "../../pages/myBrews";
+import {podItemT} from "../../pages/myBrews";
+import {podLibrary} from "../../data/beverage-library";
 import {ProductInfoItem} from "../ProductItemData/ProductInfoItem";
 
 
@@ -144,7 +145,7 @@ export const CLP=(props:Iclp)=>{
             layoutType="stacked"
             productName={podLibrary[i].podName}
             productImage={podLibrary[i].productImagePrimaryPath}
-            basePrice={podLibrary[i].variant[0].basePrice}
+            basePrice={podLibrary[i].variant![0].basePrice ?? 0}
             currency={"$"}
             showPrice={true}
             discountPercentageAmountAsNumber={25}

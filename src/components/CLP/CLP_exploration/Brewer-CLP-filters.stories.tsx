@@ -1,6 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 import {iFilters, Filters} from "./Brewer-CLP-filters";
+import {brewerFiltersSettings} from "../../../data/brewerFilters";
 
 export default {
     title: 'WIP /CLP Brewers Exploration Filters',
@@ -8,5 +9,5 @@ export default {
 }as Meta
 
 export const Template: Story = () => {
-    return <Filters />
+    return <Filters filtersFunction={()=>{}} isVisible={true}   filtersDefiniton={brewerFiltersSettings}/>
 }

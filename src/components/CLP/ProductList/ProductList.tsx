@@ -1,8 +1,15 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react';
-import Fuse from 'fuse.js';
-import ProductInfoCard, {iProductInfoCardProps} from '../SimpleCard/SimpleCard';
-import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
+import ProductInfoCard, {filterDataItemT} from '../SimpleCard/SimpleCard';
+import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-card.interfaces";
+import {
+    CLP_Page_Styled,
+    OuterMostCLP_Container,
+    PaginationButton,
+    PaginationWrapper,
+    ProductListWrapper
+} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
+import {ProductListProps, iFiltersWrapper, searchObject} from "./product-list.interfaces";
 
 const BrewerQuickShop = lazy(() => import('../../Experimental/BrewerQuickShop/BrewerQuickShop'));
 import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
@@ -28,45 +35,23 @@ import {
 import {Filters as BeveragesFilters} from '../CLP_exploration/Beverages-CLP-filters';
 import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
+import {filterOptionsT} from "../../../data/brewer-library";
+import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
+import {CardAggregator} from "../CardAggregator";
+import {ContentItem} from "../../ContentComponents/ContentComponent";
 
-export interface ProductListProps {
-    products: iProductInfoCardProps[];
-    ratingVisible: boolean;
-    columns?: number;
-    promotionalContent?: React.ReactNode;
-    pageSize?: number;
-    columnsHugeScreen: number;
-    columnsLargeScreen: number;
-    columnsMediumScreen: number;
-    columnsSmallScreen: number;
-    stickyHeader: iStickyHeader;
-    stickyHeaderMode: "slim" | "full";
-    filters: JSX.Element;
-    pageType: 'beverages' | 'brewer';
-}
+const Filters = (props:iFiltersWrapper) => {
 
-/*const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
-    return type === 'beverages'
-        ? <BeveragesFilters isVisible={isVisible}/>
-        : <BrewerFilters isVisible={isVisible}/>;
-};*/
-const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
-
-    console.log("filters component")
-    if (type === 'beverages') {
-        return <BeveragesFilters isVisible={isVisible}/>;
-    } else if (type === 'brewer') {
-        console.log("confirmed: brewer type is fired")
-        return <BrewerFilters isVisible={isVisible}/>;
+    if (props.type === 'beverages') {
+        return <BeveragesFilters isVisible={props.isVisible} filtersFunction={props.filtersFunction} />;
+    } else if (props.type === 'brewer') {
+        return <BrewerFilters isVisible={props.isVisible} filtersDefiniton={props.filtersDefinition} filtersFunction={props.filtersFunction}/>;
     } else {
         return null;
     }
 };
 
-
-export type searchObject = {searchType : "filter" | "free-text" }
-
-const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
+const ProductList = (props: ProductListProps) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [rows, setRows] = useState(1);
@@ -79,6 +64,11 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     const [searchObjects, setSearchObjects] = useState<searchObject[]>([])
     const [filtersVisible, setFiltersVisible] = useState(false)
+    const [visibleProducts, setVisibleProducts] = useState<iProductInfoCardProps[]>([]);
+
+    const [activeFilters, setActiveFilters] = useState<filterOptionsT[]>([])
+    const [sortBy, setSortBy] = useState("popularity");
+
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'debounce',
@@ -96,10 +86,26 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         setSnackBarOpen(false);
         setQuickShopOpen(open);
     }
-    const [sortBy, setSortBy] = useState("popularity");
+
+    useEffect(() => {
+        const totalRows = Math.ceil(props.products.length / (props.columns || 1));
+        setRows(totalRows);
+        setTotalPages(Math.ceil(totalRows / (props.pageSize || 1)));
+        setCurrentPage(0);
+    }, [props.products, props.columns, props.pageSize]);
+
+    useEffect(() => {
+        dynamicColumns(width || screen.width);
+    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
+
+    useEffect(() => {
+        setVisibleProducts(getVisibleProducts());
+    },[currentPage, sortBy, activeFilters, props.products]);
+
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
     };
+
     const manageAddToCart = () => {
         console.log("clicked add to cart");
         setQuickShopOpen(false);
@@ -175,19 +181,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     }
 
-
-    useEffect(() => {
-        const totalRows = Math.ceil(props.products.length / (props.columns || 1));
-        setRows(totalRows);
-        setTotalPages(Math.ceil(totalRows / (props.pageSize || 1)));
-        setCurrentPage(0);
-    }, [props.products, props.columns, props.pageSize]);
-
-    useEffect(() => {
-        dynamicColumns(width || screen.width);
-        console.log("dynamic column use effect");
-    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
-
     const dynamicColumns = (widthX: number) => {
         if (widthX > 1800) {
             setCurrentColumns(props.columnsHugeScreen);
@@ -198,8 +191,6 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         } else {
             setCurrentColumns(props.columnsSmallScreen);
         }
-
-        console.log("dynamic column setCurrentColumns");
     }
 
     const handlePreviousPage = () => {
@@ -214,18 +205,32 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
 
     //SEARCH
     const getVisibleProducts = () => {
-        let fuse = new Fuse(props.products, { keys: ['title', 'author.firstName', 'author.lastName'] });
 
-
-
+        let productsFiltered = props.products;
+        if (activeFilters.length > 0) {
+            productsFiltered = productsFiltered.filter(product =>
+                // If filterData does not exist, return false (exclude this product)
+                product.filterData ?
+                    activeFilters.every(activeFilter => {
+                        // find a filterData in the product that includes the active filter
+                        const filterDataItem = product.filterData!.find(data =>
+                            data.filterValues.includes(activeFilter)
+                        );
+                        // if no such filterData was found, exclude this product
+                        return Boolean(filterDataItem);
+                    }) : false
+            );
+        }
+        console.log("productsFiltered", productsFiltered);
 
 
         const startIndex = currentPage * (props.pageSize || 0) * (props.columns || 0);
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
-        return props.products.slice(startIndex, endIndex);
+        return productsFiltered.slice(startIndex, endIndex);
     };
 
-    const visibleProducts = getVisibleProducts();
+
+
 
     const getDynamicStyles = (widthX: number) => {
         return `--overallWidth : ${widthX}px;`
@@ -243,12 +248,10 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
     }
 
 
-    const handleClick = () => {
+    const handleFiltersVisibility = () => {
         setFiltersVisible(!filtersVisible)
-
-        console.log("filter click", filtersVisible)
     }
-    const getSnackBar = (open: boolean) => {
+    const getSnackBar = (open: boolean)  => {
         if (open) {
             return (
                 <AddToCartJourneySmall
@@ -264,8 +267,71 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
         }
         return <></>
     }
+
+
+
+    // manage filters selection
+
+    useEffect(() => {
+        if (props.useFilters ) {
+            setFilterItems(
+                props.filtersDefinition.map(
+                    (item, index) => {
+                        return item
+                    }
+                )
+            )
+        }
+
+    }, []);
+
+    const [filterItems, setFilterItems] = useState<iCategoryItem[]>([]);
+
+    useEffect(() => {
+
+    },[filterItems]);
+
+    const manageFilterss =(index:number, sectionIndex : number)=> {
+
+        //createFilters(index, sectionIndex);
+    }
+
+    const manageFilters = (index:number, sectionIndex : number) => {
+
+        console.log("manageFilters: ", index);
+        let filterItemsCopy: iCategoryItem[] = [];
+        const filtersReference: iCategoryItem[] = [...filterItems];
+        let activeFiltersCopy: filterOptionsT[] = [...activeFilters]; // make a copy of activeFilters
+        i: for (let i = 0; i < filtersReference.length; i++) {
+            if (i === sectionIndex) {
+                let filterItem = filtersReference[i];
+                for (let j = 0; j < filtersReference[i].subcategories.length; j++) {
+                    if (j === index) {
+                        filterItem.subcategories[j].isChecked = !filterItem.subcategories[j].isChecked;
+                        if (filterItem.subcategories[j].isChecked) {
+                            // if checkbox is checked, add filterID to activeFilters
+                            activeFiltersCopy.push(filterItem.subcategories[j].filterTerm ?? "not-found")
+                        } else {
+                            // if checkbox is unchecked, remove filterID from activeFilters
+                            activeFiltersCopy = activeFiltersCopy.filter(filterID => filterID !== filterItem.subcategories[j].filterTerm);
+                        }
+                        filterItemsCopy.push(filterItem);
+                        continue i;
+                    }
+                }
+                filterItemsCopy.push(filterItem);
+            }
+            filterItemsCopy.push(filtersReference[i]);
+        }
+
+        setFilterItems(filterItemsCopy);
+        setActiveFilters(activeFiltersCopy); // update activeFilters state
+    }
+
+
+//RENDER
     return (
-        <div>
+        <CLP_Page_Styled>
             <StickyHeader
                 stickyHeaderMode={props.stickyHeaderMode}
                 navigationRelated={{
@@ -290,7 +356,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                         iconPlacement="after-label"
                         iconStandard="icon-filters"
                         transitionType="expand-bg"
-                        onClick={handleClick}
+                        onClick={handleFiltersVisibility}
                     />
                     <KButton
                         classes="secondary-btn"
@@ -314,15 +380,56 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
             </StickyHeader>
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}
-            <OuterMostCLP_Container  className={``}>
+            {
+                props.useBanner &&
+                <div className="banner">
+                    <ContentItem
+                        backGroundType="image"
+                        backgroundColor="latte"
+                        backgroundUrlPath="/editorial/in-stock-guarantee.png"
+                        component="content"
+                        contrastBackground="dark"
+                        ctaLabel="Call to action"
+                        ctaLinkTo="www.google.com"
+                        heightMethod="fit-content"
+                        mainMessage="In-Stock Guarantee"
+                        mainMessageColor="#3B2B2F"
+                        mainMessageSize="Medium"
+                        mainMessageWeight="heavy-weight"
+                        messageTextAlignment="text-left"
+                        secondaryMessage="Your coffee cravings have met their match! With our In-Stock Guarantee, your coffee dreams never run dry!  "
+                        secondaryMessageSize="Small"
+                        secondaryMessageWeight="regular-weight"
+                        sectionAppearance="inset-beveled"
+                        sectionName=""
+                        sectionType="content-right"
+                        hasCTA={false}
+                        hasFocalImage={false}
+                        mainTextHasShadow={false}
+                    />
+                </div>
+            }
+            <OuterMostCLP_Container  >
 
+
+                {
+                    props.useFilters &&
                     <FiltersContainerStyle>
-                        <Filters type={props.pageType} isVisible={filtersVisible}/>
+                        <Filters
+                            type={props.pageType}
+                            isVisible={filtersVisible}
+                            filtersFunction={manageFilters}
+                            filtersDefinition={props.filtersDefinition}
+                        />
                     </FiltersContainerStyle>
+                }
+
 
                 <div className="right-part" ref={ref}>
                     <ComponentFilterStyle>
-                        <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        {props.useKSKtoggle &&
+                            <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        }
                         <div className={"filters"}>
                             <KButton
                                 label="Filters"
@@ -331,7 +438,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                                 iconPlacement="after-label"
                                 iconStandard="icon-filters"
                                 transitionType="expand-bg"
-                                onClick={handleClick}
+                                onClick={handleFiltersVisibility}
                             />
                         </div>
                         <div className={"sort-by"}>
@@ -351,42 +458,20 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                     <BrewerCLPStyled>
                         {props.promotionalContent && <div>{props.promotionalContent}</div>}
                         <ProductListWrapper
+                            className={`${props.useFlags ? "has-flags" : "" }`}
                             dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1}
                             rows={rows}>
                             {visibleProducts.map((product, index) => (
-                                <CardFlip
+                                <CardAggregator
                                     key={index}
-                                    flipToBackButtonLabel="Features"
-                                    flipToBackButtonIcon="icon-features"
-                                    flipToFrontButtonLabel="Images"
-                                    flipToFrontButtonIcon="icon-images"
-                                    frontContent={
-                                        <ProductInfoCard
-                                            key={index}
-                                            prices={product.prices}
-                                            priceDescriptor={product.priceDescriptor}
-                                            image={product.image}
-                                            brand={product.brand}
-                                            name={product.name}
-                                            productType={product.productType}
-                                            ratingVisible={props.ratingVisible}
-                                            classes={`${getContainerQuery(width)} in-clp`}
-                                            rating={{
-                                                totalNumberOfStars: 5,
-                                                totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,
-                                                ratingNumber: product.rating.ratingNumber || 4.6,
-                                            }} onClick={() => manageQuickShop(true, index)}
-                                        />
-                                    }
-                                    backContent={
-                                        <CardBack name={product.name} description={product.productDescription}
-                                                  imageSrc={product.siloImagePath}
-                                                  features={product.productFeatures ?? []}/>
-                                    }
-                                    sideShowing="front"
-                                    classes={product.productType == "brewer" ? "brewer-card" : "pod-card"}
+                                    flag={props.useFlags ? product.flag : undefined}
+                                    product={product}
+                                    cardPresentationMode={props.cardPresentationMode}
+                                    cardMode={props.cardMode}
+                                    index={index}
+                                    ratingVisible={props.ratingVisible}
+                                    quickShopFunction={() => manageQuickShop(true, index)}
                                 />
-
 
                             ))}
                         </ProductListWrapper>
@@ -416,7 +501,7 @@ const ProductList: React.FC<ProductListProps> = (props: ProductListProps) => {
                 )}
                 <div className="backing-main"></div>
             </OuterMostCLP_Container>
-        </div>
+        </CLP_Page_Styled>
     );
 };
 

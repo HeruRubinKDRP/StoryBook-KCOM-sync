@@ -8,5 +8,5 @@ export default {
 }as Meta
 
 export const Template: Story = () => {
-    return <Filters />
+    return <Filters filtersFunction={()=>{}} isVisible={true}  />
 }

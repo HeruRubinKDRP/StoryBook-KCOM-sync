@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react";
-import {podItemT, podLibrary, podVariant} from "../../../pages/myBrews";
+import {podItemT, podVariant} from "../../../pages/myBrews";
+import {podLibrary} from "../../../data/beverage-library";
 import KButton from "../../Kbutton/KButton";
 import {ProductInfoItem} from "../../ProductItemData/ProductInfoItem";
 import {PodSettings} from "./edit-pod-settings";
@@ -61,9 +62,9 @@ export const getPodCards =(props:iPodCards)=>{
           <PodSettings
             quantity={1}
             podID={props.selectedPodForModification}
-            podImageUrl={podLibrary[i].productImagePrimaryPath}
+            podImageUrl={podLibrary[i].productImagePrimaryPath ?? ""}
             podName={podLibrary[i].podName}
-            podSizes={getPodVariantsMenuData(podLibrary[i].variant)}
+            podSizes={getPodVariantsMenuData(podLibrary[i].variant ?? []) ?? []}
             finalConfirmFunc={props.recordPodsFunc}
             brand={podLibrary[i].brand}
             manageVeil={props.setVeilActiveFunc}
@@ -83,7 +84,7 @@ export const getPodCards =(props:iPodCards)=>{
           layoutType="stacked"
           productName={podLibrary[i].podName}
           productImage={podLibrary[i].productImagePrimaryPath}
-          basePrice={podLibrary[i].variant[0].basePrice}
+          basePrice={podLibrary[i].variant![0].basePrice ?? 0}
           currency={"$"}
           showPrice={true}
           discountPercentageAmountAsNumber={25}
@@ -92,7 +93,7 @@ export const getPodCards =(props:iPodCards)=>{
           actionLabel="Add to kit"
           veilFunc={props.setVeilActiveFunc}
           classes={getModalClasses()}
-          variants={getPodVariantsMenuData(podLibrary[i].variant)}
+          variants={getPodVariantsMenuData(podLibrary[i].variant ?? []) ?? []}
           rating={{
             totalReviews: 812,
             starRating: 4.2,

@@ -1,7 +1,5 @@
 import {Story, Meta} from "@storybook/react/types-6-0";
-import classNames from "classnames";
 import React from "react";
-import {myBrewsQuery} from "../my-brews/myBrewsManager";
 import {CLP, Iclp} from "./CLP";
 
 export default {

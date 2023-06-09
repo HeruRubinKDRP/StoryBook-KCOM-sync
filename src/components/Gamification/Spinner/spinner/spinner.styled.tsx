@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
-import {fadeOutAnim} from "../../../_commonStyles/common.styled";
 
 export interface iSpinnerStyle{
     width: number;

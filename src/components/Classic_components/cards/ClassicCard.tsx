@@ -114,7 +114,7 @@ const {width, height, ref} = useResizeDetector({
   }
 
   const handleCTA = (index : number) => {
-    console.log("index", props.ctaAction)
+
     props.ctaAction(true, index);
   }
 
