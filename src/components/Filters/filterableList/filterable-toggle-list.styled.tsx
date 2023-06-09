@@ -11,6 +11,9 @@ export const FilterableCheckboxListStyled = styled.div`
     list-style: none;
     margin: 0;
     padding: 0;
+    li{
+      margin: 0 0 1.5rem !important
+    }
   }
   
   .overlay-btn{
@@ -19,6 +22,9 @@ export const FilterableCheckboxListStyled = styled.div`
   
   .check-list-item-container{
     ${flexRow};
+    img{
+      margin-left: 1rem;
+    }
   }
   
   .check-container, .check-container .icon{
@@ -29,7 +35,7 @@ export const FilterableCheckboxListStyled = styled.div`
   }
   
   .check-container{
-    width: 1.5rem;
+    width: 2rem;
     height: 1.5rem;
     border: 1px solid;
     margin: 0 0.25rem 0 0;
@@ -41,6 +47,7 @@ export const FilterableCheckboxListStyled = styled.div`
   }
 
   .text-area{
+    margin-left: 0.75rem;;
     label{
       cursor: pointer;
       font-size: 16px;

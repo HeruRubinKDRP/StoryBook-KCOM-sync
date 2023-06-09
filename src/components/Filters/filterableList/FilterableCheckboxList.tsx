@@ -4,6 +4,7 @@ import {Graphic, iconType} from "../../Graphic/Graphic";
 import {iIllustration} from "../../Graphic/Illustrations";
 import KButton from "../../Kbutton/KButton";
 import {FilterableCheckboxListStyled} from "./filterable-toggle-list.styled";
+import AsyncImage from "../../AsyncImage/AsyncImage";
 
 export interface CheckboxItem {
     label: string;
@@ -50,18 +51,28 @@ const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
                             <ListItem className="check-list-item" key={index}>
                                 <KButton classes="overlay-btn" label={""} buttonType={"text-icon-noBG"}  actionFunc={()=>props.onSelectionChange(index, props.sectionIndex)} />
                                 <div className={`${item.isChecked ? "is-checked" : ""} check-list-item-container`} >
-                                    <div className="check-container">
-                                        {item.isChecked && <Graphic graphicName={"icon-checkmark"} />}
+                                    <div className="selection-main">
+                                        <div className="check-container">
+                                            {item.isChecked && <Graphic graphicName={"icon-checkmark"} />}
+                                        </div>
+                                        <div className="text-area">
+                                            <Label>{item.label}</Label>
+                                            {
+                                                item.detailsText &&
+                                                <p className="checkbox-item-details">
+                                                    {item.detailsText}
+                                                </p>
+                                            }
+                                        </div>
                                     </div>
-                                    <div className="text-area">
-                                        <Label>{item.label}</Label>
-                                        {
-                                            item.detailsText &&
-                                            <p className="checkbox-item-details">
-                                                {item.detailsText}
-                                            </p>
-                                        }
-                                    </div>
+                                    {
+                                        item.imageSrc &&
+                                        <AsyncImage
+                                            imageType={"image"}
+                                            src={item.imageSrc}
+                                            alt={item.detailsText ?? ""}
+                                        />
+                                    }
                                 </div>
                             </ListItem>
                         )
@@ -83,9 +94,13 @@ const Input = styled.input`
 
 
 const ListItem = styled.li`
-  display: flex;
+  display: flex; 
   align-items: center;
   margin-bottom: 5px;
+  .selection-main{
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`

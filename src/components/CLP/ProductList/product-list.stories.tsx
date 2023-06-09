@@ -1,17 +1,34 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import ProductList, { ProductListProps } from './ProductList';
+import ProductList from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
 import {brands} from "../../../pages/myBrews";
 import {podLibrary} from "../../../data/beverage-library";
 import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 import {brewerLibrary} from "../../../data/brewer-library";
 import {brewerFiltersSettings} from "../../../data/brewerFilters";
+import {ProductListProps} from "./product-list.interfaces";
 
 export default {
     title: 'CLP/ProductList',
     component: ProductList,
     argTypes: {
+        presentationMode: {
+            label: "Card Presentation Mode",
+            control: "radio",
+            options: [ 'traditional-card', 'flip-card'],
+            defaultValue: 'flip-card'
+        },
+        cardMode: {
+            label: "Card Mode",
+            control: "radio",
+            options: [ 'simple', 'ecom'],
+            defaultValue: 'simple'
+        },
+        useFilters: {
+            control: "boolean",
+            defaultValue: false,
+        },
         products: {
             control: null,
         },
@@ -43,22 +60,35 @@ export default {
             control: "radio",
             options: ["slim", "full"],
             defaultValue: "slim",
+        },
+        useFlags: {
+            label: "Use Card Flags",
+            control: "boolean",
+        },
+        useBanner: {
+            label: "Use Banner",
+            control: "boolean",
         }
+
+
     },
 } as Meta;
 
-const Template: Story<ProductListProps> = (args) => <ProductList {...args} />;
+const Template: Story<ProductListProps> = (args) => <ProductList {...args}  />;
 
-const products = convertPodLibraryToProductInfoCardProps(podLibrary);
 
-export const Default = Template.bind({});
-Default.args = {
+export const Beverages = Template.bind({});
+Beverages.args = {
+    cardMode: "simple",
+    useFlags: true,
+    useFilters: false,
+    products: convertPodLibraryToProductInfoCardProps(podLibrary),
+    cardPresentationMode: "flip-card",
     stickyHeaderMode: "slim",
     pageType: 'beverages',
-    products: products,
     columns: 3,
     pageSize: 9,
-    columnsHugeScreen : 4,
+    columnsHugeScreen : 5,
     columnsLargeScreen : 3,
     columnsMediumScreen : 2,
     columnsSmallScreen : 1,
@@ -84,6 +114,8 @@ export const BeverageBundleExample = Template.bind({});
 BeverageBundleExample.args = {
     stickyHeaderMode: "slim",
     pageType: 'beverages',
+    cardMode: "simple",
+    cardPresentationMode: "flip-card",
     products: [
         {
             priceDescriptor: " ",
@@ -157,6 +189,8 @@ export const SingleProductExample = Template.bind({});
 SingleProductExample.args = {
     stickyHeaderMode: "slim",
     pageType: 'beverages',
+    cardMode: "simple",
+    cardPresentationMode: "flip-card",
     products: [
         {
             productType: "pod",
@@ -202,6 +236,7 @@ SingleProductExample.args = {
     columnsMediumScreen : 1,
     columnsSmallScreen : 1,
     ratingVisible : false,
+
     stickyHeader : {
         stickyHeaderMode : "slim",
         navigationRelated : {
@@ -225,11 +260,50 @@ SingleProductExample.args = {
 export const BrewerList = Template.bind({});
 BrewerList.args = {
     pageType: 'brewer',
+    useFlags: false,
     products: brewerLibrary,
+    useFilters: true,
     filtersDefinition: brewerFiltersSettings,
     columns: 3,
     pageSize: 9,
     columnsHugeScreen : 4,
+    columnsLargeScreen : 3,
+    columnsMediumScreen : 2,
+    columnsSmallScreen : 1,
+    ratingVisible : false,
+    cardMode: "simple",
+    cardPresentationMode: "flip-card",
+    stickyHeader : {
+        stickyHeaderMode : "slim",
+        navigationRelated : {
+            sizingMode : "liquid-design",
+            loggedIn : false,
+            emailErrorMessage : "Please enter a valid email address",
+            emailSuccessMessage : "Thank you for subscribing!",
+            emailExplanationText : "Sign up for our newsletter to receive updates on new products and promotions.",
+            placeHolderText : "Enter your email address",
+            defaultActiveHoverIndex : -1,
+            submitButtonText : "Subscribe",
+            isNobo : false,
+            navItems : navDemo
+        }
+    }
+}
+
+export const InStockGuarantee = Template.bind({});
+InStockGuarantee.args = {
+    cardMode: "simple",
+    useFilters: false,
+    products: convertPodLibraryToProductInfoCardProps(podLibrary),
+    useBanner: true,
+    useFlags: true,
+    useKSKtoggle: false,
+    cardPresentationMode: "flip-card",
+    stickyHeaderMode: "slim",
+    pageType: 'beverages',
+    columns: 3,
+    pageSize: 9,
+    columnsHugeScreen : 5,
     columnsLargeScreen : 3,
     columnsMediumScreen : 2,
     columnsSmallScreen : 1,
@@ -249,4 +323,4 @@ BrewerList.args = {
             navItems : navDemo
         }
     }
-}
+};

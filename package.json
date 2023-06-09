@@ -71,7 +71,6 @@
     "plop": "^3.0.5",
     "postcss": "^8.4.5",
     "prettier": "2.5.1",
-    "puppeteer": "^19.6.0",
     "sass": "^1.49.0",
     "storybook-addon-next-router": "^3.1.1",
     "storybook-addon-sass-postcss": "^0.1.0",

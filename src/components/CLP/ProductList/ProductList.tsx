@@ -1,7 +1,15 @@
 import React, {useState, useEffect, lazy, Suspense} from 'react';
-import ProductInfoCard, {filterDataItemT, iProductInfoCardProps} from '../SimpleCard/SimpleCard';
-import {OuterMostCLP_Container, PaginationButton, PaginationWrapper, ProductListWrapper} from "./product-list.styles";
+import ProductInfoCard, {filterDataItemT} from '../SimpleCard/SimpleCard';
+import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-card.interfaces";
+import {
+    CLP_Page_Styled,
+    OuterMostCLP_Container,
+    PaginationButton,
+    PaginationWrapper,
+    ProductListWrapper
+} from "./product-list.styles";
 import {useResizeDetector} from "react-resize-detector";
+import {ProductListProps, iFiltersWrapper, searchObject} from "./product-list.interfaces";
 
 const BrewerQuickShop = lazy(() => import('../../Experimental/BrewerQuickShop/BrewerQuickShop'));
 import {AddToCartJourneySmall} from "../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
@@ -29,38 +37,8 @@ import {Filters as BrewerFilters} from '../CLP_exploration/Brewer-CLP-filters';
 import {BrewerCLPStyled} from '../CLP_exploration/Brewer-CLP-grid-styled';
 import {filterOptionsT} from "../../../data/brewer-library";
 import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
-
-
-export interface ProductListProps {
-    products: iProductInfoCardProps[];
-    ratingVisible: boolean;
-    columns?: number;
-    promotionalContent?: React.ReactNode;
-    pageSize?: number;
-    columnsHugeScreen: number;
-    columnsLargeScreen: number;
-    columnsMediumScreen: number;
-    columnsSmallScreen: number;
-    stickyHeader: iStickyHeader;
-    stickyHeaderMode: "slim" | "full";
-    filters: JSX.Element;
-    pageType: 'beverages' | 'brewer';
-    filtersFunction: ()=>void;
-    filtersDefinition: iCategoryItem[];
-}
-
-/*const Filters: React.FC<{ type: string, isVisible: boolean }> = ({ type, isVisible }) => {
-    return type === 'beverages'
-        ? <BeveragesFilters isVisible={isVisible}/>
-        : <BrewerFilters isVisible={isVisible}/>;
-};*/
-
-interface iFiltersWrapper {
-    type: string,
-    isVisible: boolean,
-    filtersFunction : (index: number, sectionIndex : number) => void;
-    filtersDefinition : iCategoryItem[];
-}
+import {CardAggregator} from "../CardAggregator";
+import {ContentItem} from "../../ContentComponents/ContentComponent";
 
 const Filters = (props:iFiltersWrapper) => {
 
@@ -72,9 +50,6 @@ const Filters = (props:iFiltersWrapper) => {
         return null;
     }
 };
-
-
-export type searchObject = {searchType : "filter" | "free-text" }
 
 const ProductList = (props: ProductListProps) => {
     const [currentPage, setCurrentPage] = useState(0);
@@ -208,9 +183,6 @@ const ProductList = (props: ProductListProps) => {
 
     }
 
-
-
-
     const dynamicColumns = (widthX: number) => {
         if (widthX > 1800) {
             setCurrentColumns(props.columnsHugeScreen);
@@ -221,8 +193,6 @@ const ProductList = (props: ProductListProps) => {
         } else {
             setCurrentColumns(props.columnsSmallScreen);
         }
-
-
     }
 
     const handlePreviousPage = () => {
@@ -280,11 +250,10 @@ const ProductList = (props: ProductListProps) => {
     }
 
 
-    const handleClick = () => {
+    const handleFiltersVisibility = () => {
         setFiltersVisible(!filtersVisible)
-
     }
-    const getSnackBar = (open: boolean) => {
+    const getSnackBar = (open: boolean)  => {
         if (open) {
             return (
                 <AddToCartJourneySmall
@@ -306,17 +275,17 @@ const ProductList = (props: ProductListProps) => {
     // manage filters selection
 
     useEffect(() => {
-        setFilterItems(
-            props.filtersDefinition.map(
-                (item, index) => {
-                return item
-                }
+        if (props.useFilters ) {
+            setFilterItems(
+                props.filtersDefinition.map(
+                    (item, index) => {
+                        return item
+                    }
+                )
             )
-        )
+        }
 
     }, []);
-
-
 
     const [filterItems, setFilterItems] = useState<iCategoryItem[]>([]);
 
@@ -324,14 +293,14 @@ const ProductList = (props: ProductListProps) => {
 
     },[filterItems]);
 
-    const manageFilters =(index:number, sectionIndex : number)=> {
-        createFilters(index, sectionIndex);
+    const manageFilterss =(index:number, sectionIndex : number)=> {
+
+        //createFilters(index, sectionIndex);
     }
 
-    const createFilters = (index:number, sectionIndex : number) => {
-        console.log("manageFilters zzz: ", index);
-        console.log("sectionIndex zzz:", sectionIndex);
+    const manageFilters = (index:number, sectionIndex : number) => {
 
+        console.log("manageFilters: ", index);
         let filterItemsCopy: iCategoryItem[] = [];
         const filtersReference: iCategoryItem[] = [...filterItems];
         let activeFiltersCopy: filterOptionsT[] = [...activeFilters]; // make a copy of activeFilters
@@ -361,9 +330,10 @@ const ProductList = (props: ProductListProps) => {
         setActiveFilters(activeFiltersCopy); // update activeFilters state
     }
 
-    //render
+
+//RENDER
     return (
-        <div>
+        <CLP_Page_Styled>
             <StickyHeader
                 stickyHeaderMode={props.stickyHeaderMode}
                 navigationRelated={{
@@ -388,7 +358,7 @@ const ProductList = (props: ProductListProps) => {
                         iconPlacement="after-label"
                         iconStandard="icon-filters"
                         transitionType="expand-bg"
-                        onClick={handleClick}
+                        onClick={handleFiltersVisibility}
                     />
                     <KButton
                         classes="secondary-btn"
@@ -412,8 +382,40 @@ const ProductList = (props: ProductListProps) => {
             </StickyHeader>
             {getModal(quickShopOpen)}
             {getSnackBar(snackBarOpen)}
-            <OuterMostCLP_Container  className={``}>
+            {
+                props.useBanner &&
+                <div className="banner">
+                    <ContentItem
+                        backGroundType="image"
+                        backgroundColor="latte"
+                        backgroundUrlPath="/editorial/in-stock-guarantee.png"
+                        component="content"
+                        contrastBackground="dark"
+                        ctaLabel="Call to action"
+                        ctaLinkTo="www.google.com"
+                        heightMethod="fit-content"
+                        mainMessage="In-Stock Guarantee"
+                        mainMessageColor="#3B2B2F"
+                        mainMessageSize="Medium"
+                        mainMessageWeight="heavy-weight"
+                        messageTextAlignment="text-left"
+                        secondaryMessage="Your coffee cravings have met their match! With our In-Stock Guarantee, your coffee dreams never run dry!  "
+                        secondaryMessageSize="Small"
+                        secondaryMessageWeight="regular-weight"
+                        sectionAppearance="inset-beveled"
+                        sectionName=""
+                        sectionType="content-right"
+                        hasCTA={false}
+                        hasFocalImage={false}
+                        mainTextHasShadow={false}
+                    />
+                </div>
+            }
+            <OuterMostCLP_Container  >
 
+
+                {
+                    props.useFilters &&
                     <FiltersContainerStyle>
                         <Filters
                             type={props.pageType}
@@ -422,10 +424,14 @@ const ProductList = (props: ProductListProps) => {
                             filtersDefinition={props.filtersDefinition}
                         />
                     </FiltersContainerStyle>
+                }
+
 
                 <div className="right-part" ref={ref}>
                     <ComponentFilterStyle>
-                        <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        {props.useKSKtoggle &&
+                            <div className={"ksk-toggle"}>Keurig Starter Kit <SaleToggle className={"sale-toggle"}/></div>
+                        }
                         <div className={"filters"}>
                             <KButton
                                 label="Filters"
@@ -434,7 +440,7 @@ const ProductList = (props: ProductListProps) => {
                                 iconPlacement="after-label"
                                 iconStandard="icon-filters"
                                 transitionType="expand-bg"
-                                onClick={handleClick}
+                                onClick={handleFiltersVisibility}
                             />
                         </div>
                         <div className={"sort-by"}>
@@ -454,42 +460,20 @@ const ProductList = (props: ProductListProps) => {
                     <BrewerCLPStyled>
                         {props.promotionalContent && <div>{props.promotionalContent}</div>}
                         <ProductListWrapper
+                            className={`${props.useFlags ? "has-flags" : "" }`}
                             dynamicStyles={getDynamicStyles(width || screen.width)} columns={currentColumns || 1}
                             rows={rows}>
                             {visibleProducts.map((product, index) => (
-                                <CardFlip
+                                <CardAggregator
                                     key={index}
-                                    flipToBackButtonLabel="Features"
-                                    flipToBackButtonIcon="icon-features"
-                                    flipToFrontButtonLabel="Images"
-                                    flipToFrontButtonIcon="icon-images"
-                                    frontContent={
-                                        <ProductInfoCard
-                                            key={index}
-                                            prices={product.prices}
-                                            priceDescriptor={product.priceDescriptor}
-                                            image={product.image}
-                                            brand={product.brand}
-                                            name={product.name}
-                                            productType={product.productType}
-                                            ratingVisible={props.ratingVisible}
-                                            classes={`${getContainerQuery(width)} in-clp`}
-                                            rating={{
-                                                totalNumberOfStars: 5,
-                                                totalNumberOfReviews: product.rating.totalNumberOfReviews || 100,
-                                                ratingNumber: product.rating.ratingNumber || 4.6,
-                                            }} onClick={() => manageQuickShop(true, index)}
-                                        />
-                                    }
-                                    backContent={
-                                        <CardBack name={product.name} description={product.productDescription}
-                                                  imageSrc={product.siloImagePath}
-                                                  features={product.productFeatures ?? []}/>
-                                    }
-                                    sideShowing="front"
-                                    classes={product.productType == "brewer" ? "brewer-card" : "pod-card"}
+                                    flag={props.useFlags ? product.flag : undefined}
+                                    product={product}
+                                    cardPresentationMode={props.cardPresentationMode}
+                                    cardMode={props.cardMode}
+                                    index={index}
+                                    ratingVisible={props.ratingVisible}
+                                    quickShopFunction={() => manageQuickShop(true, index)}
                                 />
-
 
                             ))}
                         </ProductListWrapper>
@@ -519,7 +503,7 @@ const ProductList = (props: ProductListProps) => {
                 )}
                 <div className="backing-main"></div>
             </OuterMostCLP_Container>
-        </div>
+        </CLP_Page_Styled>
     );
 };
 

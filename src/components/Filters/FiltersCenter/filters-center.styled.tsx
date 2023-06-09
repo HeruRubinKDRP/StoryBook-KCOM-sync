@@ -2,9 +2,30 @@ import styled from "styled-components";
 import {AnimFadeIn} from "../../_commonStyles/common.styled";
 
 export const FiltersCenterStyled = styled.div`
-    .expand-collapse{
+  width: 100%; 
+  .expand-collapse{
       justify-content: space-between;
+  }
+  
+  ul.list-container{
+    width: 100% !important;
+    padding: 0 5%;
+  }
+  
+  .check-list-item{
+    margin: 1rem 0;
+  }
+  
+  .check-list-item-container{
+    width: 100%;
+    align-items: center;
+    img{
+      width: 20%;
+      max-height: 7vh;
+      object-fit: contain;
     }
+    
+  }
   
   .accordion-item{
     ${AnimFadeIn};
@@ -16,7 +37,7 @@ export const FiltersCenterStyled = styled.div`
     background-color: white !important;
   }
   
-    width: 100%;
+    
  
     
 `;

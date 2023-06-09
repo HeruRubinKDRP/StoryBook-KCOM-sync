@@ -7,8 +7,8 @@ export default {
   title : "Atoms/Flag",
   argTypes : {
     flagLabel : {control : "text"},
-    flagColor : {control : "select", options : colorNamesList},
-    flagStyle : {control : "select", options :flagStyles},
+    flagColor : {control : "select", options : colorNamesList.sort()},
+    flagStyle : {control : "select", options :flagStyles.sort()},
     font : {control : "object"}
   }
 } as Meta;

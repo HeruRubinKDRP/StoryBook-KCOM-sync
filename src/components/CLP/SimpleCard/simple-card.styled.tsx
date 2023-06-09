@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ProductInfoCardWrapper = styled.div`
+
+interface iProductInfoCardStyleProps{
+    heightY: number;
+}
+export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
   position: relative;
   @keyframes shake {
     0%,
@@ -45,6 +49,10 @@ export const ProductInfoCardWrapper = styled.div`
     .k-btn{ 
       border: 1px solid rgba(255,255,255,0.5);
     } 
+    
+    .brewer-image{
+      margin-top: ${props => props.heightY}px;
+    }
   }
   
   &.brewer.mobile-dimensions{

@@ -1,17 +1,22 @@
-@import "../../styles/colors";
+import styled from "styled-components";
+import {ctaColorStyles} from "../_commonStyles/common.styled";
 
-.flag-container {
+export const FlagStyled = styled.div`
   padding: 0.5rem 1rem;
   display: inline-flex;
   width: auto;
   position: relative;
-
+  ${ctaColorStyles};
   label {
     z-index: 1;
   }
+  
+  &.round-top{
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
 
   &.dark-roast {
-    background-color: $dark-roast;
+    background-color: var(--colorDarkRoast);
     label{
       color: white;
     }
@@ -28,12 +33,12 @@
   }
 
   &.medium-grey{
-    background-color: $medium;
+    background-color: var(--colorMediumGrey);
     label{
       color : white !important;
     }
     .filled{
-      fill:$medium;
+      fill: var(--colorSecondaryGold);
     }
 
     .stroked{
@@ -42,51 +47,51 @@
   }
 
   &.secondaryGold{
-    background-color: $secondary-gold;
+    background-color: var(--colorSecondaryGold);
     label{
-      color: $text !important;
+      color: var(--colorText) !important;
     }
     .filled{
-      fill:$secondary-gold;
+      fill: var(--colorSecondaryGold);
     }
     .stroked{
-      stroke: $text;
+      stroke: var(--colorText);
     }
   }
 
   &.OK-Status{
-    background-color: $ok-status;
+    background-color: var(--colorOKStatus);
     label{
       color:white;
     }
     .filled{
-      fill : $ok-status;
+      fill :var(--colorOKStatus);
     }
     .stroked{
-      stroke : $white;
+      stroke : white;
     }
   }
 
   &.Primary-CTA{
-    background-color: $cta-primary;
+    background-color: var(--colorCTAPrimary);
     label{
-      color : $text !important;
+      color : var(--colorText) !important;
     }
     .stroked{
       stroke : white;
     }
     .filled{
-      fill : $cta-primary;
+      fill : var(--colorCTAPrimary);
     }
   }
 
   &.Bold-CTA{
-    background-color: $bold-cta;
+    background-color: var(--colorBoldCTA);
     .filled{
-      fill : $bold-cta;
+      fill : var(--colorBoldCTA);
     }
     label{
-      color : $text !important;
+      color : var(--colorText) !important;
     }
     .stroked{
       stroke : white;
@@ -94,9 +99,9 @@
   }
 
   &.discount{
-    background-color: $discount;
+    background-color: var(--colorDiscount);
     .filled{
-      fill: $discount;
+      fill: var(--colorDiscount);
     }
     label{
       color: white !important;
@@ -107,15 +112,15 @@
   }
 
   &.sepia{
-    background-color: $sepia;
+    background-color: var(--colorSepia);
     label{
-      color : $dark-roast !important;
+      color : var(--colorDarkRoast) !important;
     }
     .filled{
-      fill : $sepia;
+      fill : var(--colorSepia);
     }
     .stroked{
-      stroke : $dark-roast;
+      stroke : var(--colorDarkRoast);
     }
   }
 
@@ -129,52 +134,73 @@
 
     }
     .stroked{
-      stroke : $dark-roast;
+      stroke : var(--colorDarkRoast);
     }
     label{
-      color : $dark-roast !important;
+      color : var(--colorDarkRoast) !important;
     }
   }
 
   &.medium-roast{
-    background-color: $medium-roast;
+    background-color: var(--colorMediumRoast);
     label{
       color : white;
     }
     .filled{
-      fill : $medium-roast;
+      fill : var(--colorMediumRoast);
     }
     .stroked{
-      stroke : $white;
+      stroke : white;
     }
   }
 
   &.latte{
-    background-color: $latte;
+    background-color: var(--colorLatte);
     label{
-      color: $dark-roast !important;
+      color: var(--colorDarkRoast) !important;
     }
     .stroked{
-      stroke: $dark-roast;
+      stroke: var(--colorDarkRoast);
     }
 
     .filled{
-      fill: $latte;
+      fill: var(--colorLatte);
     }
   }
 
   &.light-roast {
-    background-color: $light-roast;
+    background-color: var(--colorLightRoast);
     .stroked{
       stroke : white;
     }
     .filled{
-      fill: $light-roast;
+      fill: var(--colorLightRoast);
+    }
+  }
+  
+  &.latte70{
+    background-color: var(--colorLatte70);
+    label{
+      color: var(--colorDarkRoast) !important;
+    }
+  }
+  
+  &.latteMed{
+    background-color: var(--colorLatteMed);
+    label{
+      color: var(--colorDarkRoast) !important;
+    }
+  }
+  
+  &.sepia70{
+    background-color: var(--colorSepia70);
+    label{
+      color: var(--colorDarkRoast) !important;
     }
   }
 
   &.KSK {
-    background-color: $KSK;
+    background-color: var(--colorKSK);
     color: white;
 
     .stroked {
@@ -182,7 +208,7 @@
     }
 
     .filled {
-      fill: $KSK;
+      fill: var(--colorKSK);
     }
   }
 
@@ -258,4 +284,4 @@
     }
 
   }
-}
+`;

@@ -1,7 +1,25 @@
-import { iProductInfoCardProps } from '../SimpleCard/SimpleCard';
+import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-card.interfaces";
 import {podItemT} from "../../../pages/myBrews";
+import {iFlag} from "../../Flag/Flag";
 
+const flagInStock : iFlag = {
+    flagColor:"medium-roast",
+    flagLabel:"In-Stock Guarantee",
+    flagStyle:"round-top",
+    flagTextColorOverride:"white",
+    font:{
+        fontSize: 'Large',
+        fontWeight: 'heavy-weight'
+    }
+};
 
+const getFlag =(index:number)=>{
+
+        if(index === 0 || index === 3 || index === 5 || index === 6 ){
+            return flagInStock
+        }
+
+}
 
 export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]): iProductInfoCardProps[] => {
     const products: iProductInfoCardProps[] = [];
@@ -24,6 +42,7 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
         products.push({
             productType: podLibrary[i].productType ?? "pod",
             ratingVisible: true,
+            flag: getFlag(i),
             prices: podLibrary[i].productPrices!.map((price, index) => {
                 return {
                     price: price,
