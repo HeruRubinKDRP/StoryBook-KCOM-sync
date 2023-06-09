@@ -1,6 +1,6 @@
 import {Meta} from "@storybook/react/types-6-0";
 import {Story} from "@storybook/react/types-6-0";
-import {carousel_images_KCS} from "../../../pages/PDP/pdp-data";
+import {carousel_images_KCS} from "../../../data/pdp-data";
 import {colorNamesList} from "../../_utilities/color-name-to-value/colorNameToValue";
 import BrewerQuickShop, { iBrewerQuickShop } from "./BrewerQuickShop";
 
