@@ -103,7 +103,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                 props.flag &&
                 <Flag
                     flagColor="medium-roast"
-                    flagLabel="Our Best Deal"
+                    flagLabel={props.flag.flagLabel}
                     flagStyle="round-top"
                     flagTextColorOverride="white"
                     font={{
