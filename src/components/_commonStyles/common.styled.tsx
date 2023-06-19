@@ -2,6 +2,10 @@ import {css, keyframes} from 'styled-components';
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 import {fadeInAnim} from "./common.keyframes";
 
+const flexItem = css`
+    display: flex;
+`;
+
 export const ctaColorStyles = css` 
   --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};
   --colorText: ${colorNameToValue("text")};
@@ -27,13 +31,19 @@ export const absolutePositionStretch = css`
   inset: 0;
 `;
 
+
 export const flexRow = css`
-  display: flex;
+  ${flexItem};
   flex-direction: row;
 `
 
+export const flexColumn = css`
+  ${flexItem};
+  flex-direction: column;
+`
+
 export const flexCentered = css`
-  display: flex;
+  ${flexItem};
   justify-content: center;
   align-items: center;
 `

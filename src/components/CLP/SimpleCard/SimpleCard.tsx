@@ -25,9 +25,6 @@ export type filterDataItemT = {
     filterName: string;
     filterValues: filterOptionsT[];
 }
-
-
-
 const ProductInfoCard = (props: iProductInfoCardProps) => {
     const [showEmailInput, setShowEmailInput] = useState(false);
     const [email, setEmail] = useState('');

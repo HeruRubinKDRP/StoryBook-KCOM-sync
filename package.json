@@ -24,6 +24,7 @@
     "fuse.js": "^6.6.2",
     "gsap": "file:node_modules_custom/gsap/gsap-bonus.tgz",
     "interweave": "^13.0.0",
+    "million": "^2.4.6-beta.0",
     "next": "^12.0.0",
     "next-images": "^1.8.4",
     "react": "^17.0.0",

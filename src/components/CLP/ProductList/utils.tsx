@@ -2,7 +2,7 @@ import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-ca
 import {podItemT} from "../../../pages/myBrews";
 import {iFlag} from "../../Flag/Flag";
 
-const flagInStock : iFlag = {
+export const flagInStock : iFlag = {
     flagColor:"medium-roast",
     flagLabel:"In-Stock Guarantee",
     flagStyle:"round-top",
@@ -21,6 +21,16 @@ const getFlag =(index:number)=>{
 
 }
 
+export const getRandomNum = (min:number, max:number, type: "float" | "integer") => {
+    let value = (Math.random() * (max - min) + min).toFixed(1);
+    if(type === "float"){
+        return parseFloat( value );
+    }
+
+    return parseInt( value );
+
+}
+
 export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]): iProductInfoCardProps[] => {
     const products: iProductInfoCardProps[] = [];
 
@@ -36,7 +46,7 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
 
         let min = 3.9;
         let max = 4.9;
-        let randomNum = parseFloat( (Math.random() * (max - min) + min).toFixed(1) );
+
 
     if(!podLibrary[i].productPrices){return []}
         products.push({
@@ -58,7 +68,7 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
             image: image ?? "",
             rating :{
                 totalNumberOfStars: 5,
-                totalNumberOfReviews: randomNum,
+                totalNumberOfReviews: getRandomNum(minReviews, maxReviews, "float"),
                 ratingNumber: randomInt
             },
             onClick: () => console.log(`Add to Cart clicked for ${name}`),

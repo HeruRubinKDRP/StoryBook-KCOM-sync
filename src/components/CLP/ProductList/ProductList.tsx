@@ -230,8 +230,6 @@ const ProductList = (props: ProductListProps) => {
     };
 
 
-
-
     const getDynamicStyles = (widthX: number) => {
         return `--overallWidth : ${widthX}px;`
     }
@@ -267,7 +265,6 @@ const ProductList = (props: ProductListProps) => {
         }
         return <></>
     }
-
 
 
     // manage filters selection
