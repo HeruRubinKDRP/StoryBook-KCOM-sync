@@ -59,7 +59,6 @@ export const K_Iced_Arctic_Gray: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Iced™ Single Serve Coffee Maker - White
 export const K_Iced_White: imageItemType[] = [
     {
@@ -108,7 +107,6 @@ export const K_Iced_White: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Café® SMART Single Serve Coffee Maker - Black
 export const K_Cafe_Smart_Black: imageItemType[] = [
     {
@@ -182,7 +180,6 @@ export const K_Cafe_Smart_Black: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Supreme Plus® SMART Single Serve Coffee Maker - Black Stainless
 export const K_Supreme_Plus_Smart_Black_Stainless: imageItemType[] = [
     {
@@ -221,7 +218,6 @@ export const K_Supreme_Plus_Smart_Black_Stainless: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Supreme Plus® SMART Single Serve Coffee Maker - Stainless Steel
 export const K_Supreme_Plus_Smart_Stainless_Steel: imageItemType[] = [
     {
@@ -280,7 +276,6 @@ export const K_Supreme_Plus_Smart_Stainless_Steel: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Supreme® SMART Single Serve Coffee Maker - Black
 export const K_Supreme_Smart_Black: imageItemType[] = [
     {
@@ -324,7 +319,6 @@ export const K_Supreme_Smart_Black: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Supreme® SMART Single Serve Coffee Maker - Gray
 export const K_Supreme_Smart_Gray: imageItemType[] = [
     {
@@ -358,7 +352,6 @@ export const K_Supreme_Smart_Gray: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Supreme® SMART Single Serve Coffee Maker - White
 export const K_Supreme_Smart_White: imageItemType[] = [
     {
@@ -392,7 +385,6 @@ export const K_Supreme_Smart_White: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Duo® Special Edition Single Serve & Carafe Coffee Maker
 export const K_Duo_Special_Edition: imageItemType[] = [
     {
@@ -451,7 +443,6 @@ export const K_Duo_Special_Edition: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Duo™ Single Serve & Carafe Coffee Maker
 export const K_Duo: imageItemType[] = [
     {
@@ -505,7 +496,6 @@ export const K_Duo: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Duo Plus™ Single Serve & Carafe Coffee Maker
 export const K_Duo_Plus: imageItemType[] = [
     {
@@ -569,7 +559,6 @@ export const K_Duo_Plus: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker
 export const K_Cafe_Special_Edition: imageItemType[] = [
     {
@@ -618,7 +607,6 @@ export const K_Cafe_Special_Edition: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Café® Single Serve Coffee Latte & Cappuccino Maker
 export const K_Cafe: imageItemType[] = [
     {
@@ -672,7 +660,6 @@ export const K_Cafe: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Supreme Plus® Single Serve Coffee Maker
 export const K_Supreme_Plus: imageItemType[] = [
     {
@@ -726,7 +713,6 @@ export const K_Supreme_Plus: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //Keurig® K-Supreme® Single Serve Coffee Maker -FARMHOUSE WHITE
 export const K_Supreme_Farmhouse_White: imageItemType[] = [
     {
@@ -770,7 +756,6 @@ export const K_Supreme_Farmhouse_White: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //Keurig® K-Supreme® Single Serve Coffee Maker -SILVER SAGE
 export const K_Supreme_Silver_Sage: imageItemType[] = [
     {
@@ -809,7 +794,6 @@ export const K_Supreme_Silver_Sage: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //Keurig® K-Supreme® Single Serve Coffee Maker -GRAY
 export const K_Supreme_Gray: imageItemType[] = [
     {
@@ -863,7 +847,6 @@ export const K_Supreme_Gray: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //Keurig® K-Supreme® Single Serve Coffee Maker -BLACK
 export const K_Supreme_Black: imageItemType[] = [
     {
@@ -927,7 +910,6 @@ export const K_Supreme_Black: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //Keurig® K-Supreme® Single Serve Coffee Maker -WHITE
 export const K_Supreme_White: imageItemType[] = [
     {
@@ -976,7 +958,6 @@ export const K_Supreme_White: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - Matte Black
 export const K_Mini_Plus_Matte_Black: imageItemType[] = [
     {
@@ -1035,7 +1016,6 @@ export const K_Mini_Plus_Matte_Black: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - CARDINAL RED
 export const K_Mini_Plus_Cardinal_Red: imageItemType[] = [
     {
@@ -1099,7 +1079,6 @@ export const K_Mini_Plus_Cardinal_Red: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - GRAY
 export const K_Mini_Plus_Gray: imageItemType[] = [
     {
@@ -1163,7 +1142,6 @@ export const K_Mini_Plus_Gray: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - EVENING TEAL
 export const K_Mini_Plus_Evening_Teal: imageItemType[] = [
     {
@@ -1227,7 +1205,6 @@ export const K_Mini_Plus_Evening_Teal: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - WHITE
 export const K_Mini_Plus_Matte_White: imageItemType[] = [
     {
@@ -1286,7 +1263,6 @@ export const K_Mini_Plus_Matte_White: imageItemType[] = [
         linkTo: ""
     }
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - COOL AQUA
 export const K_Mini_Plus_Cool_Aqua: imageItemType[] = [
     {
@@ -1335,7 +1311,6 @@ export const K_Mini_Plus_Cool_Aqua: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Mini Plus® Single Serve Coffee Maker - MISTY GREEN
 export const K_Mini_Plus_Misty_Green: imageItemType[] = [
     {
@@ -1389,7 +1364,6 @@ export const K_Mini_Plus_Misty_Green: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Mini® Single Serve Coffee Maker - matte black
 export const K_Mini_Matte_Black: imageItemType[] = [
     {
@@ -1762,25 +1736,590 @@ export const K_Mini_Evergreen: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //Keurig® K-Elite® Single Serve Coffee Maker - Brushed Gold
+export const K_Elite_Brushed_Gold: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Elite_Brushed_Gold?wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Elite-Single-Serve-Coffee-Maker_5000359831?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt1?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt2?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt3?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt4?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt5?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt6?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt7?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt8?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt9?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/gold_alt10?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+
+]
 //Keurig® K-Elite® Single Serve Coffee Maker - Brushed Silver
+export const K_Elite_Brushed_Silver: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Elite_Brushed_Silver?wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/001_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/002_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/003_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/004_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/005_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/006_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/007_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/008_Silver?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Elite® Single Serve Coffee Maker - Brushed Slate
-
+export const K_Elite_Brushed_Slate: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Elite_Brushed_Slate?wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Elite-Single-Serve-Coffee-Maker_5000359886?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/001_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/002_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/003_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/004_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/005_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/006_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/007_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/008_Slate?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Slim® Single Serve Coffee Maker - Black
+export const K_Slim_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Slim_Black?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_en_alt_1?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000357637?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/COMPARE%20CHART%28v2%29?id=zqlRL2&scl=16&req=tile&rect=0,0,250,250&fmt=jpg&dpr=off",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/002_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/003_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/004_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/005_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/006_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/007_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/009_Alt_Img_KSlim?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    }
+]
 //K-Slim® Single Serve Coffee Maker - White
+export const K_Slim_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-slim-alt2-white?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_en_general?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/12656_K-Slim_MultiStream_Toolkit_Lite%20Assets_Retailer%20Multistream%20Technology%20White?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_white_alt_2?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_white_alt_3?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_white_alt_4?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_white_alt_6?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    }
+]
 //K-Slim® Single Serve Coffee Maker - Scarlet Red
-
+export const K_Slim_Scarlet_Red: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Slim_Scarlet_Red?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000367895?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000367895_alt_1?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000367895_alt_3?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000367895_alt_4?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Single-Serve-Coffee-Maker_5000367895_alt_5?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    }
+]
 //Keurig® K-Select® Coffee Maker - Matte Black
+export const K_Select_Matte_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Select_Matte_Black?wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000359828?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Select® Coffee Maker - Vintage Red
+export const K_Select_Vintage_Red: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000359889?wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-09?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Vintage_Red_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Select® Coffee Maker - Oasis
+export const K_Select_Oasis: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000359890?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Select® Coffee Maker - Sandstone
+export const K_Select_Sandstone: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000359891?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Select® Coffee Maker - Matte Navy
+export const K_Select_Matte_Navy: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000199167_swatch?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_Navy_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Select® Coffee Maker - Matte White
+export const K_Select_Matte_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select-Coffee-Maker_5000359901?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-08?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Matte_White_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Select_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
 
+]
 //K-Slim® Everyday Hero BLK & Bold® Bundle - Blue
+export const K_Slim_Everyday_Hero_BLK_Bold_Bundle_Blue: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Everyday-Hero-BLK-and-Bold-Bundle_5000372063_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Slim® Everyday Hero BLK & Bold® Bundle - Yellow
-
+export const K_Slim_Everyday_Hero_BLK_Bold_Bundle_Yellow: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Everyday-Hero-BLK-and-Bold-Bundle_5000372064_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Mini® Starbucks® Bundle
 export const K_Mini_Starbucks_Bundle: imageItemType[] = [
     {
@@ -1790,42 +2329,553 @@ export const K_Mini_Starbucks_Bundle: imageItemType[] = [
     },
     ]
 //McCafé® x RMHC Bundle - Gold
+export const McCafe_RMHC_Bundle_Gold: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/mccafe-rmhc-bundle_5000371262_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //McCafé® x RMHC Bundle - Brown
+export const McCafe_RMHC_Bundle_Brown: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/mccafe-rmhc-bundle_5000371263_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //McCafé® x RMHC Bundle - Blue
-
+export const McCafe_RMHC_Bundle_Blue: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/mccafe-rmhc-bundle_5000371264_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Classic® Coffee Maker - Black
+export const K_Classic_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Classic_Black?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K50-Coffee-Maker_5000204441?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM-08?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Classic® Coffee Maker - Rhubarb
-
+export const K_Classic_Rhubarb: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K_Classic_Rhubarb?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K50-Coffee-Maker_5000345253?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-01?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-02?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-03?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-04?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-05?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-06?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-07?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Classic_Alt_Images_SSCM_Rhubarb-08?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Mini® Back to College Bundle
-
+export const K_Mini_Back_To_College_Bundle: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-back-to-college-bundle_5000356890_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Slim + ICED™ Dunkin’® Bundle
-
+export const K_Slim_Iced_Dunkin_Bundle: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-slim-iced-boi-dunkin-bundle_5000365009_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Express™ Single Serve Coffee Maker
-
+export const K_Express: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%208?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express-Single-Serve-Coffee-Maker_en_general?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%201?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%202?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%203?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%204?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%205?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%206?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Express%20Alt%207?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K155 OfficePRO® Premier Brewing System
-
+export const K155_OfficePro_Premier: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K155_Brewing_System-alt-2?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/k155-office-pro-premier-brewing-system_en_general?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K155_Brewing_System-3?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/resource-932065fc-239c-44f7-be47-e7dff1942d4d.tif.w960?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/resource-dd2cf0b0-e172-430d-815a-2c109ed0d9dc.tif.w960?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Supreme® Community Coffee Bundle
-
+export const K_Supreme_Community_Coffee_Bundle_Gray: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Community-Coffee-Bundle_5000368400_bundle?fmt=png-alpha&wid-2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Supreme_Community_Coffee_Bundle_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Community-Coffee-Bundle_5000368401_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Supreme_Community_Coffee_Bundle_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Community-Coffee-Bundle_5000368402_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Supreme_Community_Coffee_Bundle_Farmhouse_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Community-Coffee-Bundle_5000361865_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Supreme_Community_Coffee_Bundle_Silver_Sage: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Community-Coffee-Bundle_5000363309_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Slim + ICED™ Single Serve Coffee Maker
-
+export const K_Slim_Iced: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_10?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_5000365009?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_1?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_2?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_3?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_4?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_5?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_6?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_7?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_9?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Slim-Iced-Single-Serve-Coffee-Maker_alt_8?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
 //The Rolling Stones x Keurig® “Start Me Up” Iced Coffee Kit
-
-//K-Iced™ Bundle
-
+export const The_Rolling_Stones_Iced_Coffee_Kit: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/Rolling-Stones-Keurig-Start-Me-Up-iced-Coffee-Kit_en_general?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Iced™ Bundle - Arctic Gray
+export const K_Iced_Bundle_Arctic_Gray: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Iced-bundle_5000371871_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Iced™ Bundle - Arctic Gray
+export const K_Iced_Bundle_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Iced-bundle_5000374055_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //Keurig® K-Compact® Coffee Maker
-
-//K-Mini Plus® + Milk Frother Bundle
-
+export const K_Compact: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_8?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_en_general?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_1?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_3?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_4",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_5",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Compact-Coffee-Maker_Alt_7",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Matte Black
+export const K_Mini_Plus_Milk_Frother_Bundle_Matte_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000200239_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000200239_swatch?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Cardinal Red
+export const K_Mini_Plus_Milk_Frother_Bundle_Cardinal_red: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000200240_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000200240?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Cool Aqua
+export const K_Mini_Plus_Milk_Frother_Bundle_Cool_Aqua: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000361863_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000361863?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Matte White
+export const K_Mini_Plus_Milk_Frother_Bundle_Matte_White: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000341911_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000341911?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Evening Teal
+export const K_Mini_Plus_Milk_Frother_Bundle_Evening_Teal: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000203817_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000203817?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Mini Plus® + Milk Frother Bundle - Studio Gray
+export const K_Mini_Plus_Milk_Frother_Bundle_Studio_Gray: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-mini-plus-milk-frother-bundle_5000202016_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Mini-Plus-Coffee-Maker_5000202016?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+    {
+        path: "https://images.keurig.com/is/image/keurig/Keurig-Milk-Frother_5000371042?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Café® Gift Set Bundle
-
+export const K_Cafe_Gift_Set_Bundle: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-cafe-gift-set_5000201735_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Duo Plus™ + McCafe® Best Seller Bundle
-
-//K-Classic® Essentials Bundle
-
+export const K_Duo_Plus_McCafe_Best_Seller_Bundle: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-duo-plus-mccafe-best-seller-bundle_5000363818_bundle?fmt=png-alpha&scl=1",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Classic® Essentials Bundle-Rhubarb
+export const K_Classic_Essentials_Bundle_Rhubarb: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-classic-essentials-bundle_5000345253_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Classic® Essentials Bundle-Black
+export const K_Classic_Essentials_Bundle_Black: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-classic-essentials-bundle_5000204441_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Supreme Plus® SMART Exceptional Brews Bundle
-
-//K-Elite® Gift Set Bundle
-
+export const K_Supreme_Plus_Smart_Exceptional_Brews_Bundle: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Exceptional-Brews-Bundle_5000361470_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+//K-Elite® Gift Set Bundle - Brushed Gold
+export const K_Elite_Gift_Set_Bundle_Brushed_Gold: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-elite-gift-set_5000359831_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Elite_Gift_Set_Bundle_Brushed_Silver: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-elite-gift-set_5000359832_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
+export const K_Elite_Gift_Set_Bundle_Brushed_Slate: imageItemType[] = [
+    {
+        path: "https://images.keurig.com/is/image/keurig/k-elite-gift-set_5000359886_bundle?fmt=png-alpha&wid=2000",
+        altText: "",
+        linkTo: ""
+    },
+]
 //K-Duo® Gift Set Bundle
 export const K_Duo_Gift_Set_Bundle: imageItemType[] = [
     {
@@ -1834,7 +2884,6 @@ export const K_Duo_Gift_Set_Bundle: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Mini® Essentials Bundle
 export const K_Mini_Essentials_Bundle_Dusty_Rose: imageItemType[] = [
     {
@@ -1864,7 +2913,6 @@ export const K_Mini_Essentials_Bundle_Matte_Black: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Supreme Plus™ Welcome Bundle
 export const K_Supreme_Plus_Welcome_Bundle: imageItemType[] = [
     {
@@ -1873,7 +2921,6 @@ export const K_Supreme_Plus_Welcome_Bundle: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Cafe® Special Edition Gift Set Bundle
 export const K_Cafe_Special_Edition_Gift_Set_Bundle: imageItemType[] = [
     {
@@ -1882,7 +2929,6 @@ export const K_Cafe_Special_Edition_Gift_Set_Bundle: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Slim® Essentials Bundle
 export const K_Slim_Essentials_Bundle: imageItemType[] = [
     {
@@ -1891,7 +2937,6 @@ export const K_Slim_Essentials_Bundle: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Mini Plus® Essentials Bundle
 export const K_Mini_Plus_Essentials_Bundle_Matte_Black: imageItemType[] = [
     {
@@ -1943,7 +2988,6 @@ export const K_Supreme_Welcome_Bundle_Black: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Select® Essentials Bundle
 export const K_Select_Essentials_Bundle_Matte_Black: imageItemType[] = [
     {
@@ -1987,7 +3031,6 @@ export const K_Select_Essentials_Bundle_Vintage_Red: imageItemType[] = [
         linkTo: ""
     },
 ]
-
 //K-Elite® + McCafe® Best Seller Bundle
 export const K_Elite_McCafe_Best_Seller_Bundle_Brushed_Gold: imageItemType[] = [
     {
@@ -2010,7 +3053,6 @@ export const K_Elite_McCafe_Best_Seller_Bundle_Brushed_Slate: imageItemType[] = 
         linkTo: ""
     },
 ]
-
 //K-Duo® Plus Gift Set Bundle
 export const K_Duo_Plus_Gift_Set_Bundle: imageItemType[] = [
     {
@@ -2050,12 +3092,3 @@ export const K_Duo_Plus_Gift_Set_Bundle: imageItemType[] = [
     },
 ]
 
-/*
-export const Name: imageItemType[] = [
-    {
-        path: "",
-        altText: "",
-        linkTo: ""
-    },
-]
-*/
