@@ -1,4 +1,4 @@
-import {iProductInfoCardProps} from "../components/CLP/product-card.interfaces";
+import {iProductInfoCardProps} from "../components/CLP/SimpleCard/SimpleCard";
 import {iFeatureBullet} from "../components/FeatureBullets/FeatureBulletItem/FeatureBullet";
 
 
