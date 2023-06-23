@@ -20,6 +20,7 @@ export interface iColorPicker{
   secondaryLabel? : string;
   ctaColorOverride? : string;
   primaryCtaIcon? : iconType;
+  actionFunc? : (value : boolean)=>void;
 }
 
 export const ColorPicker=(props : iColorPicker)=>{
@@ -166,27 +167,6 @@ export const ColorPicker=(props : iColorPicker)=>{
       </div>
     )
   }
-
-  // const getLearnMoreLink=()=>{
-  //   if(!props.hasLearMoreLink){return<></>}
-  //   const labelChecked=()=>{
-  //     if(!props.hasLearMoreLink || !props.learnMoreLabel){return "Learn more"}
-  //     else{return props.learnMoreLabel}
-  //   }
-  //   return(
-  //     <>
-  //       <KButton
-  //         transitionType="none"
-  //         buttonType="link-internal"
-  //         buttonWidth="fit-to-content"
-  //         classes="light learn-more"
-  //         iconPlacement="no-icon"
-  //         iconStandard="none"
-  //         label={labelChecked()}
-  //       />
-  //     </>
-  //   )
-  // }
 
   const manageSetVariant=(selectedIndex : number)=>{
     //only allow setState for in stock items;

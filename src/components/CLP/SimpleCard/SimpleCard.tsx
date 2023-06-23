@@ -82,20 +82,20 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
 
 
     //Get specific card configuration
-    const {width, height, ref} = useResizeDetector({
-        refreshMode: 'debounce',
-        refreshRate: 400,
-        refreshOptions: {
-            leading: true,
-            trailing: true
-        },
-        onResize: () => {
-        },
-    });
+    // const {width, height, ref} = useResizeDetector({
+    //     refreshMode: 'debounce',
+    //     refreshRate: 500,
+    //     refreshOptions: {
+    //         leading: true,
+    //         trailing: false
+    //     },
+    //     onResize: () => {
+    //     },
+    // });
 
 
     return (
-        <ProductInfoCardWrapper heightY={height ?? 0} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
+        <ProductInfoCardWrapper heightY={screen.availHeight * 0.6} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
             {
                 props.flag &&
                 <Flag
@@ -119,7 +119,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                         className="image-inner"
                     />
                 </div>
-                <div className="product-info-container" ref={ref}>
+                <div className="product-info-container">
                     <div className="price">
                         <div className="fine-print">
                             {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as')}

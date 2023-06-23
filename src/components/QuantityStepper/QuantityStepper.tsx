@@ -29,6 +29,8 @@ const QuantityStepper: React.FC<StepperProps> = ({ lowThreshold, highThreshold, 
 
 
 
+
+
     const handleIncrement = useCallback(() => {
         if (value < highThreshold) {
             setValue(prevValue => {

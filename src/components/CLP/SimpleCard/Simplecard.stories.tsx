@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import ProductInfoCard, { iProductInfoCardProps } from './SimpleCard';
+import ProductInfoCard from './SimpleCard';
+import {iProductInfoCardProps} from "../product-card.interfaces";
 import {podLibrary} from "../../../data/beverage-library";
 
 export default {

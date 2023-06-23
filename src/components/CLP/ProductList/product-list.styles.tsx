@@ -372,7 +372,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
 `;
 
 
-export const CLP_Page_Styled = styled.div`
+                    export const CLP_Page_Styled = styled.div`
   .duo{
     .sub-section{
       width: 40%;
