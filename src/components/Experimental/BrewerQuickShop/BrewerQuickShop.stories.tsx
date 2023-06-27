@@ -55,7 +55,7 @@ Default.args = {
             colorValue : "black",
         },
         {
-            inStock : true,
+            inStock : false,
             colorName : "Stainless Steel",
             colorValue : "grey",
         }
