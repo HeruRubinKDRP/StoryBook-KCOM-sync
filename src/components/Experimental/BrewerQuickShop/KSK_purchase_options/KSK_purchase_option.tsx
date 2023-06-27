@@ -12,8 +12,12 @@ export interface iKSKPurchaseOption {
 export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
 
     const {width, height, ref} = useResizeDetector({
-        refreshMode: 'debounce',
-        refreshRate: 100, refreshOptions: {},
+        refreshMode: 'throttle',
+        refreshRate: 500,
+        refreshOptions: {
+            trailing: false,
+            leading: true,
+        },
         handleHeight: false, skipOnMount: false,
         onResize: () => {
         },
