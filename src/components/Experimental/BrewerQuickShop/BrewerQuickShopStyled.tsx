@@ -4,13 +4,16 @@ import {containerQueryBasedVariables} from "../../CLP/reusable-css-variables-CLP
 
 export interface iBrewerQuickShopStyled {
     overallWidth: number;
-    calculatedOverallWidthVar: Interpolation<any>
+    calculatedOverallWidthVar: Interpolation<any>;
+    mainFlagColor: colorByNameType;
+
 }
 
 
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   ${props => props.calculatedOverallWidthVar}
   ${containerQueryBasedVariables};
+  --mainFlagColor : ${props => colorNameToValue(props.mainFlagColor)};
   //--buttonHuge: calc(var(--overallWidth) * 0.06 + 16px);
   //--buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
   //--buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
@@ -24,7 +27,25 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   //--spacingMedium: calc(var(--overallWidth) * 0.025 + 5px);
   //--spacingSmall: calc(var(--overallWidth) * 0.015 + 4px);
   //--spacingTiny: calc(var(--overallWidth) * 0.003 + 2px);
-
+  
+  .out-of-stock-area{
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .selected-color{ 
+    display: flex;
+    margin-top: 1rem;
+    *{
+      font-size: 1.25rem;
+    }
+    .key{
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }    
+  }
 
   border-radius: var(--spacingTiny);
   overflow: hidden;
