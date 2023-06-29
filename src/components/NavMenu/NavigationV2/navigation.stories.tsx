@@ -1,5 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
-import React, { ReactElement } from "react";
+import { StoryFn, Meta } from "@storybook/react";
 import {iNavContentGroup, iNavigation, Navigation} from "./Navigation";
 
 
@@ -23,7 +22,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iNavigation> = (args)=><Navigation {...args} />;
+const Template: StoryFn<iNavigation> = (args)=><Navigation {...args} />;
 
 export const NavExample = Template.bind({});
 

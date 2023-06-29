@@ -1,5 +1,4 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import { FiltersCenter, iFiltersCenter, iCategoryItem, iCategorySubcategory } from './FiltersCenter';
 import {brewerFiltersSettings} from "../../../data/brewerFilters";
 import {filterOptionsT} from "../../../data/brewer-library";
@@ -10,7 +9,7 @@ export default {
     component: FiltersCenter,
 } as Meta;
 
-const Template: Story<iFiltersCenter> = (args) => <FiltersCenter {...args} />;
+const Template: StoryFn<iFiltersCenter> = (args) => <FiltersCenter {...args} />;
 
 
 export const Default = Template.bind({});

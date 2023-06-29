@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import {iQuickShop, QuickShop} from "./QuickShop";
 
 export default{
@@ -9,7 +9,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iQuickShop> = (args) => <QuickShop {...args} />;
+const Template: StoryFn<iQuickShop> = (args) => <QuickShop {...args} />;
 
 export const ClassicQuickShopExample = Template.bind({});
 

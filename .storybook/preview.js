@@ -1,33 +1,25 @@
-import '../src/styles/globals.scss'
-import { RouterContext } from 'next/dist/shared/lib/router-context'
-import * as NextImage from 'next/image'
+/** @type { import('@storybook/react').Preview } */
 import React from "react";
+import GlobalStyleKCOM from "../src/components/_commonStyles/GlobalStyles";
+export const decorators = [
+  (Story) => (
+      <React.Fragment>
+        <GlobalStyleKCOM />
+        <Story />
+      </React.Fragment>
+  ),
+];
 
-import "../src/styles/fonts/MarkOT-Bold.woff";
-import "../src/styles/fonts/MarkOT.woff";
-import "./storybook.scss";
-
-
-
-const OriginalNextImage = NextImage.default
-
-Object.defineProperty(NextImage, 'default', {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />
-})
-
-export const parameters = {
-  nextRouter: {
-    Provider: RouterContext.Provider
+const preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
   },
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
-    }
-  },
-  previewTabs: {
-    'storybook/docs/panel': { index: -1 }
-  }
-}
+};
+
+export default preview;

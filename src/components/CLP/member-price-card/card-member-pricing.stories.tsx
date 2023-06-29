@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import MemberPriceCard, {iMemberPricingCardProps} from "./card-member-pricing";
 import {podLibrary} from "../../../data/beverage-library";
 import {flagInStock, getRandomNum} from "../ProductList/utils";
@@ -13,7 +13,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<iMemberPricingCardProps> = (args) => <MemberPriceCard {...args} />;
+const Template: StoryFn<iMemberPricingCardProps> = (args) => <MemberPriceCard {...args} />;
 
 export const MemberPriceCardExample = Template.bind({ });
 

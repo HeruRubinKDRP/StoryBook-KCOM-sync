@@ -1,5 +1,5 @@
-import React from 'react'
-import { Story, Meta } from '@storybook/react'
+
+import { StoryFn, Meta } from '@storybook/react'
 import { Filters } from './Beverages-CLP-filters'
 
 export default {
@@ -7,6 +7,6 @@ export default {
     component: Filters,
 }as Meta
 
-export const Template: Story = () => {
+export const Template: StoryFn = () => {
     return <Filters filtersFunction={()=>{}} isVisible={true}  />
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 
 export const ProductCardStyled = styled.div`
   display: inline-flex;
@@ -24,7 +25,7 @@ export const ProductCardStyled = styled.div`
       margin-left: 0;
       padding: 0;
       font-size: 2rem;
-      color: $text;
+      color: ${colorNameToValue("text")};
       .currency{
         left: -0.5rem;
       }

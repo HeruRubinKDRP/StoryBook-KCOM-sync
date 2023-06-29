@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0"
+import { StoryFn, Meta } from "@storybook/react"
 import React from "react";
 import {BooleanToggle, iBooleanToggle} from "./BooleanToggle";
 
@@ -15,7 +15,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iBooleanToggle> = (args) => <BooleanToggle {...args} />
+const Template: StoryFn<iBooleanToggle> = (args) => <BooleanToggle {...args} />
 
 export const Primary = Template.bind({});
 

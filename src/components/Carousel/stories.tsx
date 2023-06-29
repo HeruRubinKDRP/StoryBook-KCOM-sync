@@ -1,5 +1,5 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
-import React, { ReactElement } from "react";
+import { StoryFn, Meta } from "@storybook/react";
+import { ReactElement } from "react";
 import {imageSequence} from "../../data/product-data";
 
 import {ContentItem, iContentItem} from "../ContentComponents/ContentComponent";
@@ -99,7 +99,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iCarousel> = (args) => <Kcarousel {...args} />
+const Template: StoryFn<iCarousel> = (args) => <Kcarousel {...args} />
 
 export const ExampleCarousel = Template.bind({});
 
@@ -142,7 +142,7 @@ ExampleCarousel.args={
   navLabels : ["First Section", "Second Section", "Third Section"]
 }
 
-const TemplateCards: Story<iCarousel> = (args) => <Kcarousel {...args} />
+const TemplateCards: StoryFn<iCarousel> = (args) => <Kcarousel {...args} />
 
 
 export const ProductCarousel = Template.bind({});
@@ -169,7 +169,7 @@ ProductOneSlide.args={
   navLabels : ["First Section", "Second Section", "Third Section"]
 }
 
-export const ImageThumbs: Story<iCarousel> = (args)=> <Kcarousel {...args} />
+export const ImageThumbs: StoryFn<iCarousel> = (args)=> <Kcarousel {...args} />
 
 ImageThumbs.args={
   itemsPerSlide:1,
@@ -181,7 +181,7 @@ ImageThumbs.args={
   navStyle : "thumbnails"
 }
 
-export const LogosDemo: Story<iCarousel> = (args)=><Kcarousel {...args} />
+export const LogosDemo: StoryFn<iCarousel> = (args)=><Kcarousel {...args} />
 LogosDemo.args={
   itemsPerSlide : 5,
   component:"carousel",

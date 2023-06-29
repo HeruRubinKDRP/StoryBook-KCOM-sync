@@ -1,5 +1,5 @@
-import { Story, Meta } from "@storybook/react/types-6-0"
-import React, { ReactElement } from "react"
+import { StoryFn, Meta } from "@storybook/react"
+import { ReactElement } from "react"
 
 import { KDropDown, IdropDown, btnSizeType, dropDownItem } from "./drop-down"
 
@@ -15,7 +15,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<IdropDown> = (args) => <KDropDown {...args} />
+const Template: StoryFn<IdropDown> = (args) => <KDropDown {...args} />
 
 export const Primary = Template.bind({});
 Primary.args = {

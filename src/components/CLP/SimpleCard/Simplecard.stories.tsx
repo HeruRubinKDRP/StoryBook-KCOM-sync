@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ProductInfoCard from './SimpleCard';
 import {iProductInfoCardProps} from "../product-card.interfaces";
 import {podLibrary} from "../../../data/beverage-library";
@@ -42,7 +42,7 @@ export default {
     },
 } as Meta;
 
-const Template: Story<iProductInfoCardProps> = (args) => (
+const Template: StoryFn<iProductInfoCardProps> = (args) => (
     <div className="outer" style={{backgroundImage : "linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(245,241,234,1) 100%)", height: "100%", padding : "5%"}}>
         <ProductInfoCard {...args} />
     </div>);

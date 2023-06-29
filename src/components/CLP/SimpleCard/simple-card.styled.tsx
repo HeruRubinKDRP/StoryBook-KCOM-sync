@@ -32,7 +32,7 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
   }
   
   &.brewer {
-    height: 65vh;
+    min-height: 65vh;
     .backing{
       display: none;
     }
@@ -42,14 +42,13 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
       position: absolute;
       z-index: 0;
       inset: 0;
-      height: 100%;
+      height: auto;
       width: 100%;
     }
     
     .k-btn{ 
       border: 1px solid rgba(255,255,255,0.5);
-    } 
-    
+    }  
     .brewer-image{
       margin-top: ${props => props.heightY}px;
     }
@@ -69,8 +68,7 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
     background-color: white;
     border-radius: 5%;
     inset: 0;
-    box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.25);
-    //-webkit-mask-image: linear-gradient(to bottom, transparent 4%, black);
+    box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.25); 
     mask-image: linear-gradient(to bottom, transparent 4%, black); 
   }
   
@@ -93,6 +91,7 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
     z-index: 1;
     position: relative;
     height: 100%;
+    width: auto !important;
     justify-content: space-between;
     .name{
       font-size: 14px;
@@ -120,10 +119,9 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
       }
       &.pod-image, &.bagged-image{
         .image-inner{
-          filter : drop-shadow(0px 1rem 1rem rgba(0,0,0,0.15)) drop-shadow(0px 0px 1px rgba(0,0,0,0.25))
+          filter: drop-shadow(0px 1rem 1rem rgba(0,0,0,0.15)) drop-shadow(0px 0px 1px rgba(0,0,0,0.25))
         }  
-      }
-      
+      } 
     }
 
     .price{
@@ -160,9 +158,9 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
     border-radius: 1rem;
     box-shadow: 0 8px 10px rgb(0 0 0 / 25%);
     animation: slideDownEnter 0.5s ease-in-out forwards;
-  .email-error{
-    margin-top: 0.5rem; 
-  }
+    .email-error{
+      margin-top: 0.5rem; 
+    }
     .submit{
       display: flex; 
       flex-direction: row;
@@ -174,9 +172,8 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
       height: auto;
       width: 100%;
       border-radius: 0.25rem 0 0 0.25rem !important;
-      padding: 0rem 0.25rem 0 0.25rem;
-    }
-    
+      padding: 0 0.25rem 0 0.25rem;
+    } 
   }
   
   button.k-btn{
@@ -186,8 +183,7 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
     -ms-transform: translateX(-50%); 
     padding: var(--spacingLarge) var(--spacingHuge); 
     height: var(--ctaButtonHeight);
-    font-size: calc(var(--columnSize) * 0.05); 
-    
+    font-size: calc(var(--columnSize) * 0.05);  
     &:hover{
       .filled{
         fill: rgb(71, 48, 54) !important;

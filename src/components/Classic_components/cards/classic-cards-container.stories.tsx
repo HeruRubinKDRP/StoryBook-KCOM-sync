@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import {podLibrary} from "../../../data/beverage-library";
 import {ClassicCardsContainer, iClassicCardsContainer} from "./ClassicCardsContainer";
 
@@ -10,7 +10,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iClassicCardsContainer> = (args) => <ClassicCardsContainer {...args} />;
+const Template: StoryFn<iClassicCardsContainer> = (args) => <ClassicCardsContainer {...args} />;
 
 export const ClassicCardsAreaExample = Template.bind({})
 

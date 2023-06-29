@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import KButton from "../../Kbutton/KButton";
 import {ProductInfoCardWrapper} from "./simple-card.styled";
 import {Rating} from "../../Rating/Rating";
@@ -9,6 +9,7 @@ import {filterOptionsT} from "../../../data/brewer-library";
 import {iProductInfoCardProps} from "../product-card.interfaces";
 import {useResizeDetector} from "react-resize-detector";
 import {Flag, iFlag} from "../../Flag/Flag";
+import {h} from "million/jsx-runtime";
 
 // Define an interface for the purchase information of a product
 export interface purchaseInfo {
@@ -30,7 +31,9 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [submitDisabled, setSubmitDisabled] = useState(true);
+    const [dataAreaHeight, setDataAreaHeight] = useState(0);
 
+    const textContainerRef: React.RefObject<HTMLDivElement> = createRef();
     const getPriceLabel = () => {
         switch (props.productType) {
             case "brewer":
@@ -45,7 +48,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
     }
 
     useEffect(() => {
-
+        setDataAreaHeight(textContainerRef.current?.offsetHeight || 0);
     }, [props.prices]);
 
 // Define a function to check if all products are out of stock
@@ -72,6 +75,8 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         return Math.min(...inStockPrices);
     }
 
+
+
     const actionFunc = () => {
         if (isAllOutOfStock(props.prices)) {
             setShowEmailInput(true);
@@ -82,20 +87,21 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
 
 
     //Get specific card configuration
-    // const {width, height, ref} = useResizeDetector({
-    //     refreshMode: 'debounce',
-    //     refreshRate: 500,
-    //     refreshOptions: {
-    //         leading: true,
-    //         trailing: false
-    //     },
-    //     onResize: () => {
-    //     },
-    // });
+    const {width, height, ref} = useResizeDetector({
+        refreshMode: 'debounce',
+        refreshRate: 500,
+        refreshOptions: {
+            leading: true,
+            trailing: false
+        },
+        onResize: () => {
+            setDataAreaHeight(textContainerRef.current?.offsetHeight || 0);
+        },
+    });
 
 
     return (
-        <ProductInfoCardWrapper heightY={screen.availHeight * 0.6} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}>
+        <ProductInfoCardWrapper heightY={dataAreaHeight || 300} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`} ref={ref}>
             {
                 props.flag &&
                 <Flag
@@ -109,7 +115,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                     }}
                 />
             }
-            <div className="product-data-container">
+            <div className="product-data-container" >
                 <div className={`product-image ${props.productType}-image`}>
                     <AsyncImage
                         imageType={"image"}
@@ -119,7 +125,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                         className="image-inner"
                     />
                 </div>
-                <div className="product-info-container">
+                <div className="product-info-container" ref={textContainerRef}>
                     <div className="price">
                         <div className="fine-print">
                             {isAllOutOfStock(props.prices) ? '' : (props.priceDescriptor ? props.priceDescriptor : 'As low as')}

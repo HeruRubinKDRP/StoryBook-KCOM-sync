@@ -42,7 +42,6 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   background-color: rgb(235,231,227);
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
-;
   .coupon-area-container{
     display: flex;
     flex-direction: row;
@@ -86,6 +85,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
         .coupon-applied {
           display: flex;
+          flex-direction: row;
           font-size: var(--FontSizeSmall);
           align-content: center;
           align-items: center;
@@ -95,8 +95,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         }
 
         .k-btn.learn-more {
-          padding: 0 !important;
-          float: inside;
+          padding: 0 !important; 
+          float: right;
           border-radius: 0 !important;
           border: 0 !important;
           height: var(--FontSizeSmall) !important;
@@ -109,7 +109,6 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
           display: flex;
           margin-left: var(--spacingTiny) !important;
         }
-
 
         .checkmark-circled {
           width: var(--buttonMedium);
@@ -131,17 +130,17 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         }
 
         .k-btn {
-          padding: var(--spacingTiny) var(--spacingLarge) !important;
+          padding: var(--spacingMedium) var(--spacingLarge) !important;
           flex: 1 0 0;
           background-color: transparent !important;
           border: 1px solid var(--colorMediumRoast) !important;
           label {
             font-size: var(--FontSizeSmall);
+            margin: 10px 0 10px 0;
           }
         }
       }
-    }
-
+    } 
   }
 
   
@@ -161,8 +160,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         font-size: var(--FontSizeSmall);
       }
     }
-  }
-
+  } 
 
   .deal-area:nth-child(2n+1) {
     padding-right: var(--spacingSmall);

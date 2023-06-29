@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {ProductCard} from "../../ContentComponents/ProductCard/ProductCard";
 import {iMultiItemSlide, MultiItemSlide} from "./MultiItemSlide";
@@ -14,7 +14,7 @@ export default {
 
 
 
-const Template: Story<iMultiItemSlide>=(args)=><MultiItemSlide items={getProductCardsForStory(args.itemsPerSlide)} itemsPerSlide={args.itemsPerSlide} />
+const Template: StoryFn<iMultiItemSlide>=(args)=><MultiItemSlide items={getProductCardsForStory(args.itemsPerSlide)} itemsPerSlide={args.itemsPerSlide} />
 
 export const ExampleMultiItems = Template.bind({});
 

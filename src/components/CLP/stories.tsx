@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {Story, Meta, StoryFn} from "@storybook/react";
 import React from "react";
 import {CLP, Iclp} from "./CLP";
 
@@ -9,7 +9,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<Iclp> = (args)=>
+const Template: StoryFn<Iclp> = (args)=>
 
       <div style={{width:"100%", height:"100%"}} className={` `}>
         <CLP {...args} />

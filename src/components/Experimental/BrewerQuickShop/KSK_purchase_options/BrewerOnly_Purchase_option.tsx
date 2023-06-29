@@ -18,9 +18,12 @@ export interface iBrewerOnlyPurchaseOption{
 export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
 
     const {width, height, ref} = useResizeDetector({
-        refreshMode: 'debounce',
-        refreshRate: 200,
-        refreshOptions: {},
+        refreshMode: 'throttle',
+        refreshRate: 500,
+        refreshOptions: {
+            trailing: false,
+            leading: true,
+        },
         handleHeight: false,
         skipOnMount: false,
         onResize: () => {},
@@ -31,7 +34,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
     const getCoupon =()=>{
         if(props.hasCoupon){
             return(
-                <>
+                <div className="coupon-area">
                     <div className="coupon-item">
                         {
                             couponApplied ?
@@ -70,7 +73,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                             </>
                         }
                     </div>
-                </>
+                </div>
             )
         }
     }
@@ -85,9 +88,9 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
             </div>
             <div className={"coupon-area-container"}>
             <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
-            <div className="coupon-area">
+
                 {getCoupon()}
-            </div>
+
             </div>
           <CTA_WithQuantity
               totalQuantity={4}

@@ -30,7 +30,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
 
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'throttle',
-        refreshRate: 100,
+        refreshRate: 400,
         refreshOptions: {
             leading: true,
             trailing: false,
@@ -90,7 +90,7 @@ export const BeverageQuickShop = (props: iBeverageQuickShop) => {
             hasBackButton={false}
             hasHeader={false}
             closeFunc={props.closeFunction}
-            appendTo="root"
+            appendTo="body"
             classes={`modal-${getModalContainerQueries(width || 0)} minimal-header`}
         >
             <ModalStyled ref={ref} className={`modal-contents`}>

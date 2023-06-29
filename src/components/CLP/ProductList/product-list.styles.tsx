@@ -67,7 +67,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   // product card types
   .brewer {
     height: 65vh;
-
+    min-height: 300px;
     .product-data-container {
       padding: 0 16px 0 16px;
     }
@@ -207,10 +207,8 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   .cta-container {
     button.k-btn {
       bottom: 0 !important;
-    }
-
-    .flip-btn {
-
+    } 
+    .flip-btn { 
     }
   }
 
@@ -282,8 +280,8 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       grid-template-rows: auto;
       grid-gap: 0;
       align-items: end;
-      bottom: calc(var(--ctaButtonHeight) * 0.5) !important;
-      position: absolute;
+      //bottom: calc(var(--ctaButtonHeight) * 0.5) !important;
+      //position: absolute;
       width: 100%;
       height: calc(var(--ctaButtonHeight) * 3) !important;
       padding: 0 5% 0 5%;
@@ -316,6 +314,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
 
   .brewer-card {
     height: 65vh;
+    min-height: 300px;
 
     .brewer-cta, .flip-btn {
       height: 100% !important;
@@ -360,19 +359,18 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       grid-template-rows: auto;
       grid-gap: 5%;
       align-items: end;
-      bottom: calc(var(--ctaButtonHeight)) !important;
-      position: absolute;
+      //bottom: calc(var(--ctaButtonHeight)) !important;
+      //position: absolute;
       width: 100%;
       height: calc(var(--ctaButtonHeight) * 3) !important;
       padding: 0 5% 0 5%;
-    }
-
+    } 
 
   }
 `;
 
 
-                    export const CLP_Page_Styled = styled.div`
+export const CLP_Page_Styled = styled.div`
   .duo{
     .sub-section{
       width: 40%;

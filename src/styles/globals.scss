@@ -115,7 +115,13 @@
   font-display: fallback;
 }
 
-
+@font-face {
+  font-family: 'Mark OT';
+  src: url('/fonts/MarkOT.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
 
 @font-face {
   font-family: 'Mark OT';
@@ -132,15 +138,6 @@
   font-style: normal;
   font-display: fallback;
 }
-
-@font-face {
-  font-family: 'Mark OT';
-  src: url('/fonts/MarkOT.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-}
-
 
 @font-face {
   font-family: 'Mark OT';
