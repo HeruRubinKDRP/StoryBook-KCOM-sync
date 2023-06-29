@@ -46,7 +46,7 @@ Default.args = {
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
     learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -71,10 +71,10 @@ Default.args = {
 export const K_Iced_Arctic_Gray_Example = Template.bind({});
 K_Iced_Arctic_Gray_Example.args = {
     mainFlagColor : "KSK",
-    mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    mainFlagLabel : "{use flag}",
+    productNameExtended : "K-Iced™ Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "Brews Hot & Iced",
     carousel : {
         slideImageURLs : K_Iced_Arctic_Gray
     },
@@ -83,19 +83,19 @@ K_Iced_Arctic_Gray_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api provided}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
             inStock : true,
-            colorName : "Black",
-            colorValue : "black",
+            colorName : "Arctic Grey",
+            colorValue : "grey",
         },
         {
             inStock : true,
-            colorName : "Stainless Steel",
-            colorValue : "grey",
+            colorName : "White",
+            colorValue : "white",
         }
     ],
     starRating :{
@@ -122,7 +122,7 @@ K_Iced_White_Example.args = {
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
     learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -159,19 +159,14 @@ K_Cafe_Smart_Black_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api provided data}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
             inStock : true,
             colorName : "Black",
             colorValue : "black",
-        },
-        {
-            inStock : true,
-            colorName : "Stainless Steel",
-            colorValue : "grey",
         }
     ],
     starRating :{
@@ -186,9 +181,9 @@ export const K_Supreme_Plus_Smart_Black_Stainless_Example = Template.bind({});
 K_Supreme_Plus_Smart_Black_Stainless_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Supreme Plus® SMART Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless.",
     carousel : {
         slideImageURLs : K_Supreme_Plus_Smart_Black_Stainless
     },
@@ -197,8 +192,8 @@ K_Supreme_Plus_Smart_Black_Stainless_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use coupon data}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -224,19 +219,18 @@ export const K_Supreme_Plus_Smart_Stainless_Steel_Example = Template.bind({});
 K_Supreme_Plus_Smart_Stainless_Steel_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Supreme Plus® SMART Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless.",
     carousel : {
         slideImageURLs : K_Supreme_Plus_Smart_Stainless_Steel
     },
     hasCoupon : true,
-    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use data}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -262,9 +256,9 @@ export const K_Supreme_Smart_Black_Example = Template.bind({});
 K_Supreme_Smart_Black_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Supreme® SMART Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless.",
     carousel : {
         slideImageURLs : K_Supreme_Smart_Black
     },
@@ -273,8 +267,8 @@ K_Supreme_Smart_Black_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -300,9 +294,9 @@ export const K_Supreme_Smart_Gray_Example = Template.bind({});
 K_Supreme_Smart_Gray_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Supreme® SMART Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless.",
     carousel : {
         slideImageURLs : K_Supreme_Smart_Gray
     },
@@ -311,8 +305,8 @@ K_Supreme_Smart_Gray_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api coupon}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -338,9 +332,9 @@ export const K_Supreme_Smart_White_Example = Template.bind({});
 K_Supreme_Smart_White_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Supreme® SMART Single Serve Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "With BrewID™, enjoying a rich, full-flavored cup of coffee brewed just the way you like it is effortless.",
     carousel : {
         slideImageURLs : K_Supreme_Smart_White
     },
@@ -349,8 +343,8 @@ K_Supreme_Smart_White_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api coupon}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -360,8 +354,8 @@ K_Supreme_Smart_White_Example.args = {
         },
         {
             inStock : true,
-            colorName : "Stainless Steel",
-            colorValue : "grey",
+            colorName : "White",
+            colorValue : "white",
         }
     ],
     starRating :{
@@ -376,9 +370,9 @@ export const K_Duo_Special_Edition_Example = Template.bind({});
 K_Duo_Special_Edition_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Duo® Special Edition Single Serve & Carafe Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "This versatile brewer is the best of both worlds, using both K-Cup® pods and ground coffee to brew a cup and a carafe of your favorite varieties.",
     carousel : {
         slideImageURLs : K_Duo_Special_Edition
     },
@@ -387,8 +381,8 @@ K_Duo_Special_Edition_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api coupon}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -414,9 +408,9 @@ export const K_Duo_Example = Template.bind({});
 K_Duo_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Duo™ Single Serve & Carafe Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "This versatile brewer is the best of both worlds, using both K-Cup® pods and ground coffee to brew a cup and a carafe of your favorite varieties.",
     carousel : {
         slideImageURLs : K_Duo
     },
@@ -425,8 +419,8 @@ K_Duo_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{use api}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -452,9 +446,9 @@ export const K_Duo_Plus_Example = Template.bind({});
 K_Duo_Plus_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Duo Plus™ Single Serve & Carafe Coffee Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "This versatile brewer is the best of both worlds, using both K-Cup® pods and ground coffee to brew a cup and a carafe of your favorite varieties.",
     carousel : {
         slideImageURLs : K_Duo_Plus
     },
@@ -463,8 +457,8 @@ K_Duo_Plus_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{coupon api}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api content}*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
@@ -490,9 +484,9 @@ export const K_Cafe_Special_Edition_Example = Template.bind({});
 K_Cafe_Special_Edition_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "Delicious coffee, creamy lattes, and frothy cappuccinos - simply made in minutes",
     carousel : {
         slideImageURLs : K_Cafe_Special_Edition
     },
@@ -528,9 +522,9 @@ export const K_Cafe_Example = Template.bind({});
 K_Cafe_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productNameExtended : "K-Café® Special Edition Single Serve Coffee Latte & Cappuccino Maker",
     productName : "Keurig®",
-    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    tagline : "Delicious coffee, creamy lattes, and frothy cappuccinos - simply made in minutes",
     carousel : {
         slideImageURLs : K_Cafe
     },
@@ -539,8 +533,8 @@ K_Cafe_Example.args = {
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
-    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
-    learnMoreMessagingBrewerOnly : "*Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    learnMoreTitleBrewerOnly : "{coupon api}. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{coupon api} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
     hasKSK : true,
     colorVariants : [
         {
