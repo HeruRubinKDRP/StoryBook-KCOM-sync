@@ -4,6 +4,7 @@ import React from "react";
 import {Styled_KSKPurchaseOption} from "./Styled_KSKPurchaseOption";
 import {useResizeDetector} from "react-resize-detector";
 import Graphic from "components/Graphic/Graphic";
+import { imageItemType } from "components/Carousel/SlideImages";
 
 export interface iKSKPurchaseOption {
     openExternalLearnMoreFunction?: () => void;
@@ -25,24 +26,6 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
 
     return (
         <Styled_KSKPurchaseOption className="preferred-option" ref={ref} heightY={height || 0} widthX={width || 0}>
-
-            {/*     <Flag
-                flagLabel="Best Brewer Deal: Unlock with Coffee Subscription! "
-                flagColor="KSK"
-                font={{fontWeight: "heavy-weight", fontSize: "Small"}}
-                flagStyle="alternating-sharp-round"
-            >
-                <KButton
-                    label="What's in your Kit?"
-                    buttonType="text-icon-noBG"
-                    iconStandard="launch-pop-up"
-                    iconPlacement="after-label"
-                    buttonWidth="fit-to-content"
-                    classes="best-deal"
-                    transitionType="expand-bg"
-                    actionFunc={props.openExternalLearnMoreFunction}
-                />
-            </Flag>*/}
             <Flag
                 flagLabel="Our Best Deal"
                 flagColor="KSK"

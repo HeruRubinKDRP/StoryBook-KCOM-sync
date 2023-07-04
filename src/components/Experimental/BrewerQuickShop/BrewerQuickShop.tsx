@@ -32,7 +32,6 @@ export interface iBrewerQuickShop {
     carousel: {
         slideImageURLs: imageItemType[]
     };
-
     maxQuantityAllowed: number
     isOutOfStock: boolean;
     colorVariants: productVariantColor[];

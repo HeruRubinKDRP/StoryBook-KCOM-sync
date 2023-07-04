@@ -420,6 +420,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     flex-direction: column;
     flex-wrap: nowrap;
     overflow-y: auto;
+    width: calc(var(--overallWidth) * 0.5);
     max-width: calc(var(--overallWidth) * 0.5);
     justify-content: center;
   }
