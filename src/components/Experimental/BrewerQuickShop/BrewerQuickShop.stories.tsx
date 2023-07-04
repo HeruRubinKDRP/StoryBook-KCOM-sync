@@ -3,7 +3,8 @@ import {Story} from "@storybook/react/types-6-0";
 import {K155_BREWING_SYSTEM_5000375230, K50_COFFEE_MAKER_5000204441,
     K50_COFFEE_MAKER_5000345253, K_CAFE_COFFEE_LATTE_CAPPUCCINO_MAKER_5000201735,
     K_CAFE_GIFT_SET_5000201735,
-    K_CAFE_SE_GIFT_SET_5000341465, K_Cafe_SMART_Coffee_Latte_Cappuccino_Maker_5000365485,
+    K_CAFE_SE_GIFT_SET_5000341465,
+    K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485,
     K_CAFE_SPECIAL_EDITION_COFFEE_LATTE_CAPPUCCINO_MAKER_5000341465,
     K_CLASSIC_ESSENTIALS_BUNDLE_5000204441,
     K_CLASSIC_ESSENTIALS_BUNDLE_5000345253,
@@ -237,11 +238,11 @@ export const K_Cafe_Smart_Black_Example = Template.bind({});
 K_Cafe_Smart_Black_Example.args = {
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
-    productNameExtended : K_Cafe_SMART_Coffee_Latte_Cappuccino_Maker_5000365485.brewerName,
+    productNameExtended : K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485.brewerName,
     productName : "Keurig®",
     tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
     carousel : {
-        slideImageURLs : K_Cafe_SMART_Coffee_Latte_Cappuccino_Maker_5000365485.productImage
+        slideImageURLs : K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485.productImage
     },
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
