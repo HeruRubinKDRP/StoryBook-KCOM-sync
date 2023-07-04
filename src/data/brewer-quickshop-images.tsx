@@ -127,7 +127,7 @@ export const K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000374055:iBrewerContent={
     ]
 }
 //K-Café® SMART Single Serve Coffee Maker - Black
-export const K_Cafe_SMART_Coffee_Latte_Cappuccino_Maker_5000365485:iBrewerContent= {
+export const K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485:iBrewerContent= {
     brewerName :'K-Café® SMART Single Serve Coffee Maker',
     brewerVariantCode:'5000365485',
     colorName:'Black',
