@@ -9,7 +9,6 @@ const ColorVariantSelector: React.FC<ColorVariantProps> = ({ variants, onVariant
     const handleVariantClick = (variant: ProductVariantColor, index :number) => {
         setSelectedColor(index);
         onVariantClick(variant.inStock, variant.colorValue, variant.colorName, index);
-
     }
 
     return (
@@ -21,7 +20,10 @@ const ColorVariantSelector: React.FC<ColorVariantProps> = ({ variants, onVariant
                     inStock={variant.inStock}
                     onClick={() => handleVariantClick(variant, index)}
                     selected={selectedColor === index}
-                />
+                    className={`color-picker-button ${variant.inStock ? 'in-stock' : 'out-of-stock'} ${selectedColor === index ? 'selected' : ''}`}
+                >
+                    <div className="selection-circle"/>
+                </ColorPickerButtonStyled>
             ))}
         </ColorPickerSimpleStyled>
     );

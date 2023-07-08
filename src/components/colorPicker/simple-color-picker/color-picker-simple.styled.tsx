@@ -27,10 +27,20 @@ export const ColorPickerButtonStyled = styled.button<iColorPickerButtonStyled>`
     }
   }
   
-  ${props => props.selected && css`
+  .selection-circle{
+    display: none;
+  }
   
-  
-  `}
+   &.selected{
+     
+     .selection-circle{
+       display: flex;
+       border-radius: 100vw;
+       position: absolute;
+       inset: -4px;
+       border: 2px solid black;
+     }
+   }
 
   ${props => !props.inStock && css`
     position: relative;

@@ -1,15 +1,16 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import MemberPriceCard, {iMemberPricingCardProps} from "./card-member-pricing";
-import {podLibrary} from "../../../data/beverage-library";
-import {flagInStock, getRandomNum} from "../ProductList/utils";
+import {podLibrary} from "../../../../data/beverage-library";
+import {flagInStock, getRandomNum} from "../../ProductList/utils";
 
 export default {
     title: 'CLP/Member Price Card',
     component: MemberPriceCard,
     argTypes:{
         isLoggedIn: {control: "boolean"},
-        product: {control: "object"}
+        product: {control: "object"},
+        formFactor: {control: "radio", options: ["mobile", "desktop"]}
     }
 } as Meta;
 
@@ -19,6 +20,8 @@ export const MemberPriceCardExample = Template.bind({ });
 
 MemberPriceCardExample.args = {
     isLoggedIn: true,
+    formFactor: "mobile",
+    priceLabel: "Member Price",
     product: {
         productType: podLibrary[0].productType ?? "pod",
         ratingVisible: true,
@@ -33,7 +36,7 @@ MemberPriceCardExample.args = {
                 }
             }
         }),
-        name: "sss",
+        name: podLibrary[0].podName,
         brand: podLibrary[0].brand,
         image: podLibrary[0].productImagePrimaryPath ?? "",
         rating :{

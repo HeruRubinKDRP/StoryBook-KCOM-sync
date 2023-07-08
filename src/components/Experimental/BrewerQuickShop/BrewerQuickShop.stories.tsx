@@ -128,7 +128,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<iBrewerQuickShop> = (args) => (
+const Template: StoryFn<iBrewerQuickShop> = (args) => (
     <BrewerQuickShop {...args} />
 );
 

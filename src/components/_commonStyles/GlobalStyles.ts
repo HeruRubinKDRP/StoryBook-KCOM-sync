@@ -3,8 +3,8 @@ import { createGlobalStyle} from "styled-components";
 
 const GlobalStyleKCOM = createGlobalStyle`
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: sans-serif;
   }
   
