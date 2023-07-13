@@ -126,7 +126,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                 <div className="actions">
                                     <KButton
                                         buttonWidth="fit-width"
-                                        buttonType="secondary"
+                                        buttonType="ecommerce-secondary"
                                         actionFunc={() => setLearnMoreOpen(false)}
                                         label="Close"
                                         iconPlacement="right-edge"

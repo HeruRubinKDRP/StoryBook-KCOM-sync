@@ -95,6 +95,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
     .product-info-container {
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
+      width: 100%!important;
       max-width: calc(var(--overallWidth) * 0.95);
       justify-content: flex-start;
     }
