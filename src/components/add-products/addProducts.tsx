@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react";
 import Graphic from "../Graphic/Graphic";
 import KButton from "../Kbutton/KButton";
-import {AddProductStyled} from "./AddproductStyled";
+import {AddProductStyled} from "./add-product.styled";
 
 export type mobilePositionType = "top" | "bottom";
 

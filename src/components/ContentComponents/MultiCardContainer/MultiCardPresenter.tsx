@@ -2,7 +2,7 @@ import React, {ReactElement} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {iProductCard, ProductCard} from "../ProductCard/ProductCard";
 import {iSimpleHighlightCard, SimpleHighlightCard} from "../SimpleHighlightCard/SimpleHighlightCard";
-import {MultiCardPresenterStyled} from "./MultiCardPresenterStyled";
+import {MultiCardPresenterStyled} from "./MultiCard-presenter.styled";
 
 export interface iMultiCardPresenter{
   cards : cardType[];

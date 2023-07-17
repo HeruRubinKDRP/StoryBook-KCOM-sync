@@ -117,26 +117,17 @@ export const ColorPicker=(props : iColorPicker)=>{
 
 
 
-  const getMessagingLabels =()=>{
-    if(!isItOutOfStock()){
-      return <>
-        <label className="key">Selected Color: </label>
-        <label className="value"> {props.colorVariants[selectedVariant].colorName} </label>
-      </>
-    }else{
-      return <label className="key">Out of Stock</label>
-    }
-  }
+
 
   return (
     <ColorPickerStyled className="color-options-container">
       <div className="label-container">
-        {getMessagingLabels()}
+
       </div>
       <div className="color-options">
         {getColorOptions()}
       </div>
-      {getCTA(notifyOpenStatus)}
+
     </ColorPickerStyled>
   )
 }

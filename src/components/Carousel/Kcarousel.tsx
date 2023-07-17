@@ -6,7 +6,7 @@ import {useResizeDetector} from "react-resize-detector";
 import {ContentItem, heightMethodsT, iContentItem, sectionT} from "../ContentComponents/ContentComponent";
 
 import Graphic from "../Graphic/Graphic";
-import {CarouselStyled} from "./CarouselStyled";
+import {CarouselStyled} from "./k-carousel-styled";
 
 export type carouselContentT = {
   component : | "carousel";
@@ -361,12 +361,12 @@ export const  Kcarousel = (props: iCarousel) => {
       return getSlidesSection();
     }
       return (
-        <div style={{width: props.contentArea.contentWidthOverride, backgroundColor : props.containerBackgroundColor}} className={`duo-${props.contentArea.contentPosition}`}>
+        <CarouselStyled style={{width: props.contentArea.contentWidthOverride, backgroundColor : props.containerBackgroundColor}} className={`duo-${props.contentArea.contentPosition}`}>
           <div className="content-area">
             {props.contentArea.contentElement}
           </div>
           {getSlidesSection()}
-        </div>
+        </CarouselStyled>
       )
   }
 

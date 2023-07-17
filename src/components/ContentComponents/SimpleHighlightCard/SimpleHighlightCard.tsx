@@ -3,7 +3,7 @@ import {sizeT} from "../../KSK_Experience/KSK";
 import KButton from "../../Kbutton/KButton";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {iKeyValueContent, KeyValueContent} from "../KeyValueContent/KeyValueContent";
-import {SimpleCardStyled} from "./SimpleCardStyled";
+import {SimpleCardStyled} from "./simple-card.styled";
 
 export type messagePositionT = "before-image" | "after-image";
 export type cropStyleT = "circle" | "rounded-rectangle" | "no-crop";
