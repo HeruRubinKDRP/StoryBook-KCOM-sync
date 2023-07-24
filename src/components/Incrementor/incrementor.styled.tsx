@@ -1,4 +1,9 @@
-.incrementors-menu{
+import styled from "styled-components";
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+
+export const IncrementorStyled = styled.div`
+  --colorKSK : ${colorNameToValue("KSK")};
+  
   display: flex;
   align-items: center;
   width: 100%;
@@ -14,7 +19,7 @@
 
     &:hover {
       .expander {
-        background-color: $KSK;
+        background-color: var(--colorKSK);
       }
 
       .filled {
@@ -32,4 +37,5 @@
       height: 100% !important;
     }
   }
-}
+
+`;

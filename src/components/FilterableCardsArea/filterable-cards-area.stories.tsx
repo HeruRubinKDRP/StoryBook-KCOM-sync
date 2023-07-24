@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {recipeCards} from "../../data/product-data";
 import {FilterableCardsArea, iFilterableCardsArea} from "./FilterableCardsArea";
@@ -10,7 +10,7 @@ export default{
   }
 }as Meta;
 
-const Template: Story<iFilterableCardsArea> = (args )=><FilterableCardsArea {...args} />;
+const Template: StoryFn<iFilterableCardsArea> = (args )=><FilterableCardsArea {...args} />;
 
 export const RecipesExample = Template.bind({});
 

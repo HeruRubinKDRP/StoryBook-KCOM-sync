@@ -1,7 +1,5 @@
-import classNames from "classnames";
-import React, {ReactElement, useEffect, useState} from "react";
-import styled, {keyframes} from "styled-components"
-import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
+import React, {useEffect,} from "react";
+import Graphic from "../Graphic/Graphic";
 
 import KButton from "../Kbutton/KButton";
 
@@ -9,6 +7,7 @@ import {LifeBar} from "../LifeBar/LifeBar";
 import {ProductImage} from "../ProductImage/ProductImage";
 
 import {KColors} from "../styles js/colors";
+import {GridPanelStyled} from "./grid-panel.styled";
 
 
 export type GridPanelType =
@@ -243,9 +242,9 @@ export function GridPanel(props: IgridPanel) {
 
   return (
 
-        <>
+        <GridPanelStyled>
           {gridGen("")}
-        </>
+        </GridPanelStyled>
 
   )
 

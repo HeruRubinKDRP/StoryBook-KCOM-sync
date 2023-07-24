@@ -1,5 +1,5 @@
 import {Story, Meta} from "@storybook/react/types-6-0";
-import {ContentStories, iContentStories} from "../../components/ContentStories/ContentStories";
+import {ContentStories, iContentStories} from "../../components/ContentStories/ContentStoriesContainer/ContentStories";
 
 
 export default{

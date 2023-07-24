@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0"
+import {StoryFn, Meta} from "@storybook/react"
 import React from "react"
 
 //import {GridPanel, IgridPanel} from
@@ -30,7 +30,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<IgridPanel> = (args) => <GridPanel {...args} />
+const Template: StoryFn<IgridPanel> = (args) => <GridPanel {...args} />
 
 export const SubscriptionItemPanel = Template.bind({})
 SubscriptionItemPanel.args = {

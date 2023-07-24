@@ -1,6 +1,7 @@
 import React, {ReactElement} from "react";
 import {stringOrNum} from "../DropDown/drop-down";
 import {Graphic, iconType} from "../Graphic/Graphic";
+import {FeaturesListStyled} from "./features-list.styled";
 
 export type featureT = {
   label : string,
@@ -28,8 +29,8 @@ export const FeaturesList=(props : iFeaturesList)=>{
     return <ul>{list}</ul>
   }
   return (
-    <div className="features-list-container">
+    <FeaturesListStyled className="features-list-container">
       {getList()}
-    </div>
+    </FeaturesListStyled>
   )
 }

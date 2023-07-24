@@ -1,6 +1,9 @@
-@import "../../styles/colors";
+import styled from "styled-components";
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
-.multi-block-container {
+export const MultiBlockStyled = styled.div`
+  --colorSepia : ${colorNameToValue("sepia")};
+
   width: 100%;
   overflow: hidden;
   &.small-container{
@@ -28,7 +31,7 @@
     .cards-container {
       .highlight-card-container {
         width: 30rem;
-        border: 1px solid $sepia;
+        border: 1px solid var(--colorSepia);
         border-radius: 1rem;
         .image-container {
           &.rounded-rectangle {
@@ -51,4 +54,5 @@
 
     //background-color: #977F8A;
   }
-}
+
+`;

@@ -1,6 +1,11 @@
-@import "../../styles/colors";
+import styled from "styled-components";
+import {ctaColorStyles} from "../_commonStyles/common.styled";
 
-.featured-product-container{
+export const FeaturedProductStyled = styled.section`
+  // color variables:
+  ${ctaColorStyles};
+  
+  
   display: flex;
   &.small-container{
     flex-direction: column-reverse;
@@ -57,7 +62,7 @@
       background-color: transparent;
       max-height: 3rem;
       .nav-item{
-        border: 1px solid $sepia;
+        border: 1px solid var(--colorSepia);
         width : 3rem;
         height : 3rem;
       }
@@ -65,7 +70,7 @@
   }
 
   .tag-line, h1{
-    color: $dark-roast;
+    color: var(--colorDarkRoast);
     font-weight: 600;
   }
 
@@ -75,7 +80,7 @@
 
   h1{
     font-size: 2rem;
-    color: $dark-roast;
+    color: var(--colorDarkRoast);
   }
 
   .k-btn{
@@ -86,8 +91,8 @@
     flex-basis: 50%;
   }
 
-  nav-dots-container {
+  .nav-dots-container {
     width: 90%;
   }
 
-}
+`;

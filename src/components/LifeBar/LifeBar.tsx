@@ -1,9 +1,7 @@
-import React, {ReactElement, useEffect, useState} from "react";
-import styled, {keyframes} from "styled-components"
+import React, {ReactElement} from "react";
 import Graphic from "../Graphic/Graphic";
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
-import {LifeBarStyled} from "./LifeBarStyled";
-import {prop} from "cheerio/lib/api/attributes";
+import {LifeBarStyled} from "./life-bar.styled";
 
 
 export interface IlifeBar {

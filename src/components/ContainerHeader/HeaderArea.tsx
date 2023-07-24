@@ -1,7 +1,7 @@
-import React, {ReactElement, useEffect, useState} from "react";
-import styled, {keyframes} from "styled-components"
-import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
-import KButton from "../Kbutton/KButton";
+import React, {ReactElement} from "react";
+import Graphic, {iconType} from "../Graphic/Graphic";
+import {HeaderAreaStyled} from "../HeaderArea/header-area.styled";
+
 
 export interface IcontainerHeader{
   containerType : "iconLeft" | "iconRight" | "textOnly-Medium" | "textOnly-Large" | "no-top-hat";
@@ -10,7 +10,7 @@ export interface IcontainerHeader{
   children : ReactElement[] | ReactElement;
 }
 
-export const ContainerHeader = (props : IcontainerHeader)=>{
+export const HeaderArea = (props : IcontainerHeader)=>{
   const getHeader =()=>{
     switch(props.containerType){
       case "iconLeft":
@@ -28,7 +28,6 @@ export const ContainerHeader = (props : IcontainerHeader)=>{
           </div>
         )
 
-      break;
 
       case "no-top-hat":
         //TODO optimize for DRY
@@ -49,5 +48,5 @@ export const ContainerHeader = (props : IcontainerHeader)=>{
     }
   }
 
-  return <>{getHeader()}</>
+  return <HeaderAreaStyled>{getHeader()}</HeaderAreaStyled>
 }

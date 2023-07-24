@@ -5,7 +5,7 @@ import {podLibrary} from "../../data/beverage-library";
 import {CLP} from "../CLP/CLP";
 import {KButton} from "../Kbutton/KButton"
 import {ChooseBrewer} from "./ChooseBrewer";
-
+import {KSKStyled} from "./KSK.styled";
 
 export interface Iksk {
   name: string
@@ -458,9 +458,9 @@ export const KSK = (props: Iksk) => {
 
   return (
 
-          <div className={`starter-kit-container ${getContainerQuery(width)}`}>
+          <KSKStyled className={`starter-kit-container ${getContainerQuery(width)}`}>
             {stepsDisplay(currentStep)}
-          </div>
+          </KSKStyled>
 
   )
 }

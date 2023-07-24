@@ -1,6 +1,6 @@
 import {Story, Meta} from "@storybook/react/types-6-0";
 import React from "react";
-import {iFeaturedProduct} from "../FeaturedProduct/FeaturedProduct";
+import {iFeaturedProduct} from "../../FeaturedProduct/FeaturedProduct";
 import {ContentStory, iContentStory} from "./ContentStory";
 
 export default{

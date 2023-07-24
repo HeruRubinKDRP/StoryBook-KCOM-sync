@@ -1,17 +1,20 @@
-@import "../../styles/colors";
+import styled from "styled-components";
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
-@keyframes openFlyOut {
-  from {margin-top: -100%}
-  to {margin-top: 0}
-}
+export const FlyOutStyled = styled.div`
+  @keyframes openFlyOut {
+    from {margin-top: -100%}
+    to {margin-top: 0}
+  }
 
-@keyframes tempDisable{
-  from {pointer-events: none}
-  to{pointer-events: all}
-}
+  @keyframes tempDisable{
+    from {pointer-events: none}
+    to{pointer-events: all}
+  }
 
-.fly-out{
-  background-color: $sepia;
+  --colorSepia : ${colorNameToValue("sepia")};
+  
+  background-color: var(--colorSepia);
   padding: 1rem 1.5rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -34,4 +37,4 @@
     }
   }
 
-}
+`;

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {multiBoxExampleData} from "../../data/product-data";
 import {iIngredients} from "../RecipeDetails/Ingredients/ingredients";
@@ -12,7 +12,7 @@ export default{
   }
 }as Meta;
 
-const Template: Story<iMultiBlock>=(args)=><MultiBlock {...args} />
+const Template: StoryFn<iMultiBlock>=(args)=><MultiBlock {...args} />
 
 export const MultiBoxExample = Template.bind({});
 

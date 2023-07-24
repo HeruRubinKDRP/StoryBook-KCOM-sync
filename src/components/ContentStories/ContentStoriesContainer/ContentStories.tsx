@@ -1,6 +1,7 @@
 import React, {ReactElement} from "react";
 import {useResizeDetector} from "react-resize-detector";
-import {ContentStory, iContentStory} from "./ContentStory";
+import {ContentStory, iContentStory} from "../ContentStoryItem/ContentStory";
+import {ContentStoriesContainerStyled} from "./content-stories-container.styled";
 
 
 export interface iContentStories{
@@ -59,9 +60,9 @@ export const ContentStories=(props : iContentStories)=>{
   }
 
   return (
-    <div ref={ref} className={`content-stories-container ${getContentQuery(width)} ${props.heroImagesOnly ? "hero-image-only" : ""}`}>
+    <ContentStoriesContainerStyled ref={ref} className={`content-stories-container ${getContentQuery(width)} ${props.heroImagesOnly ? "hero-image-only" : ""}`}>
         <h1>{props.groupHeader}</h1>
       {getContentStories()}
-    </div>
+    </ContentStoriesContainerStyled>
   )
 }

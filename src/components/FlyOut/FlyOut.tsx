@@ -1,4 +1,5 @@
 import React, {ReactElement} from "react";
+import { FlyOutStyled} from "./fly-out.styled";
 
 
 export interface iFlyOut{
@@ -9,8 +10,8 @@ export const FlyOut=(props:iFlyOut)=>{
   
 
   return(
-    <div className="fly-out">
+    <FlyOutStyled className="fly-out">
       {props.content}
-    </div>
+    </FlyOutStyled>
   )
 }

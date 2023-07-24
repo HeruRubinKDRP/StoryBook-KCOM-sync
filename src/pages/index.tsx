@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Block from 'components/Block'
-import Footer from 'components/Footer'
+import Footer from 'components/Footer/Footer'
 
 export default function Home() {
   return (

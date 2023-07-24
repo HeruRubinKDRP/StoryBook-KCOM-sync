@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react";
-import {iContentStories} from "./ContentStories";
+import {iContentStories} from "../ContentStoriesContainer/ContentStories";
+import {ContentStoryStyled} from "./content-story.styled";
 
 export interface iContentStory{
   articleTitle : string;
@@ -44,7 +45,7 @@ export const ContentStory=(props : iContentStory)=>{
   }
 
   return(
-    <div className={`content-story-item ${props.itemSize}`}>
+    <ContentStoryStyled className={`content-story-item ${props.itemSize}`}>
       <div
         className={`story-thumb ${props.itemSize}`}
         style={{backgroundImage : `url("${props.articleImagePath}")`}}
@@ -53,6 +54,6 @@ export const ContentStory=(props : iContentStory)=>{
       <h2>{props.articleTitle}</h2>
       {getDescription()}
       <div className="hover-panel"></div>
-    </div>
+    </ContentStoryStyled>
   )
 }

@@ -14,6 +14,9 @@ export interface iLifeBarStyled {
 export const LifeBarStyled = styled.div<iLifeBarStyled>`
   --barHeight: ${props => props.barHeight}px;
   --borderColor: ${props => props.borderColor};
+  --colorDarkRoast: ${colorNameToValue("dark-roast")};
+  --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};
+
   border: 1px solid var(--borderColor);
   height: 8px;
   --barWidth: ${props => props.barWidth};
@@ -22,7 +25,14 @@ export const LifeBarStyled = styled.div<iLifeBarStyled>`
   overflow: visible;
   --barBackgroundColor: ${props => props.barBackgroundColor};
   background-color: var(--barBackgroundColor);
-
+  
+  &.KCOM{
+    background-color: white;
+    border: 1px solid var(--colorDarkRoast);
+    .life-bar{
+      background-color: var(--colorCTAPrimary);
+    }
+  }
   .life-bar {
     width: ${props => props.calculatedBarWidth}%;
     height: 100%;
@@ -42,7 +52,9 @@ export const LifeBarStyled = styled.div<iLifeBarStyled>`
       bottom: 0;
       height: 1rem;
       width: 1rem;
-      filled: ${colorNameToValue("dark-roast")}
+      .filled{
+        fill : ${colorNameToValue("dark-roast")}
+      }
     }
   }
 }
