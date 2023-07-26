@@ -1,6 +1,6 @@
 import { StoryFn, Meta } from "@storybook/react"
 import {KTable} from "../Table/KTable";
-import {sampleTable, tableWithIcons} from "../Table/sample-data";
+import {sampleTable, tableWithIcons} from "../../data/sample-data";
 import {ExpandCollapse, iExpandCollapse} from "./expand-collapse";
 
 export default{

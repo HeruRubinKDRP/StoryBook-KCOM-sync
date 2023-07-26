@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect, useRef, useState} from "react";
 import styled, {keyframes} from "styled-components"
 import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
-import {KColors} from "../styles js/colors";
+import {KColors} from "../_utilities/common-styles/colors";
 
 export interface Iscroller {
 

@@ -3,7 +3,7 @@ import React, {ReactElement, useEffect, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {BevQuickShopContent} from "./BevQuickShopContent";
 import {LoadingPacifier} from "../../Loader_Pacifiers/LoadingPacifier";
-import {PopUpStyled} from "../../PopUp/PopUpStyled";
+import {PopUpStyled} from "../../PopUp/pop-up.styled";
 import {PopUp} from "../../PopUp/PopUp";
 
 

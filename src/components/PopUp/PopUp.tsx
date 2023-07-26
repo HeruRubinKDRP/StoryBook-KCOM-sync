@@ -2,7 +2,7 @@ import React, {ReactElement, ReactNode, useEffect, useState} from "react";
 import ReactDOM from 'react-dom';
 import {useResizeDetector} from "react-resize-detector";
 import {PanelHeader} from "../PanelHeader/PanelHeader";
-import {PopUpStyled} from "./PopUpStyled";
+import {PopUpStyled} from "./pop-up.styled";
 
 export interface iPopUp{
   hasVeil? : boolean;

@@ -6,7 +6,7 @@ import KButton from "../Kbutton/KButton";
 import {LifeBar} from "../LifeBar/LifeBar";
 import {ProductImage} from "../ProductImage/ProductImage";
 
-import {KColors} from "../styles js/colors";
+import {KColors} from "../_utilities/common-styles/colors";
 import {GridPanelStyled} from "./grid-panel.styled";
 
 

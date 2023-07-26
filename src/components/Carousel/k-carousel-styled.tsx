@@ -6,7 +6,47 @@ export const CarouselStyled = styled.div`
   height: 100%;
   position: relative;
   background-color: #54a6ef;
+  .nav-container {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.5s;
+    border: 1px solid red;
+    position: absolute;
+    inset: 0;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1000;
+    .disabled {
+      pointer-events: none;
+      opacity: 0.2;
+    } 
 
+    .right, .left {
+      width: 3rem;
+      height: 3rem;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      transition: width 0.25s, height 0.25s, top 0.25s;
+      position: absolute;
+      &:hover {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    .right {
+      right: 0;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .left {
+      left: 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+  }
+  
+  
   &.desktop{
     .product-cards-container {
       display: flex;
@@ -278,41 +318,7 @@ export const CarouselStyled = styled.div`
   }
 
 
-  .nav-container {
-    display: flex;
-    align-items: center;
-    transition: opacity 0.5s;
-
-    .disabled {
-      pointer-events: none;
-      opacity: 0.2;
-    }
-
-
-    .right, .left {
-      width: 3rem;
-      height: 3rem;
-      background-color: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      transition: width 0.25s, height 0.25s, top 0.25s;
-
-      &:hover {
-        width: 5rem;
-        height: 5rem;
-      }
-    }
-
-    .right {
-      right: 0;
-      border-radius: 0.5rem 0 0 0.5rem;
-    }
-
-    .left {
-      left: 0;
-      border-radius: 0 0.5rem 0.5rem 0;
-    }
-  }
+  
 
   .product-item-card{
     .features{

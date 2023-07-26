@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap/dist/gsap";
 import React, {ReactElement, useContext, useEffect, useRef, useState} from "react";
 import {ContentItem} from "../ContentComponents/ContentComponent";
+import {ScrubVideoStyled} from "./scrub-video.styled";
 
 export interface iScrubVideo{
   mediaPath : string;
@@ -63,13 +64,13 @@ export const ScrubVideo=(props : iScrubVideo)=>{
   }
 
   return(
-    <div style={{height : `${props.scrollDuration}vh`}} ref={mediaContainerRef} className="scrub-video-container">
+    <ScrubVideoStyled style={{height : `${props.scrollDuration}vh`}} ref={mediaContainerRef} className="scrub-video-container">
       <div ref={mediaGroupRef}>
         {getHeading()}
         <video style={{}} ref={mediaRef} src={props.mediaPath} playsInline={true}
                preload="auto" muted={true} className="video-background"></video>
       </div>
 
-    </div>
+    </ScrubVideoStyled>
   )
 }

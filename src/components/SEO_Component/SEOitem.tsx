@@ -1,6 +1,7 @@
 import React, {ReactElement, useState} from "react";
 import {ExpandCollapse} from "../ExpandCollapse/expand-collapse";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import {SeoItemStyled} from "./seo-item.styled";
 
 
 export type iSEO_section = {
@@ -59,10 +60,10 @@ export const SEO_item =(props: iSEOitem)=>{
   }
 
   return(
-    <article className="seo-item-container" style={{backgroundColor : colorNameToValue(props.bgColor)}}>
+    <SeoItemStyled className="seo-item-container" style={{backgroundColor : colorNameToValue(props.bgColor)}}>
       <h1 style={{color : props.fontColorOverride}} className="seo-main-title">{props.mainTitle}</h1>
       <p style={{color : props.fontColorOverride}}>{props.mainBody}</p>
       {getSections()}
-    </article>
+    </SeoItemStyled>
   )
 }

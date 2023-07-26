@@ -20,8 +20,7 @@ export const ctaColorStyles = css`
   --colorMediumRoast : ${colorNameToValue("medium-roast")};
   --colorOKStatus : ${colorNameToValue("OK-Status")};
   --colorSecondaryGold : ${colorNameToValue("secondaryGold")}; 
-  
- 
+   
   --colorSepia : ${colorNameToValue("sepia")}; 
  
   --colorLatte70 : ${colorNameToValue("latte70")};
@@ -56,7 +55,6 @@ export const attentionCTA = css`
   background: linear-gradient(-45deg,hsl(47 95% 80% / 1),hsl(47 95% 59% / 1),hsl(47 95% 80% / 1),hsl(47 95% 80% / 1));
   background-size: 200% 265%;   
 `;
-
 
 
 export const AnimFadeIn = css`

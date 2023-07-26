@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect, useState} from "react";
 import Graphic, {iconPlacementTYPE, iconType} from "../Graphic/Graphic";
 import {Price} from "../Price/Price";
-import {KColors} from "../styles js/colors";
+import {KColors} from "../_utilities/common-styles/colors";
 import {KButtonStyled} from "./k-button.styled";
 
 export type buttonType =

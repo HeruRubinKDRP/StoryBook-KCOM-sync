@@ -6,6 +6,7 @@ import {Price} from "../Price/Price";
 import {ProductImage} from "../ProductImage/ProductImage";
 import {Rating} from "../Rating/Rating";
 import {KToggle, toggleItem} from "../Toggle/Toggle";
+import {ProductIfoItemStyled} from "./product-info-item.styled";
 
 export type ratingT = {
   totalStars: 5,
@@ -179,9 +180,9 @@ export const ProductInfoItem = (props: IproductItem) => {
 
 
   return (
-    <div className={`product-info-container ${props.classes}`}>
+    <ProductIfoItemStyled className={`product-info-container ${props.classes}`}>
       {getProdItem()}
-    </div>
+    </ProductIfoItemStyled>
   )
 
 }

@@ -1,10 +1,10 @@
-import classNames from "classnames";
 import Draggable from "gsap/dist/Draggable";
 import InertiaPlugin from "gsap/dist/InertiaPlugin";
 import gsap from "gsap/dist/gsap";
 import React, {ReactElement, useEffect, useRef, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {ContentItem, CTA_Mode_T, iContentItem} from "../ContentComponents/ContentComponent";
+import {WFlayoutStyled} from "./wf-layout.styled";
 
 
 export type containerStyleT = "square" | "rounded"
@@ -236,9 +236,8 @@ export const WFlayout=(props : iWF)=>{
 
   return (
 
-        <div ref={ref} className={`resizer ${props.elementsMode}`}>
+        <WFlayoutStyled ref={ref} className={`resizer ${props.elementsMode}`}>
           {getLayouts(getLayoutSizeClasses(width))}
-        </div>
-
+        </WFlayoutStyled>
   )
 }
