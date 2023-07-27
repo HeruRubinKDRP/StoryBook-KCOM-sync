@@ -97,6 +97,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
       max-width: calc(var(--overallWidth) * 0.95);
       justify-content: flex-start;
+      width: 100%!important;
     }
 
     .k-carousel {
@@ -291,8 +292,11 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     h1 {
       font-size: var(--FontSizeLarge);
       line-height: var(--FontSizeLarge);
+      font-weight: 400;
+      color: #473036;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
     }
-
     .name-area {
       label {
         font-size: var(--FontSizeSmall);
@@ -421,6 +425,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     flex-wrap: nowrap;
     overflow-y: auto;
     max-width: calc(var(--overallWidth) * 0.5);
+    width: calc(var(--overallWidth) * 0.5);
     justify-content: center;
   }
 

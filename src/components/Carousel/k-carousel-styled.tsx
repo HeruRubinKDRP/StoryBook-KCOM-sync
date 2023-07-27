@@ -10,7 +10,9 @@ export const CarouselStyled = styled.div`
     display: flex;
     align-items: center;
     transition: opacity 0.5s;
+    /*
     border: 1px solid red;
+    */
     position: absolute;
     inset: 0;
     justify-content: space-between;
