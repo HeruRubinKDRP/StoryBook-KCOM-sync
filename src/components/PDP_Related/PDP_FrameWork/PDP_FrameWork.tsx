@@ -298,7 +298,6 @@ export const PdpFramework = (props: iPdpFramework) => {
                             />
                         </div>
                     </div>
-
                     <div ref={mediaContainerRef} className="product-details">
                         <ProductIdentity
                             productName={props.productIdentity.productName}

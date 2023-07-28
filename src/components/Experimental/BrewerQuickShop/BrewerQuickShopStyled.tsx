@@ -11,6 +11,10 @@ export interface iBrewerQuickShopStyled {
 
 
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
+  *{
+    box-sizing: border-box;
+  }
+  
   ${props => props.calculatedOverallWidthVar}
   ${containerQueryBasedVariables};
   --mainFlagColor : ${props => colorNameToValue(props.mainFlagColor)};
