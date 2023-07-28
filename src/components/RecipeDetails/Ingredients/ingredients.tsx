@@ -1,6 +1,7 @@
 import React, {ReactElement, useEffect, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {KeyValueContent} from "../../ContentComponents/KeyValueContent/KeyValueContent";
+import {RecipeIngredientsStyled} from "./ingredients.styled";
 
 export type ingredientType = {
   key : string,
@@ -35,8 +36,8 @@ export const Ingredients=(props : iIngredients)=>{
   }
 
   return (
-    <div className="ingredients-container">
+    <RecipeIngredientsStyled className="ingredients-container">
       {getIngredients()}
-    </div>
+    </RecipeIngredientsStyled>
   )
 }

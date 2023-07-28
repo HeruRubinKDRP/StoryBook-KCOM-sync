@@ -16,7 +16,7 @@ import {buttonType} from "../../Kbutton/KButton";
 import {Price} from "../../Price/Price";
 import {featureItemT, FeaturesList, iFeaturesList} from "../../ProductDetails/FeaturesList/features-list";
 import {ValidationInput} from "../../ValidationInput/ValidationInput";
-import {ProductCardStyled} from "./ProductCardStyled";
+import {ProductCardStyled} from "./product-card.styled";
 
 export type variant ={
   variantName : string;

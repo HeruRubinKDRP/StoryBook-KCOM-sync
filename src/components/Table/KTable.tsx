@@ -1,5 +1,6 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useEffect} from "react";
 import {Graphic, iconType} from "../Graphic/Graphic";
+import {KTableStyled} from "./k-table.styled";
 
 export type kTableCellType = {
   cellType : "header" | "full-row-header" | "details";
@@ -128,7 +129,7 @@ export const KTable=(props : iKTable)=>{
     return rows;
   }
 
-  return (<div className="k-table-container">{getRows()}</div>)
+  return (<KTableStyled className="k-table-container">{getRows()}</KTableStyled>)
 
 }
 

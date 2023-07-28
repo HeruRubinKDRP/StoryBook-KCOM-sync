@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import CardFlip from "./CardFlip";
 
 export default {
@@ -11,7 +11,7 @@ export default {
 const demoFrontContent : ReactElement = <div>Front content</div>
 const demoBackContent : ReactElement = <div>Back content</div>
 
-const Template: Story = (args) => (
+const Template: StoryFn = (args) => (
     <div style={{padding : "15%"}}>
         <CardFlip
             frontContent={demoFrontContent}

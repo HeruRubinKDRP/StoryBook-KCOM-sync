@@ -1,5 +1,5 @@
 import React from 'react';
-import {Story, Meta} from '@storybook/react';
+import {StoryFn, Meta} from '@storybook/react';
 import TextSlider, {TextSliderProps} from './global-promo-bar';
 import {colorNamesList} from 'components/_utilities/color-name-to-value/colorNameToValue';
 
@@ -74,7 +74,7 @@ export default {
 } as Meta;
 
 
-const Template: Story<TextSliderProps> = (args) => <TextSlider {...args} />;
+const Template: StoryFn<TextSliderProps> = (args) => <TextSlider {...args} />;
 
 export const GlobalPromoBarExample = Template.bind({});
 GlobalPromoBarExample.args = {

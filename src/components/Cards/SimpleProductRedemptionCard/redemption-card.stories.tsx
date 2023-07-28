@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import {brands} from "../../../pages/myBrews";
 import {iRedemptionCard, RedemptionCard} from "./RedemptionCard";
 
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iRedemptionCard> = (args) => <RedemptionCard {...args} />;
+const Template: StoryFn<iRedemptionCard> = (args) => <RedemptionCard {...args} />;
 
 export const RedemptionCardExample = Template.bind({})
 

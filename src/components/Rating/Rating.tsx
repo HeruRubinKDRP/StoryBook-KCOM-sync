@@ -4,7 +4,7 @@ import React, {ReactElement} from "react";
 import Graphic from "../Graphic/Graphic";
 import {LifeBar} from "../LifeBar/LifeBar";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
-import {StyledRating} from "./RatingsStyled";
+import {StyledRating} from "./ratings.styled";
 import {useResizeDetector} from "react-resize-detector";
 
 export interface iRating{

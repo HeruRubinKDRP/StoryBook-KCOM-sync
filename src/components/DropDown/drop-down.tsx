@@ -5,6 +5,7 @@ import {KButton} from "../Kbutton/KButton"
 import {KPanel} from "../Panel/Panel";
 import {useOutsideToggler} from "../_utilities/clickOutsideChecker/clickOutsideHook";
 import { KColors } from "../_utilities/css-in-js/css-library"
+import {KDropDownStyled} from "./k-drop-down-styled";
 
 export type stringOrNum = string | number;
 
@@ -137,7 +138,7 @@ export function KDropDown(props : IdropDown){
 
   return(
 
-    <div
+    <KDropDownStyled
       style={{boxShadow : dropDownShadow }}
       className={`drop-down-container ${props.dropDownType} ${statusStyles()} ${props.classes}`}
       ref={containerReference}
@@ -154,7 +155,7 @@ export function KDropDown(props : IdropDown){
           iconOverride={ buttonIcon(isOpen, props.dropDownType)} />
       </div>
       {menuItemsPanel()}
-    </div>
+    </KDropDownStyled>
 
   )
 

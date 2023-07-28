@@ -1,8 +1,8 @@
 import React, {ReactElement, ReactNode, useEffect, useState} from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import {useResizeDetector} from "react-resize-detector";
 import {PanelHeader} from "../PanelHeader/PanelHeader";
-import {PopUpStyled} from "./PopUpStyled";
+import {PopUpStyled} from "./pop-up.styled";
 
 export interface iPopUp{
   hasVeil? : boolean;
@@ -87,7 +87,7 @@ export const PopUp=(props:iPopUp)=>{
   }
 
   const getAppendTo =()=>{
-    if(!props.appendTo){
+    if(!props.appendTo || props.appendTo === "body"){
       return document.body as HTMLElement;
     }
     return document.getElementById(props.appendTo)  as HTMLElement

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ColorVariantSelector from "./color-picker-simple";
 import {ColorVariantProps} from "./simple-color-picker.interface";
 
@@ -9,7 +9,7 @@ export default {
     component: ColorVariantSelector,
 } as Meta;
 
-const Template: Story<ColorVariantProps> = (args) => <ColorVariantSelector {...args} />;
+const Template: StoryFn<ColorVariantProps> = (args) => <ColorVariantSelector {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

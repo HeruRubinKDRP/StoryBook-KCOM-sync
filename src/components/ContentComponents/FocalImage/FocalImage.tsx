@@ -4,7 +4,7 @@ import {sizeT} from "../../KSK_Experience/KSK";
 import KButton from "../../Kbutton/KButton";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {fontWeightT} from "../ContentComponent";
-import {FocalImageStyled} from "./FocalImageStyled";
+import {FocalImageStyled} from "./focal-image.styled";
 
 export interface iFocalImage{
   mainBG_Color? : colorByNameType;

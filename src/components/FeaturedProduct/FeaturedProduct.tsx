@@ -6,6 +6,7 @@ import {FeaturesList, featureT} from "../FeaturesList/FeaturesList";
 import {Flag, flagStylesT} from "../Flag/Flag";
 import {buttonType, KButton} from "../Kbutton/KButton";
 import {colorByNameType} from "../_utilities/color-name-to-value/colorNameToValue";
+import {FeaturedProductStyled} from "./featured-product.styled";
 
 export interface iFeaturedProduct{
   layout : "images-left" | "images-right"
@@ -83,7 +84,7 @@ export const FeaturedProduct=(props : iFeaturedProduct)=>{
   }
 
   return (
-    <section ref={ref} className={`featured-product-container ${getContainerQuery(width)} `}>
+    <FeaturedProductStyled ref={ref} className={`featured-product-container ${getContainerQuery(width)} `}>
       <div className="copy-area">
         <div className="flag-area">
           {getFlag()}
@@ -151,6 +152,6 @@ export const FeaturedProduct=(props : iFeaturedProduct)=>{
         />
 
       </div>
-    </section>
+    </FeaturedProductStyled>
   )
 }

@@ -1,5 +1,5 @@
-import {Meta} from "@storybook/react/types-6-0";
-import {Story} from "@storybook/react/types-6-0";
+import {Meta} from "@storybook/react";
+import {Story} from "@storybook/react";
 import {K155_BREWING_SYSTEM_5000375230, K50_COFFEE_MAKER_5000204441,
     K50_COFFEE_MAKER_5000345253, K_CAFE_COFFEE_LATTE_CAPPUCCINO_MAKER_5000201735,
     K_CAFE_GIFT_SET_5000201735,

@@ -4,6 +4,7 @@ import {ContentItem} from "../ContentComponents/ContentComponent";
 import {ExpandCollapse} from "../ExpandCollapse/expand-collapse";
 import KButton from "../Kbutton/KButton";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import {FilterableCardsStyled} from "./filterable-cards.styled";
 
 export type filterableCardT = {
   cardName : string;
@@ -219,13 +220,13 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
   }
 
   return (
-   <div ref={ref} className={`filterable-cards-container ${getContainerQuery(width)}`}>
+   <FilterableCardsStyled ref={ref} className={`filterable-cards-container ${getContainerQuery(width)}`}>
      {getFilterMenu()}
      {getHeaderArea()}
      <div ref={ref} className={`filterable-cards-area ${getContainerSize(width)}`}>
        {getCards(filters)}
      </div>
-   </div>
+   </FilterableCardsStyled>
   )
 
 }

@@ -1,7 +1,6 @@
 import React, {ReactElement, useEffect, useRef} from "react"
-import {useResizeDetector} from "react-resize-detector";
 import {MobileNavTypographyBased} from "./MobileNav_TypographyBased";
-import {MobileTypographyBasedExample} from "./stories";
+
 
 
 export type navItem ={

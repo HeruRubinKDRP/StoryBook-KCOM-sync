@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect, useState} from 'react'
-import {TabNavStyles} from './tabnavstyle'
+import {TabNavStyles} from './tabnav.styled'
 import KButton from "../Kbutton/KButton";
 import Graphic, {iconType} from '../Graphic/Graphic'
 

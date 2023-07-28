@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import FilterableCheckboxList, { FilterableCheckboxListProps, CheckboxItem } from './FilterableCheckboxList';
 
 export default {

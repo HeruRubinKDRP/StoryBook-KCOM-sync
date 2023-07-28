@@ -1,7 +1,5 @@
 import React, {ReactElement, useContext, useEffect, useRef, useState} from "react";
 import {carouselContentT, Kcarousel} from "../Carousel/Kcarousel";
-import HeaderNav from "../NavMenu/Header";
-import {headerNavData} from "../NavMenu/stories";
 import {iPageNav, PageNav} from "../PageNav/PageNav";
 import {bgType, ContentItem, heightMethodsT, iContentItem, sectionT} from "./ContentComponent";
 
@@ -76,9 +74,8 @@ export const ContentPage =(props:iContentPage)=>{
   }
 
   return <>
-    <HeaderNav {...headerNavData} />
     <PageNav
-      background ="dark-roast"
+      background="dark-roast"
     collapsedLabel = "Features Menu"
       links={[
       {

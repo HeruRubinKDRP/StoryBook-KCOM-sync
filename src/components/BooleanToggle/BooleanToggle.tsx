@@ -1,6 +1,6 @@
 import React, {ReactElement, useContext, useEffect, useRef, useState} from "react";
 import Graphic from "../Graphic/Graphic";
-import {BooleanToggleStyled} from "./BooleanToggleStyled";
+import {BooleanToggleStyled} from "./boolean-toggle.styled";
 
 export interface iBooleanToggle{
   isActive : boolean;

@@ -4,6 +4,7 @@ import {Kcarousel} from "../../Carousel/Kcarousel";
 import Graphic from "../../Graphic/Graphic";
 import {HeaderArea} from "../../HeaderArea/HeaderArea";
 import {FeatureBullet, iFeatureBullet} from "../FeatureBulletItem/FeatureBullet";
+import {FeatureBulletsStyled} from "./feature-bullets.styled";
 
 export interface iFeatureBulletsArea{
   features : iFeatureBullet[];
@@ -136,12 +137,17 @@ export const FeatureBulletsArea =(props : iFeatureBulletsArea)=>{
   }
 
   return(
-    <section ref={ref} className={`${getContainerQueries(width)} feature-bullets-area`} style={{height : props.height}}>
+    <FeatureBulletsStyled
+        ref={ref}
+        className={`${getContainerQueries(width)} 
+        feature-bullets-area`}
+        style={{height : props.height}}
+    >
       {getHeader()}
       <div className="feature-bullets-area">
         {getArea()}
       </div>
-    </section>
+    </FeatureBulletsStyled>
   )
 
 }

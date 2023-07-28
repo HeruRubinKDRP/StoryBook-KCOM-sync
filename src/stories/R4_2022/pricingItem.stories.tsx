@@ -1,5 +1,5 @@
 import {Story, Meta} from "@storybook/react/types-6-0";
-import {iPricingItem, PricingItem} from "../../components/PricingCarousel/PricingItem";
+import {iPricingItem, PricingItem} from "../../components/PricingCarousel/PricingItem/PricingItem";
 
 
 export default {

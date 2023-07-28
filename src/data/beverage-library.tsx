@@ -1,4 +1,5 @@
-import {filterDataItemT, iProductInfoCardProps, purchaseInfo} from "../components/CLP/SimpleCard/SimpleCard";
+import {filterDataItemT, purchaseInfo} from "../components/CLP/SimpleCard/SimpleCard";
+import {iProductInfoCardProps} from "../components/CLP/product-card.interfaces";
 import {brands, currencies, podItemT, productTypeT} from "../pages/myBrews";
 
 export const podLibrary : podItemT[] = [

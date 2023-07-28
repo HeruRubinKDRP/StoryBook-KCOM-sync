@@ -1,5 +1,5 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
-import React, { ReactElement } from "react";
+import { StoryFn, Meta } from "@storybook/react";
+import { ReactElement } from "react";
 import {iCarousel, Kcarousel} from "../../components/Carousel/Kcarousel";
 import {getProductCardsForStory} from "../../components/Carousel/MultiItemSlide/exampleMultiData";
 import {ContentItem, iContentItem} from "../../components/ContentComponents/ContentComponent";
@@ -97,7 +97,7 @@ export default {
   }
 } as Meta;
 
-const TemplateCarousel: Story<iCarousel> = (args) => <Kcarousel {...args} />
+const TemplateCarousel: StoryFn<iCarousel> = (args) => <Kcarousel {...args} />
 
 export const ExampleCarousel = TemplateCarousel.bind({});
 
@@ -154,7 +154,7 @@ ExampleCarousel.args={
 //   navStyle : "thumbnails"
 // }
 
-export const CarouselContent: Story<iCarousel> = (args)=><Kcarousel {...args}/>
+export const CarouselContent: StoryFn<iCarousel> = (args)=><Kcarousel {...args}/>
 
 CarouselContent.args={
   component: "carousel",

@@ -7,7 +7,7 @@ interface PortalProps {
 
 export const StickyItem: React.FC<PortalProps> = ({ children }) => {
 
-    const portalRoot  = document.getElementById('root');
+    const portalRoot  = document.body;
 
     return createPortal(
             <>{children}</>,

@@ -1,6 +1,7 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {SimpleHighlightCard} from "../../ContentComponents/SimpleHighlightCard/SimpleHighlightCard";
+import {RecipeInstructionsStyled} from "./recipe-instructions.styled";
 
 export type instructionItemT = {
   title : string;
@@ -57,10 +58,10 @@ export const Instructions = (props : iInstructions)=>{
   }
 
   return (
-    <div ref={ref} className={`instructions-container ${getContainerQuery(width)}`} style={{display:"flex", alignItems : "center"}} >
+    <RecipeInstructionsStyled ref={ref} className={`instructions-container ${getContainerQuery(width)}`} style={{display:"flex", alignItems : "center"}} >
       <div className="positioner">
       {getInstructions()}
       </div>
-    </div>
+    </RecipeInstructionsStyled>
   )
 }

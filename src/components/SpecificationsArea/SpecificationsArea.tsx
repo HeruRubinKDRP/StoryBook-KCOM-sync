@@ -1,10 +1,8 @@
-import React, {ReactElement} from "react";
+import React from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {ContentItem} from "../ContentComponents/ContentComponent";
-import {iMultiCardPresenter} from "../ContentComponents/MultiCardContainer/MultiCardPresenter";
-import {SimpleHighlightCard} from "../ContentComponents/SimpleHighlightCard/SimpleHighlightCard";
-import {GetElement, getElementType, iGetElements} from "../ContentComponents/getElements";
-import {iHeaderArea} from "../HeaderArea/HeaderArea";
+import {GetElement, getElementType} from "../ContentComponents/getElements";
+import {SpecificationsAreaStyled} from "./specifications-area.styled";
 
 export interface iSpecificationsArea {
   contentStack: getElementType[],
@@ -31,7 +29,7 @@ export const SpecificationsArea = (props: iSpecificationsArea) => {
   }
 
   return (
-    <div ref={ref} className={`specifications-area ${getContainerQuery(width)}`}>
+    <SpecificationsAreaStyled ref={ref} className={`specifications-area ${getContainerQuery(width)}`}>
       <div className="images-area">
         <ContentItem
         customClasses="specs-media-container"
@@ -68,7 +66,7 @@ export const SpecificationsArea = (props: iSpecificationsArea) => {
       <div className="specs-details-area">
         {getContentStack()}
       </div>
-    </div>
+    </SpecificationsAreaStyled>
   )
 
 

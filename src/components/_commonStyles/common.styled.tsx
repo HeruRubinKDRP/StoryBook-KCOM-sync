@@ -6,24 +6,27 @@ const flexItem = css`
     display: flex;
 `;
 
-export const ctaColorStyles = css` 
-  --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};
-  --colorText: ${colorNameToValue("text")};
-  --colorDarkRoast: ${colorNameToValue("dark-roast")};
-  --colorLightRoast: ${colorNameToValue("light-roast")};
+export const ctaColorStyles = css`
   --colorBoldCTA: ${colorNameToValue("Bold-CTA")};
-  --colorLightCTA: ${colorNameToValue("faintWarm")};
-  --colorMediumGrey : ${colorNameToValue("medium-grey")};
-  --colorSecondaryGold : ${colorNameToValue("secondaryGold")}; 
-  --colorOKStatus : ${colorNameToValue("OK-Status")};
+  --colorCTAPrimary: ${colorNameToValue("Bold-CTA")};  
+  --colorDarkRoast: ${colorNameToValue("dark-roast")};
   --colorDiscount : ${colorNameToValue("discount")};
-  --colorSepia : ${colorNameToValue("sepia")};
-  --colorMediumRoast : ${colorNameToValue("medium-roast")};
-  --colorLatte : ${colorNameToValue("latte")};
   --colorKSK : ${colorNameToValue("KSK")};
+  --colorLatte : ${colorNameToValue("latte")};
+  --colorLightCTA: ${colorNameToValue("faintWarm")};
+  --colorLightRoast: ${colorNameToValue("light-roast")};  
+  
+  --colorMediumGrey : ${colorNameToValue("medium-grey")};
+  --colorMediumRoast : ${colorNameToValue("medium-roast")};
+  --colorOKStatus : ${colorNameToValue("OK-Status")};
+  --colorSecondaryGold : ${colorNameToValue("secondaryGold")}; 
+   
+  --colorSepia : ${colorNameToValue("sepia")}; 
+ 
   --colorLatte70 : ${colorNameToValue("latte70")};
   --colorLatteMed : ${colorNameToValue("latteMed")};
   --colorSepia70 : ${colorNameToValue("sepia70")};
+  --colorText: ${colorNameToValue("text")};
 `;
 
 export const absolutePositionStretch = css`
@@ -52,7 +55,6 @@ export const attentionCTA = css`
   background: linear-gradient(-45deg,hsl(47 95% 80% / 1),hsl(47 95% 59% / 1),hsl(47 95% 80% / 1),hsl(47 95% 80% / 1));
   background-size: 200% 265%;   
 `;
-
 
 
 export const AnimFadeIn = css`

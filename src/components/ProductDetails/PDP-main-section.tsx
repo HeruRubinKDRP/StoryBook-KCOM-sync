@@ -63,8 +63,6 @@ export const PDPmain = React.forwardRef((props:iPDPmain, introRef : LegacyRef<an
       }
     );
 
-
-
   },[])
 
 

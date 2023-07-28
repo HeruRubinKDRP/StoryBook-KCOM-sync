@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iSocialVideoSection, SocialVideoSection} from "./tik-tok-section";
 
@@ -8,7 +8,7 @@ export default {
   argTypes :{}
 }as Meta;
 
-const Template : Story<iSocialVideoSection> = (args)=><SocialVideoSection {...args}/>;
+const Template : StoryFn<iSocialVideoSection> = (args)=><SocialVideoSection {...args}/>;
 
 export const SimpleVideoSectionExample = Template.bind({});
 

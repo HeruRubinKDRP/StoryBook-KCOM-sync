@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import ProductList from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
 import {brands} from "../../../pages/myBrews";
@@ -74,7 +74,7 @@ export default {
     },
 } as Meta;
 
-const Template: Story<ProductListProps> = (args) => <ProductList {...args}  />;
+const Template: StoryFn<ProductListProps> = (args) => <ProductList {...args}  />;
 
 
 export const Beverages = Template.bind({});

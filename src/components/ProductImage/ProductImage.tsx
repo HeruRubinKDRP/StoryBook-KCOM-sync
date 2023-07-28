@@ -7,6 +7,7 @@ import {randomRange} from "../_utilities/Math Pure Funcs/RandomRange";
 
 import podBaseImage from "./images/dynamic/pod-base/pod-base.png";
 import podShinyOverlay from './images/dynamic/pod-base/pod-duo-shiny.png';
+import {ProductImageStyled} from "./product-image.styled";
 
 export type creativeAsset = "pod-box" | "pod-two-up" | "pod-box-and-pods" | "pod-lid" | "coffee-maker" | "top-down-realistic";
 
@@ -45,7 +46,7 @@ export function ProductImage(props: IproductImage) {
             let prodDims: DOMRect;
             if (productBox != undefined) {
                 prodDims = productBox.getBoundingClientRect();
-                if (initialized == false && productBox != undefined) {
+                if (!initialized && productBox != undefined) {
                     setInitialized(true);
                     setBoxDimensions({
                         width: prodDims.width,
@@ -98,7 +99,7 @@ export function ProductImage(props: IproductImage) {
 
             case "pod-lid":
                 return (
-                    <div
+                    <ProductImageStyled
                       ref={refChecker()}
                       className="pod-lid"
                       style={
@@ -131,6 +132,8 @@ export function ProductImage(props: IproductImage) {
                     <div className="box-edge-r auto-elem"/>
                     <div className="box-edge-b auto-elem"/>
                 </div>)
+
+
             case "pod-box-and-pods":
                 return (
                     <div
@@ -190,20 +193,20 @@ export function ProductImage(props: IproductImage) {
                         }
                         className="pod">
                         <div className="pod-clip stretch-up-down">
-                            <div className="pod-lid image-element stretch-up-down"
+                            <ProductImageStyled className="pod-lid image-element stretch-up-down"
                                  style={{
                                      zIndex: 2,
                                      opacity: 0.75,
                                      backgroundImage: `url("/images/pod-lids/shiny-overlay.png")`
                                  }}/>
-                            <div className="pod-lid image-element stretch-up-down" style={{
+                            <ProductImageStyled className="pod-lid image-element stretch-up-down" style={{
                                 zIndex: 1,
                                 transform: `rotate(${randomRange(40, true)}deg)`,
                                 backgroundImage: `url(${props.podLid})`
                             }}/>
                             )
                         </div>
-                        <div className=" image-element shadow" style={{
+                        <ProductImageStyled className=" image-element shadow" style={{
                             zIndex: 0,
                             backgroundImage: `url("/images/pod-lids/shadows/pod-shadow-left-right.png")`
                         }}/>

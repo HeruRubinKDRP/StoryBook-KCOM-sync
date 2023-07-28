@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import KButton from "../Kbutton/KButton";
+import {IncrementorStyled} from "./incrementor.styled";
 
 
 export interface iIncrementor{
@@ -57,7 +58,7 @@ export const Incrementor = (props : iIncrementor)=>{
   }
 
   return(
-    <div className="incrementors-menu">
+    <IncrementorStyled className="incrementors-menu">
       <KButton
         label=""
         transitionType="expand-bg"
@@ -78,7 +79,7 @@ export const Incrementor = (props : iIncrementor)=>{
         classes={`incrementor ${getStyles("add")}`}
         actionFunc={()=>increment("add")}
       />
-    </div>
+    </IncrementorStyled>
   )
 
 }

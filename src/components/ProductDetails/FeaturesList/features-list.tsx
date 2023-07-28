@@ -1,5 +1,6 @@
 import React, {ReactElement} from "react";
 import Graphic, {iconType} from "../../Graphic/Graphic";
+import {FeaturesListStyled} from "../features-list.styled";
 
 export type featureItemT = {
   featureName : string;
@@ -43,9 +44,9 @@ export const FeaturesList = (props : iFeaturesList)=>{
   }
 
   return(
-    <ul className="features">
+    <FeaturesListStyled className="features">
       {getHeader()}
       {getFeatures()}
-    </ul>
+    </FeaturesListStyled>
   )
 }
