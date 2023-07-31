@@ -31,7 +31,12 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   //--spacingMedium: calc(var(--overallWidth) * 0.025 + 5px);
   //--spacingSmall: calc(var(--overallWidth) * 0.015 + 4px);
   //--spacingTiny: calc(var(--overallWidth) * 0.003 + 2px);
-  
+  .coupon-message{
+    .learn-more{
+      float:none !important;
+      margin-left: var(--spacingSmall) ;
+    }
+  }
   .out-of-stock-area{
     padding: 1rem;
     border-radius: 1rem;

@@ -1,5 +1,5 @@
 import {Meta} from "@storybook/react";
-import {Story} from "@storybook/react";
+import {StoryFn} from "@storybook/react";
 import {K155_BREWING_SYSTEM_5000375230, K50_COFFEE_MAKER_5000204441,
     K50_COFFEE_MAKER_5000345253, K_CAFE_COFFEE_LATTE_CAPPUCCINO_MAKER_5000201735,
     K_CAFE_GIFT_SET_5000201735,
@@ -116,7 +116,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<iBrewerQuickShop> = (args) => (
+const Template: StoryFn<iBrewerQuickShop> = (args) => (
     <BrewerQuickShop {...args} />
 );
 
@@ -131,7 +131,7 @@ Default.args = {
         slideImageURLs : carousel_images_KCS
     },
     hasCoupon : true,
-    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
+    couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",

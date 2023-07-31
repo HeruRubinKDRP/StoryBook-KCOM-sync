@@ -1,4 +1,4 @@
-import {Meta, Story} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 import PdpFramework, {iPdpFramework} from "./PDP_FrameWork";
 import KCS_specs_data, {carousel_images_KCS} from "../../../data/pdp-data";
 import {ContentItem} from "../../ContentComponents/ContentComponent";
@@ -13,7 +13,7 @@ export default {
     argTypes: {}
 } as Meta
 
-const Template: Story<iPdpFramework> = (args) => <PdpFramework {...args} />
+const Template: StoryFn<iPdpFramework> = (args) => <PdpFramework {...args} />
 
 export const KCS = Template.bind({})
 
