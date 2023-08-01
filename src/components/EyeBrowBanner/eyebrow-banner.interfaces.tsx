@@ -1,12 +1,18 @@
+import {colorByNameType} from "../_utilities/color-name-to-value/colorNameToValue";
+
 interface SlideContent {
     heading: string;
     paragraph: string;
     details? : string;
-    finePrint: string;
-    hyperlink: string;
+    finePrint?: string;
+    hyperlink?: string;
+    hyperlinkText? : string;
+    color?: colorByNameType;
 }
 
 export interface EyebrowBannerProps {
     contents: SlideContent[];
-    height: string;
+    overallHeight: string;
+    displayMode : "dividers" | "chiclets";
+    mainColor? : colorByNameType;
 }

@@ -2,38 +2,48 @@ import React from 'react';
 import {Meta, StoryFn} from "@storybook/react";
 import EyebrowBanner from "./EyeBrowBanner";
 import {EyebrowBannerProps} from "./eyebrow-banner.interfaces";
+import {colorNamesList} from "../_utilities/color-name-to-value/colorNameToValue";
 
 export default {
     title: 'Components/Eyebrow',
     component: EyebrowBanner,
-    argTypes: {}
+    argTypes: {
+        mainColor: { control: 'select', options: colorNamesList },
+    }
 } as Meta;
 
 const Template: StoryFn<EyebrowBannerProps> = (args) => <EyebrowBanner {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    // your props here
     contents: [
         {
             heading: "20% OFF",
             paragraph: "brewers & accessories",
-            finePrint: "USE CODE: STAYCOOL23",
-            hyperlink: "/products/fresh-brewed-coffee"
+            details: "USE CODE: STAYCOOL23",
+            hyperlink: "/products/fresh-brewed-coffee",
+            finePrint : "Ends 7/31",
+            hyperlinkText: "See Details"
         },
         {
-            heading: "Organic Coffee Beans",
-            paragraph: "Explore our range of 100% organic coffee beans. Roasted to perfection for the best flavour.",
-            finePrint: "Delivery available nationwide. Order now for the fresh coffee experience at home!",
-            hyperlink: "/products/organic-coffee-beans"
+            heading: "UP TO $20 OFF",
+            paragraph: "Dorm Sized Brewers! \n K-Mini Plus & K—Iced on Sale.",
+            details: "NO CODE NEEDED",
+            finePrint : "Ends 7/31",
+            hyperlinkText: "See Details",
+            hyperlink: "/products/fresh-brewed-coffee",
         },
         {
-            heading: "Coffee Machines and Accessories",
-            paragraph: "Discover our high-quality coffee machines and accessories. Brew your perfect cup of coffee every morning.",
-            finePrint: "Get a 10% discount with your first purchase. Use the code COFFEE10 at checkout!",
-            hyperlink: "/products/coffee-machines"
+            heading: "75% OFF",
+            paragraph: "K-Duo SE as a Starter Kit",
+            details: "NO CODE NEEDED",
+            finePrint : "Ends 7/31",
+            hyperlinkText: "See Details",
+            hyperlink: "/products/fresh-brewed-coffee",
         },
 
     ],
-    height: "auto"
+    displayMode: "chiclets",
+    overallHeight: "auto",
+    mainColor: "dark-roast",
 };

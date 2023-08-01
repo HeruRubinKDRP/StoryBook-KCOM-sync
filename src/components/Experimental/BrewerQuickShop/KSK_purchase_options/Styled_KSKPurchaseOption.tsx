@@ -151,6 +151,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   .fill-pod {
     display: flex;
     flex-wrap: wrap;
+    gap: 4px;
   }
   .k-btn {
     padding: 0!important;
