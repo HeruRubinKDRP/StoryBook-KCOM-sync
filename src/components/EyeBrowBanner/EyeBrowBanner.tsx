@@ -5,10 +5,7 @@ import {useResizeDetector} from "react-resize-detector";
 import {Kcarousel} from "../Carousel/Kcarousel";
 
 
-
-
-
-const EyebrowBanner: React.FC<EyebrowBannerProps> = ({ contents, overallHeight, mainColor }) => {
+const EyebrowBanner: React.FC<EyebrowBannerProps> = ({contents, overallHeight, mainColor, mobileBreakPoint}) => {
 
     const [isMobile, setIsMobile] = useState(false);
     const {width, height, ref} = useResizeDetector({
@@ -28,10 +25,10 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({ contents, overallHeight, 
         checkSize(width!);
     }, [width])
 
-    const checkSize = (widthX : number) => {
-        if(!widthX) return;
-
-        if(widthX < 460){
+    const checkSize = (widthX: number) => {
+        if (!widthX) return;
+        console.log("widthX", widthX);
+        if (widthX <  1000) {
             setIsMobile(true);
             return;
         }
@@ -42,22 +39,25 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({ contents, overallHeight, 
     const getSlides = () => {
 
         return contents.map((content, index) => (
-            <EyeBrowSlideStyled className="eyebrow-slide" key={index} style={{width : `${isMobile ? 100 : 100 / contents.length}%`}}>
-                <div className={`eb-slide-content ${content.color}`}>
+            <EyeBrowSlideStyled className="eyebrow-slide" key={index}
+                                style={{width: `${isMobile ? 100 : 100 / contents.length}%`}}>
+                <a href={content.ctaLink} className={`eb-slide-content ${content.color}`}>
                     <h1>{content.heading}</h1>
                     <p>{content.paragraph}</p>
                     <small>{content.details}</small>
-                </div>
+                </a>
                 <div className="fine-print-area">
                     <small>{content.finePrint}</small>
                     <a className="fine-print" href={content.hyperlink}>{content.hyperlinkText}</a>
                 </div>
+                <div className="divider"/>
             </EyeBrowSlideStyled>
         ))
     }
 
     return (
-        <EyebrowBannerStyled ref={ref} className={`${isMobile ? "mobile" : "desktop"} ${mainColor}` }  overallHeight={overallHeight}>
+        <EyebrowBannerStyled ref={ref} className={`${isMobile ? "mobile" : "desktop"} ${mainColor}`}
+                             overallHeight={overallHeight}>
             {isMobile && <Kcarousel
                 carouselType="slider"
                 component="carousel"
@@ -68,6 +68,7 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({ contents, overallHeight, 
                 slides={getSlides()}
                 useContainerQueries="ignore"
             />}
+
             {!isMobile && getSlides()}
         </EyebrowBannerStyled>
     );

@@ -13,10 +13,11 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
   position: relative;
   overflow: hidden;
   gap: 1rem;
+  
   *{
     box-sizing: border-box;
   }
-  
+  //Color modes
   &.dark-roast{
     .eb-slide-content{
         background-color: var(--colorDarkRoast);
@@ -26,13 +27,117 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
       }
     }
   }
+
+  &.light-roast{
+    .eb-slide-content{
+      background-color: var(--colorLightRoast);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+  
+  &.latte{
+    .eb-slide-content{
+      background-color: var(--colorLatte);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+
+  &.sepia{
+    .eb-slide-content{
+      background-color: var(--colorSepia);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+  
+  &.Bold-CTA{
+    .eb-slide-content{
+      background-color: var(--colorBoldCTA);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+  
+  &.secondaryGold{
+    .eb-slide-content{
+      background-color: var(--colorSecondaryGold);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+  
+  &.OK-Status{
+    .eb-slide-content{
+      background-color: var(--colorOKStatus);
+      height: 100%;
+      *{
+        color: white;
+      }
+    }
+  }
+  
+  &.faintWarm{
+    .eb-slide-content{
+      background-color: var(--colorLightCTA);
+      height: 100%;
+      *{
+        color: var(--colorDarkRoast)
+      }
+    }
+  }
+  
+  &.white{
+    .eyebrow-slide{
+      position: relative;
+      &:last-child{
+       .divider{
+         display: none;
+       }
+      }
+    }
+    .divider{
+      border-right: 1px solid var(--colorDarkRoast);
+      height: 100%;
+      width: 2px;
+      position: absolute;
+        right: 0;
+      top: 0;
+      bottom: 0;
+        opacity: 1;
+    }
+  }
+  
+  //---*** end colors
+  
+  .divider{
+    opacity: 0;
+  }
   .eb-slide-content{
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
     border-radius: 1rem;
     padding: 8%;
+    transition: transform 0.5s ease-in-out;
+    &:hover{
+      transform: scale(1.05);
+    }
     *{
       user-select: none;
     }
@@ -46,6 +151,11 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
   
   .k-carousel{
     background-color: transparent !important;
+    width: 100%;
+    .drag-container, .slides-container, .slider{
+        width: 100%;
+    }
+    
   }
   .nav-dots-container.bottom{
     bottom: 0 !important;

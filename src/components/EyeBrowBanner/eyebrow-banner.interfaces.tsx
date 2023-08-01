@@ -8,6 +8,7 @@ interface SlideContent {
     hyperlink?: string;
     hyperlinkText? : string;
     color?: colorByNameType;
+    ctaLink?: string;
 }
 
 export interface EyebrowBannerProps {
@@ -15,4 +16,5 @@ export interface EyebrowBannerProps {
     overallHeight: string;
     displayMode : "dividers" | "chiclets";
     mainColor? : colorByNameType;
+    mobileBreakPoint? : number;
 }

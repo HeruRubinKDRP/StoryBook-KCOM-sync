@@ -46,4 +46,5 @@ Default.args = {
     displayMode: "chiclets",
     overallHeight: "auto",
     mainColor: "dark-roast",
+    mobileBreakPoint: 1000,
 };
