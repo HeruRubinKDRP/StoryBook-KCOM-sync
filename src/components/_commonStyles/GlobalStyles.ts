@@ -2,6 +2,11 @@ import { createGlobalStyle} from "styled-components";
 
 
 const GlobalStyleKCOM = createGlobalStyle`
+  #storybook-root{
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
   body {
     margin: 0 !important;
     padding: 0 !important;

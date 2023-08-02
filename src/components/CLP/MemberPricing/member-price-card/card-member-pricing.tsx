@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {iProductInfoCardProps} from "../../product-card.interfaces";
 import KButton from "../../../Kbutton/KButton";
 import {Price} from "../../../Price/Price";
@@ -7,14 +7,19 @@ import {PodInfo} from "../../general_card_components/PodInfo";
 import {PriceCentricDisplay} from "../../general_card_components/PriceCentricDisplay";
 import Switch from "../../../Switch/Switch";
 import KDropDown from "../../../DropDown/drop-down";
+import {KToggle} from "../../../Toggle/Toggle";
+import {useResizeDetector} from "react-resize-detector";
 
 
 
 export interface iMemberPricingCardProps{
     product: iProductInfoCardProps;
     isLoggedIn: boolean;
-    formFactor : "mobile" | "desktop";
+    formFactor : "mobile" | "small-mobile" | "desktop";
     priceLabel: string;
+    calculateCardWidth : boolean;
+    actionFunction : ()=>void;
+    infoFunction : ()=>void;
 }
 
 type navState = "start" | "sub-or-once" | "subscribe" | "just-once" | "end";
@@ -25,6 +30,41 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
     const [isScheduled, setIsScheduled] = React.useState(true);
     const [navState, setNavState] = React.useState<navState>("start");
     const [selectedVariantIndex, setSelectedVariantIndex] = React.useState<number>(0);
+
+    const [ formFactor, setFormFactor ] = React.useState< "small-mobile" | "mobile" | "desktop">("desktop");
+
+    const {width, height, ref} = useResizeDetector({
+        refreshMode: 'throttle',
+        refreshRate: 200,
+        refreshOptions: {
+            leading: true,
+            trailing: false,
+        },
+        handleHeight: false,
+        skipOnMount: false,
+        onResize: () => {
+        },
+    })
+
+    useEffect(()=>{
+        getFormFactor(width!);
+    },[width]);
+
+
+    const getFormFactor = (width : number) => {
+        if (!width) return;
+
+        if (width <  600 && width > 360) {
+            setFormFactor("mobile");
+            return;
+        }
+        if(width < 360){
+            setFormFactor("small-mobile");
+            return;
+        }
+        setFormFactor("desktop");
+        return;
+    }
 
 
     const getConfigurations =(isScheduled : boolean)=>{
@@ -72,7 +112,7 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
             case "start":
                 return (
                    <>
-                       <div>
+                       <div className="card-primary-section">
                            <PodInfo
                                productImage={props.product.image}
                                productName={props.product.name}
@@ -82,37 +122,40 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                priceLabel={props.priceLabel}
                                strikeThroughPrice={props.product.prices[selectedVariantIndex].price}
                                rating={props.product.rating}
+                               infoFunction={props.infoFunction}
                            />
                        </div>
 
                        <div className={`options-container ${currentNavState}`}>
                            <KButton
                                transitionType="expand-bg"
-                               classes={`cta-main `}
-                               buttonWidth="fit-width"
-                               label={'Subscribe'}
-                               iconStandard="icon-subscribe"
-                               iconPlacement="after-label"
-                               buttonType="primary"
-                               actionFunc={() => setNavState("subscribe")}
-                           />
-                           <KButton
-                               transitionType="expand-bg"
-                               classes={`cta-main `}
-                               buttonWidth="fit-width"
+                               classes={`cta-main just-once `}
+                               buttonWidth="fit-to-content"
                                label={'Just Once'}
                                iconStandard="icon-add"
                                iconPlacement="after-label"
                                buttonType="secondary"
-                               actionFunc={() => {}}
+                               actionFunc={props.actionFunction}
                            />
+                           <KButton
+                               transitionType="expand-bg"
+                               classes={`cta-main subscribe `}
+                               buttonWidth="fit-width"
+                               label={'Subscribe'}
+                               iconStandard="icon-subscribe"
+                               iconPlacement="after-label"
+                               buttonType="secondary"
+                               actionFunc={
+                                   props.actionFunction
+                              }
+                           />
+
                        </div>
                    </>
                 )
             case "subscribe":
                 return (
                     <div className={`subscription-configuration ${currentNavState}`}>
-
                         <PodInfo
                             productImage={props.product.image}
                             productName={props.product.name}
@@ -122,6 +165,7 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                             priceLabel={props.priceLabel}
                             strikeThroughPrice={props.product.prices[selectedVariantIndex].price}
                             rating={props.product.rating}
+                            infoFunction={props.infoFunction}
                         />
                         <Switch
                             leftValue={"Scheduled Delivery"}
@@ -131,7 +175,6 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                 setIsScheduled(!isScheduled)
                             }}/>
                         {getConfigurations(isScheduled)}
-
                         <KButton
                             transitionType="expand-bg"
                             classes={`cta-main `}
@@ -149,7 +192,7 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
     }
 
     return (
-        <MemberCardStyled className={`product-card ${props.formFactor}`}>
+        <MemberCardStyled ref={ref} className={`product-card ${ props.calculateCardWidth ? formFactor : props.formFactor} `}>
             {getNavState(navState)}
         </MemberCardStyled>
     );

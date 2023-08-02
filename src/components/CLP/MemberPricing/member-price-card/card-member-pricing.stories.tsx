@@ -10,7 +10,8 @@ export default {
     argTypes:{
         isLoggedIn: {control: "boolean"},
         product: {control: "object"},
-        formFactor: {control: "radio", options: ["mobile", "desktop"]}
+        formFactor: {control: "radio", options: ["mobile", "desktop"]},
+        calculateCardWidth: {control: "boolean"},
     }
 } as Meta;
 
@@ -22,6 +23,7 @@ MemberPriceCardExample.args = {
     isLoggedIn: true,
     formFactor: "mobile",
     priceLabel: "Member Price",
+    calculateCardWidth: true,
     product: {
         productType: podLibrary[0].productType ?? "pod",
         ratingVisible: true,

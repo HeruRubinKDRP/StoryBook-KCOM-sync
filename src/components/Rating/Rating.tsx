@@ -15,6 +15,7 @@ export interface iRating{
   ratingActiveColor? : colorByNameType;
   classes? : string;
   ratingVisible? : "hidden" | "visible";
+  layout? : "horizontal" | "vertical";
 }
 
 
@@ -54,12 +55,11 @@ export const Rating=(props: iRating)=>{
 
 
   return (
-    <StyledRating className="ratings-overall-container" containerHeight={height || 0} >
+    <StyledRating className={`ratings-overall-container ${props.layout}`} containerHeight={height || 0} >
 
       <div className="stars-container" ref={ref}>
         <svg width="100%" height="100%" viewBox="0 0 82.61 15.8">
           <defs>
-
             <mask id="maskStars" maskContentUnits="userSpaceOnUse">
               <polygon points="8.31 0 10.37 6.17 16.62 6.15 11.55 9.6 13.44 15.8 8.31 11.97 3.17 15.8 5.07 9.6 0 6.15 6.24 6.17 8.31 0" fill="white"/>
               <polygon points="24.93 0 26.99 6.17 33.24 6.15 28.16 9.6 30.06 15.8 24.93 11.97 19.79 15.8 21.69 9.6 16.62 6.15 22.86 6.17 24.93 0" fill="white"/>

@@ -13,7 +13,13 @@ export const StyledRating = styled.div<iStyledRating>`
   flex-direction: row;
   align-items: center;
   overflow-y: visible;
-
+  &.horizontal{
+    flex-direction: row;
+  }
+  &.vertical{
+    flex-direction: column;
+  }
+  
   .stars-container{
     display: flex;
     align-content: center;

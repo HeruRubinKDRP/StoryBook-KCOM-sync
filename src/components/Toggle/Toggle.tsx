@@ -94,13 +94,6 @@ export const KToggle =(props : Itoggle)=>{
     return toggleItems;
   }
 
-  // const getContainerQueries=(widthX : number | undefined)=>{
-  //   if(!widthX){return "small-container"}
-  //   if(widthX < 450){
-  //     return "small-container"
-  //   }
-  // }
-
   return(
     <div ref={ref} className={`k-toggle-container ${props.toggleType} ${props.classes}`}>
       {createToggle()}

@@ -3,10 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 import ProductGrid, { ProductGridProps } from './MemberCardGrid';
 import {transformPodItemsToProductInfoCardProps} from "../../../_utilities/PodDataConverter/PodDataConverter";
 import {podLibrary} from "../../../../data/beverage-library";
-import {colorByNameType} from "../../../_utilities/color-name-to-value/colorNameToValue";
-import {sizeT} from "../../../KSK_Experience/KSK";
-import {fontWeightT} from "../../../ContentComponents/ContentComponent";
-import {flagStylesT} from "../../../Flag/Flag";
+import {customPodLibrary} from "../../../Experimental/Add-to-cart/AddToCartDemo.stories";
 
 export default {
     title: 'Example/ProductGrid',
@@ -17,6 +14,10 @@ const Template: StoryFn<ProductGridProps> = (args) => <ProductGrid {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+    suggestedProducts: customPodLibrary,
+    numberOfSuggestions: 3,
+    currentCartValue: 0.00 ,
+    freeShippingTarget: 35.00,
     products: transformPodItemsToProductInfoCardProps(
         podLibrary,
         "pod",
@@ -36,7 +37,6 @@ Default.args = {
             flagStyle : "curved-rect"
         }
     ),
-    formFactor: "mobile",
     isLoggedIn: true,
     priceLabel: 'Member Pricing',
 };

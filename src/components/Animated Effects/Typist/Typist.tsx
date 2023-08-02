@@ -44,22 +44,30 @@ const TypingEffect: React.FC<TypingEffectProps> = (
     }
   }
 
-  useEffect(() => {
-    gsap.fromTo(
-      textRefs.current,
-      { autoAlpha: 0, y: 0, width: 0, display: 'none' },
-      {
-        width: 'auto',
-        autoAlpha: 12,
-        y: 0,
-        display: 'inline',
-        ease: 'none',
-        stagger: speedValue(props.speed) // Adjust this value to change the typing speed
-      }
-    )
-  }, [props.speed])
+    useEffect(() => {
+        // Clear previous animations
+        gsap.killTweensOf(textRefs.current);
 
-  return (
+        // Reset the elements to their original state
+        gsap.set(textRefs.current, { autoAlpha: 0, y: 0, width: 0, display: 'none' });
+
+        // Then re-animate
+        gsap.fromTo(
+            textRefs.current,
+            { autoAlpha: 0, y: 0, width: 0, display: 'none' },
+            {
+                width: 'auto',
+                autoAlpha: 12,
+                y: 0,
+                display: 'inline',
+                ease: 'none',
+                stagger: speedValue(props.speed) // Adjust this value to change the typing speed
+            }
+        )
+    }, [props.speed, props.message]) // Here is the change, listen for changes to props.message as well
+
+
+    return (
     <TypistStyled className={`${props.classes}`}>
       {props.message.split('').map((char, index) => (
         <span key={index} ref={(el) => (textRefs.current[index] = el)}>

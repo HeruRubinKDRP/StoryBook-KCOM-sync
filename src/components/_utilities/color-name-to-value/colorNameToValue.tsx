@@ -22,7 +22,9 @@ export type colorByNameType = "none" |
   "sepia-light" |
   "light-grey" |
   "forest-green" |
-    "milk-chocolate"
+    "milk-chocolate" |
+    "perks-spiced-red" |
+"perks-light-beige"
   ;
 
 export const colorNamesList : colorByNameType[] = [
@@ -48,7 +50,10 @@ export const colorNamesList : colorByNameType[] = [
   "sepia-light",
   "light-grey",
   "forest-green",
-  "milk-chocolate"
+  "milk-chocolate",
+  "perks-spiced-red",
+    "perks-light-beige"
+
 ]
 
 export const colorNameToValue =(colorName : colorByNameType | undefined, opacity? : number)=>{
@@ -58,11 +63,17 @@ if(!colorName){return ""}
     opacityFin = opacity;
   }
   switch(colorName){
+    case "perks-light-beige":
+      return "#f3e7db"
+
     case "faintWarm":
       return "#faf7f3";
 
     case "dark-roast":
       return `rgba(71,48,54,${opacityFin})`;
+
+      case "perks-spiced-red":
+        return `#E6431E`;
 
     case "KSK":
       return "#0d8296";

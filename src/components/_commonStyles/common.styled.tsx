@@ -29,6 +29,11 @@ export const ctaColorStyles = css`
   --colorText: ${colorNameToValue("text")};
 `;
 
+export const perksColorStyles = css`
+--colorSpicedRed : ${colorNameToValue("perks-spiced-red")};
+--colorLightBeige : ${colorNameToValue("perks-light-beige")};
+`;
+
 export const absolutePositionStretch = css`
   position: absolute;
   inset: 0;

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0"
+import {StoryFn, Meta} from "@storybook/react"
 import React from "react"
 import {Itoggle, KToggle, toggleStyleList} from "./Toggle";
 
@@ -11,7 +11,7 @@ export default{
   }
 }
 
-const Template: Story<Itoggle> = (args) => <KToggle {...args} />
+const Template: StoryFn<Itoggle> = (args) => <KToggle {...args} />
 
 export const Primary = Template.bind({});
 
