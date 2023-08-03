@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {EyebrowBannerProps} from "./eyebrow-banner.interfaces";
-import {EyebrowBannerStyled, EyeBrowSlideStyled} from "./eye-brow-banner.styled";
+import {DisclaimerStyled, EyebrowBannerStyled, EyeBrowSlideStyled} from "./eye-brow-banner.styled";
 import {useResizeDetector} from "react-resize-detector";
 import {Kcarousel} from "../Carousel/Kcarousel";
+import {PopUp} from "../PopUp/PopUp";
 
 
-const EyebrowBanner: React.FC<EyebrowBannerProps> = ({contents, overallHeight, mainColor, mobileBreakPoint}) => {
+const EyebrowBanner: React.FC<EyebrowBannerProps> = ({overrideTextColor, overrideBGColor, contents, overallHeight, mainColor, mobileBreakPoint}) => {
+    const [modalIsOpen, setModalIsOpen] = React.useState(false);
+    const [modalContent, setModalContent] = React.useState("");
 
     const [isMobile, setIsMobile] = useState(false);
     const {width, height, ref} = useResizeDetector({
@@ -36,19 +39,24 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({contents, overallHeight, m
         return;
     }
 
+    const handleContent = (selectedIndex : number) => {
+        setModalContent(contents[selectedIndex].disclaimer);
+        setModalIsOpen(true);
+    }
+
     const getSlides = () => {
 
         return contents.map((content, index) => (
             <EyeBrowSlideStyled className="eyebrow-slide" key={index}
-                                style={{width: `${isMobile ? 100 : 100 / contents.length}%`}}>
-                <a href={content.ctaLink} className={`eb-slide-content ${content.color}`}>
-                    <h1>{content.heading}</h1>
-                    <p>{content.paragraph}</p>
-                    <small>{content.details}</small>
+                                style={{width: `${isMobile ? 100 : 100 / contents.length}%` }}>
+                <a href={content.ctaLink} className={`eb-slide-content ${content.color}`} style={{backgroundColor : overrideBGColor }}>
+                    <h1 style={{color : overrideTextColor}}>{content.heading}</h1>
+                    <p style={{color : overrideTextColor}}>{content.paragraph}</p>
+                    <small style={{color : overrideTextColor}}>{content.details}</small>
                 </a>
                 <div className="fine-print-area">
                     <small>{content.finePrint}</small>
-                    <a className="fine-print" href={content.hyperlink}>{content.hyperlinkText}</a>
+                    <a className="fine-print" onClick={()=>handleContent(index)}>{content.hyperlinkText}</a>
                 </div>
                 <div className="divider"/>
             </EyeBrowSlideStyled>
@@ -68,6 +76,11 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({contents, overallHeight, m
                 slides={getSlides()}
                 useContainerQueries="ignore"
             />}
+            {modalIsOpen && <PopUp hasVeil={true} classes="bg-white" closeFunc={()=>setModalIsOpen(false)} isOpen={true} hasHeader={true} hasBackButton={false} >
+                <DisclaimerStyled className="disclaimer-content">
+                    {modalContent}
+                </DisclaimerStyled>
+            </PopUp>}
 
             {!isMobile && getSlides()}
         </EyebrowBannerStyled>

@@ -5,6 +5,11 @@ import {ctaColorStyles} from "../_commonStyles/common.styled";
 export interface iEyeBrowBannerStyled {
     overallHeight: string;
 }
+
+export const DisclaimerStyled = styled.div`
+  padding: 5% 15%;
+`
+
 export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
  ${ctaColorStyles};
   width: 100%;
@@ -133,7 +138,7 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
     align-items: center;
     width: 80%;
     border-radius: 1rem;
-    padding: 8%;
+    padding: 8px 16px;
     transition: transform 0.5s ease-in-out;
     &:hover{
       transform: scale(1.05);
@@ -206,26 +211,37 @@ export const EyeBrowSlideStyled = styled.div`
     display: flex;
     margin-top: 0.5rem;
   }
-  h1,p{
-    margin: 0.5rem 1.5rem;
-  }
+ 
   h1{
     font-size: 1.5rem;
     text-align: center;
+    margin: 0.5rem 0 0 0;
   }
   p{
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     font-weight: 200;
     text-align: center;
+    margin: 0.25rem 0.5rem;
   }
   .fine-print-area{
     gap: 0.25rem;
+    align-content: center;
+    flex-wrap: wrap;
     *{
       font-size: 0.65rem;
+      display: inline-flex;
+      align-items: center;
     }
   }
   .fine-print{
-    
+    cursor: pointer;
+    text-decoration: underline;
+    :hover{
+      background-color: var(--colorDarkRoast);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 0.25rem;
+    }
     font-weight: 200;
   }
 `;

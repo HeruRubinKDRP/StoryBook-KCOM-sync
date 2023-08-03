@@ -17,6 +17,12 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
 
   --pop-up-width: ${props => props.sizeMode === "full-screen" ? "90%" : "auto"};
   
+  &.bg-white{
+    .pop-up-contents-container{
+        background-color: white;
+    }
+  }
+  
   &.modal-large-dimensions { 
     // 90% to account for 5% offset on each side 
     // or auto depending on component sizeMode prop
@@ -27,9 +33,9 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
   &.modal-medium-dimensions { 
     height: 90%;
     width: 90%;
-    transform: none;
- 
+    transform: none; 
   }
+  
   &.MyPantryPopUp{
     .pop-up-contents-container{background-color: #fff;
       &.mobile,
@@ -211,6 +217,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
 
   &.veil {
     background-color: rgba(0, 0, 0, 0.25);
+    padding: 5%;
     inset: 0;
     backdrop-filter: grayscale(1) brightness(0.75) blur(2px);
   }
