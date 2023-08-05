@@ -125,7 +125,6 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                infoFunction={props.infoFunction}
                            />
                        </div>
-
                        <div className={`options-container ${currentNavState}`}>
                            <KButton
                                transitionType="expand-bg"
@@ -149,7 +148,6 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                    props.actionFunction
                               }
                            />
-
                        </div>
                    </>
                 )

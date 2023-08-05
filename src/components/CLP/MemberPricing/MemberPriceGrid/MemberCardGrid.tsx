@@ -1,13 +1,10 @@
 import React, {useEffect} from 'react';
-import styled from 'styled-components';
 import MemberPriceCard, {iMemberPricingCardProps} from '../member-price-card/card-member-pricing';
 import {GridContainer, OuterContainer} from "./member-card-grid.styled";
-import {PerksPricingExplainer} from "../../../Graphic/Promos/PerksPricingPromo";
 import KButton from "../../../Kbutton/KButton";
 import {AnimatedButton} from "../PromoOverlay/PerksPricing/perks-pricing-promo.styled";
 import PerksPromo from "../PromoOverlay/PerksPricing/PerksPricingPromoOverlay";
 import {useResizeDetector} from "react-resize-detector";
-import {AddToCartJourneySmall} from "../../../Experimental/Add-to-cart/small-version/AddToCartJourneySmall";
 import {simplifiedPodItems} from "../../../Experimental/Add-to-cart/AddToCartDemo";
 import {podItemT} from "../../../../pages/myBrews";
 import {AddToCartJourneyLarge} from "../../../Experimental/Add-to-cart/large-version/AddToCartJourneyLarge";

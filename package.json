@@ -34,6 +34,7 @@
     "million": "^2.4.6-beta.0",
     "next": "^12.0.0",
     "next-images": "^1.8.4",
+    "puppeteer": "^21.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-resize-detector": "^7.0.0",

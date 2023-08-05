@@ -26,6 +26,7 @@ Default.args = {
         "",
         () => console.log("flip"),
         false,
+
         {
             flagLabel : "New",
             flagColor : "forest-green",

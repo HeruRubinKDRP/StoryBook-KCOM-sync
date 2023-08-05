@@ -13,10 +13,34 @@ export function transformPodItemsToProductInfoCardProps(
     flipFunction?: () => void,
     useBanner?: boolean,
     bannerSettings?: iFlag
-): iMemberPricingCardProps[] {
+): {
+    product: {
+        image: string;
+        ratingVisible: boolean;
+        onClick: () => void;
+        classes: string | undefined;
+        rating: { totalNumberOfReviews: number; ratingNumber: number; totalNumberOfStars: number };
+        name: string;
+        flipFunction: (() => void) | undefined;
+        bannerSettings: iFlag | undefined;
+        id: number | undefined;
+        prices: {
+            price: number;
+            variant: { quantity: 12 | 22 | 24 | 40 | 66 | 72 | 88 | 96 | number; variantName: string };
+            inStock: boolean
+        }[];
+        brand: string;
+        productType: "brewer" | "pod" | "bagged" | "accessory" | "bundle";
+        useBanner: boolean | undefined
+    };
+    formFactor: string;
+    isLoggedIn: boolean;
+    priceLabel: string
+}[] {
     return podItems.map(podItem => (
 
         {
+
             isLoggedIn: true,
             formFactor: 'mobile',
             priceLabel: 'Member Pricing',
@@ -39,8 +63,8 @@ export function transformPodItemsToProductInfoCardProps(
                 ratingVisible,
                 rating: {
                     totalNumberOfStars: 5,
-                    totalNumberOfReviews: 0, // You might want to get this info from somewhere else
-                    ratingNumber: 0, // You might want to get this info from somewhere else
+                    totalNumberOfReviews: 1231, // You might want to get this info from somewhere else
+                    ratingNumber: 4.2, // You might want to get this info from somewhere else
                 },
                 onClick,
                 classes,
