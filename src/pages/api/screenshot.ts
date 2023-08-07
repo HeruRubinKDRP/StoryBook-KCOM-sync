@@ -49,17 +49,35 @@ async function extractProductData(page: Page, url: string) {
 }
 
 
+
+
 export default async function handler(req : NextApiRequest, res : NextApiResponse) {
     try {
         // Define where and under which name to save the file
-        const debugOutputPath = path.join(process.cwd(), './public/data/debug.json');
+
 
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
+        page.on('console', msg => {
+            for (let i = 0; i < msg.args().length; ++i) {
+                console.log(`${i}: ${msg.args()[i]}`);
+            }
+        });
 
-// wait for  network to be idel and all resources to be loaded
-        await page.goto('https://www.keurig.com/beverages/c/beverages101?sort=recommended-for-you&cm_sp=All-Beverages-_-Top-Nav-_-beverages101', {waitUntil: ['networkidle0', 'domcontentloaded']});
-        await page.setViewport({ width: 1920, height: 2080, deviceScaleFactor: 2 });
+        //keep track of current page
+        let currentPage = 1;
+        let hasNextPage = true;
+
+        //go to the first page
+        // wait for  network to be idle and all resources to be loaded
+        try {
+            await page.goto(`https://www.keurig.com/beverages/c/beverages101?sort=recommended-for-you&cm_sp=All-Beverages-_-Top-Nav-_-beverages101&currentPage=${currentPage}`, {waitUntil: ['networkidle0', 'domcontentloaded']});
+        } catch (error) {
+            console.log(`Failed to navigate to page ${currentPage}. Stopping.`);
+            hasNextPage = false;
+        }
+
+        await page.setViewport({ width: 1920, height: 6080, deviceScaleFactor: 2 });
 
 
         const screenshotPath = path.join(process.cwd(), './screenshots'); // Adding process.cwd() to get the current directory
@@ -73,12 +91,17 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
 
         await page.screenshot({ path: fullPath });
 
-        let hasNextPage = true;
         const allProductsData = [];
 
-
-
         while (hasNextPage) {
+            // check if there is a next page
+            const hasProducts = await page.$$('.clp-product-tile-wapper > div'); // Check for product cards or any other unique feature of product pages
+            if (!hasProducts.length) {
+                hasNextPage = false;
+            }else{
+                currentPage++;
+            }
+
             // get cards data
 
             const productsBasicData: ProductData[] = [];
@@ -159,28 +182,13 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
             // After extracting data from the current page, store it into the allProductsData array
             allProductsData.push(...productsBasicData); // Using spread to concatenate arrays
 
-            // Check for the next page button/link
-            const nextPageHref = await page.evaluate(() => {
-                const nextPageEl = document.querySelector('.next .pagination-prev');
-                return nextPageEl ? nextPageEl.getAttribute('href') : null;
-            });
-
-            if (nextPageHref) {
-                fs.writeFile(debugOutputPath, nextPageHref, 'utf8', (err) => {
-                    if (err) {
-                        console.error("An error occurred:", err);
-                        return res.status(500).json({ message: "Failed to save the data to a JSON file." });
-                    }
-                    return res.status(200).json({ message: "Data successfully saved to products.json!" });
-                });
-            }
-
-
-            if (nextPageHref && nextPageHref !== 'null' && nextPageHref !== 'undefined') {
-                await page.goto(`https://www.keurig.com${nextPageHref}`);
-            } else {
+            try {
+                await page.goto(`https://www.keurig.com/beverages/c/beverages101?sort=recommended-for-you&cm_sp=All-Beverages-_-Top-Nav-_-beverages101&currentPage=${currentPage}`, {waitUntil: ['networkidle0', 'domcontentloaded']});
+            } catch (error) {
+                console.log(`Failed to navigate to page ${currentPage}. Stopping.`);
                 hasNextPage = false;
             }
+
         }
 
         //Save data to json file
