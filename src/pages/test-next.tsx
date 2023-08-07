@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Block from 'components/Block'
 import Footer from 'components/Footer/Footer'
 
 export default function Home() {
@@ -27,29 +26,7 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-around items-center mt-6 max-w-4xl sm:w-full">
-          <Block
-            href="https://nextjs.org/docs"
-            title="Documentation"
-            description="Find in-depth information about Next.js features and API."
-          />
 
-          <Block
-            href="https://nextjs.org/learn"
-            title="Learn"
-            description="Learn about Next.js in an interactive course with quizzes!"
-          />
-
-          <Block
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            title="Examples"
-            description="Discover and deploy boilerplate example Next.js projects."
-          />
-
-          <Block
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            title="Deploy"
-            description="Instantly deploy your Next.js site to a public URL with Vercel."
-          />
         </div>
       </main>
 
