@@ -23,7 +23,9 @@ interface ProductData {
 }
 
 
-
+export interface productDetailsItem {
+    productDescription?: string | null;
+}
 
 async function extractProductData(page: Page, url: string) {
     console.log("extracting data from ", url);
@@ -31,10 +33,12 @@ async function extractProductData(page: Page, url: string) {
     if (!url || url.endsWith("null")) {
         console.log("Invalid URL: ", url);
         return {
-            productDescription: ""
+            productDescription: "page not found"
         };
     }
     await page.goto(url, { waitUntil: ['networkidle2', 'domcontentloaded'] });
+
+    console.log("details page: ", url)
 
     const productDetails = await page.evaluate(() => {
         const productDetailsContainer = document.getElementById('product_details');
@@ -55,7 +59,6 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
     try {
         // Define where and under which name to save the file
 
-
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         page.on('console', msg => {
@@ -65,7 +68,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
         });
 
         //keep track of current page
-        let currentPage = 1;
+        let currentPage = 0;
         let hasNextPage = true;
 
         //go to the first page
@@ -91,20 +94,20 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
 
         await page.screenshot({ path: fullPath });
 
-        const allProductsData = [];
+        const allProductsData: ProductData[] = [];
 
-        while (hasNextPage) {
+        const productsBasicData: ProductData[] = [];
+
+        while (hasNextPage && currentPage < 22) {
             // check if there is a next page
             const hasProducts = await page.$$('.clp-product-tile-wapper > div'); // Check for product cards or any other unique feature of product pages
             if (!hasProducts.length) {
                 hasNextPage = false;
-            }else{
-                currentPage++;
             }
 
-            // get cards data
 
-            const productsBasicData: ProductData[] = [];
+
+            // get cards data
             const cards = await page.$$('.clp-product-tile-wapper > div');  // This will return an array of ElementHandles
             for (const card of cards) {
                 const basicData : ProductData = await page.evaluate(card => {
@@ -170,26 +173,34 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
                 productsBasicData.push(basicData);
             }
 
-            // Now iterate over the products and navigate directly to the detail pages
-            for (const product of productsBasicData) {
-                if(!product.productDetailsURLValue || product.productDetailsURLValue.endsWith("null")) {
-                    product.productDetails = { productDescription: "" }; // Default empty details
-                    continue;
-                }
-                product.productDetails = await extractProductData(page, product.productDetailsURLValue!);
-            }
+
 
             // After extracting data from the current page, store it into the allProductsData array
             allProductsData.push(...productsBasicData); // Using spread to concatenate arrays
 
-            try {
-                await page.goto(`https://www.keurig.com/beverages/c/beverages101?sort=recommended-for-you&cm_sp=All-Beverages-_-Top-Nav-_-beverages101&currentPage=${currentPage}`, {waitUntil: ['networkidle0', 'domcontentloaded']});
-            } catch (error) {
-                console.log(`Failed to navigate to page ${currentPage}. Stopping.`);
-                hasNextPage = false;
+            productsBasicData.length = 0; // Clear the array for the next page
+            currentPage++;
+            console.log(`Navigating to page ${currentPage}`);
+        }
+
+        // Now iterate over the products and navigate directly to the detail pages
+        let productsDetailsAll : productDetailsItem[] = [];
+
+        for (const product of allProductsData) {
+            console.log("getting details")
+            if(!product.productDetailsURLValue || product.productDetailsURLValue.endsWith("null")) {
+                product.productDetails = { productDescription: "" }; // Default empty details
+                continue;
             }
 
+            const productDetails = await extractProductData(page, product.productDetailsURLValue!);
+            productsDetailsAll.push(productDetails);
         }
+
+        const productsDetailsJSON = JSON.stringify(productsDetailsAll, null, 4); // 4 spaces for indentation
+        const outputPathDetails = path.join(process.cwd(), './public/data/productsDetails.json');
+
+
 
         //Save data to json file
         const jsonData = JSON.stringify(allProductsData, null, 4); // 4 spaces for indentation
@@ -205,6 +216,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
             }
             return res.status(200).json({ message: "Data successfully saved to products.json!" });
         });
+
 
         console.log("productCardsData", allProductsData);
 

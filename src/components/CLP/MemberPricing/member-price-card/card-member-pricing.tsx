@@ -1,13 +1,10 @@
 import React, {useEffect} from 'react';
 import {iProductInfoCardProps} from "../../product-card.interfaces";
 import KButton from "../../../Kbutton/KButton";
-import {Price} from "../../../Price/Price";
 import {MemberCardStyled} from "./member-card.styled";
 import {PodInfo} from "../../general_card_components/PodInfo";
-import {PriceCentricDisplay} from "../../general_card_components/PriceCentricDisplay";
 import Switch from "../../../Switch/Switch";
 import KDropDown from "../../../DropDown/drop-down";
-import {KToggle} from "../../../Toggle/Toggle";
 import {useResizeDetector} from "react-resize-detector";
 
 
