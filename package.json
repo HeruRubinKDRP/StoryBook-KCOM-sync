@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "",
@@ -22,22 +26,31 @@
     "@storybook/react": "^7.0.23",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@storybook/theming": "^7.0.23",
+    "@types/cors": "^2.8.13",
+    "@types/puppeteer": "^7.0.4",
     "@types/react": "18.2.0",
-    "@types/react-dom": "^18.2.6",
+    "@types/react-dom": "^18.2.7",
     "@types/styled-components": "^5.1.26",
-    "storybook": "^7.0.23"
+    "storybook": "^7.0.23",
+    "webpack": "^5.88.2"
   },
   "dependencies": {
+    "@types/node": "20.4.8",
+    "@types/react": "18.2.17",
+    "cors": "^2.8.5",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
     "fuse.js": "^6.6.2",
     "gsap": "file:node_modules_custom/gsap/gsap-bonus.tgz",
     "interweave": "^13.0.0",
     "million": "^2.4.6-beta.0",
-    "next": "^12.0.0",
+    "next": "13.4.12",
     "next-images": "^1.8.4",
     "puppeteer": "^21.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-resize-detector": "^7.0.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "typescript": "5.1.6"
   }
 }

@@ -1,0 +1,44 @@
+@keyframes expandElement {
+  0%{transform: scale(0)}
+  50%{transform: scale(0.9)}
+  100%{transform: scale(1)}
+}
+
+@keyframes growHighlight {
+  0%{transform: scale(1)}
+  100%{transform: scale(1.05)}
+}
+@keyframes shrinkHighlight {
+  0%{transform: scale(1.1)}
+  100%{transform: scale(1)}
+}
+
+@keyframes delayedEntry{
+  0%{opacity: 0}
+  50%{opacity: 0}
+  100%{opacity: 1}
+}
+
+@keyframes moveDownFromTop {
+  0%{ transform: translateY(-100%); }
+  100%{transform: translateY(0);}
+}
+
+@keyframes moveUpFromBottom {
+  0%{ transform: translateY(100%); }
+  100%{transform: translateY(0);}
+}
+
+@keyframes hoverBGscale {
+  from{background-size: 100%}
+  to{background-size: 200% }
+}
+
+@keyframes fadeInGeneral {
+  0%{opacity: 0}
+  100%{opacity: 1}
+}
+
+
+
+
