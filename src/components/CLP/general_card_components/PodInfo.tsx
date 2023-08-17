@@ -7,6 +7,7 @@ import KButton from "../../Kbutton/KButton";
 import {productTypeT} from "../../../pages/myBrews";
 import {PriceCentricDisplay} from "./PriceCentricDisplay";
 import {KToggle} from "../../Toggle/Toggle";
+import {pricingStyleType} from "../MemberPricing/MemberPriceGrid/MemberCardGrid";
 
 export interface iPodInfoProps {
     productImage : string;
@@ -18,6 +19,10 @@ export interface iPodInfoProps {
     strikeThroughPrice?: number;
     rating : iRating;
     infoFunction : ()=>void;
+    showRating?: boolean;
+    ratingsLayout?: "horizontal" | "vertical";
+    pricingStyle : pricingStyleType
+    pricingMode : "member" | "non-member";
 }
 
 export const PodInfo = (props : iPodInfoProps) => {
@@ -32,13 +37,16 @@ export const PodInfo = (props : iPodInfoProps) => {
                         ${props.productName}`}
                     className="image-inner"
                 />
-                <Rating
-                    ratingNumber={props.rating.ratingNumber}
-                    scrollToTargetID={""}
-                    totalNumberOfReviews={props.rating.totalNumberOfReviews}
-                    totalNumberOfStars={props.rating.totalNumberOfStars}
-                    layout={"vertical"}
-                />
+                {
+                    props.showRating &&
+                    <Rating
+                        ratingNumber={props.rating.ratingNumber}
+                        scrollToTargetID={""}
+                        totalNumberOfReviews={props.rating.totalNumberOfReviews}
+                        totalNumberOfStars={props.rating.totalNumberOfStars}
+                        layout={props.ratingsLayout}
+                    />
+                }
             </div>
             <div className="product-info-container" >
                 <div className="brand">{props.brandName}</div>

@@ -9,12 +9,15 @@ export const StyledRating = styled.div<iStyledRating>`
   --containerHeightBase: ${props => props.containerHeight + 'px'};
   --containerHeight: calc(var(--containerHeightBase) * 0.8);
   --medGray: ${colorNameToValue("medium-grey")};
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   overflow-y: visible;
   &.horizontal{
     flex-direction: row;
+    .stars-container{
+      width: auto !important;
+    }
   }
   &.vertical{
     flex-direction: column;

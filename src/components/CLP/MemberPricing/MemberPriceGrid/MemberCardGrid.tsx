@@ -10,6 +10,8 @@ import {podItemT} from "../../../../pages/myBrews";
 import {AddToCartJourneyLarge} from "../../../Experimental/Add-to-cart/large-version/AddToCartJourneyLarge";
 
 
+export type pricingStyleType = "control" | "one-price";
+
 export interface ProductGridProps {
     products: iMemberPricingCardProps[];
     isLoggedIn: boolean;
@@ -18,6 +20,11 @@ export interface ProductGridProps {
     numberOfSuggestions: number;
     currentCartValue: number;
     suggestedProducts: podItemT[];
+    pricingMode: "member" | "non-member";
+    pricingStyle: pricingStyleType;
+    showRatings: boolean;
+    communicationsMode : "animated-intro" | "banner"
+
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({
@@ -27,13 +34,15 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                                                      products,
                                                      isLoggedIn,
                                                      priceLabel,
-                                                     freeShippingTarget
+                                                     freeShippingTarget,
+                                                     pricingMode,
+                                                     pricingStyle,
+                                                     showRatings,
+                                                     communicationsMode
                                                  }) => {
-    const [showIntro, setShowIntro] = React.useState<boolean>(true);
+    const [showIntro, setShowIntro] = React.useState<boolean>(communicationsMode === "animated-intro");
     const [showAddedToCart, setShowAddedToCart] = React.useState<boolean>(false);
     const [formFactor, setFormFactor] = React.useState<"small-mobile" | "mobile" | "desktop">("desktop");
-
-
 
 
     const {width, height, ref} = useResizeDetector({
@@ -84,7 +93,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     }, []);
 
     return (
-        <OuterContainer>
+        <OuterContainer className={`${formFactor}`}>
             {showIntro && (
                 <div className="overlay">
                     <PerksPromo graphicName={"perks-logo-small"}/>
@@ -130,6 +139,11 @@ const ProductGrid: React.FC<ProductGridProps> = ({
                         priceLabel={priceLabel}
                         actionFunction={() => setShowAddedToCart(true)}
                         infoFunction={() => setShowIntro(true)}
+                        pricingMode={pricingMode}
+                        pricingStyle={pricingStyle}
+                        showRatings={showRatings}
+                        ratingsLayout={formFactor === "desktop" ? "horizontal" : "vertical"}
+
                     />
                 ))}
             </GridContainer>
