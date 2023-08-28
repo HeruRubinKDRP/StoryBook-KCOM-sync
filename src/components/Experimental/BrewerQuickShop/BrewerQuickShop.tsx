@@ -66,8 +66,8 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         },
     })
 
-    const [inStock, setInStock] = React.useState(props.colorVariants[0].inStock);
-    const [selectedColor, setSelectedColor] = React.useState<string>(props.colorVariants[0].colorName);
+    const [inStock, setInStock] = React.useState(props.isOutOfStock);
+    const [selectedColor, setSelectedColor] = React.useState<string>("");
 
 
     const getDynamicStyles = (widthX: number) => {
@@ -101,7 +101,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
 
     const handleVariantClick = (inStock : boolean, colorValue : string, colorName :string ) => {
         setInStock(inStock);
-        setSelectedColor(colorName);
+        setSelectedColor(colorName ?? "");
         console.log("colorValue", colorValue);
         console.log("inStock", inStock);
     }

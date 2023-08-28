@@ -32,7 +32,7 @@ export const ProductInfoCardWrapper = styled.div<iProductInfoCardStyleProps>`
   }
   
   &.brewer {
-    min-height: 65vh;
+    min-height: 300px;
     .backing{
       display: none;
     }

@@ -10,7 +10,9 @@ const config = {
     "@storybook/addon-essentials",
     '@storybook/addon-styling',
     "@storybook/addon-interactions",
-    'storybook-addon-next-router',
+    '@storybook-addon-next-router',
+    '@storybook/preset-next',
+    "@storybook/addon-mdx-gfm"
   ],
   framework: {
     name: "@storybook/nextjs",

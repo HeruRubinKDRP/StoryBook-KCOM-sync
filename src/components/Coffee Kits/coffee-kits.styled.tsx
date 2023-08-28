@@ -28,7 +28,7 @@ display: flex;
       margin: 0;
     }
   }
-  
+  +
   .selections-area{
     display: flex;
     flex-direction: row;

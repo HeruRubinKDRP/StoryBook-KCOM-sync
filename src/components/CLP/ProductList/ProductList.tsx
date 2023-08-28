@@ -82,6 +82,7 @@ const ProductList = (props: ProductListProps) => {
     });
 
     const manageQuickShop = (open: boolean, index: number) => {
+        console.log("manage quick shop")
         setSelectedPod(index);
         setSnackBarOpen(false);
         setQuickShopOpen(open);
@@ -128,6 +129,8 @@ const ProductList = (props: ProductListProps) => {
                                 boxSizes={props.products[selectedPod].prices.map((price, index) => {
                                     return Number(price.variant.quantity)
                                 })}
+
+
                                 isSmartEligible={true}
                                 edlpOffer={""}
                                 subscriptionVisible={true}
@@ -150,6 +153,7 @@ const ProductList = (props: ProductListProps) => {
                                 couponAppliedMessage={""}
                                 learnMoreMessaging={""}
                                 addToCartFunction={() => manageAddToCart()}
+                                isOutOfStock={true}
                                 carousel={{
                                     slideImageURLs: [
                                         {

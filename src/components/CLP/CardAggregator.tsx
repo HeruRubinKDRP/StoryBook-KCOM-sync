@@ -18,6 +18,9 @@ interface iCardAggregatorProps {
 }
 export const CardAggregator = (props : iCardAggregatorProps) => {
 
+    const manageQuickShop= () => {
+
+    }
     const getCard= ():ReactElement => {
         switch (props.cardMode){
             case 'simple':
@@ -36,7 +39,8 @@ export const CardAggregator = (props : iCardAggregatorProps) => {
                         totalNumberOfStars: 5,
                         totalNumberOfReviews: props.product.rating.totalNumberOfReviews || 100,
                         ratingNumber: props.product.rating.ratingNumber || 4.6,
-                    }} onClick={()=>props.quickShopFunction}
+                    }}
+                    onClick={props.quickShopFunction}
                 />
 
         }

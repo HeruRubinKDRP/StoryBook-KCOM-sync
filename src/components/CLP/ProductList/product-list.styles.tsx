@@ -66,7 +66,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
 
   // product card types
   .brewer {
-    height: 65vh;
+    height: 100%;
     min-height: 300px;
     .product-data-container {
       padding: 0 16px 0 16px;
@@ -313,9 +313,12 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   }
 
   .brewer-card {
-    height: 65vh;
+    height: 50vh;
     min-height: 300px;
-
+    border: 1px solid var(--colorLatte) !important;
+    border-radius: 1rem;
+    overflow: hidden;
+    z-index: 1000;
     .brewer-cta, .flip-btn {
       height: 100% !important;
       grid-row-start: 1;
@@ -335,8 +338,8 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       padding: calc(var(--spacingHuge) * 0.5) calc(var(--spacingHuge) * 0.75);
       display: flex;
       justify-content: center !important;
-      margin-left: var(--spacingSmall);
-
+      margin-left: 0;
+      
       .icon {
         width: 60% !important;
         height: 60% !important;
@@ -357,13 +360,14 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       display: grid;
       grid-template-columns: 0.4fr 0.6fr;
       grid-template-rows: auto;
-      grid-gap: 5%;
+      grid-gap: 5%; 
       align-items: end;
-      //bottom: calc(var(--ctaButtonHeight)) !important;
-      //position: absolute;
-      width: 100%;
+      width: auto;
       height: calc(var(--ctaButtonHeight) * 3) !important;
-      padding: 0 5% 0 5%;
+      padding: 0;
+      margin: 0;
+      left: 5%;
+      right: 5%;
     } 
 
   }
