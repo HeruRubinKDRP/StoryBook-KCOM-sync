@@ -122,6 +122,7 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                priceLabel={props.priceLabel}
                                strikeThroughPrice={props.product.prices[selectedVariantIndex].price}
                                rating={props.product.rating}
+                               pricingStyle={'member-pricing-simple'}
                                infoFunction={props.infoFunction}
                            />
                        </div>
@@ -163,8 +164,9 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                             priceLabel={props.priceLabel}
                             strikeThroughPrice={props.product.prices[selectedVariantIndex].price}
                             rating={props.product.rating}
+                            pricingStyle={'member-pricing-simple'}
                             infoFunction={props.infoFunction}
-                        />
+                            />
                         <Switch
                             leftValue={"Scheduled Delivery"}
                             rightValue={"Smart Delivery"}
