@@ -33,7 +33,7 @@ export interface iBrewerQuickShop {
         slideImageURLs: imageItemType[]
     };
     maxQuantityAllowed: number
-    isOutOfStock: boolean;
+    inStock: boolean;
     colorVariants: productVariantColor[];
     mainFlagColor: colorByNameType;
     mainFlagLabel: string;
@@ -66,7 +66,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         },
     })
 
-    const [inStock, setInStock] = React.useState(props.isOutOfStock);
+    const [inStock, setInStock] = React.useState(props.inStock);
     const [selectedColor, setSelectedColor] = React.useState<string>("");
 
 

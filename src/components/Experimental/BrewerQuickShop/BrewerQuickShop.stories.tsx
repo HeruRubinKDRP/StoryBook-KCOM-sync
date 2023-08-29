@@ -113,6 +113,7 @@ export default {
         learnMoreMessagingKSK : {control : "text"},
         learnMoreMessagingBrewerOnly : {control : "text"},
         freeShippingMessaging : {control : "text"},
+        inStock : {control : "boolean", defaultValue : true},
     }
 } as Meta;
 
@@ -130,6 +131,7 @@ Default.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
+    inStock : true,
     hasCoupon : true,
     couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -160,6 +162,7 @@ Default.args = {
 };
 export const K_Iced_Arctic_Gray_Example = Template.bind({});
 K_Iced_Arctic_Gray_Example.args = {
+    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "{use flag}",
     productNameExtended : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000371871.brewerName,
@@ -198,6 +201,7 @@ K_Iced_Arctic_Gray_Example.args = {
 };
 export const K_Iced_White_Example = Template.bind({});
 K_Iced_White_Example.args = {
+    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
     productNameExtended : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000374055.brewerName,
@@ -236,6 +240,7 @@ K_Iced_White_Example.args = {
 };
 export const K_Cafe_Smart_Black_Example = Template.bind({});
 K_Cafe_Smart_Black_Example.args = {
+    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
     productNameExtended : K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485.brewerName,

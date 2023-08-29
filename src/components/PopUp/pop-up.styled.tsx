@@ -16,28 +16,39 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
   border-radius: 1vw;
 
   --pop-up-width: ${props => props.sizeMode === "full-screen" ? "90%" : "auto"};
-  
-  &.bg-white{
-    .pop-up-contents-container{
-        background-color: white;
+
+  div:first-child {
+    border: 2px solid #d92222;
+
+    margin-top: 50%;
+    transform: translateY(-50%);
+
+
+  }
+
+  &.bg-white {
+    .pop-up-contents-container {
+      background-color: white;
     }
   }
-  
-  &.modal-large-dimensions { 
+
+  &.modal-large-dimensions {
     // 90% to account for 5% offset on each side 
     // or auto depending on component sizeMode prop
     height: var(--pop-up-width);
     width: var(--pop-up-width);
   }
 
-  &.modal-medium-dimensions { 
+  &.modal-medium-dimensions {
     height: 90%;
     width: 90%;
-    transform: none; 
+    transform: none;
   }
-  
-  &.MyPantryPopUp{
-    .pop-up-contents-container{background-color: #fff;
+
+  &.MyPantryPopUp {
+    .pop-up-contents-container {
+      background-color: #fff;
+
       &.mobile,
       &.tinyEmbedded {
         .main-content {
@@ -70,6 +81,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
         }
       }
     }
+
     &.medium-dimensions {
       .main-content {
         display: flex;
@@ -93,7 +105,6 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
         padding: 20px;
       }
     }
-
 
 
     //All Breakpoints
@@ -260,7 +271,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
     }
   }
 
-  .pop-up-child-content { 
+  .pop-up-child-content {
     overflow-y: auto;
     height: 100%;
     width: 100%;

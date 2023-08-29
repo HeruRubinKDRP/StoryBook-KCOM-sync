@@ -81,12 +81,7 @@ const ProductList = (props: ProductListProps) => {
         },
     });
 
-    const manageQuickShop = (open: boolean, index: number) => {
-        console.log("manage quick shop")
-        setSelectedPod(index);
-        setSnackBarOpen(false);
-        setQuickShopOpen(open);
-    }
+
 
     useEffect(() => {
         const totalRows = Math.ceil(props.products.length / (props.columns || 1));
@@ -106,7 +101,12 @@ const ProductList = (props: ProductListProps) => {
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
     };
-
+    const manageQuickShop = (open: boolean, index: number) => {
+        console.log("manage quick shop")
+        setSelectedPod(index);
+        setSnackBarOpen(false);
+        setQuickShopOpen(open);
+    }
     const manageAddToCart = () => {
         console.log("clicked add to cart");
         setQuickShopOpen(false);
@@ -153,7 +153,7 @@ const ProductList = (props: ProductListProps) => {
                                 couponAppliedMessage={""}
                                 learnMoreMessaging={""}
                                 addToCartFunction={() => manageAddToCart()}
-                                isOutOfStock={true}
+                                inStock={true}
                                 carousel={{
                                     slideImageURLs: [
                                         {

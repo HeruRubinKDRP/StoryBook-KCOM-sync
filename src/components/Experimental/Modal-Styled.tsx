@@ -10,9 +10,11 @@ export const ModalStyled = styled.div`
   backdrop-filter: grayscale(1) blur(3px);
   .add-to-cart-journey-small{
     top: 0;
-  }
-  
- 
+  } 
+ .brewer-quickshop-container{
+   margin-top: 50%;
+   transform: translateY(-50%);
+ }
   .pacifier{
     width: 100%;
     height: 100%;
