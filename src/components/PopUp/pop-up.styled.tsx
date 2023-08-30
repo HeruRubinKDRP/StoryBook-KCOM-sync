@@ -14,6 +14,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
   box-shadow: -1px 8px 14px rgb(0 0 0 / 25%);
   border-radius: 1vw;
   
+
   --pop-up-width: ${props => props.sizeMode === "full-screen" ? "90%" : "auto"};
   
   

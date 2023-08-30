@@ -11,13 +11,22 @@ export const ModalStyled = styled.div`
   z-index: 10000;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: grayscale(1) blur(3px);
+  
   &.modal-mobile-dimensions {
-    border: 2px solid red;
+    .mobile-only{
+      display: block;
+    } 
+    .desktop-only{
+      display: none;
+    }
+    
+     
+    position: static;
     align-content: flex-start;
     flex-wrap: wrap;
     overflow-y: auto;
     inset: 0 !important;
-   justify-content: flex-start;
+      justify-content: flex-start;
     animation: moveUpFromBottom 1s ease-in forwards;
     flex-direction: column;
   }
