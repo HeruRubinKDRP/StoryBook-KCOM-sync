@@ -44,7 +44,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     const [showAddedToCart, setShowAddedToCart] = React.useState<boolean>(false);
     const [formFactor, setFormFactor] = React.useState<"small-mobile" | "mobile" | "desktop">("desktop");
 
-
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'throttle',
         refreshRate: 200,

@@ -6,17 +6,17 @@ export interface iPopUpStyled {
     sizeMode? : "auto" | "full-screen";
 }
 
-export const PopUpStyled = styled.div<iPopUpStyled>`
-
+export const PopUpStyled = styled.div<iPopUpStyled>` 
   position: fixed;
   inset: 5%;
   display: flex;
-  z-index: 12000000;
+  z-index: 1200000;
   box-shadow: -1px 8px 14px rgb(0 0 0 / 25%);
   border-radius: 1vw;
-
+  
   --pop-up-width: ${props => props.sizeMode === "full-screen" ? "90%" : "auto"};
-
+  
+  
   div:first-child {
     border: 2px solid #d92222;
 
@@ -31,6 +31,10 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
       background-color: white;
     }
   }
+  
+  &.modal-large-dimensions, &.modal-medium-dimensions {
+    animation: moveDownFromTop 1s ease-in forwards;
+  } 
 
   &.modal-large-dimensions {
     // 90% to account for 5% offset on each side 
@@ -202,17 +206,7 @@ export const PopUpStyled = styled.div<iPopUpStyled>`
     }
   }
 
-  &.modal-large-dimensions, &.modal-medium-dimensions {
-    animation: moveDownFromTop 1s ease-in forwards;
-  }
-
-
-  &.modal-mobile-dimensions {
-    inset: 0 !important;
-    height: 100%;
-    width: 100%;
-    animation: moveUpFromBottom 1s ease-in forwards;
-  }
+  
 
   &.minimal-header {
     .k-panel-header {

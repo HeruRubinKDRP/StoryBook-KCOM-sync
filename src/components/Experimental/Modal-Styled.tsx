@@ -2,19 +2,29 @@ import styled from "styled-components";
 
 export const ModalStyled = styled.div`
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
   height: 100%;
   width: 100%;
   top: 0;
   z-index: 10000;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: grayscale(1) blur(3px);
+  &.modal-mobile-dimensions {
+    border: 2px solid red;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    inset: 0 !important;
+   justify-content: flex-start;
+    animation: moveUpFromBottom 1s ease-in forwards;
+    flex-direction: column;
+  }
   .add-to-cart-journey-small{
     top: 0;
   } 
- .brewer-quickshop-container{
-   margin-top: 50%;
-   transform: translateY(-50%);
- }
+
   .pacifier{
     width: 100%;
     height: 100%;
