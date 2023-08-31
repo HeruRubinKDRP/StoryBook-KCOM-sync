@@ -8,6 +8,7 @@ import { imageItemType } from "components/Carousel/SlideImages";
 
 export interface iKSKPurchaseOption {
     openExternalLearnMoreFunction?: () => void;
+    classes? : string;
 }
 
 export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
@@ -25,7 +26,7 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
     });
 
     return (
-        <Styled_KSKPurchaseOption className="preferred-option" ref={ref} heightY={height || 0} widthX={width || 0}>
+        <Styled_KSKPurchaseOption className={`preferred-option ${props.classes}`} ref={ref} heightY={height || 0} widthX={width || 0}>
             <Flag
                 flagLabel="Our Best Deal"
                 flagColor="KSK"
@@ -37,7 +38,6 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
                 <div className="deal-price">$124.99</div>
                 <h3>Build a starter kit & save 50%</h3>
                 <label className="strike-through-price">$249.99</label>
-                {/*<div className="savings-callout">Save $125.00 with Starter Kit</div>*/}
             </div>
             <div className={"ksk-container"}>
                 <div className="visual-container">
