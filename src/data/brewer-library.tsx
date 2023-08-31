@@ -1,43 +1,8 @@
-import {iProductInfoCardProps} from "../components/CLP/SimpleCard/SimpleCard";
+
 import {iFeatureBullet} from "../components/FeatureBullets/FeatureBulletItem/FeatureBullet";
+import {iProductInfoCardProps} from "../components/CLP/product-card.interfaces";
 
 
-//Reference
-// import {iFeatureBullet} from "../components/FeatureBullets/FeatureBulletItem/FeatureBullet";
-// import {iconType} from "../components/Graphic/Graphic";
-
-// export interface iProductInfoCardProps {
-//     productType: productTypeT
-//     image: string;
-//     brand: string;
-//     name: string;
-//     prices: purchaseInfo[];
-//     ratingVisible: boolean;
-//     priceDescriptor?: string;
-//     productDescription?: string;
-//     siloImagePath?: string;
-
-//     productFeatures? : iFeatureBullet[];
-// {
-//     featureLabel : string;
-//     featureIcon : iconType;
-//     iconSizeOverride? : string;
-//     index? : number;
-//     actionFunc? : Function;
-//     featureDetails? : string;
-//     showChevron : boolean;
-// }
-
-//     filterData?: filterDataItemT[];
-//     rating: {
-//         totalNumberOfStars: 5 | 10;
-//         totalNumberOfReviews: number;
-//         ratingNumber: number;
-//     }
-//     onClick: () => void;
-//     classes?: string;
-//     flipFunction?: () => void;
-// }
 
 export type filterOptionsT = "smart-wifi-enabled" |
     "single-serve-coffee-maker" |
@@ -273,7 +238,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         brand: "Keurig",
         name : "K-Supreme Plus® SMART Single Serve Coffee Maker",
         siloImagePath : "https://images.keurig.com/is/image/keurig/K-Supreme-Plus-SMART-Coffee-Maker_5000365542_swatch?$pdp_general$&fmt=png-alpha&qlt=75,1&op_sharpen=0&resMode=bicub&op_usm=1,1,6,0&iccEmbed=0&printRes=72&extend=0,0,0,0",
-
+        productDescription:"With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
         productFeatures : [
             //BrewID
             brewerFeatures[0],
@@ -348,6 +313,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-cafe.png",
         brand: "Keurig",
         name : "K-Café® SMART Single Serve Coffee Maker",
+        productDescription: "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
         prices : [
             {
                 price : 124.99,
@@ -419,6 +385,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-supreme.png",
         brand: "Keurig",
         name : "K-Supreme® SMART Single Serve Coffee Maker",
+        productDescription :"",
         prices : [
             {
                 price : 74.99,
@@ -489,6 +456,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-slim1.png",
         brand: "Keurig",
         name : "K-Slim® Single Serve Coffee Maker",
+        productDescription :"At just 5” wide, the K-Slim® single serve coffee maker fits neatly on your countertop.",
         prices : [
             {
                 price : 74.99,
@@ -543,6 +511,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-elite.png",
         brand: "Keurig",
         name : "Keurig® K-Elite® Single Serve Coffee Maker",
+        productDescription:"Sleek & Versatile",
         prices : [
             {
                 price : 74.99,
@@ -604,11 +573,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             brewerFeatures[6],
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-mini.png",
         brand: "Keurig",
         name : "K-Mini® Single Serve Coffee Maker",
+        productDescription:"Say hello to our slimmest brewer yet.",
         prices : [
             {
                 price : 89.99,
@@ -665,11 +636,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-select.png",
         brand: "Keurig",
         name : "Keurig® K-Select® Coffee Maker",
+        productDescription:"Combines sleek design and simple button controls to help you brew your perfect cup every time.",
         prices : [
             {
                 price : 74.99,
@@ -730,11 +703,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-mini-plus.png",
         brand: "Keurig",
         name : "K-Mini Plus® Single Serve Coffee Maker",
+        productDescription:"Combines sleek design with space-saving convenience in a portable, stylish package.",
         prices : [
             {
                 price : 74.99,
@@ -797,11 +772,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             }
         ],
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-duo.png",
         brand: "Keurig",
         name : "K-Duo™ Single Serve & Carafe Coffee Maker",
+        productDescription:"This versatile brewer is the best of both worlds.",
         prices : [
             {
                 price : 94.99,
@@ -852,11 +829,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
             ratingNumber : 4.25
         },
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-duo-special.png",
         brand: "Keurig",
         name : "K-Duo® Special Edition Single Serve & Carafe Coffee Maker",
+        productDescription:"The perfect brewer for any occasion with a sleek, silver finish that will compliment any kitchen and stand out on your countertop",
         prices : [
             {
                 price : 49.99,
@@ -907,11 +886,13 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         ],
 
         onClick: () => console.log('Add to Cart clicked'),
-    },{
+    },
+    {
         productType: 'brewer',
         image: "./brewer-images/k-classic.png",
         brand: "Keurig",
         name : "Keurig® K-Classic® Coffee Maker",
+        productDescription:"Brews a perfect cup of coffee, tea, hot cocoa or iced beverage in under one minute at the touch of a button.",
         prices : [
             {
                 price : 74.99,
@@ -969,6 +950,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-duo-plus.png",
         brand: "Keurig",
         name : "K-Duo Plus™ Single Serve & Carafe Coffee Maker",
+        productDescription:"The included 12-cup thermal carafe is perfect for keeping your coffee warm for up to 2 hours.",
         prices : [
             {
                 price : 149.99,
@@ -1024,6 +1006,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-slim-iced.png",
         brand: "Keurig",
         name : "K-Slim + ICED™ Single Serve Coffee Maker",
+        productDescription:" Full-flavored hot coffee and refreshing iced – always easy, always right. ",
         prices : [
             {
                 price : 49.99,
@@ -1078,6 +1061,7 @@ export const brewerLibrary : iProductInfoCardProps[] =[
         image: "./brewer-images/k-express.png",
         brand: "Keurig",
         name : "K-Express™ Single Serve Coffee Maker",
+        productDescription:"Welcome to Keurig® quality, at our most welcoming price.",
         prices : [
             {
                 price : 49.99,

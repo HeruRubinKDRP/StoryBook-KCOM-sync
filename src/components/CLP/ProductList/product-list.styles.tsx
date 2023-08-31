@@ -33,7 +33,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
   display: grid;
   grid-template-columns: repeat(var(--columnCount), 1fr);
   grid-template-rows: repeat(var(--rowCount), auto);
-  grid-gap: 2%;
+  grid-gap: 1rem;
 
   
   
@@ -81,7 +81,7 @@ export const ProductListWrapper = styled.div<iProductListWrapper>`
       font-weight: 200;
       color: var(--colorDarkRoast);
       line-height: var(--spacingHuge);
-      padding: 3% 10%;
+      padding: 3% 3%;
     }
 
     .price {

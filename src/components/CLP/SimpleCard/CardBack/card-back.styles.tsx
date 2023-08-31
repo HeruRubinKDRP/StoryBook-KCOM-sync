@@ -128,30 +128,35 @@ export const CardBackStyled = styled.div `
     height: 80%;
     margin-bottom: 5%;
     align-items: flex-start;
-    align-self: flex-end;
+    align-self: flex-start;
+    
     .feature-bullet-container {
-      margin: 0.25rem; 
-      width: 25%;
+      margin: 0.25rem;    
       height: 5rem; 
       box-shadow: -1px 6px 7px rgba(0,0,0,0.4);
       background-color: rgba(255, 255, 255, 1);
       transition: transform 0.3s ease-in-out;
       display: flex;
-      flex-direction: column;
       align-items: center;
       text-align: center;
-      border-radius: 1rem;
-      .icon{
-        padding-top: 15%;
-        width: 100% !important;
-        height: 50% !important;
+      border-radius: 1rem;    
+      align-content: center;
+      flex-wrap: wrap; 
+      justify-content: flex-start;
+      flex-direction: row;
+      width: 100% !important;      
+      .icon{ 
+        padding-top: 0;
+        width: 2rem !important;
+        height: 2rem !important;
       }
       &:hover {
-        transform: scale(1.1);
+        
       }
       .feature-name{
-        font-size: 10px;
-        line-height: 10px;
+        width: auto;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
       }
     }
     .left, .right{
@@ -218,14 +223,17 @@ export const CardBackStyled = styled.div `
   }
   
   .features-list-container {
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 5%;
     column-gap: 2.5%;
-    margin-top: 5%;
-    height: 95%;
-    margin-bottom: calc(var(--ctaButtonHeight) * 6 ) !important;
+    margin-top: 0;
+    
+    margin-bottom: calc(var(--ctaButtonHeight) * 4.51 ) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
     .nav-container{
       display: none;
     }

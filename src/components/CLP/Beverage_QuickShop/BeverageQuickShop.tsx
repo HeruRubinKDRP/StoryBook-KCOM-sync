@@ -18,7 +18,7 @@ export interface iBeverageQuickShop {
     edlpOffer : string;
     subscriptionVisible : boolean;
     closeFunction : () => void;
-    addToCartFunction? : () => void;
+    addToCartFunction? : (quickShopOpen: boolean, productIndex:number) => void;
     hasCloseButton? : boolean;
 }
 

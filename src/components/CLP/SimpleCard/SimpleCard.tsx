@@ -101,7 +101,11 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
 
 
     return (
-        <ProductInfoCardWrapper heightY={dataAreaHeight || 300} className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`} ref={ref}>
+        <ProductInfoCardWrapper
+            heightY={dataAreaHeight || 300}
+            className={`${props.productType} ${props.classes ? props.classes : ""} simple-card`}
+            ref={ref}
+        >
             {
                 props.flag &&
                 <Flag

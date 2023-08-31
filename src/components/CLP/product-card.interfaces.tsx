@@ -29,7 +29,7 @@ export interface iProductInfoCardProps {
         totalNumberOfReviews: number;
         ratingNumber: number;
     }
-    onClick: unknown;
+    onClick: (quickShopOpen: boolean, productIndex:number) => void;
     classes?: string;
     flipFunction?: () => void;
     useBanner?: boolean;

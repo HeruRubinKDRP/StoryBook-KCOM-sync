@@ -129,8 +129,6 @@ const ProductList = (props: ProductListProps) => {
                                 boxSizes={props.products[selectedPod].prices.map((price, index) => {
                                     return Number(price.variant.quantity)
                                 })}
-
-
                                 isSmartEligible={true}
                                 edlpOffer={""}
                                 subscriptionVisible={true}
@@ -209,7 +207,6 @@ const ProductList = (props: ProductListProps) => {
 
     //SEARCH
     const getVisibleProducts = () => {
-
         let productsFiltered = props.products;
         if (activeFilters.length > 0) {
             productsFiltered = productsFiltered.filter(product =>
@@ -269,8 +266,6 @@ const ProductList = (props: ProductListProps) => {
         }
         return <></>
     }
-
-
     // manage filters selection
 
     useEffect(() => {
@@ -332,7 +327,7 @@ const ProductList = (props: ProductListProps) => {
 
 //RENDER
     return (
-        <CLP_Page_Styled>
+        <CLP_Page_Styled className={`CLP ${getContainerQuery(width)}`}>
             <StickyHeader
                 stickyHeaderMode={props.stickyHeaderMode}
                 navigationRelated={{
@@ -410,9 +405,7 @@ const ProductList = (props: ProductListProps) => {
                     />
                 </div>
             }
-            <OuterMostCLP_Container  >
-
-
+            <OuterMostCLP_Container >
                 {
                     props.useFilters &&
                     <FiltersContainerStyle>
@@ -424,7 +417,6 @@ const ProductList = (props: ProductListProps) => {
                         />
                     </FiltersContainerStyle>
                 }
-
 
                 <div className="right-part" ref={ref}>
                     <ComponentFilterStyle>
@@ -470,10 +462,10 @@ const ProductList = (props: ProductListProps) => {
                                     cardPresentationMode={props.cardPresentationMode}
                                     cardMode={props.cardMode}
                                     index={index}
+                                    classes={getContainerQuery(width)}
                                     ratingVisible={props.ratingVisible}
                                     quickShopFunction={() => manageQuickShop(true, index)}
                                 />
-
                             ))}
                         </ProductListWrapper>
                     </BrewerCLPStyled>

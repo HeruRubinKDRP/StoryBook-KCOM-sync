@@ -13,7 +13,7 @@ interface iCardAggregatorProps {
     index: number;
     ratingVisible: boolean;
     classes?: string;
-    quickShopFunction: (value: boolean, productIndex:number) => void;
+    quickShopFunction: (quickShopOpen: boolean, productIndex:number) => void;
     flag?: iFlag;
 }
 export const CardAggregator = (props : iCardAggregatorProps) => {
@@ -59,7 +59,8 @@ export const CardAggregator = (props : iCardAggregatorProps) => {
                         flipToFrontButtonIcon="icon-images"
                         frontContent={ getCard() }
                         backContent={
-                            <CardBack name={props.product.name} description={props.product.productDescription}
+                            <CardBack name={props.product.name}
+                                      description={props.product.productDescription ?? "Cofee maker description"}
                                       imageSrc={props.product.siloImagePath}
                                       features={props.product.productFeatures ?? []}/>
                         }

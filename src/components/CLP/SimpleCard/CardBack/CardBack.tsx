@@ -33,38 +33,22 @@ const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, featur
                 </div>
                 <p>{description}</p>
                 <ul className="features-list-container">
-                    <Kcarousel
-                        dragRule="no-drag"
-                        customClasses={"parent-carousel"}
-                        carouselType="slider"
-                        component="carousel"
-                        keepNavButtons={true}
-                        navLabels={[
-                            'Features',
-                            'Dimensions',
-                            'Specs'
-                        ]}
-                        navPosition="top"
-                        navStyle="text"
-                        slides={[
-                            <FeatureBulletsArea
-                                key={1}
-                                height={"100%"}
-                                featuresAreaName={""}
-                                features={features}
-                            />,
-                            <div
-                                key={2}
-                                className="dimensions-container">
-                                <AsyncImage src="https://images.keurig.com/is/image/keurig/KSPS-black-size?fmt=png-alpha&wid=1000" alt="" />
-                            </div>,
-                            <div key={3}>Specifications</div>,
-                        ]}
-
-                     itemsPerSlide={1}
+                    <FeatureBulletsArea
+                        key={1}
+                        height={"100%"}
+                        featuresAreaName={""}
+                        features={features}
                     />
-
-
+                    <div
+                        key={2}
+                        className="dimensions-container">
+                        <AsyncImage
+                            imageType="image"
+                            src="https://images.keurig.com/is/image/keurig/KSPS-black-size?fmt=png-alpha&wid=1000"
+                            alt=""
+                        />
+                    </div>
+                    <div key={3}>Specifications</div>
                 </ul>
             </div>
             <div className="cta-container">

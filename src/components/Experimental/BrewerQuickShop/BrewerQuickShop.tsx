@@ -135,21 +135,22 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
            </CloseBtnStyled>
 
             <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{}}>
-                <KButton
-                    buttonType="text-icon-noBG"
-                    buttonWidth="fit-to-content"
-                    classes="close-btn desktop-only"
-                    iconPlacement="right-edge"
-                    iconStandard="close"
-                    label=""
-                    actionFunc={props.closeFunc}
-                />
+
                 <BrewerQuickShopStyled
                     mainFlagColor={props.mainFlagColor}
                     className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
                     overallWidth={width ? width : 0}
                     calculatedOverallWidthVar={getDynamicStyles(width ? width : 0)}
                 >
+                    <KButton
+                        buttonType="text-icon-noBG"
+                        buttonWidth="fit-to-content"
+                        classes="close-btn desktop-only"
+                        iconPlacement="right-edge"
+                        iconStandard="close"
+                        label=""
+                        actionFunc={props.closeFunc}
+                    />
                     {
                         learnMoreOpen ?
                             <div className="learn-more-container">
