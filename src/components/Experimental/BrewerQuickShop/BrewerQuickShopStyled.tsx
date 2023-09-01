@@ -7,7 +7,6 @@ export interface iBrewerQuickShopStyled {
     overallHeight: number;
     calculatedOverallWidthVar: Interpolation<any>;
     mainFlagColor: colorByNameType;
-
 }
 
 
@@ -160,7 +159,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     height: 100%;
     max-width: 100vw !important;
     margin: 0 !important;
-    
+    .item-only-option{
+      background-color: white !important;
+    }
     .name-area{
       display: none;
     }

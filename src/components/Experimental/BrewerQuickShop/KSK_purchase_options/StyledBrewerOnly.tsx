@@ -40,7 +40,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
  
   margin-top:0.5rem;
   //background-color: rgb(235, 231, 227);
-  background-color: white;
+  background-color: #EBE7E3;
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
   &.mobile-dimensions {
@@ -62,6 +62,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     }
   }
 
+  
+  
   .coupon-area-container {
     display: flex;
     flex-direction: row;
@@ -147,6 +149,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
           span, p, label {
             font-size: var(--FontSizeSmall);
           }
+          
         }
 
         .k-btn {
@@ -169,7 +172,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     padding: var(--spacingLarge) var(--spacingLarge);
 
     label {
-      font-size: var(--FontSizeMedium);
+      font-size: var(--FontSizeSmall);
     }
   }
 

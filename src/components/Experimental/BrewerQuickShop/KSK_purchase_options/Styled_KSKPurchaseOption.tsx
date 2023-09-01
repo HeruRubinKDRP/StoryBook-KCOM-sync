@@ -65,7 +65,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       margin-top: 0.5rem;
     }
     .k-btn label {
-      font-size: 0.85rem;
+      font-size: var(--FontSizeSmall);
     }
     .ksk-container {
       .kcs-image {
@@ -74,7 +74,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       }
     }
       .visual-container {
-        padding-right: 0px;
+        padding-right: 0;
       }
     }
   
@@ -130,7 +130,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;
