@@ -51,10 +51,10 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     */
     .pod-ksk-container {
       border: 2px dashed #0d8296;
-      height: 35px;
-      width: 35px;
-      max-height: 35px;
-      max-width: 35px;
+      height: 30px;
+      width: 30px;
+      max-height: 30px;
+      max-width: 30px;
       min-width: 25px;
       border-radius: 100vh;
       margin-right: 3px;
@@ -130,7 +130,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 20% 75%;
+    grid-template-columns: 25% 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;

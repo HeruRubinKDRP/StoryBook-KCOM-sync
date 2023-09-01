@@ -92,8 +92,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
       .coupon-item {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         justify-content: flex-start;
         
         flex-wrap: nowrap;
@@ -191,7 +191,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 20% 75%;
+    grid-template-columns: 25% 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;
