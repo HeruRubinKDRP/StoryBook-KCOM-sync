@@ -199,7 +199,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
 
     .kcs-image {
-      max-height: 70px;
+      max-height: 60px;
       padding-right: var(--spacingSmall);
     }
 
