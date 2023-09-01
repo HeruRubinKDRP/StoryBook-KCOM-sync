@@ -111,13 +111,16 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
       right: 0;
       z-index: 1111111;
       padding: 0.5rem;
+      /*
       background-color: red;
+      */
       &.mobile-dimensions {
         display: block;
       }
       &.extra-large-dimensions, &.large-dimensions, &.medium-dimensions {
         display: none;
       }
+      
     `
 
     return (
@@ -226,6 +229,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                 <div className="purchase-options">
                                     {props.hasKSK ?
                                         <KSKPurchaseOption
+                                            classes={`${getContainerQuery(width)}`}
                                             openExternalLearnMoreFunction={() => {
                                                 setLearnMoreTitle(props.learnMoreTitleKSK);
                                                 setLearnMoreContent(
@@ -260,6 +264,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                         <></>
                                     }
                                     <BrewerOnlyPurchaseOption
+                                        classes={`${getContainerQuery(width)}`}
                                         couponAppliedMessage={props.couponAppliedMessage}
                                         hasCoupon={props.hasCoupon}
                                         couponMessage={props.couponMessage}

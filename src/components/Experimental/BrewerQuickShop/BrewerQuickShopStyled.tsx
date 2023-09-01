@@ -11,36 +11,42 @@ export interface iBrewerQuickShopStyled {
 
 
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
-  *{
+  * {
     box-sizing: border-box;
   }
-  
+
   ${props => props.calculatedOverallWidthVar}
   ${containerQueryBasedVariables};
-  --mainFlagColor : ${props => colorNameToValue(props.mainFlagColor)};
- 
-  .coupon-message{
-    .learn-more{
-      float:none !important;
-      margin-left: var(--spacingSmall) ;
+  --mainFlagColor: ${props => colorNameToValue(props.mainFlagColor)};
+
+  .coupon-message {
+    .learn-more {
+      float: none !important;
+      margin-left: var(--spacingSmall);
     }
   }
-  .out-of-stock-area{
+
+  .out-of-stock-area {
     padding: 1rem;
     border-radius: 1rem;
     font-size: 2rem;
     margin-top: 0.5rem;
-  } 
-  .selected-color{ 
+  }
+
+  .selected-color {
     display: flex;
+    /*
     margin-top: 1rem;
-    *{
-      font-size: 1.25rem;
+    */
+
+    * {
+      font-size: 1rem;
     }
-    .key{
+
+    .key {
       font-weight: 600;
       margin-right: 0.5rem;
-    }    
+    }
   }
 
   border-radius: var(--spacingTiny);
@@ -54,10 +60,10 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   max-width: 90vw;
 
   height: auto;
-  width: 100%; 
-  margin: 0 auto; 
+  width: 100%;
+  margin: 0 auto;
 
-  .add-to-cart-container{
+  .add-to-cart-container {
     .expander {
       border-radius: 0 100vw 100vw 0 !important;
     }
@@ -69,8 +75,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   &.medium-dimensions {
     max-width: 85vw;
-    .ksk-container{
-      .visual-container{
+
+    .ksk-container {
+      .visual-container {
         .fill-pod {
           width: 100px;
         }
@@ -81,11 +88,23 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   &.mobile-dimensions {
     flex-direction: column;
     max-width: none;
-    max-height: none; 
+    max-height: none;
+    .product-identity-container
+    {
+      h1 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+    .fill-pod {
+      width: 65px;
+    }
+
     .k-carousel {
       width: 100%;
       height: 25vh !important;
       min-height: 200px !important;
+
       .nav-dots-container {
         display: none;
       }
@@ -111,20 +130,28 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         display: none;
       }
     }
-  } 
+  }
 
   &.small-dimensions, &.mobile-dimensions {
-  
+    height: 100%;
+
     .product-info-container {
       overflow-y: unset;
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
-      width: 100%!important;
+      width: 100% !important;
       max-width: calc(var(--overallWidth) * 0.95);
-      justify-content: flex-start; 
+      justify-content: flex-start;
+
+      p {
+        display: none;
+      }
     }
 
     .k-carousel {
-      max-width: calc(var(--overallWidth) * 0.95); 
+      max-width: calc(var(--overallWidth) * 0.95);
+      height: 30vh !important;
+      min-height: 200px !important;
+
       .nav-container {
         .right, .left {
           width: var(--spacingHuge) !important;
@@ -150,8 +177,8 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
         inset: 0;
       }
     }
-  } 
-  
+  }
+
   .close-btn {
     position: absolute;
     right: var(--spacingMedium);
@@ -168,14 +195,15 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       align-items: center;
       justify-content: center;
     }
-  } 
+  }
 
   &.medium-dimensions, &.extra-large-dimensions, &.large-dimensions {
     .learn-more-container {
       background-color: #fff;
       inset: 2% 52% 2% 1%;
     }
-    .ksk-learn-more{
+
+    .ksk-learn-more {
       width: 50%;
     }
   }
@@ -282,6 +310,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       margin-top: 1rem;
       margin-bottom: 0.5rem;
     }
+
     .name-area {
       label {
         font-size: var(--FontSizeSmall);
@@ -397,7 +426,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     p {
       font-size: var(--FontSizeSmall);
     }
-  } 
+  }
 
   .product-info-container {
     padding: var(--spacingMedium);
@@ -458,16 +487,19 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       padding-bottom: 10px;
       background-color: #EADECF;
     }
-.how-to-title{
-  
-  font-size: var(--FontSizeSmall);
-  font-weight: bolder;
-  padding-top: 20px;
-}
-    .icon-checkmark, .checkmark-circled{
+
+    .how-to-title {
+
+      font-size: var(--FontSizeSmall);
+      font-weight: bolder;
+      padding-top: 20px;
+    }
+
+    .icon-checkmark, .checkmark-circled {
       width: 20px;
-      .filled{
-        fill:var(--colorKSK);
+
+      .filled {
+        fill: var(--colorKSK);
       }
     }
 
@@ -483,13 +515,15 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       align-items: center;
       margin: 10px;
     }
-    .how-to-container{
+
+    .how-to-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
       justify-content: space-evenly;
     }
+
     h2 {
       color: #AA8066
     }

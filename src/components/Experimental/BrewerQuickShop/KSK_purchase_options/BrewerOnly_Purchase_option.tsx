@@ -8,6 +8,7 @@ import KDropDown from "../../../DropDown/drop-down";
 import {CTA_WithQuantity} from "../../../CTA_With_Quantity/CTA_WithQuantity";
 
 export interface iBrewerOnlyPurchaseOption{
+    classes? : string;
     hasCoupon : boolean;
     couponMessage : string;
     couponAppliedMessage : string;
@@ -79,10 +80,10 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
     }
 
     return(
-        <StyledBrewerOnly className="item-only-option" ref={ref} widthX={width || 0} heightY={height || 0}>
+        <StyledBrewerOnly className={`item-only-option ${props.classes}`} ref={ref} widthX={width || 0} heightY={height || 0}>
             <div className="deal-area">
                 <div className="deal-price">$159.99</div>
-                <h3>Brewer only</h3>
+                <h3>Buy Brewer only</h3>
                 <label className="strike-through-price">$179.99</label>
                 <div className="savings-callout"></div>
             </div>

@@ -35,22 +35,43 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   position: relative;
 
   width: 100%;
-/*  border: 1px solid grey;*/
+  /*  border: 1px solid grey;*/
   border-radius: var(--spacingTiny);
-  padding: var(--spacingLarge);
-  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));
-  background-color: rgb(235,231,227);
+  padding: var(--spacingSmall) var(--spacingLarge) var(--spacingLarge) var(--spacingLarge);
+/*  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));*/
+  margin-top: var(--spacingSmall);
+  background-color: rgb(235, 231, 227);
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
-  .coupon-area-container{
+  &.mobile-dimensions {
+    background-color: white;
+
+    .coupon-area-container {
+      .kcs-image {
+        max-height: 50px;
+        padding-right: 0;
+      }
+      .coupon-area {
+        padding: 5px;
+        margin: 0 0 var(--spacingSmall) var(--spacingLarge);
+
+      }
+      .coupon-message{
+        line-height: 0.80rem; 
+      }
+    }
+  }
+
+  .coupon-area-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     .kcs-image {
       max-height: 60px;
       padding-right: var(--spacingSmall);
     }
+
     .coupon-area {
       padding: var(--spacingMedium) var(--spacingLarge);
       border: 1px dashed #3B2B2F;
@@ -63,6 +84,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       align-items: center;
       margin: var(--spacingMedium) 0 var(--spacingLarge) var(--spacingLarge);
       width: 100%;
+
       &:empty {
         background-color: transparent;
         border: none;
@@ -95,7 +117,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         }
 
         .k-btn.learn-more {
-          padding: 0 !important; 
+          padding: 0 !important;
           float: right;
           border-radius: 0 !important;
           border: 0 !important;
@@ -134,16 +156,17 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
           flex: 1 0 0;
           background-color: transparent !important;
           border: 1px solid var(--colorMediumRoast) !important;
+
           label {
             font-size: var(--FontSizeSmall);
             margin: 10px 0 10px 0;
           }
         }
       }
-    } 
+    }
   }
 
-  
+
   .k-btn {
     padding: var(--spacingLarge) var(--spacingLarge);
 
@@ -153,14 +176,13 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   }
 
 
-
   .product-info-container {
     .coupon-item {
       p {
         font-size: var(--FontSizeSmall);
       }
     }
-  } 
+  }
 
   .deal-area:nth-child(2n+1) {
     padding-right: var(--spacingSmall);
@@ -168,19 +190,22 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 0.2fr 0.8fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 25% 75%;
+    grid-gap: 2px;
+    width: 100%;
+    align-items: center;
+    margin: 5px 0;
 
-    * {
-      display: flex;
-      align-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    /*    * {
+          display: flex;
+          align-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+        }*/
 
     .deal-price {
-      grid-column: 1 / 1;
-      grid-row: 1 / 1;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
       font-weight: 200;
       margin-right: var(--spacingLarge);
       font-size: var(--FontSizeMedium);
@@ -190,14 +215,15 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     h3 {
       color: var(--DarkRoast);
       font-size: var(--FontSizeMedium);
-      grid-column: 2 / 2;
+      grid-column: 2 / 3;
       grid-row: 1 / 1;
-/*      font-weight: 200;*/
+      margin: 0;
+      /*      font-weight: 200;*/
     }
 
     .strike-through-price {
-      grid-column: 1 / 1;
-      grid-row: 2 / 2;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
       font-size: var(--FontSizeSmall);
       text-decoration: line-through;
     }
