@@ -248,15 +248,16 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     border-radius: inherit;
     padding: var(--spacingMedium) var(--spacingMedium);
     box-shadow: 0 0 var(--spacingTiny) 0 rgba(0, 0, 0, 0.25);
-
+   
 
     .learn-more-content {
       position: relative;
       height: 100%;
       display: flex;
       flex-direction: column;
-
+      
       .messaging-area {
+        
         flex-grow: 1;
         flex-basis: 80%;
         height: 80%;
