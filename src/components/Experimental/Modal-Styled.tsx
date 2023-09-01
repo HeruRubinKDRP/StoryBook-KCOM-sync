@@ -12,7 +12,7 @@ export const ModalStyled = styled.div`
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: grayscale(1) blur(3px);
   
-  &.modal-mobile-dimensions {
+  &.modal-small-dimensions {
     .mobile-only{
       display: block;
     } 
@@ -30,6 +30,7 @@ export const ModalStyled = styled.div`
     animation: moveUpFromBottom 1s ease-in forwards;
     flex-direction: column;
   }
+  
   .add-to-cart-journey-small{
     top: 0;
   } 

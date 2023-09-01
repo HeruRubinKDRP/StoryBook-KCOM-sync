@@ -13,6 +13,7 @@ export interface iBrewerQuickShopStyled {
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   * {
     box-sizing: border-box;
+    user-select: none;
   }
 
   ${props => props.calculatedOverallWidthVar}
@@ -89,6 +90,20 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   .add-to-cart-container {
     .expander {
       border-radius: 0 100vw 100vw 0 !important;
+    }
+    
+    .drop-down{
+      padding: 0 0 0 1rem !important;
+      button.k-btn {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0.25rem 0 !important;
+        .icon{
+          width: 0.75rem !important;
+          height: 0.5rem !important;
+          margin-left: 0.25rem;
+        }
+      }
     }
   }
 
@@ -257,7 +272,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       flex-direction: column;
       
       .messaging-area {
-        
+        overflow-x: hidden;
         flex-grow: 1;
         flex-basis: 80%;
         height: 80%;
