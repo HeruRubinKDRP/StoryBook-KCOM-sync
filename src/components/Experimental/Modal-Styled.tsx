@@ -8,7 +8,7 @@ export const ModalStyled = styled.div`
   height: 100%;
   width: 100%;
   top: 0;
-  z-index: 10000;
+  z-index: 9000;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: grayscale(1) blur(3px);
   

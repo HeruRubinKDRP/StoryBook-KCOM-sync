@@ -109,7 +109,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
       position: fixed;
       top: 0;
       right: 0;
-      z-index: 100000;
+      z-index: 9100;
       padding: 0.5rem;
        
       .k-btn{
@@ -137,17 +137,21 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
 
     return (
         <>
-           <CloseBtnStyled className={`${getContainerQuery(width)}`}>
-               <KButton
-                   buttonType="text-icon-noBG"
-                   buttonWidth="fit-to-content"
-                   classes="close-btn mobile-only"
-                   iconPlacement="right-edge"
-                   iconStandard="close"
-                   label=""
-                   actionFunc={props.closeFunc}
-               />
-           </CloseBtnStyled>
+            {
+                learnMoreOpen ? <></>:
+                    <CloseBtnStyled className={`${getContainerQuery(width)}`}>
+                        <KButton
+                            buttonType="text-icon-noBG"
+                            buttonWidth="fit-to-content"
+                            classes="close-btn mobile-only"
+                            iconPlacement="right-edge"
+                            iconStandard="close"
+                            label=""
+                            actionFunc={props.closeFunc}
+                        />
+                    </CloseBtnStyled>
+            }
+
 
             <ModalStyled  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
 
