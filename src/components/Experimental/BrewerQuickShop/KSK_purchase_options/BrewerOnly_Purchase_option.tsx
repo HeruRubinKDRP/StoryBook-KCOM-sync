@@ -56,7 +56,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                                 />
                                 <div className="coupon-message-area">
                                     <div className="coupon-message">
-                                        <span>
+                                        <span className="coupon-copy">
                                             {props.couponMessage}
                                         </span>
                                         <KButton

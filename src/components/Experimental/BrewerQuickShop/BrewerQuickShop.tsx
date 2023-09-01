@@ -109,13 +109,25 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
       position: fixed;
       top: 0;
       right: 0;
-      z-index: 1111111;
+      z-index: 100;
       padding: 0.5rem;
-      /*
-      background-color: red;
-      */
+       
+      .k-btn{
+        width: 2rem;
+        height: 2rem;
+        padding: 0 !important;
+        .icon{
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0.25rem;
+          box-sizing: border-box;
+        }
+      }
+      
       &.mobile-dimensions {
         display: block;
+        
       }
       &.extra-large-dimensions, &.large-dimensions, &.medium-dimensions {
         display: none;
@@ -137,12 +149,14 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                />
            </CloseBtnStyled>
 
-            <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{}}>
+            <ModalStyled  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
 
                 <BrewerQuickShopStyled
+                    ref={ref}
                     mainFlagColor={props.mainFlagColor}
                     className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
-                    overallWidth={width ? width : 0}
+                    overallWidth={width ? width : 200}
+                    overallHeight={height ? height : 500}
                     calculatedOverallWidthVar={getDynamicStyles(width ? width : 0)}
                 >
                     <KButton
@@ -194,6 +208,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                             productName={props.productName}
                             productNameExtended={props.productNameExtended}
                             tagline={props.tagline}
+                            ratingHeight={16}
                             rating={{
                                 totalNumberOfStars: props.starRating.totalNumberOfStars,
                                 ratingNumber: props.starRating.ratingNumber,

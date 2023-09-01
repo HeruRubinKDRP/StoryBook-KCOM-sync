@@ -6,20 +6,31 @@ import {containerQueryBasedVariables, iStyledContainerQueryBased} from "../../..
 export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   --overallWidth: ${props => props.widthX + 'px'};
   --overallHeight: ${props => props.heightY + 'px'};
-  ${containerQueryBasedVariables};
+  --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
+  --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
+  --buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
+
+  --FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
+  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
+  --FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
+
+  --spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
+  --spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
+  --spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
+  --spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   /*  border: 1px solid grey;*/
-  border-radius: var(--spacingTiny);
-  padding: var(--spacingSmall) var(--spacingLarge) var(--spacingLarge) var(--spacingLarge);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem 0.5rem 0.5rem;
   //margin top to make room for the absolute positioned flag
-  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));
+  margin-top: 1.5rem;
   background-color: white;
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
-
-  &.mobile-dimensions {
+  
+  &.mobile-dimensions, &.small-dimensions
     /*
     background-color: red!important;
     */
@@ -36,6 +47,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     .ksk-learn-more {
       width: 50%;
       font-size: 0.80rem;
+      margin-top: 0.5rem;
     }
     .k-btn label {
       font-size: 0.85rem;
@@ -107,14 +119,8 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     grid-gap: 2px;
     width: 100%;
     align-items: center;
-    margin: 5px 0 0 0;
+    margin: var(--spacingMedium) 0 0 0;
  
-/*    * {
-      display: flex;
-      align-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }*/
 
     .deal-price {
       grid-column: 1 / 2;

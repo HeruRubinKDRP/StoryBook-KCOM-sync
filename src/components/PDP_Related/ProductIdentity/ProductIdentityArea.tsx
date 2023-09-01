@@ -9,6 +9,7 @@ export interface iProductIdentity{
   productNameExtended : string;
   tagline? : string;
   rating? : iRating;
+  ratingHeight? : number;
   flag : {
     flagLabel : string;
     flagStyle : flagStylesT;
@@ -33,6 +34,7 @@ export const ProductIdentity =(props : iProductIdentity)=>{
       scrollToTargetID={props.rating.scrollToTargetID}
       totalNumberOfReviews={props.rating.totalNumberOfReviews}
       totalNumberOfStars={props.rating.totalNumberOfStars}
+      ratingHeight={props.ratingHeight}
     />
   }
 

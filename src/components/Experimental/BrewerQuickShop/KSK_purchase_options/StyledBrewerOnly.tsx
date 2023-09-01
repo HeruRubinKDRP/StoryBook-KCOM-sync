@@ -17,29 +17,28 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   --colorMediumRoast: ${colorNameToValue("medium-roast")};
   --colorFaded: ${colorNameToValue("latteMed")};
 
-  --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
-  --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
-  --buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
+  --buttonLarge: 1.25rem;
+  --buttonMedium: 1 rem;
+  --buttonSmall: 0.75rem;
 
-  --FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
-  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
-  --FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
+  --FontSizeLarge: 1.25rem;
+  --FontSizeMedium: 1rem;
+  --FontSizeSmall: 0.75rem;
 
-  --spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
-  --spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
-  --spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
-  --spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
+  --spacingLarge: 1rem;
+  --spacingMedium: 0.75rem;
+  --spacingSmall: 0.5rem;
+  --spacingTiny: 0.25rem;
 
   display: flex;
   flex-direction: column;
   position: relative;
 
-  width: 100%;
-  /*  border: 1px solid grey;*/
-  border-radius: var(--spacingTiny);
-  padding: var(--spacingSmall) var(--spacingLarge) var(--spacingLarge) var(--spacingLarge);
-/*  margin-top: calc(calc(var(--spacingTiny) + var(--FontSizeMedium)));*/
-  margin-top: var(--spacingSmall);
+  width: 100%; 
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+ 
+  margin-top:0.5rem;
   background-color: rgb(235, 231, 227);
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
@@ -66,7 +65,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    align-items: center;
     .kcs-image {
       max-height: 60px;
       padding-right: var(--spacingSmall);
@@ -75,14 +74,11 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     .coupon-area {
       padding: var(--spacingMedium) var(--spacingLarge);
       border: 1px dashed #3B2B2F;
-      border-radius: var(--spacingTiny);
-      /*
-      background-color: transparent;
-      */
+      border-radius: var(--spacingTiny); 
       background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 15%);
 
       align-items: center;
-      margin: var(--spacingMedium) 0 var(--spacingLarge) var(--spacingLarge);
+      margin: 0 0 var(--spacingLarge) var(--spacingLarge);
       width: 100%;
 
       &:empty {
@@ -93,16 +89,17 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
       .coupon-item {
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-start;
+        
         flex-wrap: nowrap;
         gap: var(--spacingSmall);
 
         .coupon-message-area {
           display: flex;
           flex-direction: row;
-          flex: 0 0 65%;
+          flex: 0 0 50%;
         }
 
         .coupon-applied {
@@ -190,18 +187,12 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;
     margin: 5px 0;
-
-    /*    * {
-          display: flex;
-          align-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-        }*/
+ 
 
     .deal-price {
       grid-column: 1 / 2;

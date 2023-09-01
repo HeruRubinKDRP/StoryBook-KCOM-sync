@@ -28,7 +28,7 @@ export const StyledRating = styled.div<iStyledRating>`
     align-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 50%;
+    width: 40%;
     height: 100%;
   }
 

@@ -16,6 +16,7 @@ export interface iRating{
   classes? : string;
   ratingVisible? : "hidden" | "visible";
   layout? : "horizontal" | "vertical";
+  ratingHeight? : number;
 }
 
 
@@ -31,13 +32,7 @@ export const Rating=(props: iRating)=>{
   })
 
 
-  const scrollToReviews=()=>{
-    if(!props.scrollToTargetID){return}
 
-    const target = window.document.getElementById(props.scrollToTargetID);
-    if(!target){return}
-    gsap.to(window, {duration: 2, scrollTo: {y:target.getBoundingClientRect().top , offsetY: 50}});
-  }
 
   const getRatingInfo=()=>{
 
@@ -55,7 +50,7 @@ export const Rating=(props: iRating)=>{
 
 
   return (
-    <StyledRating className={`ratings-overall-container ${props.layout}`} containerHeight={height || 0} >
+    <StyledRating className={`ratings-overall-container ${props.layout}`} containerHeight={props.ratingHeight ?? height ?? 0} >
 
       <div className="stars-container" ref={ref}>
         <svg width="100%" height="100%" viewBox="0 0 82.61 15.8">
