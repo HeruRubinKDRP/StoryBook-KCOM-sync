@@ -125,21 +125,24 @@ export const CardBackStyled = styled.div `
 
   .feature-bullets-area  {
     width: 100%;
-    height: 80%;
-    margin-bottom: 5%;
+    height: auto !important;
+    margin-bottom: 0;
     align-items: flex-start;
     align-self: flex-start;
     
     .feature-bullet-container {
-      margin: 0.25rem;    
-      height: 5rem; 
+      margin: 0;
+      height: auto !important;
+      padding: 0.75rem;
+      border-radius: 0;
+      
+      
       box-shadow: -1px 6px 7px rgba(0,0,0,0.4);
       background-color: rgba(255, 255, 255, 1);
       transition: transform 0.3s ease-in-out;
       display: flex;
       align-items: center;
       text-align: center;
-      border-radius: 1rem;    
       align-content: center;
       flex-wrap: wrap; 
       justify-content: flex-start;
@@ -225,12 +228,12 @@ export const CardBackStyled = styled.div `
   .features-list-container {
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     row-gap: 5%;
     column-gap: 2.5%;
-    margin-top: 0;
-    
+    margin-top: 0; 
+    flex-direction: column;
     margin-bottom: calc(var(--ctaButtonHeight) * 4.51 ) !important;
     overflow-y: auto;
     overflow-x: hidden;
