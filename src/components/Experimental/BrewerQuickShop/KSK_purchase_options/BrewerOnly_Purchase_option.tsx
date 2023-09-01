@@ -6,6 +6,7 @@ import {StyledBrewerOnly} from "./StyledBrewerOnly";
 import Graphic from "../../../Graphic/Graphic";
 import KDropDown from "../../../DropDown/drop-down";
 import {CTA_WithQuantity} from "../../../CTA_With_Quantity/CTA_WithQuantity";
+import { MemberPriceMessaging } from "components/Experimental/MemberPricingMessaging/MemberPricingMessaging";
 
 export interface iBrewerOnlyPurchaseOption{
     classes? : string;
@@ -85,6 +86,9 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                 <div className="deal-price">$159.99</div>
                 <h3>Buy Brewer only</h3>
                 <label className="strike-through-price">$179.99</label>
+                <MemberPriceMessaging infoFunction={function(): void {
+                    throw new Error("");
+                } }></MemberPriceMessaging>
                 <div className="savings-callout"></div>
             </div>
             <div className={"coupon-area-container"}>

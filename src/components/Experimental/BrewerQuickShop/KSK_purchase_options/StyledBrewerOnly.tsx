@@ -62,7 +62,10 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     }
   }
 
-  
+  .member-price-display{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
   
   .coupon-area-container {
     display: flex;
