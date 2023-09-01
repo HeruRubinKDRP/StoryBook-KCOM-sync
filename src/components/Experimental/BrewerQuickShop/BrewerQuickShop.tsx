@@ -109,7 +109,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
       position: fixed;
       top: 0;
       right: 0;
-      z-index: 100;
+      z-index: 100000;
       padding: 0.5rem;
        
       .k-btn{
