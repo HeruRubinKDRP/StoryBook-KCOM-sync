@@ -6,18 +6,33 @@ import {containerQueryBasedVariables, iStyledContainerQueryBased} from "../../..
 export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   --overallWidth: ${props => props.widthX + 'px'};
   --overallHeight: ${props => props.heightY + 'px'};
-  --buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
-  --buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
-  --buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
+  //--buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
+  //--buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
+  //--buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
+  //
+  //--FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
+  //--FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
+  //--FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
+  //
+  //--spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
+  //--spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
+  //--spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
+  //--spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
 
-  --FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
-  --FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
-  --FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
+  --buttonLarge: 1.25rem;
+  --buttonMedium: 1 rem;
+  --buttonSmall: 0.75rem;
 
-  --spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
-  --spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
-  --spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
-  --spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
+  --FontSizeLarge: 1.25rem;
+  --FontSizeMedium: 1rem;
+  --FontSizeSmall: 0.75rem;
+
+  --spacingLarge: 1rem;
+  --spacingMedium: 0.75rem;
+  --spacingSmall: 0.5rem;
+  --spacingTiny: 0.25rem;
+  
+  
   display: flex;
   flex-direction: column;
   position: relative;
@@ -36,10 +51,10 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     */
     .pod-ksk-container {
       border: 2px dashed #0d8296;
-      height: 25px;
-      width: 25px;
-      max-height: 25px;
-      max-width: 25px;
+      height: 35px;
+      width: 35px;
+      max-height: 35px;
+      max-width: 35px;
       min-width: 25px;
       border-radius: 100vh;
       margin-right: 3px;
@@ -54,7 +69,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
     .ksk-container {
       .kcs-image {
-        max-height: 50px;
+        max-height: 70px !important;
         padding-right: 0;
       }
     }
@@ -133,7 +148,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
     h3 {
       color: var(--colorKSK);
-      font-size: var(--FontSizeMedium);
+      font-size: var(--FontSizeSmall);
       grid-column: 2 / 3;
       grid-row: 1 / 1;
       margin: 0;
@@ -159,12 +174,11 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     padding: var(--spacingLarge) var(--spacingLarge);
 
     label {
-      font-size: var(--FontSizeMedium);
+      font-size: var(--FontSizeSmall);
     }
 
     .k-btn.learn-more {
-      padding: 0 !important;
-      float: inside;
+      padding: 0 !important; 
       border-radius: 0 !important;
       border: 0 !important;
       height: var(--FontSizeSmall) !important;
@@ -175,7 +189,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   .ksk-container {
     display: flex;
     margin: 0 0 5px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
 
     .visual-container {
@@ -185,13 +199,12 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
 
     .kcs-image {
-      max-height: 60px;
+      max-height: 70px;
       padding-right: var(--spacingSmall);
     }
 
     .plus-icon {
-      width: 20px;
-
+      width: 32px; 
       .filled {
         fill: var(--colorKSK);
       }

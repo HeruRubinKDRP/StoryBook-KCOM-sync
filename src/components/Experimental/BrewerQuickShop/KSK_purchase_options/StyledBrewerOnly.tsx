@@ -39,7 +39,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   padding: 0.25rem 0.5rem 0.5rem 0.5rem;
  
   margin-top:0.5rem;
-  background-color: rgb(235, 231, 227);
+  //background-color: rgb(235, 231, 227);
+  background-color: white;
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
   &.mobile-dimensions {
@@ -108,7 +109,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
           font-size: var(--FontSizeSmall);
           align-content: center;
           align-items: center;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           color: var(--colorOK);
           font-weight: 600;
         }
@@ -130,8 +131,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         }
 
         .checkmark-circled {
-          width: var(--buttonMedium);
-          height: var(--buttonMedium);
+          width: 3rem;
+          height: 2rem;
           margin-right: var(--spacingSmall);
 
           .stroked {
@@ -205,7 +206,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
     h3 {
       color: var(--DarkRoast);
-      font-size: var(--FontSizeMedium);
+      font-size: var(--FontSizeSmall);
       grid-column: 2 / 3;
       grid-row: 1 / 1;
       margin: 0;

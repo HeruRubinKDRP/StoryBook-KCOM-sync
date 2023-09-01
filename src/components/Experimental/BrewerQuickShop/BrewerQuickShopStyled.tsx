@@ -160,6 +160,10 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     height: 100%;
     max-width: 100vw !important;
     margin: 0 !important;
+    
+    .name-area{
+      display: none;
+    }
     .product-info-container {
       overflow-y: unset;
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
@@ -179,8 +183,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
       .nav-container {
         .right, .left {
-          width: var(--spacingHuge) !important;
-          height: var(--spacingHuge) !important;
+          width: 2.5rem !important;
+          height: 2.5rem !important;
+          padding: 0.5rem !important;
         }
       }
     }
@@ -413,18 +418,18 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
     .nav-container {
       .right, .left {
-        width: var(--spacingLarge) !important;
-        height: var(--spacingLarge) !important;
+        width: 2.5rem !important;
+        height:  2.5rem !important;
         margin: 0;
-        padding: var(--spacingSmall) !important;
+        padding: 0.5rem !important;
         background-image: none !important;
         box-shadow: 0px 0px var(--spacingTiny) 0 rgb(0 0 0 / 30%);
         transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
         border-radius: 100vw !important;
 
         &:hover {
-          width: calc(var(--spacingLarge) * 1.25) !important;
-          height: calc(var(--spacingLarge) * 1.25) !important;
+          width: calc(2.5rem * 1.25) !important;
+          height: calc(2.5rem * 1.25) !important;
         }
 
         .icon {
