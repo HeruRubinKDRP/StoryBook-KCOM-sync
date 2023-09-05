@@ -21,7 +21,7 @@ export const ModalStyled = styled.div`
     }
     
      
-    position: static;
+    position: absolute;
     align-content: flex-start;
     flex-wrap: wrap;
     overflow-y: auto;

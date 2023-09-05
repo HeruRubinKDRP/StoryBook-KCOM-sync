@@ -29,17 +29,6 @@ export const getContainerQuery = (widthX: number | undefined) => {
         return "mobile-dimensions";
     }
 
-    // if(widthX >= breakPoints.largeDesktop){
-    //     return "extra-large-dimensions"
-    // }
-    // else if (widthX >= breakPoints.desktop && widthX < breakPoints.largeDesktop) {
-    //     return "large-dimensions";
-    // }else if(widthX < breakPoints.desktop && widthX >= breakPoints.mobile){
-    //     return "mobile-dimensions";
-    // }
-    // else if (widthX < breakPoints.tinyEmbedded){
-    //     return "tiny-dimensions";
-    // }
 
     return "default";
 
