@@ -12,7 +12,7 @@ export interface iBrewerQuickShopStyled {
 export const CloseBtnStyled = styled.div`
       position: fixed;
       top: 0;
-      right: 0;
+      right: 1rem;
       z-index: 9100;
       padding: 0.5rem;
        
@@ -36,7 +36,6 @@ export const CloseBtnStyled = styled.div`
       &.extra-large-dimensions, &.large-dimensions, &.medium-dimensions {
         display: none;
       }
-      
     `
 
 
@@ -207,9 +206,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
     .item-only-option{
       background-color: white !important;
     }
-    .name-area{
-      display: none;
-    }
+    //.name-area{
+    //  display: none;
+    //}
     .product-info-container {
       overflow-y: unset;
       padding: 0 var(--spacingMedium) var(--spacingMedium) var(--spacingMedium);
@@ -217,9 +216,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       max-width: calc(var(--overallWidth) * 0.95);
       justify-content: flex-start;
 
-      p {
-        display: none;
-      }
+      //p {
+      //  display: none;
+      //}
     }
 
     .k-carousel {
@@ -239,7 +238,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
   &.small-dimensions {
     flex-direction: column;
-
+    overflow-y: auto;
     .k-carousel {
       width: 100%;
       height: 25vh !important;

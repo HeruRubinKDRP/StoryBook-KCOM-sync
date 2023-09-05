@@ -1,6 +1,6 @@
 import {BrewerQuickShopStyled, CloseBtnStyled} from "./BrewerQuickShopStyled";
 import {useResizeDetector} from "react-resize-detector";
-import {ProductIdentity} from "../../PDP_Related/ProductIdentity/ProductIdentityArea";
+import {iProductIdentity, ProductIdentity} from "../../PDP_Related/ProductIdentity/ProductIdentityArea";
 import {Kcarousel} from "../../Carousel/Kcarousel";
 import React, {ReactElement} from "react";
 import {imageItemType, iSlideImages} from "../../Carousel/SlideImages";
@@ -111,24 +111,29 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
     const handleProductData =(widthX : number | undefined)=>{
         if(!widthX)return;
 
-        if(props.hideContentOnMobile && widthX < 390){
-            return <ProductIdentity
-                productName={props.productName}
-                productNameExtended={props.productNameExtended}
-                tagline={props.tagline}
-                ratingHeight={16}
-                rating={{
-                    totalNumberOfStars: props.starRating.totalNumberOfStars,
-                    ratingNumber: props.starRating.ratingNumber,
-                    totalNumberOfReviews: props.starRating.totalNumberOfReviews,
-                    scrollToTargetID: "reviews"
-                }}
-                flag={{
-                    flagStyle: "alternating-sharp-round",
-                    flagColorClass: props.mainFlagColor,
-                    flagLabel: props.mainFlagLabel
-                }}
-            />
+
+        if( widthX > 420 || (widthX <= 420 && props.hideContentOnMobile === false)){
+            return  (
+                <>
+                    <ProductIdentity
+                        productName={props.productName}
+                        productNameExtended={props.productNameExtended}
+                        tagline={props.tagline}
+                        ratingHeight={16}
+                        rating={{
+                            totalNumberOfStars: props.starRating.totalNumberOfStars,
+                            ratingNumber: props.starRating.ratingNumber,
+                            totalNumberOfReviews: props.starRating.totalNumberOfReviews,
+                            scrollToTargetID: "reviews"
+                        }}
+                        flag={{
+                            flagStyle: "alternating-sharp-round",
+                            flagColorClass: props.mainFlagColor,
+                            flagLabel: props.mainFlagLabel
+                        }}
+                    />
+                </>
+            );
         }
 
         return <></>
@@ -151,7 +156,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                         />
                     </CloseBtnStyled>
             }
-
 
             <ModalStyled  ref={ref}  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
 
@@ -191,7 +195,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                         />
                                     </div>
                                 </div>
-
                             </div> : <></>
                     }
 
@@ -213,7 +216,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                         }
                         {
                             props.colorVariants.length > 0 ?
-
                                 <>
                                     <div className="selected-color">
                                         <div className="key">Selected Color: </div>
@@ -226,7 +228,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                 </>
                                 :
                                 <></>
-
                         }
 
                         {
@@ -253,14 +254,11 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                         </div>
                                                         <div className={"how-to-title"}>How to build your Starter Kit</div>
                                                         <div className={"how-to-container"}>
-
                                                             <div><img src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/></div>
                                                             <div><img src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/></div>
                                                             <div><img src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/></div>
                                                             <div><img src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/></div>
                                                         </div>
-
-                                                        {/* {props.learnMoreMessagingKSK}*/}
                                                     </div>);
                                                 setLearnMoreOpen(true);
                                             }}

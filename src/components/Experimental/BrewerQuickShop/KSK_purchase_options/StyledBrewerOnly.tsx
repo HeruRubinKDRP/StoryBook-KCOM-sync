@@ -67,6 +67,13 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     grid-row: 2 / 3;
   }
   
+  .add-to-cart-container{
+    height: 2rem;
+    .k-btn{
+      height: 100% !important;
+    }
+  }
+  
   .coupon-area-container {
     display: flex;
     flex-direction: row;
@@ -174,7 +181,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
 
   .k-btn {
-    padding: var(--spacingLarge) var(--spacingLarge);
+    padding: var(--spacingSmall) var(--spacingLarge);
 
     label {
       font-size: var(--FontSizeSmall);
@@ -196,7 +203,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 5rem 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;

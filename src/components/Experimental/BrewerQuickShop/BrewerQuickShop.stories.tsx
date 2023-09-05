@@ -114,6 +114,7 @@ export default {
         learnMoreMessagingBrewerOnly : {control : "text"},
         freeShippingMessaging : {control : "text"},
         inStock : {control : "boolean", defaultValue : true},
+        hideContentOnMobile : {control : "boolean", defaultValue : false},
     }
 } as Meta;
 
@@ -131,6 +132,7 @@ Default.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
+    hideContentOnMobile : false,
     inStock : true,
     hasCoupon : true,
     couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
