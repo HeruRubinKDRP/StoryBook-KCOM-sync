@@ -43,7 +43,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
   background-color: #EBE7E3;
   filter: drop-shadow(var(--spacingTiny) var(--spacingTiny) var(--spacingSmall) rgba(0, 0, 0, 0.25));
 
-  &.mobile-dimensions {
+  &.small-dimensions {
     background-color: white;
 
     .coupon-area-container {
@@ -52,7 +52,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
         padding-right: 0;
       }
       .coupon-area {
-        padding: 5px;
+        padding: 1rem 0.5rem;
         margin: 0 0 var(--spacingSmall) var(--spacingLarge);
 
       }
@@ -79,7 +79,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
       border: 1px dashed #3B2B2F;
       border-radius: var(--spacingTiny); 
       background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 15%);
-
+    
       align-items: center;
       margin: 0 0 var(--spacingLarge) var(--spacingLarge);
       width: 100%;
@@ -148,6 +148,8 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
           span, p, label {
             font-size: var(--FontSizeSmall);
+            line-height: var(--FontSizeSmall);
+            display: inline-flex;
           }
           
         }
@@ -209,7 +211,7 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
     h3 {
       color: var(--DarkRoast);
-      font-size: var(--FontSizeSmall);
+      font-size: var(--FontSizeMedium);
       grid-column: 2 / 3;
       grid-row: 1 / 1;
       margin: 0;

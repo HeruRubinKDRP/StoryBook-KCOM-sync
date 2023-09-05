@@ -153,10 +153,10 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
             }
 
 
-            <ModalStyled  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
+            <ModalStyled  ref={ref}  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
 
                 <BrewerQuickShopStyled
-                    ref={ref}
+
                     mainFlagColor={props.mainFlagColor}
                     className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
                     overallWidth={width ? width : 200}

@@ -130,7 +130,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
   .deal-area {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 5rem 75%;
     grid-gap: 2px;
     width: 100%;
     align-items: center;
@@ -148,7 +148,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
 
     h3 {
       color: var(--colorKSK);
-      font-size: var(--FontSizeSmall);
+      font-size: var(--FontSizeMedium);
       grid-column: 2 / 3;
       grid-row: 1 / 1;
       margin: 0;
