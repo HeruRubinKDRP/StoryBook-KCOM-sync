@@ -162,6 +162,48 @@ Default.args = {
     freeShippingMessage : "This item ships FREE"
 
 };
+
+export const HideMobileContent = Template.bind({});
+HideMobileContent.args = {
+    mainFlagColor : "KSK",
+    mainFlagLabel : "Create a kit and save",
+    productNameExtended : "K-Café® SMART Single Serve Coffee Maker",
+    productName : "Keurig®",
+    tagline : "With BrewID™ and a built in milk frother, it's easy to create indulgent Café Creations.",
+    carousel : {
+        slideImageURLs : carousel_images_KCS
+    },
+    hideContentOnMobile : true,
+    inStock : true,
+    hasCoupon : true,
+    couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
+    couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
+    learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
+    learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
+    learnMoreTitleBrewerOnly : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
+    learnMoreMessagingBrewerOnly : "{use api for message content} *Offer valid for 20% off select coffee makers purchased on www.Keurig.com or on the Keurig® App through 11:59 p.m. PST on 02/14/2023. Does not include Keurig® K-Express Coffee Maker, Keurig® K155 OfficePRO® Premier Brewing System, my Keurig® Custom Coffee Makers, illy® products or any Keurig® bundles. Enter code BREWLOVE23 in the “Coupon(s)” box during checkout. Free standard shipping to contiguous U.S. addresses on all brewers and orders of $35 or more, after any promo codes, discounts, and coupons are applied. Cannot be combined with other offers, previous purchases, Auto-Delivery orders or Rewards Catalog purchases. Keurig reserves the right to cancel, remove, or make changes to the products and/or product pricing available under this offer at any time. All trademarks are the property of their respective owners, used with permission.",
+    hasKSK : true,
+    colorVariants : [
+        {
+            inStock : true,
+            colorName : "Black",
+            colorValue : "black",
+        },
+        {
+            inStock : false,
+            colorName : "Stainless Steel",
+            colorValue : "grey",
+        }
+    ],
+    starRating :{
+        ratingNumber : 4.5,
+        totalNumberOfReviews : 1034,
+        totalNumberOfStars : 5
+    },
+    freeShippingMessage : "This item ships FREE"
+
+};
+
 export const K_Iced_Arctic_Gray_Example = Template.bind({});
 K_Iced_Arctic_Gray_Example.args = {
     inStock : true,

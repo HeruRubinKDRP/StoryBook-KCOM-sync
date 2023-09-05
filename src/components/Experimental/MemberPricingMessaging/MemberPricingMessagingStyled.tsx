@@ -51,14 +51,16 @@ export const MemberPricingMessagingStyled = styled.div`
     position: relative;
     display: inline-flex;
     align-items: center;
-
+    font-size: 0.85rem;
+    
     :hover {
       background-color: var(--colorSpicedRed);
       color: white;
       padding: 0.2rem;
       border-radius: 0.2rem;
-      .filled{
-        fill:white;
+
+      .filled {
+        fill: white;
       }
     }
   }
