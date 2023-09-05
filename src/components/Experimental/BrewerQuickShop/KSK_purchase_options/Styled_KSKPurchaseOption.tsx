@@ -6,18 +6,6 @@ import {containerQueryBasedVariables, iStyledContainerQueryBased} from "../../..
 export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
   --overallWidth: ${props => props.widthX + 'px'};
   --overallHeight: ${props => props.heightY + 'px'};
-  //--buttonLarge: calc(var(--overallWidth) * 0.035 + 16px);
-  //--buttonMedium: calc(var(--overallWidth) * 0.025 + 12px);
-  //--buttonSmall: calc(var(--overallWidth) * 0.025 + 12px);
-  //
-  //--FontSizeLarge: calc(var(--overallWidth) * 0.02 + 12px);
-  //--FontSizeMedium: calc(var(--overallWidth) * 0.01 + 10px);
-  //--FontSizeSmall: calc(var(--overallWidth) * 0.005 + 8px);
-  //
-  //--spacingLarge: calc(var(--overallWidth) * 0.01 + 12px);
-  //--spacingMedium: calc(var(--overallWidth) * 0.005 + 5px);
-  //--spacingSmall: calc(var(--overallWidth) * 0.003 + 4px);
-  //--spacingTiny: calc(var(--overallWidth) * 0.006 + 2px);
 
   --buttonLarge: 1.25rem;
   --buttonMedium: 1 rem;

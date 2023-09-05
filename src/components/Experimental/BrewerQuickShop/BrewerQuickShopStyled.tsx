@@ -9,6 +9,36 @@ export interface iBrewerQuickShopStyled {
     mainFlagColor: colorByNameType;
 }
 
+export const CloseBtnStyled = styled.div`
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9100;
+      padding: 0.5rem;
+       
+      .k-btn{
+        width: 2rem;
+        height: 2rem;
+        padding: 0 !important;
+        .icon{
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0.25rem;
+          box-sizing: border-box;
+        }
+      }
+      
+      &.mobile-dimensions {
+        display: block;
+        
+      }
+      &.extra-large-dimensions, &.large-dimensions, &.medium-dimensions {
+        display: none;
+      }
+      
+    `
+
 
 export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   * {

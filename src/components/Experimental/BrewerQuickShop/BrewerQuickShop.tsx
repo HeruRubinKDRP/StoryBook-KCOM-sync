@@ -1,4 +1,4 @@
-import {BrewerQuickShopStyled} from "./BrewerQuickShopStyled";
+import {BrewerQuickShopStyled, CloseBtnStyled} from "./BrewerQuickShopStyled";
 import {useResizeDetector} from "react-resize-detector";
 import {ProductIdentity} from "../../PDP_Related/ProductIdentity/ProductIdentityArea";
 import {Kcarousel} from "../../Carousel/Kcarousel";
@@ -47,6 +47,8 @@ export interface iBrewerQuickShop {
         totalNumberOfReviews: number;
         totalNumberOfStars: 5 | 10;
     }
+
+    hideContentOnMobile?: boolean;
 
     closeFunc?: () => void;
     addToCartFunction?: () => void;
@@ -105,35 +107,33 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         console.log("colorValue", colorValue);
         console.log("inStock", inStock);
     }
-    const CloseBtnStyled = styled.div`
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 9100;
-      padding: 0.5rem;
-       
-      .k-btn{
-        width: 2rem;
-        height: 2rem;
-        padding: 0 !important;
-        .icon{
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0.25rem;
-          box-sizing: border-box;
+
+    const handleProductData =(widthX : number | undefined)=>{
+        if(!widthX)return;
+
+        if(props.hideContentOnMobile && widthX < 390){
+            return <ProductIdentity
+                productName={props.productName}
+                productNameExtended={props.productNameExtended}
+                tagline={props.tagline}
+                ratingHeight={16}
+                rating={{
+                    totalNumberOfStars: props.starRating.totalNumberOfStars,
+                    ratingNumber: props.starRating.ratingNumber,
+                    totalNumberOfReviews: props.starRating.totalNumberOfReviews,
+                    scrollToTargetID: "reviews"
+                }}
+                flag={{
+                    flagStyle: "alternating-sharp-round",
+                    flagColorClass: props.mainFlagColor,
+                    flagLabel: props.mainFlagLabel
+                }}
+            />
         }
-      }
-      
-      &.mobile-dimensions {
-        display: block;
-        
-      }
-      &.extra-large-dimensions, &.large-dimensions, &.medium-dimensions {
-        display: none;
-      }
-      
-    `
+
+        return <></>
+    }
+
 
     return (
         <>
@@ -156,7 +156,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
             <ModalStyled  ref={ref}  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
 
                 <BrewerQuickShopStyled
-
                     mainFlagColor={props.mainFlagColor}
                     className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
                     overallWidth={width ? width : 200}
@@ -208,23 +207,10 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                         useContainerQueries="ignore"
                     />
                     <div className="product-info-container">
-                        <ProductIdentity
-                            productName={props.productName}
-                            productNameExtended={props.productNameExtended}
-                            tagline={props.tagline}
-                            ratingHeight={16}
-                            rating={{
-                                totalNumberOfStars: props.starRating.totalNumberOfStars,
-                                ratingNumber: props.starRating.ratingNumber,
-                                totalNumberOfReviews: props.starRating.totalNumberOfReviews,
-                                scrollToTargetID: "reviews"
-                            }}
-                            flag={{
-                                flagStyle: "alternating-sharp-round",
-                                flagColorClass: props.mainFlagColor,
-                                flagLabel: props.mainFlagLabel
-                            }}
-                        />
+
+                        {
+                            handleProductData(width)
+                        }
                         {
                             props.colorVariants.length > 0 ?
 
