@@ -11,6 +11,7 @@ import { MemberPriceMessaging } from "components/Experimental/MemberPricingMessa
 export interface iBrewerOnlyPurchaseOption{
     classes? : string;
     hasCoupon : boolean;
+    isMember: boolean;
     couponMessage : string;
     couponAppliedMessage : string;
     openExternalLearnMoreFunction : ()=>void;
@@ -33,10 +34,14 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
 
     const [couponApplied, setCouponApplied] = React.useState(false);
 
-    const getCoupon =()=>{
-        if(props.hasCoupon){
+    const getDeals =()=>{
+        if(!props.hasCoupon && props.isMember){
             return(
                 <div className="coupon-area">
+                    {props.isMember ?
+                        <MemberPriceMessaging infoFunction={function(): void {
+                            throw new Error("");
+                        } }></MemberPriceMessaging>:
                     <div className="coupon-item">
                         {
                             couponApplied ?
@@ -55,6 +60,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                                     transitionType="expand-bg"
                                     actionFunc={()=>{setCouponApplied(true)}}
                                 />
+
                                 <div className="coupon-message-area">
                                     <div className="coupon-message">
                                         <span className="coupon-copy">
@@ -75,9 +81,58 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                             </>
                         }
                     </div>
+                    }
                 </div>
             )
         }
+        if(props.hasCoupon){
+            return(
+                <div className="coupon-area">
+
+                        <div className="coupon-item">
+                            {
+                                couponApplied ?
+                                    <div className="coupon-applied">
+                                        <Graphic graphicName="checkmark-circled" />
+                                        <span>{props.couponAppliedMessage}</span>
+                                    </div>
+                                    :
+                                    <>
+                                        <KButton
+                                            iconStandard="none"
+                                            label="Apply Coupon"
+                                            buttonType="secondary"
+                                            buttonWidth="fit-to-content"
+                                            classes="action"
+                                            transitionType="expand-bg"
+                                            actionFunc={()=>{setCouponApplied(true)}}
+                                        />
+
+                                        <div className="coupon-message-area">
+                                            <div className="coupon-message">
+                                        <span className="coupon-copy">
+                                            {props.couponMessage}
+                                        </span>
+                                                <KButton
+                                                    label="Learn More"
+                                                    buttonType="text-icon-noBG"
+                                                    iconStandard="launch-pop-up"
+                                                    iconPlacement="after-label"
+                                                    buttonWidth="fit-to-content"
+                                                    classes="learn-more"
+                                                    transitionType="expand-bg"
+                                                    actionFunc={props.openExternalLearnMoreFunction}
+                                                />
+                                            </div>
+                                        </div>
+                                    </>
+                            }
+                        </div>
+
+                </div>
+            )
+        }
+
     }
 
     return(
@@ -86,15 +141,19 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                 <div className="deal-price">$159.99</div>
                 <h3>Buy Brewer only</h3>
                 <label className="strike-through-price">$179.99</label>
+                {(props.isMember && props.hasCoupon) ?
                 <MemberPriceMessaging infoFunction={function(): void {
                     throw new Error("");
-                } }></MemberPriceMessaging>
+                } }></MemberPriceMessaging>:
+                    <>
+                    </>
+                }
                 <div className="savings-callout"></div>
             </div>
             <div className={"coupon-area-container"}>
             <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
 
-                {getCoupon()}
+                {getDeals()}
 
             </div>
           <CTA_WithQuantity
