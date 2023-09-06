@@ -14,8 +14,7 @@ export const MemberPriceMessaging = (props: iMemberPriceMessagingProps) => {
 
         <MemberPricingMessagingStyled className="member-price-display">
             {tooltipVisible && (
-                <div className={"perks-tooltip"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu
-                    urna eget felis dictum imperdiet. Mauris orci nisi, molestie at posuere eu, convallis eu ipsum.
+                <div className={"perks-tooltip"}>Keurig Perks gives subscribers like you 25% off all recurring Auto-Delivery and one-time beverage, accessory, & brewer orders.
                 </div>
             )}
 
