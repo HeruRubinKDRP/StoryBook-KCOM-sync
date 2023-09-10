@@ -33,8 +33,6 @@ export interface iCategorySubcategory {
 }
 
 export const FiltersCenter=(props:iFiltersCenter)=>{
-
-
     const createFilterArea=()=>{
         let Children : ReactElement[] = [];
         let Items : iAccordionItem[] = [];
@@ -65,7 +63,10 @@ export const FiltersCenter=(props:iFiltersCenter)=>{
             Children.push(
                 <div key={i}>
                     <div key={i}>
-                        <FilterableCheckboxList sectionIndex={i} items={filtersAreaItems} onSelectionChange={props.filtersFunction as () => unknown }/>
+                        <FilterableCheckboxList
+                            sectionIndex={i}
+                            items={filtersAreaItems}
+                            onSelectionChange={props.filtersFunction as () => unknown }/>
                     </div>
                 </div>
             )
