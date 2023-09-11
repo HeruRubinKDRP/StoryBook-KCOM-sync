@@ -3074,10 +3074,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@20.4.8":
-  version "20.4.8"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.4.8.tgz"
-  integrity sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==
+"@types/node@*", "@types/node@18.0.0":
+  version "18.0.0"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.0.0.tgz"
+  integrity sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==
 
 "@types/node@^16.0.0":
   version "16.18.40"
@@ -8221,10 +8221,10 @@ node-releases@^2.0.13:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.13.tgz"
   integrity sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==
 
-node@^20.6.0:
-  version "20.6.0"
-  resolved "https://registry.npmjs.org/node/-/node-20.6.0.tgz"
-  integrity sha512-aoXMnA7DfNRwlmR3u++rYM9M4tnzmXYezVSrK/8vBsrwLF1TVcyjYO0RzX2unJxXfKWIl9Kfo0WLoMs3atWOqQ==
+node@18.0.0:
+  version "18.0.0"
+  resolved "https://registry.npmjs.org/node/-/node-18.0.0.tgz"
+  integrity sha512-5eNqoKpK67JqULugfYLIo8B+1HxB3MMqSIPWBvUbt3/B7tBNUebnQG8zp6zmJPoPuX0PFL1E3Nsc7+r91xzV6Q==
   dependencies:
     node-bin-setup "^1.0.0"
 
