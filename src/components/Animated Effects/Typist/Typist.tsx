@@ -1,82 +1,68 @@
-import React, { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { TypistStyled } from './typist.styled'
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
-export interface TypingEffectProps {
-  message: string;
-  speed?: speedType;
-  showCursor?: boolean;
-  classes?: string;
+interface TypingEffectProps {
+    message: string;
+    speed?: number;
+    showCursor?: boolean;
+    classes?: string;
 }
 
-export type speedType = 'slow' | 'medium' | 'fast'
+const TypingContainer = styled.div`
+   
+  font-size: 16px;
+`;
 
-const TypingCursor = () => {
-  return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        width: 2,
-        height: 12,
-        marginLeft: 6,
-        display: 'inline-block'
-      }}
-    />
-  )
-}
+const Cursor = styled.span`
+  animation: blink 0.5s infinite;
 
-const TypingEffect: React.FC<TypingEffectProps> = (
-  props: TypingEffectProps
-) => {
-  const textRefs = useRef<(HTMLSpanElement | null)[]>([])
-  textRefs.current = new Array(props.message.length).fill(null)
-
-  const speedValue = (value: speedType | undefined): number => {
-    switch (value) {
-      case 'slow':
-        return 0.1
-      case 'medium':
-        return 0.02
-      case 'fast':
-        return 0.01
-      default:
-        return 0.01
+  @keyframes blink {
+    50% {
+      opacity: 0;
     }
   }
+`;
+
+const TypingEffect: React.FC<TypingEffectProps> = ({
+                                                       message,
+                                                       speed = 100,
+                                                       showCursor = true,
+                                                       classes = '',
+                                                   }) => {
+    const [text, setText] = useState('');
+    const [cursorVisible, setCursorVisible] = useState(true);
 
     useEffect(() => {
-        // Clear previous animations
-        gsap.killTweensOf(textRefs.current);
-
-        // Reset the elements to their original state
-        gsap.set(textRefs.current, { autoAlpha: 0, y: 0, width: 0, display: 'none' });
-
-        // Then re-animate
-        gsap.fromTo(
-            textRefs.current,
-            { autoAlpha: 0, y: 0, width: 0, display: 'none' },
-            {
-                width: 'auto',
-                autoAlpha: 12,
-                y: 0,
-                display: 'inline',
-                ease: 'none',
-                stagger: speedValue(props.speed) // Adjust this value to change the typing speed
+        let index = 0;
+        const timer = setInterval(() => {
+            setText((prevText) => prevText + message[index]);
+            index++;
+            if (index > message.length - 1) {
+                clearInterval(timer);
             }
-        )
-    }, [props.speed, props.message]) // Here is the change, listen for changes to props.message as well
+        }, speed);
 
+        return () => {
+            clearInterval(timer);
+        };
+    }, [message, speed]);
+
+    useEffect(() => {
+        const cursorTimer = setInterval(() => {
+            setCursorVisible((prevVisible) => !prevVisible);
+        }, 500);
+
+        return () => {
+            clearInterval(cursorTimer);
+        };
+    }, []);
 
     return (
-    <TypistStyled className={`${props.classes}`}>
-      {props.message.split('').map((char, index) => (
-        <span key={index} ref={(el) => (textRefs.current[index] = el)}>
-          {char}
-        </span>
-      ))}
-      {props.showCursor && <TypingCursor />}
-    </TypistStyled>
-  )
-}
+        <TypingContainer className={`typing-effect ${classes}`}>
+            {text}
+            {showCursor && cursorVisible && <Cursor>|</Cursor>}
+        </TypingContainer>
+    );
+};
 
-export default TypingEffect
+export default TypingEffect;

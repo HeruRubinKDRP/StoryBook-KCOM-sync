@@ -1,4 +1,22 @@
-import { createGlobalStyle} from "styled-components";
+import {createGlobalStyle, css} from "styled-components";
+
+export const FontFace = css`
+  @font-face {
+    font-family: 'Mark OT';
+    src: url('/fonts/MarkOT-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Mark OT';
+    src: url('/fonts/MarkOT.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+  }
+  `;
 
 
 const GlobalStyleKCOM = createGlobalStyle`
