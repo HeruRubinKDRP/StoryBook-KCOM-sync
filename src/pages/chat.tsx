@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ChatBubble from "../components/Chat/ConversationBubbles/bubble";
 import GetAndPlayVoice from "../components/Audio/PlayAudio/GetAndPlayVoice";
+import {ChatInput} from "../components/Chat/ChatInput/ChatInput";
 
 const Chat = () => {
     useEffect(() => {
@@ -97,8 +98,16 @@ const Chat = () => {
                         />
                 ))}
             </div>
-            <input type="text" value={userInput} onChange={handleInputChange} />
-            <button onClick={()=>handleSend("", true)}>Send</button>
+            <ChatInput
+                sendLabel={"Send"}
+                onSend={(message) => handleSend(message, true)}
+                handleChange={handleInputChange}
+                userInput={userInput}
+            />
+            {/*<div>*/}
+            {/*    <input type="text" value={userInput} onChange={handleInputChange} />*/}
+            {/*    <button onClick={()=>handleSend("", true)}>Send</button>*/}
+            {/*</div>*/}
         </div>
     );
 };

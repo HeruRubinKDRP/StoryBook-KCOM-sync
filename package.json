@@ -52,6 +52,7 @@
     "gsap": "file:node_modules_custom/gsap/gsap-bonus.tgz",
     "interweave": "^13.0.0",
     "million": "^2.4.6-beta.0",
+    "node" : "^20.6.0",
     "next": "13.4.12",
     "next-images": "^1.8.4",
     "postprocessing": "^6.33.0",
