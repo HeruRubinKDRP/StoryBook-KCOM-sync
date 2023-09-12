@@ -150,7 +150,6 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
             outerWidth={width ? width : screen.width}
             actionBarHeight={actionBarHeight}
             className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
-
         >
             <div className="modal-item">
                 <div className="header-area">

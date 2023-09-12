@@ -28,10 +28,7 @@ export const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
 
 const AddToCartDemo: React.FunctionComponent<iDemoProps> = (props:iDemoProps) => {
 
-
-
     const getComponent = ( componentName : demoComponentType) => {
-
         switch (componentName) {
             case "small-after-add":
                 return (
