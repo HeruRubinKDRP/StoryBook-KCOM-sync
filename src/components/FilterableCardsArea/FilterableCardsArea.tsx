@@ -48,9 +48,6 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
 
   },[props.filterTerms]);
 
-  useEffect(()=>{
-    checkFilters();
-  }, [filters])
 
   const getContainerSize = (widthX : number | undefined)=>{
     if(!widthX){return "small-container"}
@@ -98,6 +95,10 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
     return true;
 
   }
+
+  useEffect(()=>{
+    checkFilters();
+  }, [filters, checkFilters])
 
   const getFilterMenu=( )=>{
     if(!filters){return}

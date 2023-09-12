@@ -1,14 +1,12 @@
 import React, {ReactElement, useState} from "react";
-import {useResizeDetector} from "react-resize-detector";
-import {podItemT} from "../../../pages/myBrews";
 import {podLibrary} from "../../../data/beverage-library";
 import Graphic from "../../Graphic/Graphic";
-import {Illustration} from "../../Graphic/Illustrations";
 import {Incrementor} from "../../Incrementor/incrementor";
 import KButton from "../../Kbutton/KButton";
 import {coffeeMakerList} from "../KSK";
 import {boxSelectionData, ksk_step_T} from "./KSK_Phase_One";
 import {utilityCalcBoxes} from "./utitity-calc-boxes";
+import Image from "next/image";
 
 export interface iKSK_Tray{
   selectedIndex : number;
@@ -124,7 +122,14 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
               podSlots.push(
                 <li className={`selected-pod-item `}>
                   {getOverflow(props.selectedPods[i], i)}
-                  <img src={podLibrary[props.selectedPods[i].podId].productImagePrimaryPath }/>
+                  {
+                    podLibrary[props.selectedPods[i].podId].productImagePrimaryPath &&
+                      <Image
+                          src={podLibrary[props.selectedPods[i].podId].productImagePrimaryPath ?? ""}
+                          alt={podLibrary[props.selectedPods[i].podId].productType ?? ""}
+                      />
+                  }
+
                 </li>
               )
           }
@@ -193,7 +198,14 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
                         classes="close-btn"
                         buttonWidth="fit-to-content"
                       />
-                      <img src={podLibrary[consolidatedList[k].podId].productImagePrimaryPath} />
+                      {
+                        podLibrary[consolidatedList[k].podId].productImagePrimaryPath &&
+                          <Image
+                              src={podLibrary[consolidatedList[k].podId].productImagePrimaryPath ?? ""}
+                                alt={podLibrary[consolidatedList[k].podId].productType ?? ""}
+                          />
+                      }
+
                     </div>
                     <label className="pod-name">{podLibrary[consolidatedList[k].podId].podName}</label>
 
@@ -256,7 +268,14 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
         <h4>Great choice!</h4>
         <div className="coff-maker-selected-display">
           <div className="coffee-maker-image">
-            <img src={coffeeMakerList[props.coffeeMakerSelectedID].productImagePath} className="product-image" />
+            {
+              coffeeMakerList[props.coffeeMakerSelectedID].productImagePath &&
+                <Image
+                    src={coffeeMakerList[props.coffeeMakerSelectedID].productImagePath}
+                    alt={coffeeMakerList[props.coffeeMakerSelectedID].productName ?? ""}
+                    className="product-image" />
+            }
+
             <p>{coffeeMakerList[props.coffeeMakerSelectedID].productName}</p>
           </div>
         </div>

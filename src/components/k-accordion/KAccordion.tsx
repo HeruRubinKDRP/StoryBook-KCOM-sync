@@ -35,7 +35,7 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
 
     useEffect(() => {
         setDocumentDimensions({height: document.body.offsetHeight, width: document.body.offsetWidth});
-    }, [document.body.offsetHeight, document.body.offsetWidth]);
+    }, []);
 
     useEffect(() => {
         console.log(openItems);

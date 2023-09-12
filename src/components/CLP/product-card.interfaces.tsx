@@ -12,7 +12,7 @@ export interface iProductInfoCardProps {
     flag?: iFlag;
     presentationMode?: tPresentationMode ;
     cardMode?: tCardMode ;
-    productType: productTypeT
+    productType?: productTypeT
     image: string;
     brand: string;
     name: string;

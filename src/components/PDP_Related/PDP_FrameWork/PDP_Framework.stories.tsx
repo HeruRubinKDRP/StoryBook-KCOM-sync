@@ -5,7 +5,7 @@ import {ContentItem} from "../../ContentComponents/ContentComponent";
 import {Kcarousel} from "../../Carousel/Kcarousel";
 import {FocalImageContent} from "../../ContentComponents/FocalImage/FocalImage";
 import React from "react";
-import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
+import {NavDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 
 export default {
     title: 'PDP Framework',
@@ -33,7 +33,7 @@ KCS.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     },
     carousel: {

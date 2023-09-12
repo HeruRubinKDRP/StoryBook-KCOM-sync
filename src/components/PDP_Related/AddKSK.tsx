@@ -6,6 +6,7 @@ import {LearnMore} from "../LearnMore/LearnMore";
 import {PopUp} from "../PopUp/PopUp";
 import {Price} from "../Price/Price";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import Image from "next/image";
 
 
 export interface iAddKSK{
@@ -95,7 +96,7 @@ export const AddKSK = (props : iAddKSK)=>{
           <span className="secondary">{props.message.secondaryMessage}</span>
         </p>
         <div className="explanation-area">
-          <img src={props.brewerImagePath} alt=""/>
+          <Image src={props.brewerImagePath} alt=""/>
           <span className="plus" >
             <Graphic graphicName="plus-icon" iconSize="1.25rem" colorOverride={colorNameToValue(props.themeColor)}/>
           </span>

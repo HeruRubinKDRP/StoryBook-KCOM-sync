@@ -2,6 +2,7 @@ import Graphic from 'components/Graphic/Graphic';
 import React, { useEffect, useState } from 'react';
 import { CategoryItemStyle } from './Filters-CLP-CategoryItems-styled';
 import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
+import Image from "next/image";
 
 
 
@@ -151,10 +152,10 @@ export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCat
                                     </div>
                                     <div className={"image-container"}>
                                         {subcategory.imageSrc && (
-                                            <img
+                                            <Image
                                                 className="subcategory-image"
                                                 src={subcategory.imageSrc}
-                                                alt={subcategory.name}
+                                                alt={subcategory.name ?? ""}
                                             />
                                         )}
                                     </div>

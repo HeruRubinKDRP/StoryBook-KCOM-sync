@@ -1,6 +1,7 @@
 import React from 'react';
 import {ChatBubbleStyled} from "./bubble.styles";
 import Typist from "../../Animated Effects/Typist/Typist";
+import Image from "next/image";
 
 
 interface ChatBubbleProps {
@@ -12,9 +13,9 @@ interface ChatBubbleProps {
 const ChatBubble: React.FC<ChatBubbleProps> = ({ icon, text, position }) => {
     return (
         <ChatBubbleStyled className={`chat-bubble ${position}`}>
-            {icon && <img className="icon" src={icon} alt="icon" />}
+            {icon && <Image className="icon" src={icon} alt="icon" />}
             <div className="text">
-                <Typist speed={"fast"} message={text} showCursor={false} />
+                <Typist speed={0.0005} message={text} showCursor={false} />
             </div>
         </ChatBubbleStyled>
     );

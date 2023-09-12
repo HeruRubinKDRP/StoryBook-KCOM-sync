@@ -25,10 +25,11 @@ const GlobalStyleKCOM = createGlobalStyle`
     min-width: 100vw;
   }
   
-  body {
+  body, #__next {
     margin: 0 !important;
     padding: 0 !important;
     font-family: sans-serif;
+    height: 100vh;
   }
   
   *{

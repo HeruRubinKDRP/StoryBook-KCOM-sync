@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 
 //import {ResizeChecker, IresizeChecker} from "packages/_utilities/ResizeChecker/src/ResizeChecker";
@@ -21,7 +21,7 @@ export default {
     }
 } as Meta;
 
-const Template : Story<IresizeChecker> = (args) => <ResizeChecker {...args} />;
+const Template : StoryFn<IresizeChecker> = (args) => <ResizeChecker {...args} />;
 
 export const ResizeCheckerDemo = Template.bind({});
 

@@ -5,6 +5,7 @@ import {Styled_KSKPurchaseOption} from "./Styled_KSKPurchaseOption";
 import {useResizeDetector} from "react-resize-detector";
 import Graphic from "components/Graphic/Graphic";
 import { imageItemType } from "components/Carousel/SlideImages";
+import Image from "next/image";
 
 export interface iKSKPurchaseOption {
     openExternalLearnMoreFunction?: () => void;
@@ -41,7 +42,7 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
             </div>
             <div className={"ksk-container"}>
                 <div className="visual-container">
-                <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
+                <Image src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
                 <Graphic graphicName={"plus-icon"}></Graphic>
                 <div className={"fill-pod"}>
                     <div className={"fill-pod"}>

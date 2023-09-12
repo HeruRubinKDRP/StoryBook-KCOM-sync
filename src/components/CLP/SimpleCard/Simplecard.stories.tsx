@@ -64,8 +64,8 @@ Default.args = {
     onClick: () => console.log('Add to Cart clicked'),
 };
 
-export const brewerCard = Template.bind({});
-brewerCard.args = {productType: 'brewer',
+export const BrewerCard = Template.bind({});
+BrewerCard.args = {productType: 'brewer',
     image : "./brewer-images/KSPS.png",
     brand : "Keurig",
     name : "K-Supreme® SMART Single Serve Coffee Maker",

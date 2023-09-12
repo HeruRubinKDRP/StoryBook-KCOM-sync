@@ -6,6 +6,7 @@ import KButton, {buttonType} from "../Kbutton/KButton";
 import {PopUp} from "../PopUp/PopUp";
 import {SEO_item} from "../SEO_Component/SEOitem";
 import {colorByNameType, colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
+import Image from "next/image";
 export type sectionT = "content-front-and-center" | "content-right" | "content-left" | "duo-background-stretch" ;
 export type bgType =  "image" | "movie" | "solid-color";
 export type heightMethodsT = "one-viewport" | "stretch-to-parent" | "fit-content" | "half-viewport";
@@ -161,7 +162,7 @@ export const ContentItem =(props : iContentItem)=>{
             colorOverride={props.mainMessageColor}
           />
       }else if(props.focalImagePath){
-        return <img src={props.focalImagePath} alt="" width={props.focalImageSize} />
+        return <Image src={props.focalImagePath} alt="" style={{width: props.focalImageSize}} />
       }
     }
 

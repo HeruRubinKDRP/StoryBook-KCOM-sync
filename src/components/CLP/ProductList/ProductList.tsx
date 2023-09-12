@@ -90,9 +90,7 @@ const ProductList = (props: ProductListProps) => {
         setCurrentPage(0);
     }, [props.products, props.columns, props.pageSize]);
 
-    useEffect(() => {
-        dynamicColumns(width || screen.width);
-    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
+
 
     useEffect(() => {
         setVisibleProducts(getVisibleProducts());
@@ -195,15 +193,6 @@ const ProductList = (props: ProductListProps) => {
         }
     }
 
-    const handlePreviousPage = () => {
-        setCurrentPage((prev) => prev - 1);
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    };
-
-    const handleNextPage = () => {
-        setCurrentPage((prev) => prev + 1);
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    };
 
     //SEARCH
     const getVisibleProducts = () => {
@@ -229,6 +218,31 @@ const ProductList = (props: ProductListProps) => {
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
         return productsFiltered.slice(startIndex, endIndex);
     };
+
+    useEffect(() => {
+        dynamicColumns(width || screen.width);
+    }, [
+        width, props.columnsLargeScreen,
+        props.columnsMediumScreen,
+        props.columnsSmallScreen,
+        props.columnsHugeScreen,
+        dynamicColumns,
+        getVisibleProducts,
+        props.filtersDefinition,
+        props.useFilters
+    ]);
+
+    const handlePreviousPage = () => {
+        setCurrentPage((prev) => prev - 1);
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+    const handleNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+
 
 
     const getDynamicStyles = (widthX: number) => {

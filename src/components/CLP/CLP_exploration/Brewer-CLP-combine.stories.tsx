@@ -1,7 +1,7 @@
 import React from 'react'
 import {Story, Meta} from '@storybook/react'
 import CombinedComponent, {iCombineComponent} from './Brewer-CLP-combine'
-import {navDemo} from 'components/NavMenu/NavigationV2/navigation.stories'
+import {NavDemo} from 'components/NavMenu/NavigationV2/navigation.stories'
 
 export default {
     title: 'WIP /CLP Brewers Combine',
@@ -34,7 +34,7 @@ CombineExample.args = {
             defaultActiveHoverIndex: -1,
             submitButtonText: "Subscribe",
             isNobo: false,
-            navItems: navDemo
+            navItems: NavDemo
         }
     },
     products: [
@@ -138,7 +138,7 @@ CombineExampleSilhouette.args = {
             defaultActiveHoverIndex: -1,
             submitButtonText: "Subscribe",
             isNobo: false,
-            navItems: navDemo
+            navItems: NavDemo
         }
     },
     products: [

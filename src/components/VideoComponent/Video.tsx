@@ -1,8 +1,6 @@
 import KButton from "../Kbutton/KButton";
 import React, {useEffect, useRef, useState} from "react";
 import {VideoStyled} from "./Video.styles";
-
-
 export interface Caption {
     startTime: number;
     endTime: number;
@@ -33,15 +31,7 @@ export const Video=(props:iVideo)=>{
 
     // ******* CAPTIONS RELATED - start ********
     const [captionText, setCaptionText] = useState("");
-    const handleTimeUpdate = () => {
-        if(!videoRef.current) return;
-        const currentCaption = props.captions.find(caption => caption.startTime <= videoRef.current!.currentTime && caption.endTime > videoRef.current!.currentTime);
-        if (currentCaption) {
-            setCaptionText(currentCaption.text);
-        } else {
-            setCaptionText("");
-        }
-    }
+
 
     const handlePlay = () => {
         setCaptionVisible(true);
@@ -52,24 +42,34 @@ export const Video=(props:iVideo)=>{
     }
 
     useEffect(() => {
-        if(!videoRef.current) return;
-        videoRef.current!.addEventListener("timeupdate", handleTimeUpdate);
-        videoRef.current!.addEventListener("play", handlePlay);
-        videoRef.current!.addEventListener("pause", handlePause);
-        return () => {
-            videoRef.current!.removeEventListener("timeupdate", handleTimeUpdate);
-            videoRef.current!.removeEventListener("play", handlePlay);
-            videoRef.current!.removeEventListener("pause", handlePause);
-        }
-    }, []);
+        const videoElement = videoRef.current; // Store the current value in a variable
+        if (!videoElement) return;
 
-    useEffect(() => {
-        if (!videoRef.current) return;
-        videoRef.current!.addEventListener("timeupdate", handleTimeUpdate);
+        const handleTimeUpdate = () => {
+            if (!videoElement) return;
+            const currentCaption = props.captions.find(
+                caption => caption.startTime <= videoElement.currentTime && caption.endTime > videoElement.currentTime
+            );
+            if (currentCaption) {
+                setCaptionText(currentCaption.text);
+            } else {
+                setCaptionText("");
+            }
+        };
+
+        videoElement.addEventListener("timeupdate", handleTimeUpdate);
+        videoElement.addEventListener("play", handlePlay);
+        videoElement.addEventListener("pause", handlePause);
+
         return () => {
-            videoRef.current!.removeEventListener("timeupdate", handleTimeUpdate);
-        }
-    }, []);
+            if (videoElement) { // Use the stored value in the cleanup function
+                videoElement.removeEventListener("timeupdate", handleTimeUpdate);
+                videoElement.removeEventListener("play", handlePlay);
+                videoElement.removeEventListener("pause", handlePause);
+            }
+        };
+    }, [props.captions]);
+
 
     // ******* CAPTIONS RELATED - end ********
 

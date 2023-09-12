@@ -4,7 +4,7 @@ import ProductList from './ProductList';
 import {convertPodLibraryToProductInfoCardProps} from './utils';
 import {brands} from "../../../pages/myBrews";
 import {podLibrary} from "../../../data/beverage-library";
-import {navDemo} from "../../NavMenu/NavigationV2/navigation.stories";
+import {NavDemo} from "../../NavMenu/NavigationV2/navigation.stories";
 import {brewerLibrary} from "../../../data/brewer-library";
 import {brewerFiltersSettings} from "../../../data/brewerFilters";
 import {ProductListProps} from "./product-list.interfaces";
@@ -105,7 +105,7 @@ Beverages.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     }
 };
@@ -180,7 +180,7 @@ BeverageBundleExample.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     }
 }
@@ -249,7 +249,7 @@ SingleProductExample.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     }
 }
@@ -285,7 +285,7 @@ BrewerList.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     }
 }
@@ -320,7 +320,7 @@ InStockGuarantee.args = {
             defaultActiveHoverIndex : -1,
             submitButtonText : "Subscribe",
             isNobo : false,
-            navItems : navDemo
+            navItems : NavDemo
         }
     }
 };

@@ -21,7 +21,7 @@ const StepComponent: React.FC = () => {
         if (stepRefs[currentStep - 1].current ) {
             stepRefs[currentStep - 1].current!.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [currentStep]);
+    }, [currentStep, stepRefs]);
 
     return (
         <StepsOutermostContainer>

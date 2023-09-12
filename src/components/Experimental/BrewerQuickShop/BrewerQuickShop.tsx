@@ -15,6 +15,7 @@ import styled, {css} from "styled-components";
 import {ModalStyled} from "../Modal-Styled";
 import ColorVariantSelector from "../../colorPicker/simple-color-picker/color-picker-simple";
 import {number} from "prop-types";
+import Image from "next/image";
 
 export interface iBrewerQuickShop {
     productName: string;
@@ -92,7 +93,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-                    <img alt={props.carousel.slideImageURLs[i].altText} className="image-item"
+                    <Image alt={props.carousel.slideImageURLs[i].altText} className="image-item"
                          src={props.carousel.slideImageURLs[i].path} title=""/>
                 </div>
             )
@@ -239,10 +240,15 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                 setLearnMoreTitle(props.learnMoreTitleKSK);
                                                 setLearnMoreContent(
                                                     <div className={"ksk-info-content"}>
-                                                        <img src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
+                                                        <Image src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
                                                         <div>
                                                             <h2>The best way to buy your Keurig Coffee Maker.</h2>
-                                                            <div><img src="./images/quickshop-ksk/fpo-ksk-learnmore.png" alt="Choose Your Savings" className={"ksk-title-img"}/></div>
+                                                            <div>
+                                                                <Image
+                                                                    src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
+                                                                    alt="Choose Your Savings" className={"ksk-title-img"}
+                                                                />
+                                                            </div>
                                                             <div className={"kit-title"}>What's in your Kit:</div>
                                                             <div className={"content-container"}>
                                                                 <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Discounted brewer</div>
@@ -253,10 +259,18 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                         </div>
                                                         <div className={"how-to-title"}>How to build your Starter Kit</div>
                                                         <div className={"how-to-container"}>
-                                                            <div><img src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/></div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
                                                         </div>
                                                     </div>);
                                                 setLearnMoreOpen(true);

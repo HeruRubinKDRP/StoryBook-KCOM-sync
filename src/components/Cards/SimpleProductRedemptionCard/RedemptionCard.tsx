@@ -2,6 +2,7 @@ import {ReactElement, useEffect, useState} from "react";
 import KButton from "../../Kbutton/KButton";
 import {KToggle, toggleItem} from "../../Toggle/Toggle";
 import {RedemptionStyled} from "./RedemptionStyled";
+import Image from "next/image";
 
 export type redemptionVariantT = {
   variantName : string;
@@ -27,11 +28,11 @@ export const RedemptionCard =(props : iRedemptionCard)=>{
   const [getItFor, setGetItFor] = useState<getRewardForT>("Get it FREE")
   useEffect(()=>{
     setSelectedVariant(props.defaultVariant);
-  },[]);
+  },[props.defaultVariant]);
 
   useEffect(()=>{
     setGetItFor(props.variants[selectedVariant].rewardGet)
-  }, [selectedVariant])
+  }, [props.variants, selectedVariant])
 
   const variantsMenu =(selectedIndex : number)=>{
     let menuItems : toggleItem[] = []
@@ -61,7 +62,7 @@ export const RedemptionCard =(props : iRedemptionCard)=>{
     <RedemptionStyled theme={{widthX : props.desiredWidth }}>
       <div className="product-name">
         <div className={`product-image ${selectedVariant} `}>
-          <img src={props.variants[selectedVariant].variantImage}/>
+          <Image src={props.variants[selectedVariant].variantImage} alt=""/>
         </div>
         <div className="product-id-area">
           <div className="brand">

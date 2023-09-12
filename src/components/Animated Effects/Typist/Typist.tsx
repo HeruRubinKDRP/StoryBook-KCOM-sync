@@ -1,66 +1,72 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-interface TypingEffectProps {
+const TypingContainer = styled.div`
+  font-size: 16px;
+`;
+
+const WordContainer = styled.span`
+  display: inline-block;
+`;
+
+const CharSpan = styled.span<{ delay: number }>`
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.15em);
+  animation: appear 0.2s forwards;
+  animation-delay: ${(props) => props.delay}s;
+
+  @keyframes appear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+export interface TypingEffectProps {
     message: string;
     speed?: number;
     showCursor?: boolean;
     classes?: string;
 }
 
-const TypingContainer = styled.div`
-   
-  font-size: 16px;
-`;
-
-const Cursor = styled.span`
-  animation: blink 0.5s infinite;
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-`;
-
 const TypingEffect: React.FC<TypingEffectProps> = ({
                                                        message,
-                                                       speed = 100,
+                                                       speed = 0.1,
                                                        showCursor = true,
                                                        classes = '',
                                                    }) => {
     const [text, setText] = useState('');
-    const [cursorVisible, setCursorVisible] = useState(true);
 
     useEffect(() => {
+        let typedText = '';
         let index = 0;
-        const timer = setInterval(() => {
-            setText((prevText) => prevText + message[index]);
-            index++;
-            if (index > message.length - 1) {
-                clearInterval(timer);
+
+        function typeCharacter() {
+            if (index < message.length) {
+                typedText += message[index];
+                index++;
+                setText(typedText);
+                setTimeout(typeCharacter, speed * 1000);
             }
-        }, speed);
+        }
 
-        return () => {
-            clearInterval(timer);
-        };
+        typeCharacter();
     }, [message, speed]);
-
-    useEffect(() => {
-        const cursorTimer = setInterval(() => {
-            setCursorVisible((prevVisible) => !prevVisible);
-        }, 500);
-
-        return () => {
-            clearInterval(cursorTimer);
-        };
-    }, []);
 
     return (
         <TypingContainer className={`typing-effect ${classes}`}>
-            {text}
-            {showCursor && cursorVisible && <Cursor>|</Cursor>}
+            {text.split(' ').map((word, wordIndex) => (
+                <WordContainer key={wordIndex}>
+                    {word.split('').map((char, charIndex) => (
+                        <CharSpan key={charIndex} delay={(wordIndex + charIndex) * speed}>
+                            {char}
+                        </CharSpan>
+                    ))}
+                    {'\u00A0'}
+                </WordContainer>
+            ))}
         </TypingContainer>
     );
 };

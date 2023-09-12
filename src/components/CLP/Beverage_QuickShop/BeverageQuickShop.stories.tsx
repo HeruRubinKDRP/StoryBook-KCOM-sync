@@ -1,5 +1,4 @@
-import {Meta} from "@storybook/react/types-6-0";
-import {Story} from "@storybook/react/types-6-0";
+import {Meta, StoryFn} from "@storybook/react";
 import {BeverageQuickShop, iBeverageQuickShop} from "./BeverageQuickShop";
 import {brands} from "../../../pages/myBrews";
 
@@ -16,7 +15,7 @@ export default {
 
 } as Meta;
 
-const Template: Story<iBeverageQuickShop> = (args) => (<BeverageQuickShop {...args} />);
+const Template: StoryFn<iBeverageQuickShop> = (args) => (<BeverageQuickShop {...args} />);
 
 export const Default = Template.bind({});
 Default.args = {

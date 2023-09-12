@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 
 import AddToCartDemo, {iDemoProps} from "./AddToCartDemo";
@@ -17,7 +17,7 @@ export default {
 } as Meta;
 
 
-const Template: Story<iDemoProps> = (args) => (
+const Template: StoryFn<iDemoProps> = (args) => (
     <AddToCartDemo {...args} />
 );
 

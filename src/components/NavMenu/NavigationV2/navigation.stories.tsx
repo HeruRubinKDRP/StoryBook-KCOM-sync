@@ -215,7 +215,7 @@ NavExample.parameters ={
   }
 }
 
-export const navDemo : iNavContentGroup[] = [
+export const NavDemo : iNavContentGroup[] = [
   {
     navLabel : "Keurig® Starter Kit",
     image: "",
@@ -1428,7 +1428,7 @@ NavExample.args={
       ]
     },
   ],
-  navItems: navDemo
+  navItems: NavDemo
 }
 
 

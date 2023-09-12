@@ -2,6 +2,7 @@ import React, {ReactElement, useContext, useEffect, useRef, useState} from "reac
 import KDropDown from "../../DropDown/drop-down";
 import KButton from "../../Kbutton/KButton";
 import {Price} from "../../Price/Price";
+import Image from "next/image";
 
 
 export interface iJustBrewer{
@@ -23,7 +24,7 @@ export const JustItem =(props : iJustBrewer)=>{
       <h3>{props.mainLabel}</h3>
       <div className="product-area">
         <div className="product-descriptive-area">
-          <img alt="" src={props.productImage} />
+          <Image alt="" src={props.productImage} />
           <div className="product-details-area">
             <h4>{props.productName}</h4>
             <Price

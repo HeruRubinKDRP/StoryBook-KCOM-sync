@@ -2,6 +2,10 @@
 import React from "react";
 import GlobalStyleKCOM from "../src/components/_commonStyles/GlobalStyles";
 
+import NextImage from '../src/components/mocks/NextJS/NextImage';
+
+// Mock Next.js' Image component
+jest.mock('next/image', () => NextImage);
 
 
 

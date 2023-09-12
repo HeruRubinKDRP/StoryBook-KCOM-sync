@@ -7,6 +7,7 @@ import {ProductImage} from "../ProductImage/ProductImage";
 import {Rating} from "../Rating/Rating";
 import {KToggle, toggleItem} from "../Toggle/Toggle";
 import {ProductIfoItemStyled} from "./product-info-item.styled";
+import Image from "next/image";
 
 export type ratingT = {
   totalStars: 5,
@@ -120,7 +121,13 @@ export const ProductInfoItem = (props: IproductItem) => {
       return (
         <>
           <div className="product-image-name">
-            <img alt="" className="pod-lid" src={props.productImage}/>
+            {props.productImage &&
+              <Image
+                  alt=""
+                  className="pod-lid"
+                  src={props.productImage}
+              />
+            }
             <div className="prod-info-area">
               <div className="labels-area">
                 <p className="brand-title">{props.brand}</p>
@@ -133,7 +140,10 @@ export const ProductInfoItem = (props: IproductItem) => {
                   {getPrice()}
                   <div className="discount-area">
                     <label>25% Off</label>
-                    <img src="https://www.keurig.com/_ui/desktop/common/images/category-landing/autodel-logo-clp.svg"/>
+                    <Image
+                        alt=""
+                        src="https://www.keurig.com/_ui/desktop/common/images/category-landing/autodel-logo-clp.svg"
+                    />
                   </div>
                 </div>
                 {getRating()}
@@ -164,7 +174,14 @@ export const ProductInfoItem = (props: IproductItem) => {
         return (
           <>
             <div className="data-text">
-              <img alt="" className="pod-lid" src={props.productImage}/>
+              {
+                props.productImage &&
+                  <Image
+                      alt=""
+                      className="pod-lid"
+                      src={props.productImage}
+                  />
+              }
               <p>{props.brand}</p>
               <h2>{props.productName}</h2>
               {getPrice()}

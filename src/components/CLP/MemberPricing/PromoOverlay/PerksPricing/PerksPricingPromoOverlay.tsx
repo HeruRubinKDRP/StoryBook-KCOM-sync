@@ -37,11 +37,11 @@ const PerksPromo = (props : PerksPromoProps) => {
         return () => {
             timers.forEach(timer => clearTimeout(timer));
         };
-    }, []); // Empty dependency array to ensure this effect only runs on mount and unmount
+    }, [messages]); // Empty dependency array to ensure this effect only runs on mount and unmount
 
 
     const TypingMessage = (message : string)=>{
-        return <Typist speed="medium" message={message}  />
+        return <Typist speed={0.0012} message={message}  />
     }
 
     return (

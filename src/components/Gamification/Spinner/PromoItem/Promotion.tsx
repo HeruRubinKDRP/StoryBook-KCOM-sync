@@ -1,5 +1,6 @@
 import {PromotionStyled} from "./promotion.styles";
 import {spinnerModeType} from "../spinner/spinner";
+import Image from "next/image";
 
 export interface Promotion {
     name: string;
@@ -22,7 +23,7 @@ export const PromotionItem = (props: Promotion) => {
                 {props.highlightedText ? <h2>{props.highlightedText}</h2> : null}
                 <p>{props.name}</p>
             </div>
-            {props.highlightImage ? <img style={{transform: `rotate(${props.imageCounterRotation ? -props.imageCounterRotation : 0}deg)`}} src={props.highlightImage} alt={props.name} /> : null}
+            {props.highlightImage ? <Image style={{transform: `rotate(${props.imageCounterRotation ? -props.imageCounterRotation : 0}deg)`}} src={props.highlightImage} alt={props.name} /> : null}
         </PromotionStyled>
     )
 }

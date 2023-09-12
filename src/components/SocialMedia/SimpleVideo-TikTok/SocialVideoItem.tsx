@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import Graphic from "../../Graphic/Graphic";
 import {SocialVideoStyled} from "./social-video.styled";
+import Image from "next/image";
 
 
 export interface iSimpleVideoItem {
@@ -32,7 +33,7 @@ export const SimpleVideoItem  = (props : iSimpleVideoItem)=>{
   const getImagery =(isPlaying : boolean)=>{
     if(!isPlaying){
       return (
-          <img className="image-preview" src={props.previewImagePath} alt=""/>
+          <Image className="image-preview" src={props.previewImagePath} alt=""/>
       )
     }
 

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react/";
 import {ClassicCard, iClassicCard} from "./ClassicCard";
 
 export default {
@@ -12,7 +12,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<iClassicCard> = (args) => <div style={{padding: "5%"}}><ClassicCard {...args} /></div>;
+const Template: StoryFn<iClassicCard> = (args) => <div style={{padding: "5%"}}><ClassicCard {...args} /></div>;
 
 export const ClassicCardExample = Template.bind({});
 

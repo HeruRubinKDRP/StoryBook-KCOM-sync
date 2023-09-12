@@ -5,6 +5,7 @@ import KButton from "../../Kbutton/KButton";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {fontWeightT} from "../ContentComponent";
 import {FocalImageStyled} from "./focal-image.styled";
+import Image from "next/image";
 
 export interface iFocalImage{
   mainBG_Color? : colorByNameType;
@@ -71,10 +72,16 @@ export const FocalImageContent =(props : iFocalImage)=>{
       return(
         <div className="app-stores-container">
           <a href="">
-            <img src="/app/apple.svg"/>
+            <Image
+                src="/app/apple.svg"
+                alt=""
+            />
           </a>
           <a href="">
-            <img src="/app/google2.svg"/>
+            <Image
+                src="/app/google2.svg"
+                alt=""
+            />
           </a>
         </div>
       )
@@ -117,7 +124,11 @@ export const FocalImageContent =(props : iFocalImage)=>{
         {getCTAs()}
       </div>
       <div className="focal-image-item sect">
-        <img src={props.focalImagePath} className="focal-image" />
+        <Image
+            src={props.focalImagePath}
+            className="focal-image"
+            alt=""
+        />
       </div>
       <div className="callout-area sect">
         {getCallout()}

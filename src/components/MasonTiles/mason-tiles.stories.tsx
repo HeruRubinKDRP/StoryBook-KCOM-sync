@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react/";
 import React, { ReactElement } from "react";
 import {iMasonTileGroup, MasonTileGroup, masonTileType} from "./MasonTile";
 
@@ -11,9 +11,9 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iMasonTileGroup> = (args) => <MasonTileGroup {...args} />
+const Template: StoryFn<iMasonTileGroup> = (args) => <MasonTileGroup {...args} />
 
-export const exampleTilesGroup = Template.bind({});
+export const ExampleTilesGroup = Template.bind({});
 
 const exampleTiles : masonTileType[] =
   [
@@ -101,7 +101,7 @@ const exampleTiles : masonTileType[] =
   ]
 
 
-exampleTilesGroup.args={
+ExampleTilesGroup.args={
   cellsWide : 4,
   cellsHigh : 5,
   tiles : exampleTiles

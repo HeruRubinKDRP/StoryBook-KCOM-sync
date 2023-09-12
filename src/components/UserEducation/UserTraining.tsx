@@ -6,6 +6,7 @@ import {getContainerQuery} from "../Experimental/Add-to-cart/reusable css/contai
 import KButton from "../Kbutton/KButton";
 import {Caption, Video} from "../VideoComponent/Video";
 import {PopUp} from "../PopUp/PopUp";
+import Image from "next/image";
 
 export type mediaType = "video" | "image" | "text" | "audio" | "other";
 
@@ -85,7 +86,7 @@ export const UserTraining = (props: iUserTraining) => {
                                 manageIsMuted={manageIsMuted}
                             ></Video>
                         ) : (
-                            <img
+                            <Image
                                 className="user-training-imagery"
                                 src={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}
                                 alt={isDesktop? contentItem.DesktopTitle : contentItem.MobileTitle}

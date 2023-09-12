@@ -9,6 +9,7 @@ import {createRef, RefObject, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
 import { ExpandCollapse } from "components/ExpandCollapse/expand-collapse";
+import Image from "next/image";
 
 
 export interface iSimpleProduct {
@@ -110,7 +111,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <img src={product.image} alt=""/>
+                        <Image src={product.image} alt=""/>
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -123,7 +124,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
                 </div>
             )
@@ -182,7 +183,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     <div className="product-area">
                         <div className="product-added">
                             <div className="product-image">
-                                <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                                <Image src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">

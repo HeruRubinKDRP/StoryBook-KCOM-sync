@@ -1,6 +1,7 @@
 import React, {ReactElement, useContext, useEffect, useRef, useState} from "react";
 import KButton from "../../Kbutton/KButton";
 import {Price} from "../../Price/Price";
+import Image from "next/image";
 
 export type productInfoT = {
   productName : string;
@@ -23,7 +24,10 @@ export const UpsellCombo=(props : iUpsellCombo)=>{
     for (let i=0; i < props.products.length; i++){
       productElements.push(
         <div key={i} className="product-item product-descriptive-area">
-          <img src={props.products[i].productImagePath} alt=""/>
+          <Image
+              src={props.products[i].productImagePath}
+              alt=""
+          />
           <div className="product-description">
             <div>
               <label>{props.products[i].brand}</label>

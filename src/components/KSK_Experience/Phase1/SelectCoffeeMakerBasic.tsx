@@ -2,6 +2,7 @@ import React, {ReactElement} from "react";
 import {Kcarousel} from "../../Carousel/Kcarousel";
 import KButton from "../../Kbutton/KButton";
 import {CoffeeMakerItem} from "../KSK";
+import Image from "next/image";
 
 export interface iSelectCoffeeMaker{
   coffeeMakers : CoffeeMakerItem[];
@@ -24,7 +25,10 @@ export const SelectCoffeeMakerBasic=(props : iSelectCoffeeMaker)=>{
           <h4 className="tagline">{props.coffeeMakers[i].tagLine}</h4>
           <div className="coffee-maker-image-title">
             <div className="product-image-name">
-              <img src={props.coffeeMakers[i].productImagePath} />
+              <Image
+                  alt={props.coffeeMakers[i].productName}
+                  src={props.coffeeMakers[i].productImagePath}
+              />
             </div>
             <h2>{props.coffeeMakers[i].productName}</h2>
           </div>

@@ -1,5 +1,6 @@
 import KButton from "../../Kbutton/KButton";
 import {QuickShopStyled} from "./QuickShopStyled";
+import Image from "next/image";
 
 export interface iQuickShop {
 
@@ -39,7 +40,7 @@ export const QuickShop = () => {
               </h1><a
                 href="/Beverages/Light-Roast/Breakfast-Blend-Coffee/p/Breakfast-Blend-Coffee-K-Cup-Green-Mountain:24_CT"
                 className="css-d60him">
-                <img
+                <Image
                 src="https://images.keurig.com/is/image/keurig/Breakfast-Blend-Coffee-K-Cup-Green-Mountain_en_general?wid=272&amp;hei=202&amp;fmt=png-alpha&amp;qlt=75,1&amp;op_sharpen=0&amp;resMode=bicub&amp;op_usm=1,1,6,0&amp;iccEmbed=0&amp;printRes=72&amp;extend=0,250,0,0"
                 className="product-image" alt="Breakfast Blend Coffee" tabIndex={0}/>
               </a>
@@ -52,7 +53,7 @@ export const QuickShop = () => {
                   <div className="css-ku8zew">
                     <div className=" css-1lhbof9"><span className="profile-variation variation-left ">Light</span>
                       <div className="css-bcg8e9">
-                        <img
+                        <Image
                         src="https://images.keurig.com/is/image/keurig/roast-profile2?fmt=png-alpha" alt="Light Roast"
                         />
                       </div>
@@ -190,7 +191,7 @@ export const QuickShop = () => {
                     </div>
                 </div>
                   <div className=" css-1imlv0m">
-                    <img
+                    <Image
                       title="Shipping-icon"
                       alt="Shipping-icon"
                       src="https://images.keurig.com/is/image/keurig/shipping-icon?fmt=png-alpha"
