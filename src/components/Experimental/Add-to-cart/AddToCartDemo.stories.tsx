@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react";
+import { Story, Meta } from "@storybook/react/types-6-0";
 import React, { ReactElement } from "react";
 
 import AddToCartDemo, {iDemoProps} from "./AddToCartDemo";
@@ -22,7 +22,7 @@ const Template: Story<iDemoProps> = (args) => (
 );
 
 export const SmallDemo = Template.bind({});
-export const customPodLibrary: podItemT[] = [
+const customPodLibrary: podItemT[] = [
     {
         brand: "Keurig®",
         podName : "K-Iced™ Single Serve Coffee Maker",
