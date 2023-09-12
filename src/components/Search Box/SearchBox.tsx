@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import Fuse from 'fuse.js';
 import {SearchStyled} from "./search-box-styled";
 import Graphic from "../Graphic/Graphic";
@@ -16,9 +16,7 @@ const SearchBox = (props: iSearchInputProps) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [showResults, setShowResults] = useState(false);
 
-    useEffect(()=>{
-        getResults()
-    },[searchTerm])
+
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
@@ -34,20 +32,25 @@ const SearchBox = (props: iSearchInputProps) => {
         setShowResults(false);
     };
 
-    const getResults=()=>{
+    const getResults = useCallback(() => {
         let fuse : Fuse<any> = new Fuse(brewerLibrary, { keys:
                 ['name', 'productFeatures.featureDetails', 'productFeatures.featureLabel'],
-                    shouldSort: true,
-                    includeScore: true,
-                    findAllMatches: true,
-                    threshold : 0.2,
-                    minMatchCharLength : 3,
-                    ignoreLocation:true
-              });
+            shouldSort: true,
+            includeScore: true,
+            findAllMatches: true,
+            threshold : 0.2,
+            minMatchCharLength : 3,
+            ignoreLocation:true
+        });
         let result = fuse.search(searchTerm);
         console.log(searchTerm)
         console.log(result)
-    }
+    }, [searchTerm]);
+
+
+    useEffect(()=>{
+        getResults()
+    },[searchTerm, getResults]);
 
     return (
         <SearchStyled>

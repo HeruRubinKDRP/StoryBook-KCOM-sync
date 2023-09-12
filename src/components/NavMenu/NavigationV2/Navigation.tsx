@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useCallback, useEffect, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {ProductCard} from "../../ContentComponents/ProductCard/ProductCard";
 import Graphic, {iconType} from "../../Graphic/Graphic";
@@ -73,8 +73,6 @@ export const Navigation = (props: iNavigation) => {
 
     const [fixedMenuPadding, setMenuPadding] = useState(0);
 
-
-
     //reference for the hover menu
     //a reference useRef is used to get the DOM node of the element
     const hoverMenuRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -88,7 +86,6 @@ export const Navigation = (props: iNavigation) => {
         await setCurrentHover(-1)
     }
 
-
     useOutsideToggler(hoverMenuRef.current, clickOutsideToggle, currentHover !== -1);
 
 
@@ -96,33 +93,32 @@ export const Navigation = (props: iNavigation) => {
     const [useAnimation, setUseAnimation] = useState(true)
     const [formFactor, setFormFactor] = useState<formFactorType>("pending")
 
-    //let formFactor : formFactorType = "pending";
-    function onResize() {
-        if (width) {
-            if (width >= breakPoints.desktop) {
-                setMenuPadding(0);
-                setFormFactor("desktop")
-            }
-            if (width < breakPoints.desktop) {
-                setMenuPadding(mainMenuRef.current.offsetHeight);
-                setFormFactor("mobile")
-            }
-        }
-    }
-
 
     const {width, height, ref} = useResizeDetector({
         handleHeight: false,
         refreshMode: 'debounce',
         refreshOptions: {},
         refreshRate: 100,
-        skipOnMount: false,
-        onResize
+        skipOnMount: false
     });
+
+const onResize = useCallback(() => {
+    if (width) {
+        if (width >= breakPoints.desktop) {
+            setMenuPadding(0);
+            setFormFactor("desktop")
+        }
+        if (width < breakPoints.desktop) {
+            setMenuPadding(mainMenuRef.current.offsetHeight);
+            setFormFactor("mobile")
+        }
+    }
+}, [width]);
+
 
     useEffect(() => {
         onResize();
-    }, [width])
+    }, [width, onResize]);
 
     const handleHoverInteraction = async (index: number) => {
         if (!width) {
@@ -536,12 +532,7 @@ export const Navigation = (props: iNavigation) => {
 
 
 
-    const useNavMainAnimation = (isMobileOpen: boolean) => {
-        if (isMobileOpen) {
-            return "slide-nav-in"
-        }
-        return "x";
-    }
+
 
     //the menu with chevron pointing left
     const mobileBackMenu = () => {
@@ -643,11 +634,18 @@ export const Navigation = (props: iNavigation) => {
         )
     }
 
+    const UseNavMainAnimation = (isMobileOpen: boolean) => {
+        if (isMobileOpen) {
+            return "slide-nav-in"
+        }
+        return "x";
+    }
+
     const getNavBasedOnSizingMode = (navPaddingTop : number) => {
         // store fullBleed
         const fullBleed : ReactElement = (
             <NavigationStyled
-                className={` ${getContainerQueries(width)} ${useNavMainAnimation(useAnimation)}`}
+                className={` ${getContainerQueries(width)} ${UseNavMainAnimation(useAnimation)}`}
                 ref={ref}>
                 {getInnerMenu()}
             </NavigationStyled>
@@ -659,7 +657,7 @@ export const Navigation = (props: iNavigation) => {
             case "hardcoded":
                 return (
                     <NotFullyResponsiveLikeProdNavigationStyled theme={{mobileMenuPadding : navPaddingTop }}
-                                                                className={` ${getContainerQueries(width)} ${useNavMainAnimation(useAnimation)}`}
+                                                                className={` ${getContainerQueries(width)} ${UseNavMainAnimation(useAnimation)}`}
                                                                 ref={ref}>
                         {getInnerMenu()}
                     </NotFullyResponsiveLikeProdNavigationStyled>

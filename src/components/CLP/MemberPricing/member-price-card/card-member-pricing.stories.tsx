@@ -25,6 +25,7 @@ MemberPriceCardExample.args = {
     priceLabel: "Member Price",
     calculateCardWidth: true,
     product: {
+        index : 0,
         productType: podLibrary[0].productType ?? "pod",
         ratingVisible: true,
         flag: flagInStock,

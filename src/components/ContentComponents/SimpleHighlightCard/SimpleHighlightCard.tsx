@@ -4,6 +4,7 @@ import KButton from "../../Kbutton/KButton";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {iKeyValueContent, KeyValueContent} from "../KeyValueContent/KeyValueContent";
 import {SimpleCardStyled} from "./simple-card.styled";
+import Image from "next/image";
 
 export type messagePositionT = "before-image" | "after-image";
 export type cropStyleT = "circle" | "rounded-rectangle" | "no-crop";
@@ -108,7 +109,7 @@ export const SimpleHighlightCard=(props : iSimpleHighlightCard)=>{
 
   const getImageMethod =():ReactElement=>{
     if(!props.imageSizeMethod || props.imageSizeMethod == "from-image-size"){
-      return <img src={props.mainFocalImage?.imagePath} alt="" className="primary-image"/>
+      return <Image src={props.mainFocalImage?.imagePath ?? ""} alt="" className="primary-image"/>
     }
 
     return <div

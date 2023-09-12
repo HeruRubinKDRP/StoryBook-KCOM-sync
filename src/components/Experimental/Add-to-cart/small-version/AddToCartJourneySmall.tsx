@@ -5,7 +5,7 @@ import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
 import Graphic from "../../../Graphic/Graphic";
-import {createRef, RefObject, useEffect, useState} from "react";
+import {createRef, RefObject, useCallback, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
 import { ExpandCollapse } from "components/ExpandCollapse/expand-collapse";
@@ -48,10 +48,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         },
     });
 
-    useEffect(() => {
-        upDateDimensions();
-        setSuggestionsLoaded(false);
-    }, [width]);
+
 
     const doLoadSuggestions = () => {
         setTimeout(() => {
@@ -68,19 +65,25 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         doLoadSuggestions();
     }, [width]);
 
-    const upDateDimensions = () => {
-        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
-        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
-    }
-
     const suggestionsSectionRef = createRef<HTMLDivElement>();
     const actionBarRef = createRef<HTMLDivElement>();
+
+    const upDateDimensions = useCallback(() => {
+        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
+        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
+    },[setSuggestionWidth, setActionbarHeight, actionBarRef, suggestionsSectionRef ])
+
+    useEffect(() => {
+        upDateDimensions();
+        setSuggestionsLoaded(false);
+    }, [width, upDateDimensions]);
+
+
 
     const handleAddSuggested = (index: number) => {
         if (!props.addSuggestionToCartFunc) {
             return;
         }
-
         props.addSuggestionToCartFunc(index);
     }
 
@@ -163,7 +166,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         </div>
                         <div className="cart-message">
                             <Graphic graphicName="checkmark-circled"/>
-                            <p>You're getting free shipping!</p>
+                            <p>{`You're getting free shipping!`}</p>
                         </div>
                         <div className="hide-label-mobile">
                             <KButton

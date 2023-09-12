@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {AnimatedSvgContainer, AnimatedButton, PerksPromoStyled} from "./perks-pricing-promo.styled";
 import Graphic from "../../../../Graphic/Graphic";
 import Typist from "../../../../Animated Effects/Typist/Typist";
@@ -11,7 +11,7 @@ export interface PerksPromoProps {
 
 const PerksPromo = (props : PerksPromoProps) => {
 
-    const messages = [
+    const messages = useMemo(() => [
         {
             message: "With Perks you get 25% off everything.",
             duration: 2000
@@ -20,7 +20,9 @@ const PerksPromo = (props : PerksPromoProps) => {
             message: "Just have an active Auto-Delivery item and you're in!",
             duration: 1200
         }
-    ]
+    ], [])
+
+
 
     const [currentMessage, setCurrentMessage] = useState(messages[0].message);
 

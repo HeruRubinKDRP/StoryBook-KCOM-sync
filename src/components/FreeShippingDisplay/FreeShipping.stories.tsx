@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 
 import FreeShipping, {iFreeShippingProps} from "./FreeShipping";
@@ -13,7 +13,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<iFreeShippingProps> = (args) => (
+const Template: StoryFn<iFreeShippingProps> = (args) => (
     <FreeShippingIndicator {...args} />
 );
 

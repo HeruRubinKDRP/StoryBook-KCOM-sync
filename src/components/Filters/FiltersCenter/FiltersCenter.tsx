@@ -77,8 +77,10 @@ export const FiltersCenter=(props:iFiltersCenter)=>{
                  <Accordion
                      items={Items}
                      useInternalOpenClosedState={true}
-                     children={Children}
-                 />
+
+                 >
+                     {Children}
+                 </Accordion>
             </>
         )
     }

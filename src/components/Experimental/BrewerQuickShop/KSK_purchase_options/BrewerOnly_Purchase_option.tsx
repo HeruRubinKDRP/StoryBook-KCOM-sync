@@ -7,6 +7,7 @@ import Graphic from "../../../Graphic/Graphic";
 import KDropDown from "../../../DropDown/drop-down";
 import {CTA_WithQuantity} from "../../../CTA_With_Quantity/CTA_WithQuantity";
 import { MemberPriceMessaging } from "components/Experimental/MemberPricingMessaging/MemberPricingMessaging";
+import Image from "next/image";
 
 export interface iBrewerOnlyPurchaseOption{
     classes? : string;
@@ -92,7 +93,7 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                 <div className="savings-callout"></div>
             </div>
             <div className={"coupon-area-container"}>
-            <img src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
+            <Image src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
 
                 {getCoupon()}
 

@@ -10,7 +10,7 @@ import {featureItemT} from "../components/ProductDetails/FeaturesList/features-l
 import {Itoggle, toggleItem} from "../components/Toggle/Toggle";
 import {productVariantColor} from "../components/colorPicker/colorPicker";
 import {iContentItem} from "../components/ContentComponents/ContentComponent";
-import {iProductInfoCardProps} from "../components/CLP/SimpleCard/SimpleCard";
+
 
 export const buttonTypesList : buttonType[] =[
   "primary",

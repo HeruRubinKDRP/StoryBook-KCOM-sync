@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {PanelHeader, IpanelHeader} from "./PanelHeader";
 
@@ -12,7 +12,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<IpanelHeader> = (args)=>
+const Template: StoryFn<IpanelHeader> = (args)=>
     <div style={{width:"100%", height:"100%"}} className={` `}>
       <PanelHeader {...args} />
     </div>

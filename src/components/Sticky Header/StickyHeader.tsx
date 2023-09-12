@@ -59,8 +59,7 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
         }
     }, [ref]);
 
-
-    const handleScroll = (scrollPastThis: number | undefined) => {
+    const handleScroll = useCallback((scrollPastThis: number | undefined) => {
         if (!scrollPastThis) {
             return;
         }
@@ -75,10 +74,11 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
             setSticky(false);
             return;
         }
-    };
+    }, [isSticky]);
+
 
     // Wrap handleScrollEvent in useCallback to memoize it
-    const handleScrollEvent = useCallback(() => handleScroll(navHeight), [navHeight]);
+    const handleScrollEvent = useCallback(() => handleScroll(navHeight), [navHeight, handleScroll]);
 
 
     useEffect(() => {
@@ -160,3 +160,5 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
         </StickyStyled>
     )
 });
+
+StickyHeader.displayName = "StickyHeader";

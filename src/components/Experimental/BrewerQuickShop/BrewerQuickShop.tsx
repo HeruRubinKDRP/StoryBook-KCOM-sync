@@ -218,7 +218,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                             props.colorVariants.length > 0 ?
                                 <>
                                     <div className="selected-color">
-                                        <div className="key">Selected Color: </div>
+                                        <div className="key">{`Selected Color:`} </div>
                                         <div className="value"> {selectedColor}</div>
                                     </div>
                                     <ColorVariantSelector
@@ -249,7 +249,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                                     alt="Choose Your Savings" className={"ksk-title-img"}
                                                                 />
                                                             </div>
-                                                            <div className={"kit-title"}>What's in your Kit:</div>
+                                                            <div className={"kit-title"}>{`What's in your Kit:`}</div>
                                                             <div className={"content-container"}>
                                                                 <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Discounted brewer</div>
                                                                 <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> 4 boxes of beverages of your choice</div>

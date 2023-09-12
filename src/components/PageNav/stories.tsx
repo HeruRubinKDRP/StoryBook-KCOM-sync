@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {iPageNav, PageNav} from "./PageNav";
 
@@ -16,7 +16,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iPageNav> = (args)=><PageNav {...args} />;
+const Template: StoryFn<iPageNav> = (args)=><PageNav {...args} />;
 
 export const PageNavExample = Template.bind({});
 

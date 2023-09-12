@@ -22,7 +22,7 @@ const Template: StoryFn<iDemoProps> = (args) => (
 );
 
 export const SmallDemo = Template.bind({});
-export const customPodLibrary: podItemT[] = [
+export const CustomPodLibrary: podItemT[] = [
     {
         brand: "Keurig®",
         podName : "K-Iced™ Single Serve Coffee Maker",
@@ -46,7 +46,7 @@ export const customPodLibrary: podItemT[] = [
 
 SmallDemo.args = {
     selectedComponent : "small-after-add",
-    products : customPodLibrary,
+    products : CustomPodLibrary,
     currentCartValue : 14.95,
     numberOfSuggestions : 3,
     freeShippingTarget : 35

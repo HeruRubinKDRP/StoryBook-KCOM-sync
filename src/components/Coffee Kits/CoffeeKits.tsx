@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import styled, { keyframes } from 'styled-components';
 import {StepContainer, StepsOutermostContainer} from "./coffee-kits.styled";
 import KButton from "../Kbutton/KButton";
@@ -11,21 +11,21 @@ const Button = styled.button`
 
 const StepComponent: React.FC = () => {
     const [currentStep, setCurrentStep] = useState(1);
-    const stepRefs = [
+    const stepRefs = useRef([
         useRef<HTMLDivElement | null>(null),
         useRef<HTMLDivElement | null>(null),
         useRef<HTMLDivElement | null>(null),
-    ];
+    ]);
 
     useEffect(() => {
-        if (stepRefs[currentStep - 1].current ) {
-            stepRefs[currentStep - 1].current!.scrollIntoView({ behavior: 'smooth' });
+        if (stepRefs.current[currentStep - 1].current ) {
+            stepRefs.current[currentStep - 1].current!.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [currentStep, stepRefs]);
+    }, [currentStep]);
 
     return (
         <StepsOutermostContainer>
-            <StepContainer ref={stepRefs[0]}>
+            <StepContainer ref={stepRefs.current[0]}>
                 <h2>Coffee Explorer Kit</h2>
                 {/* Your form elements for step 1 */}
                 <div className="selections-area">
@@ -50,7 +50,7 @@ const StepComponent: React.FC = () => {
             </StepContainer>
 
             {currentStep >= 2 && (
-                <StepContainer ref={stepRefs[1]}>
+                <StepContainer ref={stepRefs.current[1]}>
                     <h2>Step 2</h2>
                     {/* Your form elements for step 2 */}
                     {/* You can add a button to proceed to the next step or go back to the previous step if needed */}
@@ -60,7 +60,7 @@ const StepComponent: React.FC = () => {
             )}
 
             {currentStep >= 3 && (
-                <StepContainer ref={stepRefs[2]}>
+                <StepContainer ref={stepRefs.current[2]}>
                     <h2>Step 2</h2>
                     {/* Your form elements for step 2 */}
                     {/* You can add a button to proceed to the next step or go back to the previous step if needed */}

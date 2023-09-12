@@ -118,6 +118,7 @@ BeverageBundleExample.args = {
     cardPresentationMode: "flip-card",
     products: [
         {
+            index: 0,
             priceDescriptor: " ",
             productType: "bundle",
             ratingVisible: true,
@@ -139,6 +140,7 @@ BeverageBundleExample.args = {
             onClick: () => console.log('Add to Cart clicked'),
         },
         {
+            index: 1,
             priceDescriptor: " ",
             productType: "pod",
             ratingVisible: true,
@@ -193,6 +195,7 @@ SingleProductExample.args = {
     cardPresentationMode: "flip-card",
     products: [
         {
+            index: 0,
             productType: "pod",
             ratingVisible: true,
             prices: [

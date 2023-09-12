@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {LifeBar, IlifeBar} from "./LifeBar";
 
@@ -18,7 +18,7 @@ export default{
   }
 }
 
-const Template: Story<IlifeBar> = (args) => <LifeBar {...args} />
+const Template: StoryFn<IlifeBar> = (args) => <LifeBar {...args} />
 
 export const Primary = Template.bind({});
 

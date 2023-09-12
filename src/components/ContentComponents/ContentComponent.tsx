@@ -438,8 +438,7 @@ export const ContentItem =(props : iContentItem)=>{
             closeFunc={()=>setTermsConditionsIsOpen(false)}
             windowTitle={""} isOpen={true} hasHeader={true}
             hasVeil={true}
-            children={content}
-        />
+        >{content}</PopUp>
     }
   }
 

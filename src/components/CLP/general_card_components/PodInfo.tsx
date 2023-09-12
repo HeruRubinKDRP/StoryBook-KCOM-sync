@@ -7,7 +7,7 @@ import KButton from "../../Kbutton/KButton";
 import {productTypeT} from "../../../pages/myBrews";
 import {PriceCentricDisplay} from "./PriceCentricDisplay";
 import {KToggle} from "../../Toggle/Toggle";
-import {pricingStyleType} from "../MemberPricing/MemberPriceGrid/MemberCardGrid";
+
 
 export interface iPodInfoProps {
     productImage : string;
@@ -21,7 +21,7 @@ export interface iPodInfoProps {
     infoFunction : ()=>void;
     showRating?: boolean;
     ratingsLayout?: "horizontal" | "vertical";
-    pricingStyle : pricingStyleType
+    pricingStyle : "control" | "one-price";
     pricingMode : "member" | "non-member";
 }
 

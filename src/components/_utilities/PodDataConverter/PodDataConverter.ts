@@ -14,9 +14,10 @@ export function transformPodItemsToProductInfoCardProps(
     useBanner?: boolean,
     bannerSettings?: iFlag
 ): iProductInfoCardProps[] {
-    return podItems.map(podItem => (
+    return podItems.map((podItem, index) => (
 
         {
+            index : index,
             image: podItem.productImagePrimaryPath || '',
             brand: podItem.brand,
             name: podItem.podName,

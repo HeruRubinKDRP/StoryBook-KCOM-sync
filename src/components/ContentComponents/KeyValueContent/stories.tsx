@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0"
+import {StoryFn, Meta} from "@storybook/react"
 import React from "react";
 import {colorNamesList} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {iKeyValueContent, KeyValueContent} from "./KeyValueContent";
@@ -15,7 +15,7 @@ let KeyValueSettings = {
 };
 
 
-const Template: Story<iKeyValueContent> =(args )=><div style={{padding: "3rem"}}><KeyValueContent {...args} /></div>
+const Template: StoryFn<iKeyValueContent> =(args )=><div style={{padding: "3rem"}}><KeyValueContent {...args} /></div>
 
 export const SmallContentExample = Template.bind({});
 

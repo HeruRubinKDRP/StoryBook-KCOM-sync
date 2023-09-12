@@ -49,7 +49,7 @@ export const CLP_Filters = (props : iCLP_Filters) => {
         setTopFilters(newArray.slice(0,3));
         setBottomFilters(newArray.slice(3));
 
-    },[filterSections])
+    },[filterSections, props.filterSections])
 
 
     return (
@@ -58,9 +58,12 @@ export const CLP_Filters = (props : iCLP_Filters) => {
                 key={"topFilters"}
                 accordionAction={handleFilterClick}
                 items={topFilters}
-                children={[<></>, <></>, <></>]}
                 useInternalOpenClosedState={false}
-            />
+            >
+                <></>
+                <></>
+                <></>
+            </Accordion>
             <ExpandCollapse
                 expanderStyle="button"
                 expandText="Show More Filters"
@@ -69,9 +72,12 @@ export const CLP_Filters = (props : iCLP_Filters) => {
                         key={"bottomFilters"}
                         accordionAction={handleFilterClick}
                         items={bottomFilters}
-                        children={[<></>, <></>, <></>]}
                         useInternalOpenClosedState={false}
-                    />
+                    >
+                        <></>
+                        <></>
+                        <></>
+                    </Accordion>
                 }
             />
 
