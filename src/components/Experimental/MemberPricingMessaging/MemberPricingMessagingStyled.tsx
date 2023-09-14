@@ -41,12 +41,13 @@ export const MemberPricingMessagingStyled = styled.div`
 
     span {
       font-size: var(--FontSizeSmall);
+      color: #D83B18; 
     }
   }
 
   .info-link {
     text-decoration: underline;
-    color: var(--colorSpicedRed);
+    color: #D83B18;
     padding: 0.2rem;
     position: relative;
     display: inline-flex;
@@ -54,7 +55,7 @@ export const MemberPricingMessagingStyled = styled.div`
     font-size: 0.85rem;
     
     :hover {
-      background-color: var(--colorSpicedRed);
+      background-color: #D83B18;
       color: white;
       padding: 0.2rem;
       border-radius: 0.2rem;
