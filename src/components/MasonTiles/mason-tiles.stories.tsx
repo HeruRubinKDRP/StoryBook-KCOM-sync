@@ -1,167 +1,66 @@
-import { StoryFn, Meta } from "@storybook/react/";
-import React, { ReactElement } from "react";
-import {iMasonTileGroup, MasonTileGroup, masonTileType} from "./MasonTile";
+// MasonTiles.stories.tsx
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import MasonTiles, { MasonTilesProps } from './MasonTiles';
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
-export default{
-  title : "Organisms/Tile Group",
-  component : MasonTileGroup,
-  argTypes:{
-    tiles : { control : "object"},
-    layoutType : {control : "select", options : ["auto-fit" , "two-right" , "two-left" , "two-bottom"]}
-  }
+export default {
+    title: 'Components/MasonTiles',
+    component: MasonTiles,
 } as Meta;
 
-const Template: StoryFn<iMasonTileGroup> = (args) => <MasonTileGroup {...args} />
-
-export const ExampleTilesGroup = Template.bind({});
-
-const exampleTiles : masonTileType[] =
-  [
-    {
-      componentType : "content-tile",
-      weight : 4,
-      content : {
-        component : "content",
-        sectionName : "",
-        hasFocalImage : false,
-        sectionType: "content-front-and-center",
-        mainMessage:"Test",
-        mainMessageSize:"Medium",
-        mainMessageColor:"white",
-        secondaryMessage:"The SMART way to have the perfect cup, at any time, anywhere",
-        secondaryMessageSize:"Small",
-        messageAlignment : "center",
-        backGroundType:"image",
-        hasVideoPlayButton:false,
-        backgroundUrlPath:"https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        backgroundColor : "white",
-        mainTextHasShadow : true,
-        heightMethod: "one-viewport",
-        contrastBackground:"dark",
-        hasCTA:true,
-        ctaLabel:"test 123",
-        ctaLinkTo:"",
-
-      },
-    },
-    {
-      componentType : "content-tile",
-      weight : 2,
-      content : {
-        component : "content",
-        sectionName: "",
-        hasFocalImage : false,
-        sectionType: "content-front-and-center",
-        mainMessage:"Test",
-        mainMessageSize:"Medium",
-        mainMessageColor:"white",
-        messageAlignment : "center",
-        secondaryMessage:"The SMART way to have the perfect cup, at any time, anywhere",
-        secondaryMessageSize:"Small",
-        backGroundType:"image",
-        hasVideoPlayButton:false,
-        backgroundUrlPath:"https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        backgroundColor : "white",
-        mainTextHasShadow : true,
-        heightMethod: "one-viewport",
-        contrastBackground:"dark",
-        hasCTA:true,
-        ctaLabel:"test 123",
-        ctaLinkTo:"",
-
-      },
-    },
-    {
-      componentType : "content-tile",
-      weight : 2,
-      content : {
-        component : "content",
-        sectionName: "",
-        hasFocalImage : false,
-        sectionType: "content-front-and-center",
-        mainMessage:"Test",
-        mainMessageSize:"Medium",
-        mainMessageColor:"white",
-        messageAlignment : "center",
-        secondaryMessage:"The SMART way to have the perfect cup, at any time, anywhere",
-        secondaryMessageSize:"Small",
-        backGroundType:"image",
-        hasVideoPlayButton:false,
-        backgroundUrlPath:"https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-        backgroundColor : "white",
-        mainTextHasShadow : true,
-        heightMethod: "one-viewport",
-        contrastBackground:"dark",
-        hasCTA:true,
-        ctaLabel:"test 123",
-        ctaLinkTo:"",
-
-      },
-    }
-  ]
-
-
-ExampleTilesGroup.args={
-  cellsWide : 4,
-  cellsHigh : 5,
-  tiles : exampleTiles
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const Template: StoryFn<MasonTilesProps> = (args) => <MasonTiles {...args} />;
+
+export const Layout1 = Template.bind({});
+Layout1.args = {
+    cellItems: [
+        {
+            cellType : 'basic',
+            title: 'Save 40% on your first order',
+            secondaryTitle: 'When you include Green Mountain Coffee Roasters® coffee with your order of beverages',
+            backgroundImage: '/editorial/home/homepage-bev-bg.jpg',
+            highlightImage: '/editorial/home/bev-hero-foreground.png',
+            backgroundColor: '#f1f1f1',
+            CTA: 'Click Me'
+        },
+        {
+            cellType : 'basic',
+            title: 'Recipes',
+            backgroundImage: '/editorial/home/bev-clp-bg.jpg',
+            highlightImage: '/editorial/home/starter-kit.jpg',
+            backgroundColor: '#f1f1f1',
+            CTA: 'Click Me'
+        },{
+            cellType : 'hero',
+            title: 'Cuddle up with a Fall beverage',
+            backgroundImage: '/editorial/home/recipes/recipes-example-1.jpg',
+            backgroundColor: '#5B3427',
+            CTA: 'Get the recipe'
+        },{
+            cellType : 'banner',
+            title: 'Beverages',
+            fontColor: 'white',
+            backgroundColor: colorNameToValue("dark-roast"),
+        },{
+            cellType : 'hero',
+            title: 'Item C',
+            backgroundImage: '/editorial/home/bev-clp-bg.jpg',
+            backgroundColor: '#f1f1f1',
+            CTA: 'Click Me'
+        }
+
+        // Add more items
+    ],
+    layout: 'layout1',
+};
+
+export const Layout2 = Template.bind({});
+Layout2.args = {
+    cellItems: [
+        { cellType : 'basic',title: 'Item 1', highlightImage: 'image1.jpg', backgroundColor: '#f1f1f1', CTA: 'Click Me' },
+        { cellType : 'basic',title: 'Item 2', highlightImage: 'image1.jpg', backgroundColor: '#f1f1f1', CTA: 'Click Me' },
+        { cellType : 'hero',title: 'Item 3', highlightImage: 'image1.jpg', backgroundColor: '#f1f1f1', CTA: 'Click Me' },
+        // Add more items
+    ],
+    layout: 'layout2',
+};

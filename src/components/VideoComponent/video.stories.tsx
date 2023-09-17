@@ -1,6 +1,6 @@
 // components/Video.stories.tsx
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import { Video, iVideo } from './Video'; // adjust the import path to where your Video component is located
 
 export default {
@@ -8,7 +8,7 @@ export default {
     component: Video,
 } as Meta;
 
-const Template: Story<iVideo> = (args) => <Video {...args} />;
+const Template: StoryFn<iVideo> = (args) => <Video {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

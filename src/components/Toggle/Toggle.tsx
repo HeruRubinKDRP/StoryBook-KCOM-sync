@@ -68,9 +68,15 @@ export const KToggle =(props : Itoggle)=>{
   const getImage=(index : number):ReactElement=>{
     if(!props.toggleOptions[index].imagePath){return<></>}
     return (
-      <div className="image-container">
-          <Image alt="" src={props.toggleOptions[index].imagePath} />
-      </div>
+        <>
+          {
+              props.toggleOptions[index].imagePath &&
+              <div className="image-container">
+                <Image alt="" src={props.toggleOptions[index].imagePath ?? ""} />
+              </div>
+          }
+        </>
+
     )
   }
 

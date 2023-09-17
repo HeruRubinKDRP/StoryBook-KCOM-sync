@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iIngredients, Ingredients} from "./ingredients";
 
@@ -9,7 +9,7 @@ export default {
   }
 }as Meta;
 
-const Template: Story<iIngredients>=(args)=><Ingredients {...args}/>
+const Template: StoryFn<iIngredients>=(args)=><Ingredients {...args}/>
 
 export const IngredientsExample = Template.bind({});
 

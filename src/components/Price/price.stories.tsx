@@ -1,6 +1,5 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
-import {currencies, currencyType} from "../../pages/myBrews";
 import {Iprice, Price} from "./Price";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -17,7 +16,7 @@ export default{
   }
 }
 
-const Template: Story<Iprice> = (args) => <Price {...args} />;
+const Template: StoryFn<Iprice> = (args) => <Price {...args} />;
 
 export const PriceCommon = Template.bind({});
 

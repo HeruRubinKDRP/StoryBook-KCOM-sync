@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {IproductScene, ProductScene} from "./ProductScene";
 
@@ -24,7 +24,7 @@ export default {
 } as Meta;
 
 
-const Template: Story<IproductScene> = (args) => <ProductScene {...args} />;
+const Template: StoryFn<IproductScene> = (args) => <ProductScene {...args} />;
 
 export const OverheadPods = Template.bind({});
 

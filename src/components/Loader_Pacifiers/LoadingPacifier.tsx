@@ -12,7 +12,12 @@ export const LoadingPacifier = (props: iLoadingPacifier) => {
             case "coffee-cup-classic":
                 return (
                     <div className="loading-graphic">
-                        <Image src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image
+                            src="/loaders/cup_loader_med.gif"
+                            width={130}
+                            height={136}
+                            alt="loading"
+                        />
                     </div>
                 )
 

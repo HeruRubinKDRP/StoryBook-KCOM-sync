@@ -76,7 +76,7 @@ export function ProductImage(props: IproductImage) {
                     >
 
                         <svg style={{overflow: "visible"}} viewBox="0 0 200 200" width="100%" height="100%">
-                            <image  href={podBaseImage} height="200" width="200"/>
+                            <image href={podBaseImage.src} height="200" width="200"/>
                             <mask id={`${props.uniqueID}mask1`}>
                                 <circle cx="59" cy="113" r="60" fill="white"/>
                             </mask>
@@ -89,7 +89,7 @@ export function ProductImage(props: IproductImage) {
                                 <image mask={`url(#${props.uniqueID}mask2)`} preserveAspectRatio="none" height="37"
                                        width="118" x="76" y="30" href={props.podLid}/>
                             </g>
-                            <image href={podShinyOverlay} height="200" width="200"/>
+                            <image href={podShinyOverlay.src } height="200" width="200"/>
 
                         </svg>
 

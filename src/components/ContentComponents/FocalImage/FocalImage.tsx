@@ -75,12 +75,16 @@ export const FocalImageContent =(props : iFocalImage)=>{
             <Image
                 src="/app/apple.svg"
                 alt=""
+                width={50}
+                height={50}
             />
           </a>
           <a href="">
             <Image
                 src="/app/google2.svg"
                 alt=""
+                width={50}
+                height={50}
             />
           </a>
         </div>

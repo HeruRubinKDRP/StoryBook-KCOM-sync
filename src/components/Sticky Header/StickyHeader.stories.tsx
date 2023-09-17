@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {iStickyHeader, StickyHeader} from "./StickyHeader";
 import {NavDemo} from "../NavMenu/NavigationV2/navigation.stories";
@@ -10,7 +10,7 @@ export default {
     argTypes: {}
 } as Meta;
 
-const Template: Story<iStickyHeader> = (args) => (
+const Template: StoryFn<iStickyHeader> = (args) => (
     <>
         <StickyHeader {...args} />
         <div style={{height:250, marginBottom:24, backgroundColor : "lightgray"}}></div>

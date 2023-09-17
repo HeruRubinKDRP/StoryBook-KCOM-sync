@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import {iPricingCarousel, PricingCarousel} from "./PricingCarousel";
 
 export default {
@@ -9,7 +9,7 @@ export default {
   }
 }as Meta;
 
-const Template: Story<iPricingCarousel>=(args)=><PricingCarousel {...args} />
+const Template: StoryFn<iPricingCarousel>=(args)=><PricingCarousel {...args} />
 export const ExamplePricingItem = Template.bind({});
 
 ExamplePricingItem.args={

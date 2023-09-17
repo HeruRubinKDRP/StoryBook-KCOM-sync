@@ -12,7 +12,8 @@ const config = {
     "@storybook/addon-interactions",
     '@storybook-addon-next-router',
     '@storybook/preset-next',
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    '@storybook/addon-jest'
   ],
   framework: {
     name: "@storybook/nextjs",

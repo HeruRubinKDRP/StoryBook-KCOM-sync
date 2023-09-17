@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iProductIdentity, ProductIdentity} from "./ProductIdentityArea";
 
@@ -9,7 +9,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iProductIdentity> =(args)=><div className="demo-box"><ProductIdentity {...args} /></div>
+const Template: StoryFn<iProductIdentity> =(args)=><div className="demo-box"><ProductIdentity {...args} /></div>
 
 export const ProductIdentityBasicView = Template.bind({});
 

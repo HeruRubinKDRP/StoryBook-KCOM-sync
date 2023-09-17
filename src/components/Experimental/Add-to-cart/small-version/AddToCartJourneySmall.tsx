@@ -114,7 +114,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <Image src={product.image} alt=""/>
+                        <Image
+                            src={product.image}
+                            alt=""
+                            width={180}
+                            height={180}
+                        />
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -127,7 +132,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <Image src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image
+                            width={130}
+                            height={136}
+                            src="/loaders/cup_loader_med.gif"
+                            alt="loading"
+                        />
                     </div>
                 </div>
             )
@@ -186,7 +196,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     <div className="product-area">
                         <div className="product-added">
                             <div className="product-image">
-                                <Image src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                                <Image
+                                    src={props.selectedProduct.image}
+                                    height={200}
+                                    width={200}
+                                    alt={props.selectedProduct.name}
+                                />
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">

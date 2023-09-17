@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const TypingContainer = styled.div`
@@ -7,21 +7,6 @@ const TypingContainer = styled.div`
 
 const WordContainer = styled.span`
   display: inline-block;
-`;
-
-const CharSpan = styled.span<{ delay: number }>`
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(0.15em);
-  animation: appear 0.2s forwards;
-  animation-delay: ${(props) => props.delay}s;
-
-  @keyframes appear {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
 export interface TypingEffectProps {
@@ -33,40 +18,32 @@ export interface TypingEffectProps {
 
 const TypingEffect: React.FC<TypingEffectProps> = ({
                                                        message,
-                                                       speed = 0.1,
+                                                       speed = 100,
                                                        showCursor = true,
                                                        classes = '',
                                                    }) => {
-    const [text, setText] = useState('');
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        let typedText = '';
         let index = 0;
+        const container = containerRef.current;
 
         function typeCharacter() {
-            if (index < message.length) {
-                typedText += message[index];
+            if (container && index < message.length) {
+                const charSpan = document.createElement('span');
+                charSpan.innerText = message[index];
+                container.appendChild(charSpan);
                 index++;
-                setText(typedText);
-                setTimeout(typeCharacter, speed * 1000);
+                setTimeout(typeCharacter, speed);
             }
         }
 
         typeCharacter();
-    }, [message, speed]);
+    }, []);
 
     return (
-        <TypingContainer className={`typing-effect ${classes}`}>
-            {text.split(' ').map((word, wordIndex) => (
-                <WordContainer key={wordIndex}>
-                    {word.split('').map((char, charIndex) => (
-                        <CharSpan key={charIndex} delay={(wordIndex + charIndex) * speed}>
-                            {char}
-                        </CharSpan>
-                    ))}
-                    {'\u00A0'}
-                </WordContainer>
-            ))}
+        <TypingContainer className={`typing-effect ${classes}`} ref={containerRef}>
+            {/* Content will be added here */}
         </TypingContainer>
     );
 };

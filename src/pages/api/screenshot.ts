@@ -110,6 +110,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
             // get cards data
             const cards = await page.$$('.clp-product-tile-wapper > div');  // This will return an array of ElementHandles
             for (const card of cards) {
+                // @ts-ignore - TS doesn't know about the check for valid ProductData before pushing
                 const basicData : ProductData = await page.evaluate(card => {
                     // Your existing code to extract basic product data
                     // but don't include the extractProductData call
@@ -170,10 +171,12 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
 
                 }, card); // Note: card is an ElementHandle, so we pass it as the second argument to page.evaluate
 
-                productsBasicData.push(basicData);
+                //we only push it if it's valid data so no undefined
+                if (basicData) {
+                    productsBasicData.push(basicData);
+                }
+
             }
-
-
 
             // After extracting data from the current page, store it into the allProductsData array
             allProductsData.push(...productsBasicData); // Using spread to concatenate arrays

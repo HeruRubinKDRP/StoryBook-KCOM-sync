@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { iTabNav, Tabnav } from './tabnav'
 
 export default {
@@ -11,7 +11,7 @@ export default {
     }
 } as Meta
 
-export const Template: Story = (args) => <Tabnav {...(args as iTabNav)} />
+export const Template: StoryFn = (args) => <Tabnav {...(args as iTabNav)} />
 
 Template.args = {
     TabButtons: ['string', 'one', 'two', 'three'],

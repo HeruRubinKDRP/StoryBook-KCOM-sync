@@ -1,6 +1,6 @@
 import React from 'react';
 import QuantityStepper, {StepperProps} from "./QuantityStepper";
-import {Story} from "@storybook/react/types-6-0";
+import {StoryFn} from "@storybook/react";
 
 
 export default {
@@ -8,7 +8,7 @@ export default {
     component: QuantityStepper,
 };
 
-const Template: Story<StepperProps> = (args) => <QuantityStepper {...args} />;
+const Template: StoryFn<StepperProps> = (args) => <QuantityStepper {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
