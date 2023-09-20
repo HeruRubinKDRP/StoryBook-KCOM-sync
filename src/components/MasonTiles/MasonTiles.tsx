@@ -34,6 +34,7 @@ const MasonTiles: React.FC<MasonTilesProps> = (props : MasonTilesProps) => {
                  CTA={item.CTA}
                  cellType={item.cellType}
                  backgroundColor={item.backgroundColor}
+                 iconStandard={item.iconStandard}
              />
             ))}
         </GridStyled>

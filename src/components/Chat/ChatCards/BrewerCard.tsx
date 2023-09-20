@@ -18,10 +18,11 @@ export const ChatBrewerCard: React.FC<iChatBrewerCardProps> = (props : iChatBrew
            </div>
             <KButton
                 label="Details"
-                buttonType="ecommerce-primary"
+                buttonType="secondary"
                 buttonWidth="fit-width"
                 iconPlacement="after-label"
-                iconStandard="none"
+                iconStandard="action-arrow"
+                transitionType="expand-bg"
             />
         </ChatBrewerCardStyled>
     )

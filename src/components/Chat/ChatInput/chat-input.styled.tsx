@@ -9,7 +9,7 @@ export const ChatInputStyled = styled.div`
   left: 0;
   height: 5rem;
   ${ctaColorStyles};
-  z-index: 1000 !important;
+  z-index: 10000 !important;
   
   .controls{
     position: relative;

@@ -110,7 +110,9 @@ export type iconType =
     "icon-subscribe" |
     "perks-logo-small" |
     "logo-keurig-circled" |
-    "icon-user"
+    "icon-user" |
+    "action-arrow" |
+    "send-icon"
     ;
 
 
@@ -131,6 +133,24 @@ export function Graphic(props: Igraphics) {
 
 
     switch (props.graphicName) {
+
+        case "send-icon":
+            graphicData=(
+               <svg viewBox="0 0 254.95 254.95" >
+            <path className="filled"
+                  d="m30.96,147.02l-21.12,80.94c-3.05,11.68,9.07,21.51,19.87,16.13l211.09-105.13c10.43-5.19,10.38-20.08-.08-25.21L30.47,10.8c-10.63-5.2-22.54,4.25-19.88,15.78l17.96,78c.71,3.1,3.31,5.42,6.47,5.79l86.34,9.89c3.11.36,5.53,2.87,5.77,6h0c.27,3.53-2.31,6.64-5.84,7.01l-83.85,8.17c-3.11.33-5.7,2.55-6.49,5.59Z"/>
+        </svg>
+            )
+            break;
+
+        case "action-arrow":
+            graphicData = (
+                <svg viewBox="0 0 48 48">
+                    <polyline className="stroked" points="33.46 11.01 46.45 24 33.46 36.99"/>
+                    <line className="stroked" x1="46.45" y1="24" x2="1.55" y2="24"/>
+                </svg>
+            );
+            break;
 
         case "logo-keurig-circled":
             graphicData=(

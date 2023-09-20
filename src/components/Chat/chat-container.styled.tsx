@@ -3,7 +3,15 @@ import styled from "styled-components";
 export const ChatContainerStyled = styled.div`
   height: 100%;
   position: relative;
-   
+  *{
+    box-sizing: border-box;
+  } 
+  .k-btn{
+    font-size: var(--step--4) !important;
+    padding: var(--space-2xs-xs) var(--space-xs-s) !important;
+  }
+  
+  
   .bg-filler{
     background: linear-gradient(180deg,rgb(255,255,255) 0%,rgba(242,236,206,0.44) 100%);
     position: fixed;

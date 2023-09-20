@@ -76,6 +76,7 @@ const GlobalStyleKCOM = createGlobalStyle`
     --space-3xl: clamp(6.00rem, calc(1.83rem + 20.87vw), 18.00rem);
 
     /* One-up pairs */
+    --space-line: clamp(0.1rem, calc(0.04rem + 0.76vw), 0.63rem);
     --space-tiny: clamp(0.19rem, calc(0.04rem + 0.76vw), 0.63rem);
     --space-small: clamp(0.31rem, calc(0.12rem + 0.98vw), 0.88rem);
     --space-medium: clamp(0.31rem, calc(0.12rem + 0.98vw), 1.25rem);

@@ -3,29 +3,32 @@ import styled from "styled-components";
 
 export const GridStyled = styled.div`
   display: grid;
-  max-height: 80vh;
+  min-height: 20vh;
   grid-template-columns: repeat(12,1fr);
   grid-gap: var(--space-medium);
-  grid-template-rows: repeat(12, 1fr); 
+  grid-template-rows: repeat(10,auto);
+  *{
+    box-sizing: border-box;
+  }
   .cell-base{
     display: flex;
   }
   &.layout1{
     .cell-0{
       grid-row-start: 2;
-      grid-row-end: 6;
+      grid-row-end: 2;
       grid-column-start: 1;
       grid-column-end: 13;
     }
     .cell-1{
-      grid-row-start: 6;
-      grid-row-end: 9;
+      grid-row-start: 3;
+      grid-row-end: 5;
       grid-column-start: 1;
       grid-column-end: 7;
     }
     .cell-2{
-      grid-row-start: 6;
-      grid-row-end: 9;
+      grid-row-start: 3;
+      grid-row-end: 4;
       grid-column-start: 7;
       grid-column-end: 13;
     }
@@ -38,11 +41,14 @@ export const GridStyled = styled.div`
     .cell-4{
       grid-column-start: 1;
       grid-column-end: 13;
-      grid-row-start: 9;
-      grid-row-end: 11;
+      grid-row-start: 5;
+      grid-row-end: 6;
     }
     .cell-5{
-
+      grid-row-start: 4;
+      grid-row-end: 5;
+      grid-column-start: 7;
+      grid-column-end: 13;
     }
     .cell-6{
 

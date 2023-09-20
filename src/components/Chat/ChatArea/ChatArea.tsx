@@ -11,15 +11,34 @@ import {NavLight} from "../../NavigationSimpler/NavLight";
 import {BigAcross} from "../ConversationBubbles/ContentBubbles/BigAcross/BigAcrossSection";
 import Typist from "../../Animated Effects/Typist/Typist";
 import {formattingResponseGeneral} from "../prompts";
+import {ChatPage} from "../ChatPageSections/ChatPages";
+import {navItems} from "../../../data/demo-nav-data";
 
 
-const ChatArea = () => {
+export interface IChatArea {
+    currentRoute : string;
+}
+
+const ChatArea = (props : IChatArea) => {
     const [isMuted, setIsMuted] = useState<boolean>(false);
+    useEffect(() => {
+        // Check if there's a route
+        if (props.currentRoute) {
+            // Logic to append content related to the route into the chat
+            // For demonstration, appending a system message
+            const newMessage = {
+                role: 'system',
+                content: `At this moment, The customer is interested in the ${props.currentRoute} section and likely interested in that: ${props.currentRoute || "Not Found"}.`,
+            };
+            setApiMessages([...apiMessages, newMessage]);
+        }
+    }, [props.currentRoute]); // Dependency on route
+
 
     const [apiMessages, setApiMessages] = useState<any[]>([
         {
             role: 'system',
-            content: 'you are a friendly customer service worker at a boutique called Keurig.com that sells Keurig coffee machines and coffee makers. A customer comes in looking for a new coffee maker. You welcome the customer and ask them if they have a specific machine in mind or if they\'d like help deciding. '
+            content: `you are a friendly customer service worker at a boutique called Keurig.com that sells Keurig coffee machines, beverages, and accessories. A customer comes in looking to shop. You welcome the customer and ask them if they have a ${props.currentRoute} in mind or if they'd like help deciding. `
         },{
             role: 'system',
             content: 'If the customer wants help deciding on a Keurig coffee maker ask them a question to find out about how coffee fits into their life. Ask probing questions until you have enough information to recommend 1-3 coffee makers.'
@@ -42,14 +61,13 @@ const ChatArea = () => {
     const messagesEndRef = useRef<HTMLDivElement | null>(null); // Create a ref
 
     const scrollToBottom = () => {
+        console.log("scrollToBottom");
         if (messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
         }
     };
 
-    useEffect(() => {
-        scrollToBottom();
-    }, [uiMessages]); // Scroll to bottom whenever uiMessages changes
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserInput(e.target.value);
     };
@@ -77,7 +95,7 @@ const ChatArea = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ userInput: `${messageToSend}. ${formattingResponseGeneral}` , conversation: newApiMessages }),
+            body: JSON.stringify({ userInput: `${messageToSend}. ${formattingResponseGeneral(props.currentRoute)}` , conversation: newApiMessages }),
         });
 
         const data = await response.json();
@@ -113,6 +131,9 @@ const ChatArea = () => {
         if (!initialMessage) {
             setUserInput('');
         }
+
+        // Directly call scrollToBottom after updating messages
+        scrollToBottom();
     }, [apiMessages, uiMessages, userInput, isMuted]); // Add dependencies here
 
     const toggleMute = () => {
@@ -130,30 +151,26 @@ const ChatArea = () => {
 
     return (
         <ChatContainerStyled className="chat-container">
-            <NavLight/>
+            <NavLight navItems={navItems}/>
             <div className="conversation-container">
                 <div>
-                    <BigAcross
-                        backgroundImage="/editorial/home/intro_clipped2.png"
-                        mainMessage="25% Off Your Entire Order When You Bundle"
-                        secondaryMessage="Buy a coffee maker and 4+ boxes of K-Cup® pods"
-                        ctaLabel="Shop Coffee Makers"
-                        backgroundColor="#ecd8c1"
-                        actionFunction={
-                        ()=>handleSend(
-                            'Give 3 Keurig coffee maker recommendations to get started. Explain this offer to the customer and ask if they\'d like to take advantage of it.The they buy any coffee maker and four or more boxes of coffee they get 25% off their entire order. ask them if they would like some help finding a coffee maker or they want to browse all',
-                            false)}
-                        />
-                        <Typist
-                            speed={0.02}
-                            message={"Hi, Welcome to Keurig - I'm your virtual assistant. I can help you find the perfect coffee maker and coffee for you. I can also help you with any questions you have about your Keurig machine or coffee."}
-                        />
+                    {props.currentRoute &&
+                        <>
+                            {/*<div className="current-route">Current Route: {props.currentRoute}</div>*/}
+                            <ChatPage isMuted={isMuted} route={props.currentRoute} actionFunction={()=>handleSend(
+                                'Give 3 specific Keurig coffee maker recommendations to get started. Explain this offer to the customer and ask if they\'d like to take advantage of it.The they buy any coffee maker and four or more boxes of coffee they get 25% off their entire order. ',
+                                false)} />
+                        </>
+
+                    }
                 </div>
                 {messagePairs.map((pair, index) => (
+
                     <div key={index} className="conversation">
                         {/*{message.role === 'assistant' && <div>{`${JSON.stringify(message)}`}</div>}*/}
+
                         {
-                            pair[1] && pair[1].recommendations.length > 0 &&
+                            pair[1] && pair[1].recommendations && pair[1].recommendations.length > 0 &&
                             <div className="recommendations">
                                 <RecommendationBubble
                                     recommendations={pair[1].recommendations}

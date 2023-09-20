@@ -25,6 +25,7 @@ export const BigAcross: React.FC<iBigAcrossProps> = (props : iBigAcrossProps) =>
                     buttonType="primary"
                     buttonWidth="fit-to-content"
                     actionFunc={props.actionFunction}
+                    transitionType="expand-bg"
                 />
             </div>
             <div className="image-area">

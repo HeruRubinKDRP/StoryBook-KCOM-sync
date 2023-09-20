@@ -9,10 +9,13 @@ export const BigAcrossStyled = styled.section`
   display: flex;
   h1{
     font-size: var(--step--1);
+    margin-bottom: var(--space-line);
   }
   p{
     font-size: var(--step--3);
+    margin: var(--space-line) 0;
   }
+  
   .message-area {
     width: 50%;
     z-index: 100;

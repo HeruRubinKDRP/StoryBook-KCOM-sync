@@ -2,10 +2,13 @@ import Image from "next/image";
 import React from "react";
 import {CellBasicStyled} from "./CellBasicStyled";
 import KButton from "../../../Kbutton/KButton";
+import {iconType} from "../../../Graphic/Graphic";
+import {CellTextArea} from "./CellTextArea/CellTextArea";
+import {colorNameToValue} from "../../../_utilities/color-name-to-value/colorNameToValue";
 
 export type iCellItem = {
     index?: number;
-    cellType: 'basic' | 'image' | 'hero' | 'banner'; // Add more cell types as needed
+    cellType: 'basic' | 'chat-text' | 'suggestions' | 'image' | 'hero' | 'banner' | 'top-title' | 'highlight-item'; // Add more cell types as needed
     title?: string;
     secondaryTitle?: string;
     highlightImage?: string;
@@ -13,10 +16,12 @@ export type iCellItem = {
     backgroundImage?: string;
     fontColor?: string;
     CTA?: string;
+    iconStandard?: iconType;
 };
 
 export const CellBase = (props : iCellItem) => {
-    console.log("Rendering CellBase with props:", props);
+
+
 
     return(
         <CellBasicStyled
@@ -25,26 +30,18 @@ export const CellBase = (props : iCellItem) => {
             ${props.cellType}
             cell-base`}   >
             <div className="cell-content">
-                <h3 style={{color:props.fontColor}}>{props.title}</h3>
-                {
-                    props.secondaryTitle &&
-                    <p style={{color : props.fontColor}}>{props.secondaryTitle}</p>
-                }
-                {
-                    props.CTA &&
-                    <KButton
-                        label={props.CTA ?? "Learn More"}
-                        buttonType="primary"
-                        buttonWidth="fit-to-content"
-                        iconPlacement="after-label"
-                        iconStandard="none"
-                        transitionType="expand-bg"
-                    />
-                }
+                <CellTextArea
+                    title={props.title ?? ""}
+                    secondaryTitle={props.secondaryTitle ?? ""}
+                    CTA={props.CTA ?? ""}
+                    iconStandard={props.iconStandard ?? "none"}
+                    fontColor={props.fontColor ?? colorNameToValue("dark-roast")}
+                />
+
             </div>
             {
                 props.highlightImage &&
-                <Image className="highlight-image" height={200} width={200} src={props.highlightImage} alt={props.title ?? ""} />
+                <Image className="highlight-image" height={1200} width={500} src={props.highlightImage} alt={props.title ?? ""} />
 
             }
             {
