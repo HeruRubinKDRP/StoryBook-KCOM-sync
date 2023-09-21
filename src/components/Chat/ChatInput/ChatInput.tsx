@@ -34,6 +34,7 @@ export const ChatInput: React.FC<iChatInputProps> = (props) => {
                     classes="send-btn"
                     buttonWidth="fit-to-content"
                     iconStandard={props.iconStandard ?? "none"}
+                    iconPlacement={"after-label"}
                     actionFunc={() => props.onSend(props.userInput)}
                     transitionType="expand-bg"
                 />

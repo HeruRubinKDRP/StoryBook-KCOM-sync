@@ -1,6 +1,7 @@
 import {BackButton, ChildItem, MainItem, MenuContainer, NavLightStyled} from "./nav-light.styled";
 import Graphic from "../Graphic/Graphic";
 import React, {useState, useEffect} from "react";
+import Link from "next/link";
 
 export interface NavLightProps{
     navItems: NavItem[];
@@ -36,7 +37,9 @@ export const NavLight: React.FC<NavLightProps> = (props: NavLightProps) => {
         <NavLightStyled id="header-wrapper">
             <div className="menu-container" onClick={toggleMenu}>
                 <Graphic graphicName={"logo"} />
-                <Graphic graphicName={"icon-menu"} />
+                {
+                    isMenuVisible ? <Graphic graphicName={"close"} /> : <Graphic graphicName={"icon-menu"} />
+                }
             </div>
             <MenuContainer isVisible={isMenuVisible} isMobile={isMobile} showChildren={showChildren}>
                 {isMobile ? (
@@ -79,7 +82,9 @@ export const NavLight: React.FC<NavLightProps> = (props: NavLightProps) => {
                         </div>
                         <div className="child-items">
                             {showChildren?.children?.map((child, index) => (
-                                <ChildItem className="child-item" key={index}>{child.label}</ChildItem>
+                                <Link href={child.link}>
+                                    <ChildItem className="child-item" key={index}>{child.label}</ChildItem>
+                                </Link>
                             ))}
                         </div>
                     </>

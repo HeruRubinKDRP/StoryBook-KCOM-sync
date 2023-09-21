@@ -8,6 +8,15 @@ export const navItems: NavItem[] = [
             {
                 label: 'Coffee Makers',
                 link: '/coffee-makers',
+            },{
+                label: 'Beverages',
+                link: '/beverages',
+            },{
+                label: 'Accessories',
+                link: '/accessories',
+            },{
+                label: 'Shop All',
+                link: '/shop-all',
             },
         ]
     },
@@ -15,13 +24,18 @@ export const navItems: NavItem[] = [
         label: 'Explore',
         link: '/about',
         children: [
+
+            {
+                label: 'Help With Your Coffee Maker, Pods, and Accessories',
+                link: '/AI/history',
+            },
             {
                 label: 'Coffee Knowledge',
-                link: '/team',
+                link: '/AI/coffee-knowledge',
             },
             {
                 label: 'Sustainability & Ethical Sourcing',
-                link: '/history',
+                link: '/AI/sustainability',
             },
         ],
     },
@@ -31,12 +45,12 @@ export const navItems: NavItem[] = [
         children: [
             {
                 label: 'Recipes',
-                link: '/team',
+                link: '/AI/recipes',
             },
             {
-                label: 'Sustainability & Ethical Sourcing',
-                link: '/history',
-            },
+                label: 'Social',
+                link: '/AI/social',
+            }
         ]
     },
 ];

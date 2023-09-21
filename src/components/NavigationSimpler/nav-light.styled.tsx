@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {NavItem} from "./NavLight";
+import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 interface MenuContainerProps {
     isMobile: boolean;
     showChildren: NavItem | null;
@@ -15,12 +16,23 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   z-index: 100 !important;
   display: flex;
   flex-direction: row;
+ 
+  a{
+    text-decoration: none;
+  }
   .main-items{
     width: auto;
   }
   .child-items{
     width: 100%;
   }
+  
+  .child-item{
+    text-decoration: none;
+    color: ${colorNameToValue("dark-roast")};
+    font-size: var(--step--1);  // Update this to your desired mobile font size
+  }
+  
   .main-items, .child-items {
     display: flex;
     flex-direction: column;
@@ -49,8 +61,8 @@ export const MenuContainer = styled.div<MenuContainerProps>`
     }
 
     & .child-item {
-      width: 100%;
-      font-size: var(--step--1);  // Update this to your desired mobile font size
+      width: 100%; 
+      
     }
   }
 
@@ -61,7 +73,10 @@ export const MenuContainer = styled.div<MenuContainerProps>`
 export const NavLightStyled = styled.div`
   z-index: 10000;
   position: fixed;
-  width: 100%; 
+  width: 100%;
+  .close{
+    padding: 1rem;
+  }
   .menu-container {
     width: initial;
     position: fixed;

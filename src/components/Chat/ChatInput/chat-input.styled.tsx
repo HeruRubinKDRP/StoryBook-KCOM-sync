@@ -4,16 +4,16 @@ import {ctaColorStyles} from "../../_commonStyles/common.styled";
 
 export const ChatInputStyled = styled.div`
   position: fixed;
-  bottom: 0;
+  bottom: var(--space-xs);
   right: 0;
   left: 0;
-  height: 5rem;
+  height: 4.5rem;
   ${ctaColorStyles};
   z-index: 10000 !important;
   
   .controls{
     position: relative;
-    height: 3.5rem;
+    height: 4.5rem;
     .send-btn{
       width: auto;
       height: 3rem !important;
@@ -39,7 +39,7 @@ export const ChatInputStyled = styled.div`
   color: var(--colorText);
   font-family: inherit;
   font-size: 1.25rem;
-  height: 3.5rem;
+  height: 4.5rem;
   outline: 0;
   padding-inline-end: 1rem;
   padding-inline-start: 52px;

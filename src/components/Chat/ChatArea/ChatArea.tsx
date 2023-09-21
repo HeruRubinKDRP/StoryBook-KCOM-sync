@@ -8,8 +8,6 @@ import {ChatInput} from "../ChatInput/ChatInput";
 import RecommendationBubble from "../ConversationBubbles/RecommendationBubble/RecommendationBubble";
 import {brewerLibrary} from "../../../data/brewer-library";
 import {NavLight} from "../../NavigationSimpler/NavLight";
-import {BigAcross} from "../ConversationBubbles/ContentBubbles/BigAcross/BigAcrossSection";
-import Typist from "../../Animated Effects/Typist/Typist";
 import {formattingResponseGeneral} from "../prompts";
 import {ChatPage} from "../ChatPageSections/ChatPages";
 import {navItems} from "../../../data/demo-nav-data";
@@ -149,6 +147,10 @@ const ChatArea = (props : IChatArea) => {
         return acc;
     }, []);
 
+    const handleNavigation = async (route: string, instructions : string) => {
+
+    }
+
     return (
         <ChatContainerStyled className="chat-container">
             <NavLight navItems={navItems}/>
@@ -161,7 +163,6 @@ const ChatArea = (props : IChatArea) => {
                                 'Give 3 specific Keurig coffee maker recommendations to get started. Explain this offer to the customer and ask if they\'d like to take advantage of it.The they buy any coffee maker and four or more boxes of coffee they get 25% off their entire order. ',
                                 false)} />
                         </>
-
                     }
                 </div>
                 {messagePairs.map((pair, index) => (
@@ -195,6 +196,7 @@ const ChatArea = (props : IChatArea) => {
                 onSend={(message) => handleSend(message, true)}
                 handleChange={handleInputChange}
                 userInput={userInput}
+                iconStandard="send-icon"
             />
             <div className="bg-filler"></div>
         </ChatContainerStyled>
