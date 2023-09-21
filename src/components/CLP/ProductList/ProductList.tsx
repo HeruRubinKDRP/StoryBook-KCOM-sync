@@ -1,4 +1,4 @@
-import React, {useState, useEffect, lazy, Suspense} from 'react';
+import React, {useState, useEffect, lazy, Suspense, useCallback} from 'react';
 import ProductInfoCard, {filterDataItemT} from '../SimpleCard/SimpleCard';
 import {iProductInfoCardProps, tCardMode, tPresentationMode} from "../product-card.interfaces";
 import {
@@ -90,13 +90,9 @@ const ProductList = (props: ProductListProps) => {
         setCurrentPage(0);
     }, [props.products, props.columns, props.pageSize]);
 
-    useEffect(() => {
-        dynamicColumns(width || screen.width);
-    }, [width, props.columnsLargeScreen, props.columnsMediumScreen, props.columnsSmallScreen, props.columnsHugeScreen]);
 
-    useEffect(() => {
-        setVisibleProducts(getVisibleProducts());
-    },[currentPage, sortBy, activeFilters, props.products]);
+
+
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(event.target.value);
@@ -183,7 +179,8 @@ const ProductList = (props: ProductListProps) => {
 
     }
 
-    const dynamicColumns = (widthX: number) => {
+
+    const dynamicColumns = useCallback((widthX: number) => {
         if (widthX > 1800) {
             setCurrentColumns(props.columnsHugeScreen);
         } else if (widthX > 900 && widthX <= 1800) {
@@ -193,20 +190,18 @@ const ProductList = (props: ProductListProps) => {
         } else {
             setCurrentColumns(props.columnsSmallScreen);
         }
-    }
+    },[
+        props.columnsHugeScreen,
+        props.columnsLargeScreen,
+        props.columnsMediumScreen,
+        props.columnsSmallScreen
+    ]);
 
-    const handlePreviousPage = () => {
-        setCurrentPage((prev) => prev - 1);
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    };
 
-    const handleNextPage = () => {
-        setCurrentPage((prev) => prev + 1);
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    };
 
     //SEARCH
-    const getVisibleProducts = () => {
+
+    const getVisibleProducts = useCallback(() => {
         let productsFiltered = props.products;
         if (activeFilters.length > 0) {
             productsFiltered = productsFiltered.filter(product =>
@@ -222,13 +217,53 @@ const ProductList = (props: ProductListProps) => {
                     }) : false
             );
         }
-        console.log("productsFiltered", productsFiltered);
-
 
         const startIndex = currentPage * (props.pageSize || 0) * (props.columns || 0);
         const endIndex = startIndex + (props.pageSize || 0) * (props.columns || 0);
         return productsFiltered.slice(startIndex, endIndex);
+    },[
+        props.products,
+        activeFilters,
+        currentPage,
+        props.pageSize,
+        props.columns
+    ]);
+
+
+    useEffect(() => {
+        setVisibleProducts(getVisibleProducts());
+    },[
+        currentPage,
+        sortBy,
+        activeFilters,
+        props.products,
+        getVisibleProducts
+    ]);
+
+    useEffect(() => {
+        dynamicColumns(width || screen.width);
+    }, [
+        width, props.columnsLargeScreen,
+        props.columnsMediumScreen,
+        props.columnsSmallScreen,
+        props.columnsHugeScreen,
+        dynamicColumns,
+        getVisibleProducts,
+        props.filtersDefinition,
+        props.useFilters
+    ]);
+
+    const handlePreviousPage = () => {
+        setCurrentPage((prev) => prev - 1);
+        window.scrollTo({top: 0, behavior: 'smooth'});
     };
+
+    const handleNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
+
 
 
     const getDynamicStyles = (widthX: number) => {
@@ -279,7 +314,10 @@ const ProductList = (props: ProductListProps) => {
             )
         }
 
-    }, []);
+    }, [
+        props.filtersDefinition,
+        props.useFilters
+    ]);
 
     const [filterItems, setFilterItems] = useState<iCategoryItem[]>([]);
 

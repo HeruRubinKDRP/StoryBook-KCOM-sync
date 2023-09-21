@@ -31,9 +31,7 @@ import AnimatedDashedLine from "./AnimatedDashLine/DashLine";
 import {RotatingBox} from "./debug/debug_cube";
 import {MugPlanes} from "./Models/MugPlanes";
 import MugCeramic from "./Models/CeramicMug";
-
-
-
+import Image from "next/image";
 
 
 export interface iThreeSceneProps {
@@ -73,7 +71,8 @@ const ThreeScene = (props: iThreeSceneProps) => {
 
     return (
         <div style={{ height: "100vh" }}>
-            <img
+            <Image
+                alt=""
                 src="./three/textures/coffee-texture_NRM.jpg"
                 style={{
                     position: "fixed",

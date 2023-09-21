@@ -1,5 +1,4 @@
-import { Meta } from '@storybook/react/types-6-0';
-import { Story } from '@storybook/react/types-6-0';
+import { Meta, StoryFn } from '@storybook/react';
 import Switch, { SwitchProps } from './Switch';
 
 export default {
@@ -12,7 +11,7 @@ export default {
     },
 } as Meta;
 
-const Template: Story<SwitchProps> = (args) => <Switch {...args} />;
+const Template: StoryFn<SwitchProps> = (args) => <Switch {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

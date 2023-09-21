@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { StoryFn, Meta } from '@storybook/react';
 import Accordion, { iAccordionProps } from './KAccordion';
 
 export default {
@@ -18,7 +18,7 @@ export default {
     },
 } as Meta;
 
-const Template: Story<iAccordionProps> = args => <Accordion {...args} />;
+const Template: StoryFn<iAccordionProps> = args => <Accordion {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -41,13 +41,13 @@ Default.args = {
         }
         ],
     children: [
-        <p>Child elements for all items</p>,
-        <div>
+        <p key={1}>Child elements for all items</p>,
+        <div key={2}>
             <p>Child elements for all items</p>
             <p>Child elements for all items</p>
             <p>Child elements for all items</p>
         </div>,
-        <div>
+        <div key={3}>
             <p>Child elements for all items</p>
             <p>Child elements for all items</p>
             <p>Child elements for all items</p>

@@ -12,9 +12,9 @@ class MyDocument extends Document {
       <Html>
         <Head >
 
-<style>
+        <style>
 
-</style>
+        </style>
         </Head>
         <body>
         <Main />

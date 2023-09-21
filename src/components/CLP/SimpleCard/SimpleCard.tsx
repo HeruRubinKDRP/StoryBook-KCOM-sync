@@ -13,6 +13,7 @@ import {h} from "million/jsx-runtime";
 
 // Define an interface for the purchase information of a product
 export interface purchaseInfo {
+
     price: number;
     inStock: boolean;
     variant: {
@@ -49,7 +50,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
 
     useEffect(() => {
         setDataAreaHeight(textContainerRef.current?.offsetHeight || 0);
-    }, [props.prices]);
+    }, [props.prices, textContainerRef]);
 
 // Define a function to check if all products are out of stock
     const isAllOutOfStock = (products: purchaseInfo[]): boolean => {
@@ -81,7 +82,7 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
         if (isAllOutOfStock(props.prices)) {
             setShowEmailInput(true);
         } else {
-            props.onClick();
+            props.onClick(false, props.index);
         }
     }
 
@@ -208,7 +209,6 @@ const ProductInfoCard = (props: iProductInfoCardProps) => {
                         )
                     }
                 </div>
-
             </div>
 
             <div className="backing"/>

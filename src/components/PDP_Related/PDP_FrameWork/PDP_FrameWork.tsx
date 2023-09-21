@@ -29,6 +29,7 @@ import {iStickyHeader, StickyHeader} from "../../Sticky Header/StickyHeader";
 import KButton from "../../Kbutton/KButton";
 import {Price} from "../../Price/Price";
 import ScrollToTopButton from "../../Kbutton/scroll-to-top-button/SrollToTopBtn";
+import Image from "next/image";
 
 
 export interface iPdpFramework {
@@ -149,7 +150,7 @@ export const PdpFramework = (props: iPdpFramework) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-                    <img alt={props.carousel.slideImageURLs[i].altText} className="image-item"
+                    <Image alt={props.carousel.slideImageURLs[i].altText} className="image-item"
                          src={props.carousel.slideImageURLs[i].path} title=""/>
                 </div>
             )

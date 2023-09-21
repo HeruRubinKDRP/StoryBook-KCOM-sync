@@ -1,19 +1,23 @@
 import {StyledLoadingPacifier} from "./StyledLoadingPacifier";
+import Image from "next/image";
 
 export interface iLoadingPacifier {
     pacifier : "coffee-cup" | "coffee-cup-classic"
 }
 
 export const LoadingPacifier = (props: iLoadingPacifier) => {
-
-
     const getPacifier = () => {
         switch (props.pacifier){
 
             case "coffee-cup-classic":
                 return (
                     <div className="loading-graphic">
-                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image
+                            src="/loaders/cup_loader_med.gif"
+                            width={130}
+                            height={136}
+                            alt="loading"
+                        />
                     </div>
                 )
 

@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0"
+import { StoryFn, Meta } from "@storybook/react"
 import React from "react";
 import {iKTable, KTable, kTableCellType} from "./KTable";
 import {sampleTable, sampleTableBig, tableWithIcons} from "../../data/sample-data";
@@ -11,9 +11,9 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iKTable> = (args)=><div style={{padding : "3rem"}}><KTable {...args}/></div>
-const CompTemplate: Story<iKTable> = (args)=><div style={{height: "100vh"}}><KTable {...args}/></div>
-const BasicTemplate: Story<iKTable> = (args)=><KTable {...args}/>
+const Template: StoryFn<iKTable> = (args)=><div style={{padding : "3rem"}}><KTable {...args}/></div>
+const CompTemplate: StoryFn<iKTable> = (args)=><div style={{height: "100vh"}}><KTable {...args}/></div>
+const BasicTemplate: StoryFn<iKTable> = (args)=><KTable {...args}/>
 
 export const ExampleTable = CompTemplate.bind({});
 

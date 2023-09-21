@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {HeaderArea, iHeaderArea} from "./HeaderArea";
 
@@ -15,7 +15,7 @@ export default {
 
 } as Meta;
 
-const Template: Story<iHeaderArea>=(args)=> <HeaderArea {...args} />;
+const Template: StoryFn<iHeaderArea>=(args)=> <HeaderArea {...args} />;
 
 export const HeaderLines = Template.bind({});
 

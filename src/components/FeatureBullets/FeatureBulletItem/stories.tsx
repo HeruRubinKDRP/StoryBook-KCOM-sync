@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iconsList} from "../../Graphic/iconData";
 import {FeatureBullet, iFeatureBullet} from "./FeatureBullet";
@@ -12,7 +12,7 @@ export default{
   }
 }as Meta;
 
-const Template: Story<iFeatureBullet> =(args) =><div className="demo-box-no-pad"><FeatureBullet {...args}/></div>
+const Template: StoryFn<iFeatureBullet> =(args) =><div className="demo-box-no-pad"><FeatureBullet {...args}/></div>
 
 export const BasicView = Template.bind({});
 

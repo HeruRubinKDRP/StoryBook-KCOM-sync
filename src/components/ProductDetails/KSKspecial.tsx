@@ -1,6 +1,7 @@
 import React from "react";
 import KButton from "../Kbutton/KButton";
 import {Price} from "../Price/Price";
+import Image from "next/image";
 
 export const KSKspecial=()=>{
   return (
@@ -21,7 +22,11 @@ export const KSKspecial=()=>{
           <span>{"with Keurig® Starter Kit"}</span>
         </p>
         <div className="brewer-plus fader">
-          <img src="/product-images/kcs/kcs-0.png" className="small-product-image" alt="small-product-image"/>
+          <Image
+              src="/product-images/kcs/kcs-0.png"
+              className="small-product-image"
+              alt="small-product-image"
+          />
           <label>+</label>
           <div className="pod-slots">
             <div className="pod-slot-item"/>

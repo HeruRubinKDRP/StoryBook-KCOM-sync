@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iPopUp, PopUp} from "./PopUp";
 
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iPopUp> = (args)=><PopUp {...args} />
+const Template: StoryFn<iPopUp> = (args)=><PopUp {...args} />
 export const ExamplePopUp = Template.bind({});
 
 ExamplePopUp.args={

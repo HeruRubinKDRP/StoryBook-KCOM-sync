@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {redeemBev} from "../data/loyalty-dummy-data";
 import {iLoyaltyTracker, LoyaltyTracker} from "./loyalty-tracker";
@@ -26,7 +26,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iLoyaltyTracker> = (args)=><LoyaltyTracker {...args} />
+const Template: StoryFn<iLoyaltyTracker> = (args)=><LoyaltyTracker {...args} />
 
 export const LoyaltyTrackerBase = Template.bind({});
 
@@ -41,7 +41,7 @@ LoyaltyTrackerBase.args ={
   ]
 }
 
-const DemoTemplate: Story<iLoyaltyTracker> = (args)=> (
+const DemoTemplate: StoryFn<iLoyaltyTracker> = (args)=> (
   <div>
     <h2>Large</h2>
     <div style={{width: "100%", padding: "6vw", minWidth:1000}}>

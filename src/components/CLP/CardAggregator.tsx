@@ -25,6 +25,7 @@ export const CardAggregator = (props : iCardAggregatorProps) => {
         switch (props.cardMode){
             case 'simple':
                 return <ProductInfoCard
+                    index ={props.index}
                     flag={props.flag}
                     key={props.index+"info-card"}
                     prices={props.product.prices}

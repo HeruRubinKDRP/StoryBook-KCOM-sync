@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {colorNamesList} from "../_utilities/color-name-to-value/colorNameToValue";
 import {Flag, flagStyles, iFlag} from "./Flag";
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story <iFlag> = (args)=><div style={{padding : "4rem"}}><Flag {...args} /></div>;
+const Template: StoryFn<iFlag> = (args)=><div style={{padding : "4rem"}}><Flag {...args} /></div>;
 
 export const FlagGeneralView = Template.bind({});
 

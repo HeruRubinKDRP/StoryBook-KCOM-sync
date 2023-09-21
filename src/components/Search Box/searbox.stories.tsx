@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import SearchBox from "./SearchBox";
 
@@ -10,7 +10,7 @@ export default {
     }
 }as Meta;
 
-const Template : Story = (args)=>(<div><SearchBox {...args}/></div>)
+const Template : StoryFn = (args)=>(<div><SearchBox {...args}/></div>)
 
 export const SearchBoxExample = Template.bind({});
 SearchBoxExample.args = {

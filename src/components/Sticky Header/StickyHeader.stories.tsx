@@ -1,7 +1,7 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {iStickyHeader, StickyHeader} from "./StickyHeader";
-import {navDemo} from "../NavMenu/NavigationV2/navigation.stories";
+import {NavDemo} from "../NavMenu/NavigationV2/navigation.stories";
 import {ScrapComponent} from "./scrap";
 
 export default {
@@ -10,7 +10,7 @@ export default {
     argTypes: {}
 } as Meta;
 
-const Template: Story<iStickyHeader> = (args) => (
+const Template: StoryFn<iStickyHeader> = (args) => (
     <>
         <StickyHeader {...args} />
         <div style={{height:250, marginBottom:24, backgroundColor : "lightgray"}}></div>
@@ -40,6 +40,6 @@ StickyHeaderExample.args = {
         defaultActiveHoverIndex : -1,
         submitButtonText : "Subscribe",
         isNobo : false,
-        navItems : navDemo
+        navItems : NavDemo
     }
 }

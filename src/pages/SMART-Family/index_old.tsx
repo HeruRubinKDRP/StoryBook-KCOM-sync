@@ -6,6 +6,7 @@ import {ProductCard} from "../../components/ContentComponents/ProductCard/Produc
 import {ExpandCollapse} from "../../components/ExpandCollapse/expand-collapse";
 import {PageNav} from "../../components/PageNav/PageNav";
 import {KTable} from "../../components/Table/KTable";
+import Image from "next/image";
 
 
 export default function SMART_Family＿Content() {
@@ -118,12 +119,12 @@ export default function SMART_Family＿Content() {
         navPosition="bottom"
         slides={[
           <div key="0" className="images-container logos">
-            <img alt="" className="image-item" src="/logos/the-spoon.png"/>
-            <img alt="" className="image-item" src="/logos/cnn.png"/>
-            <img alt="" className="image-item" src="/logos/tikTok.png"/>
-            <img alt="" className="image-item" src="/logos/mens-health.png"/>
-            <img alt="" className="image-item" src="/logos/apartment-therapy.png"/>
-            <img alt="" className="image-item" src="/logos/usa-today.png"/>
+            <Image alt="" className="image-item" src="/logos/the-spoon.png"/>
+            <Image alt="" className="image-item" src="/logos/cnn.png"/>
+            <Image alt="" className="image-item" src="/logos/tikTok.png"/>
+            <Image alt="" className="image-item" src="/logos/mens-health.png"/>
+            <Image alt="" className="image-item" src="/logos/apartment-therapy.png"/>
+            <Image alt="" className="image-item" src="/logos/usa-today.png"/>
           </div>
         ]}
         keepNavButtons={false}

@@ -17,6 +17,7 @@ import {Price} from "../../Price/Price";
 import {featureItemT, FeaturesList, iFeaturesList} from "../../ProductDetails/FeaturesList/features-list";
 import {ValidationInput} from "../../ValidationInput/ValidationInput";
 import {ProductCardStyled} from "./product-card.styled";
+import Image from "next/image";
 
 export type variant ={
   variantName : string;
@@ -406,7 +407,7 @@ export const ProductCard = (props: iProductCard) => {
   return (
     <ProductCardStyled className="product-item-card">
       <h1 className="product-name">{props.productName}</h1>
-      <img alt="" className="product-image" src={props.productImagePath}/>
+      <Image alt="" className="product-image" src={props.productImagePath}/>
       <div className="color-options">
         {getColorOptions()}
       </div>

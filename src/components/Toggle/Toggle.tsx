@@ -1,6 +1,7 @@
 import React, {ReactElement, useEffect, useState} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import KButton, {caratPositionT} from "../Kbutton/KButton";
+import Image from "next/image";
 
 
 export type toggleItem = {
@@ -33,7 +34,7 @@ export const KToggle =(props : Itoggle)=>{
   useEffect(()=>{
     if(!props.overrideSelectedIndex){return}
     updateSelectedIndex(props.overrideSelectedIndex);
-  },[])
+  },[props.overrideSelectedIndex])
   const performAction =(index : number)=>{
     console.log(selectedIndex)
     updateSelectedIndex(index);
@@ -67,9 +68,15 @@ export const KToggle =(props : Itoggle)=>{
   const getImage=(index : number):ReactElement=>{
     if(!props.toggleOptions[index].imagePath){return<></>}
     return (
-      <div className="image-container">
-          <img alt="" src={props.toggleOptions[index].imagePath} />
-      </div>
+        <>
+          {
+              props.toggleOptions[index].imagePath &&
+              <div className="image-container">
+                <Image alt="" src={props.toggleOptions[index].imagePath ?? ""} />
+              </div>
+          }
+        </>
+
     )
   }
 

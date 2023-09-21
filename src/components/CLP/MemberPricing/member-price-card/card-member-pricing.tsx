@@ -112,7 +112,7 @@ const MemberPriceCard = (props : iMemberPricingCardProps ) => {
                                 productImage={props.product.image}
                                 productName={props.product.name}
                                 brandName={props.product.brand}
-                                productType={props.product.productType}
+                                productType={props.product.productType ?? "pod"}
                                 price={props.product.prices[selectedVariantIndex].price * 0.75}
                                 priceLabel={props.priceLabel}
                                 strikeThroughPrice={props.product.prices[selectedVariantIndex].price}

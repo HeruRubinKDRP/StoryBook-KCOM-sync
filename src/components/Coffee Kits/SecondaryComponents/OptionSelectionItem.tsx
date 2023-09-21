@@ -1,5 +1,6 @@
 import {OptionSelectionStyled} from "./option-selection-styled";
 import KButton from "../../Kbutton/KButton";
+import Image from "next/image";
 export interface iOptionSelectionProps{
     mainImage : string,
     secondaryTitle : string,
@@ -23,7 +24,7 @@ export const OptionSelectionItem = (props: iOptionSelectionProps) => {
             </div>
 
             <div className="main-image">
-                <img src={props.mainImage} alt=""/>
+                <Image src={props.mainImage} alt=""/>
             </div>
             <KButton
                 label={props.actionLabel}

@@ -31,7 +31,7 @@ export const Slide = styled.div<{bgColor?: colorByNameType, fontColor?: colorByN
   align-items: center;
   justify-content: center;
   background-color: ${props => colorNameToValue(props.bgColor)};
-  color: ${props => colorNameToValue(props.color)};
+  color: ${props => colorNameToValue(props.fontColor)};
 `;
 
 

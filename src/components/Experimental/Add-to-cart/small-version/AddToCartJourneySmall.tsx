@@ -5,10 +5,11 @@ import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
 import Graphic from "../../../Graphic/Graphic";
-import {createRef, RefObject, useEffect, useState} from "react";
+import {createRef, RefObject, useCallback, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
 import { ExpandCollapse } from "components/ExpandCollapse/expand-collapse";
+import Image from "next/image";
 
 
 export interface iSimpleProduct {
@@ -47,10 +48,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         },
     });
 
-    useEffect(() => {
-        upDateDimensions();
-        setSuggestionsLoaded(false);
-    }, [width]);
+
 
     const doLoadSuggestions = () => {
         setTimeout(() => {
@@ -67,19 +65,25 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         doLoadSuggestions();
     }, [width]);
 
-    const upDateDimensions = () => {
-        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
-        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
-    }
-
     const suggestionsSectionRef = createRef<HTMLDivElement>();
     const actionBarRef = createRef<HTMLDivElement>();
+
+    const upDateDimensions = useCallback(() => {
+        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
+        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
+    },[setSuggestionWidth, setActionbarHeight, actionBarRef, suggestionsSectionRef ])
+
+    useEffect(() => {
+        upDateDimensions();
+        setSuggestionsLoaded(false);
+    }, [width, upDateDimensions]);
+
+
 
     const handleAddSuggested = (index: number) => {
         if (!props.addSuggestionToCartFunc) {
             return;
         }
-
         props.addSuggestionToCartFunc(index);
     }
 
@@ -110,7 +114,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <img src={product.image} alt=""/>
+                        <Image
+                            src={product.image}
+                            alt=""
+                            width={180}
+                            height={180}
+                        />
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -123,7 +132,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image
+                            width={130}
+                            height={136}
+                            src="/loaders/cup_loader_med.gif"
+                            alt="loading"
+                        />
                     </div>
                 </div>
             )
@@ -162,7 +176,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         </div>
                         <div className="cart-message">
                             <Graphic graphicName="checkmark-circled"/>
-                            <p>You're getting free shipping!</p>
+                            <p>{`You're getting free shipping!`}</p>
                         </div>
                         <div className="hide-label-mobile">
                             <KButton
@@ -182,7 +196,12 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                     <div className="product-area">
                         <div className="product-added">
                             <div className="product-image">
-                                <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                                <Image
+                                    src={props.selectedProduct.image}
+                                    height={200}
+                                    width={200}
+                                    alt={props.selectedProduct.name}
+                                />
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">

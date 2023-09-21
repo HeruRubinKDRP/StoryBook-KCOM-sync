@@ -20,7 +20,7 @@ export const AccordionItem = (props:iAccordionItem) => {
     }
     useEffect(() => {
         console.log(`Accordion item ${props.index} classes: ${props.classes}`);
-    }, [props.classes]);
+    }, [props.classes, props.index]);
 
 
     return(

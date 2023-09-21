@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0"
+import {StoryFn, Meta} from "@storybook/react"
 import React from "react"
 
 import {iconsList} from "../Graphic/iconData";
@@ -57,7 +57,7 @@ export default {
   },
 } as Meta
 
-const Template: Story<iButton> = (args) => <div style={{padding: "4rem"}}><KButton {...args} /></div>
+const Template: StoryFn<iButton> = (args) => <div style={{padding: "4rem"}}><KButton {...args} /></div>
 
 export const SandBoxButton = Template.bind({});
 SandBoxButton.args ={

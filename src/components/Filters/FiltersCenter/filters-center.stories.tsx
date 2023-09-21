@@ -21,7 +21,7 @@ Default.args = {
     }
 }
 
-export const riseUpAnim = keyframes`
+export const RiseUpAnim = keyframes`
   from {
     top: 0;
   }

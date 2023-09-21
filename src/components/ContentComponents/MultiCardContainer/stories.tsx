@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {simpleCardPresenterExample} from "../../../data/product-data";
 import {iMultiCardPresenter, MultiCardPresenter} from "./MultiCardPresenter";
@@ -11,7 +11,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iMultiCardPresenter>=(args:iMultiCardPresenter)=><MultiCardPresenter {...args} />;
+const Template: StoryFn<iMultiCardPresenter>=(args:iMultiCardPresenter)=><MultiCardPresenter {...args} />;
 
 export const SimpleHighlightCardExample = Template.bind({});
 

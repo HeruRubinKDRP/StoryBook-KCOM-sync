@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useEffect, useState, useCallback} from "react";
 import {useResizeDetector} from "react-resize-detector";
 import {ContentItem} from "../ContentComponents/ContentComponent";
 import {ExpandCollapse} from "../ExpandCollapse/expand-collapse";
@@ -48,9 +48,6 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
 
   },[props.filterTerms]);
 
-  useEffect(()=>{
-    checkFilters();
-  }, [filters])
 
   const getContainerSize = (widthX : number | undefined)=>{
     if(!widthX){return "small-container"}
@@ -76,8 +73,8 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
     console.log(filters)
   }
 
-  const checkFilters =():boolean=>{
-    if(!filters || filters == null){return true}
+  const checkFilters = useCallback(():boolean=>{
+    if(!filters){return true}
 
     let selectedCount = 0
 
@@ -96,8 +93,12 @@ export const FilterableCardsArea=(props : iFilterableCardsArea)=>{
     }
     //catch all
     return true;
+  },[filters]);
 
-  }
+
+  useEffect(()=>{
+    checkFilters();
+  }, [filters, checkFilters])
 
   const getFilterMenu=( )=>{
     if(!filters){return}

@@ -1,4 +1,4 @@
-import React, {createRef, ReactElement, useEffect, useRef, useState} from 'react';
+import React, {createRef, ReactElement, useEffect, useCallback, useState} from 'react';
 import {StyledRangeSlider} from "./range-slider-styled.styled";
 import KButton from "../../Kbutton/KButton";
 import {useResizeDetector} from "react-resize-detector";
@@ -27,7 +27,8 @@ const KSKRangeSlider: React.FC<iKSKRangeSlider> = ({ products, basePriceUnit }) 
     //const scrollSnapInterval = 500;
     const outerMostContainerRef = createRef<HTMLDivElement>()
 
-    const determineCardSize = () => {
+
+    const determineCardSize = useCallback(() => {
         if(!outerMostContainerRef.current) {return Math.round(screen.width / 4);}
         let cardWidth = outerMostContainerRef.current.offsetWidth;
 
@@ -43,7 +44,8 @@ const KSKRangeSlider: React.FC<iKSKRangeSlider> = ({ products, basePriceUnit }) 
             cardWidth = Math.round(cardWidth / 4);
         }
         setScrollSnapInterval(cardWidth);
-    }
+    }, [outerMostContainerRef]);
+
 
     useEffect(() => {
         const container = scrollerRef.current;
@@ -93,7 +95,7 @@ const KSKRangeSlider: React.FC<iKSKRangeSlider> = ({ products, basePriceUnit }) 
             container.removeEventListener('mousemove', onMouseMove);
             container.removeEventListener('mouseup', onMouseUp);
         };
-    }, [scrollSnapInterval]);
+    }, [scrollSnapInterval, determineCardSize, scrollerRef]);
 
     const getProductActiveStatus = (isActive : boolean, product : iKSKProduct) => {
 

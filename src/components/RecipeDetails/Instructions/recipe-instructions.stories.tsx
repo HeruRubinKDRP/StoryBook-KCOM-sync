@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react"
 import {iInstructions, Instructions} from "./Instructions";
 
@@ -9,7 +9,7 @@ export default {
   }
 }as Meta;
 
-const Template: Story<iInstructions>=(args)=><Instructions {...args} />;
+const Template: StoryFn<iInstructions>=(args)=><Instructions {...args} />;
 
 export const InstructionSetExample = Template.bind({});
 

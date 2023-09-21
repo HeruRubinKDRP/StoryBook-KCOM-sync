@@ -6,6 +6,7 @@ import {iFeatureBullet} from "../../../FeatureBullets/FeatureBulletItem/FeatureB
 import AsyncImage from "../../../AsyncImage/AsyncImage";
 import {Kcarousel} from "../../../Carousel/Kcarousel";
 import {useResizeDetector} from "react-resize-detector";
+import Image from "next/image";
 
 export interface iProductFeature {
     label: string;
@@ -28,7 +29,7 @@ const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, featur
         <CardBackStyled  className="card-back"  >
             <div className="info-container">
                 <div className="product-title-area">
-                    <img className="product-silo" src={imageSrc} alt={name} />
+                    {imageSrc && <Image className="product-silo" src={imageSrc ?? ""} alt={name} />}
                     <h1>{name}</h1>
                 </div>
                 <p>{description}</p>

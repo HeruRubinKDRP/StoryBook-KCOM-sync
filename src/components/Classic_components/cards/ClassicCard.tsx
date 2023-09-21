@@ -4,6 +4,7 @@ import {Rating} from "../../Rating/Rating";
 import {KToggle} from "../../Toggle/Toggle";
 import {ClassicCardStyled} from "./ClassicCardStyled";
 import {useResizeDetector} from "react-resize-detector";
+import Image from "next/image";
 
 export interface iClassicCard {
   productIndex : number;
@@ -130,7 +131,7 @@ const {width, height, ref} = useResizeDetector({
                   <a
                       href=""
                       data-selector="PT_ImageLnk" className=" css-w1464h">
-                    <img
+                    <Image
                         src={props.productImage}
                         alt={props.productName} title={props.productName} className="product-image"
                         data-selector="PR_Image"/>

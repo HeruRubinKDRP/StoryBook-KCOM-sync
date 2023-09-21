@@ -108,7 +108,11 @@ export type iconType =
     "icon-stop-watch" |
     "icon-bagged-and-pod" |
     "icon-subscribe" |
-    "perks-logo-small"
+    "perks-logo-small" |
+    "logo-keurig-circled" |
+    "icon-user" |
+    "action-arrow" |
+    "send-icon"
     ;
 
 
@@ -129,6 +133,48 @@ export function Graphic(props: Igraphics) {
 
 
     switch (props.graphicName) {
+
+        case "send-icon":
+            graphicData=(
+               <svg viewBox="0 0 254.95 254.95" >
+            <path className="filled"
+                  d="m30.96,147.02l-21.12,80.94c-3.05,11.68,9.07,21.51,19.87,16.13l211.09-105.13c10.43-5.19,10.38-20.08-.08-25.21L30.47,10.8c-10.63-5.2-22.54,4.25-19.88,15.78l17.96,78c.71,3.1,3.31,5.42,6.47,5.79l86.34,9.89c3.11.36,5.53,2.87,5.77,6h0c.27,3.53-2.31,6.64-5.84,7.01l-83.85,8.17c-3.11.33-5.7,2.55-6.49,5.59Z"/>
+        </svg>
+            )
+            break;
+
+        case "action-arrow":
+            graphicData = (
+                <svg viewBox="0 0 48 48">
+                    <polyline className="stroked" points="33.46 11.01 46.45 24 33.46 36.99"/>
+                    <line className="stroked" x1="46.45" y1="24" x2="1.55" y2="24"/>
+                </svg>
+            );
+            break;
+
+        case "logo-keurig-circled":
+            graphicData=(
+                <svg viewBox ="0 0 81.55 81.55" width="100%" height="100%">
+                    <path
+                        style={{fill: props.colorOverride}}
+                        className="filled"
+                        d="m40.77,0C18.26,0,0,18.26,0,40.77s18.26,40.77,40.77,40.77,40.77-18.26,40.77-40.77S63.29,0,40.77,0Zm-14.8,65.12c-4,0-7.3-3.3-7.3-7.4s3.2-7.4,7.3-7.4,7.3,3.3,7.3,7.4-3.3,7.4-7.3,7.4Zm0-16.9c-4,0-7.3-3.3-7.3-7.4s3.2-7.4,7.3-7.4,7.3,3.3,7.3,7.4-3.3,7.4-7.3,7.4Zm0-17c-4,0-7.3-3.3-7.3-7.4s3.2-7.4,7.3-7.4,7.3,3.3,7.3,7.4-3.3,7.4-7.3,7.4Zm36.9,33h-13.5l-13.8-23.4,13.7-23.5h13.6l-14.2,23.5,14.2,23.4Z"
+                    />
+                </svg>
+            )
+            break;
+
+        case "icon-user":
+            graphicData = (
+                <svg viewBox="0 0 20 20" width="100%" height="100%">
+                    <path
+                        className="filled"
+                        style={{fill: props.colorOverride}}
+                        d="m10,0C4.48,0,0,4.48,0,10s4.48,10,10,10,10-4.48,10-10S15.52,0,10,0Zm0,5c1.66,0,3,1.34,3,3s-1.34,3-3,3-3-1.34-3-3,1.34-3,3-3Zm0,13c-1.94,0-3.82-.71-5.28-2,3.01-2.66,7.54-2.66,10.56,0-1.46,1.29-3.33,2-5.28,2Z"
+                    />
+                </svg>
+            )
+            break;
 
         case "perks-logo-small":
 

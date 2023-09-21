@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react"
 import {iMultikeyvalueArea, MultikeyValueArea} from "./MultiKeyValueArea";
 
@@ -11,7 +11,7 @@ let multiKeyValueSettings = {
   }
 }
 
-const Template: Story<iMultikeyvalueArea>=(args)=><MultikeyValueArea {...args}/>;
+const Template: StoryFn<iMultikeyvalueArea>=(args)=><MultikeyValueArea {...args}/>;
 
 export const LongFormStackedExample = Template.bind({});
 LongFormStackedExample.args={

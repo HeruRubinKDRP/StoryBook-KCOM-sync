@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iScrubVideo, ScrubVideo} from "./ScrubVideo";
 
@@ -14,7 +14,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iScrubVideo> =(args)=><ScrubVideo {...args} />;
+const Template: StoryFn<iScrubVideo> =(args)=><ScrubVideo {...args} />;
 
 export const ExampleKCS_ScrubMP4 = Template.bind({});
 

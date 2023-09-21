@@ -11,6 +11,7 @@ import {iBeverageQuickShop, subscriptionModeT} from "./BeverageQuickShop";
 import {KToggle} from "../../Toggle/Toggle";
 import Graphic from "../../Graphic/Graphic";
 import KDropDown from "../../DropDown/drop-down";
+import Image from "next/image";
 
 
 export const BevQuickShopContent = (props: iBeverageQuickShop) => {
@@ -160,7 +161,7 @@ export const BevQuickShopContent = (props: iBeverageQuickShop) => {
             <div className="quick-shop-container">
                 <section className="product-container">
                     <div className="product-image">
-                        <img src={props.productImageURL} alt={props.productName}/>
+                        <Image src={props.productImageURL} alt={props.productName}/>
                         <div className="brand">{props.brand}</div>
                         <h2>{props.productName}</h2>
                         <div className="rating">

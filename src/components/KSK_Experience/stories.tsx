@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React, { ReactElement } from "react";
 import {ChooseBrewer} from "./ChooseBrewer";
 import {coffeeMakerList, Iksk, KSK} from "./KSK";
@@ -12,7 +12,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<Iksk> =(args) =><KSK {...args} />
+const Template: StoryFn<Iksk> =(args) =><KSK {...args} />
 
 export const KSK_base = Template.bind({});
 

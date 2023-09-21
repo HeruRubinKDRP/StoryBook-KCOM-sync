@@ -50,6 +50,7 @@ export const convertPodLibraryToProductInfoCardProps = (podLibrary: podItemT[]):
 
     if(!podLibrary[i].productPrices){return []}
         products.push({
+            index: 0,
             productType: podLibrary[i].productType ?? "pod",
             ratingVisible: true,
             flag: getFlag(i),

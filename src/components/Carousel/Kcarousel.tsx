@@ -57,7 +57,6 @@ export const  Kcarousel = (props: iCarousel) => {
 
   const getSnaps = (width: number, count: number, negativeVals: boolean) => {
 
-
     let snaps: number[] = [];
     for (let i = 0; i < count; i++) {
       let val = i * width;
@@ -155,7 +154,15 @@ export const  Kcarousel = (props: iCarousel) => {
       dragArea[0].disable();
     }
 
-  }, [currentSlide, width, props.itemsPerSlide, currentSlide.slide, props.slides.length, tl]);
+  }, [
+      currentSlide,
+      width,
+      props.itemsPerSlide,
+      currentSlide.slide,
+      props.slides.length,
+      tl,
+      props.dragRule
+  ]);
 
 //animated
   useEffect(() => {

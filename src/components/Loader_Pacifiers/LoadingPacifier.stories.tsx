@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iLoadingPacifier, LoadingPacifier} from "./LoadingPacifier";
 import {iRating} from "../Rating/Rating";
@@ -11,7 +11,7 @@ export default {
     }
 }  as Meta;
 
-const Template : Story<iLoadingPacifier> = (args) =>(
+const Template : StoryFn<iLoadingPacifier> = (args) =>(
     <div style={{height:"30vh", width:"50vw", backgroundColor:"grey"}}>
         <LoadingPacifier {...args} />
     </div>

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react"
 import {iRating, Rating} from "./Rating";
 
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta;
 
-const Template:Story<iRating>=(args)=>(
+const Template:StoryFn<iRating>=(args)=>(
     <div style={{padding:"8% 20%", width: "100%"}}>
       <Rating {...args} />
       <div id="Ratings" style={{height:"5rem", backgroundColor:"grey", marginTop: "200vh"}}>Ratings Component</div>

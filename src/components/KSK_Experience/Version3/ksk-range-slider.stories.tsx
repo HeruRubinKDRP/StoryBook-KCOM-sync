@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import KSKRangeSlider, {iKSKProduct, iKSKRangeSlider} from "./RangeSliderKSK";
 
@@ -38,7 +38,7 @@ const products : iKSKProduct[] = [
     }
 ];
 
-const Template: Story<iKSKRangeSlider> = (args) => <KSKRangeSlider {...args} />;
+const Template: StoryFn<iKSKRangeSlider> = (args) => <KSKRangeSlider {...args} />;
 
 export const KSKRangeSliderExample = Template.bind({});
 KSKRangeSliderExample.args = {

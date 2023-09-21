@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import { Meta, StoryFn } from '@storybook/react';
 import { CLP_Combined, iCLP_Combined } from './clp_combined';
 import {podLibrary} from "../../../data/beverage-library";
 
@@ -12,7 +12,7 @@ export default {
     },
 } as Meta;
 
-const Template: Story<iCLP_Combined> = (args) => <CLP_Combined {...args} />;
+const Template: StoryFn<iCLP_Combined> = (args) => <CLP_Combined {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -1,82 +1,51 @@
-import React, { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { TypistStyled } from './typist.styled'
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+
+const TypingContainer = styled.div`
+  font-size: 16px;
+`;
+
+const WordContainer = styled.span`
+  display: inline-block;
+`;
 
 export interface TypingEffectProps {
-  message: string;
-  speed?: speedType;
-  showCursor?: boolean;
-  classes?: string;
+    message: string;
+    speed?: number;
+    showCursor?: boolean;
+    classes?: string;
 }
 
-export type speedType = 'slow' | 'medium' | 'fast'
-
-const TypingCursor = () => {
-  return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        width: 2,
-        height: 12,
-        marginLeft: 6,
-        display: 'inline-block'
-      }}
-    />
-  )
-}
-
-const TypingEffect: React.FC<TypingEffectProps> = (
-  props: TypingEffectProps
-) => {
-  const textRefs = useRef<(HTMLSpanElement | null)[]>([])
-  textRefs.current = new Array(props.message.length).fill(null)
-
-  const speedValue = (value: speedType | undefined): number => {
-    switch (value) {
-      case 'slow':
-        return 0.1
-      case 'medium':
-        return 0.02
-      case 'fast':
-        return 0.01
-      default:
-        return 0.01
-    }
-  }
+const TypingEffect: React.FC<TypingEffectProps> = ({
+                                                       message,
+                                                       speed = 100,
+                                                       showCursor = true,
+                                                       classes = '',
+                                                   }) => {
+    const containerRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        // Clear previous animations
-        gsap.killTweensOf(textRefs.current);
+        let index = 0;
+        const container = containerRef.current;
 
-        // Reset the elements to their original state
-        gsap.set(textRefs.current, { autoAlpha: 0, y: 0, width: 0, display: 'none' });
-
-        // Then re-animate
-        gsap.fromTo(
-            textRefs.current,
-            { autoAlpha: 0, y: 0, width: 0, display: 'none' },
-            {
-                width: 'auto',
-                autoAlpha: 12,
-                y: 0,
-                display: 'inline',
-                ease: 'none',
-                stagger: speedValue(props.speed) // Adjust this value to change the typing speed
+        function typeCharacter() {
+            if (container && index < message.length) {
+                const charSpan = document.createElement('span');
+                charSpan.innerText = message[index];
+                container.appendChild(charSpan);
+                index++;
+                setTimeout(typeCharacter, speed);
             }
-        )
-    }, [props.speed, props.message]) // Here is the change, listen for changes to props.message as well
+        }
 
+        typeCharacter();
+    }, []);
 
     return (
-    <TypistStyled className={`${props.classes}`}>
-      {props.message.split('').map((char, index) => (
-        <span key={index} ref={(el) => (textRefs.current[index] = el)}>
-          {char}
-        </span>
-      ))}
-      {props.showCursor && <TypingCursor />}
-    </TypistStyled>
-  )
-}
+        <TypingContainer className={`typing-effect ${classes}`} ref={containerRef}>
+            {/* Content will be added here */}
+        </TypingContainer>
+    );
+};
 
-export default TypingEffect
+export default TypingEffect;

@@ -8,6 +8,6 @@ export default {
     component: Filters,
 }as Meta
 
-export const Template: Story = () => {
+export const Template: StoryFn = () => {
     return <Filters filtersFunction={()=>{}} isVisible={true}   filtersDefiniton={brewerFiltersSettings}/>
 }

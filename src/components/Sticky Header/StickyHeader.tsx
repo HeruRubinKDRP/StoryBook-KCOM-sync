@@ -15,6 +15,7 @@ export interface iStickyHeader {
     children?: ReactNode;
     stickyHeaderMode: "slim" | "full";
     headerRef?: Ref<HTMLDivElement>
+
 }
 
 export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, forwardedRef) => {
@@ -30,7 +31,7 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
         if (navRef.current) {
             setNavHeight(navRef.current.offsetHeight);
         }
-    }, []); // Empty dependency array to run this effect only once on mountXD
+    }, [navRef]); // Empty dependency array to run this effect only once on mountXD
 
 
     function onResize() {
@@ -58,8 +59,7 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
         }
     }, [ref]);
 
-
-    const handleScroll = (scrollPastThis: number | undefined) => {
+    const handleScroll = useCallback((scrollPastThis: number | undefined) => {
         if (!scrollPastThis) {
             return;
         }
@@ -74,10 +74,11 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
             setSticky(false);
             return;
         }
-    };
+    }, [isSticky]);
+
 
     // Wrap handleScrollEvent in useCallback to memoize it
-    const handleScrollEvent = useCallback(() => handleScroll(navHeight), [navHeight]);
+    const handleScrollEvent = useCallback(() => handleScroll(navHeight), [navHeight, handleScroll]);
 
 
     useEffect(() => {
@@ -98,7 +99,7 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
 
     return (
         <StickyStyled ref={ref} className="sticky-header-container">
-            <div className="zzzyyy" ref={navRef}>
+            <div className="zzz" ref={navRef}>
                 <Navigation
                     classes={props.stickyHeaderMode}
                     sizingMode={props.navigationRelated.sizingMode}
@@ -159,3 +160,5 @@ export const StickyHeader = forwardRef<HTMLDivElement, iStickyHeader>((props, fo
         </StickyStyled>
     )
 });
+
+StickyHeader.displayName = "StickyHeader";

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0"
+import {StoryFn, Meta} from "@storybook/react"
 import React from "react"
 import {iSimpleHighlightCard, SimpleHighlightCard} from "./SimpleHighlightCard";
 
@@ -17,7 +17,7 @@ export default{
   }
 } as Meta;
 
-const Template: Story<iSimpleHighlightCard> =(args : iSimpleHighlightCard)=> <SimpleHighlightCard {...args} />;
+const Template: StoryFn<iSimpleHighlightCard> =(args : iSimpleHighlightCard)=> <SimpleHighlightCard {...args} />;
 
 export const SimpleHighlightCardExample = Template.bind({});
 

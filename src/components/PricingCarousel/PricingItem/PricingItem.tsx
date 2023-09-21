@@ -3,6 +3,7 @@ import {useResizeDetector} from "react-resize-detector";
 import {Flag, flagStylesT} from "../../Flag/Flag";
 import {Price} from "../../Price/Price";
 import {colorByNameType, colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
+import Image from "next/image";
 
 export interface iPricingItem{
   layout : "side-by-side" | "stacked";
@@ -74,7 +75,12 @@ export const PricingItem = (props : iPricingItem)=>{
            backgroundImage : `url("${props.productImagePath}")`
         }}
       >
-        <img src={props.productImagePath} alt="product image" width="0" height="0"/>
+        <Image
+            src={props.productImagePath}
+            alt="product image"
+            width="0"
+            height="0"
+        />
       </div>
 
 

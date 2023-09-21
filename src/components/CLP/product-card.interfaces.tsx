@@ -8,11 +8,12 @@ import {iFlag} from "../Flag/Flag";
 export type tPresentationMode = 'traditional-card' | 'flip-card' ;
 export type tCardMode = 'simple' | 'ecom' ;
 export interface iProductInfoCardProps {
+    index: number;
     id?: number;
     flag?: iFlag;
     presentationMode?: tPresentationMode ;
     cardMode?: tCardMode ;
-    productType: productTypeT
+    productType?: productTypeT
     image: string;
     brand: string;
     name: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, Story } from "@storybook/react/types-6-0";
+import { Meta, StoryFn } from "@storybook/react";
 import {CLP_Filters, filtersDemo, iCLP_FilterItem} from "./CLP_Filters";
 
 
@@ -9,6 +9,6 @@ export default {
     component: CLP_Filters,
 } as Meta;
 
-const Template: Story = () => <CLP_Filters filterSections={filtersDemo} />;
+const Template: StoryFn = () => <CLP_Filters filterSections={filtersDemo} />;
 
 export const Default = Template.bind({});

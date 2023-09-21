@@ -5,9 +5,10 @@ import {breakPoints} from "../../../NavMenu/NavigationV2/Navigation";
 import {getContainerQuery} from "../reusable css/container-queries";
 import FreeShippingIndicator from "../../../FreeShippingDisplay/FreeShipping";
 import Graphic from "../../../Graphic/Graphic";
-import {createRef, RefObject, useEffect, useState} from "react";
+import {createRef, RefObject, useCallback, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
+import Image from "next/image";
 
 
 export interface iSimpleProduct {
@@ -46,10 +47,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
         },
     });
 
-    useEffect(() => {
-        upDateDimensions();
-        setSuggestionsLoaded(false);
-    }, [width]);
+
 
     const doLoadSuggestions = () => {
         setTimeout(() => {
@@ -66,13 +64,20 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
         doLoadSuggestions();
     }, [width]);
 
-    const upDateDimensions = () => {
-        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
-        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
-    }
-
     const suggestionsSectionRef = createRef<HTMLDivElement>();
     const actionBarRef = createRef<HTMLDivElement>();
+
+    const upDateDimensions = useCallback(() => {
+        setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
+        setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
+    },[setSuggestionWidth, setActionbarHeight, actionBarRef , suggestionsSectionRef]);
+
+
+    useEffect(() => {
+        upDateDimensions();
+        setSuggestionsLoaded(false);
+    }, [width, upDateDimensions]);
+
 
     const handleAddSuggested = (index: number) => {
         if (!props.addSuggestionToCartFunc) {
@@ -109,7 +114,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <img src={product.image} alt=""/>
+                        <Image src={product.image} alt=""/>
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -122,7 +127,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
                 </div>
             )
@@ -160,7 +165,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                         </div>
                         <div className="cart-message">
                             <Graphic graphicName="checkmark-circled"/>
-                            <p>You're getting free shipping!</p>
+                            <p>{`You're getting free shipping!`}</p>
                         </div>
                         <div className="hide-label-mobile">
                             <KButton
@@ -180,7 +185,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                     <div className="product-area">
                         <div className="product-added">
                             <div className="product-image">
-                                <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                                <Image src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">

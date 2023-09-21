@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {FocalImageContent, iFocalImage} from "./FocalImage";
 
@@ -8,7 +8,7 @@ export default {
   component : FocalImageContent
 } as Meta;
 
-const Template: Story<iFocalImage> = (args)=> <FocalImageContent {...args} />;
+const Template: StoryFn<iFocalImage> = (args)=> <FocalImageContent {...args} />;
 
 export const FocalImageAppExample = Template.bind({});
 

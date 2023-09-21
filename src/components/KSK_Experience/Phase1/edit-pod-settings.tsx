@@ -5,6 +5,7 @@ import KButton from "../../Kbutton/KButton";
 import {Price} from "../../Price/Price";
 import {Rating} from "../../Rating/Rating";
 import {utilityCalcBoxes} from "./utitity-calc-boxes";
+import Image from "next/image";
 
 
 export interface iPodSettings {
@@ -81,7 +82,7 @@ export const PodSettings = (props: iPodSettings) => {
     <>
       <div className="section"></div>
       <div className="product-image-name">
-        <img alt="" className="pod-lid" src={props.podImageUrl}/>
+        <Image alt="" className="pod-lid" src={props.podImageUrl}/>
         <div className="prod-info-area">
           <div>
             <p className="brand-title">{props.brand}</p>

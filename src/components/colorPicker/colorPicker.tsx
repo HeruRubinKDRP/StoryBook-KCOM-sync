@@ -3,6 +3,7 @@ import Graphic, {iconType} from "../Graphic/Graphic";
 import KButton, {buttonType} from "../Kbutton/KButton";
 import {ValidationInput} from "../ValidationInput/ValidationInput";
 import {ColorPickerStyled} from "./ColorPickerStyled";
+import {iBrewerContent} from "../../data/brewer-quickshop-images";
 
 export type productVariantColor = {
   inStock: boolean;
@@ -12,7 +13,7 @@ export type productVariantColor = {
 
 export interface iColorPicker{
   showProductColors: Boolean;
-  colorVariants : productVariantColor[];
+  colorVariants : iBrewerContent[];
   notifyMeFunction? : Function;
   addToCartFunction? : Function;
   secondaryAction? : Function;
@@ -29,16 +30,7 @@ export const ColorPicker=(props : iColorPicker)=>{
 
 
   useEffect(()=>{
-    // for(let i=0; i < props.colorVariants.length; i++){
-    //   if(!props.colorVariants[i].inStock && i == selectedVariant){
-    //     for(let j=0; j < props.colorVariants.length; j++){
-    //       if(props.colorVariants[j].inStock){
-    //         setSelectedVariant(j)
-    //       }
-    //     }
-    //   }
-    // }
-    // setSelectedVariant(-1);
+
   },[props.colorVariants, selectedVariant]);
 
 
@@ -78,9 +70,6 @@ export const ColorPicker=(props : iColorPicker)=>{
     let variants : ReactElement[] = [];
 
     for(let i=0; i < props.colorVariants.length; i++){
-
-
-
       const getSelection=(index : number)=>{
 
         if(props.colorVariants.length == 1){
@@ -113,10 +102,6 @@ export const ColorPicker=(props : iColorPicker)=>{
       </ul>
     )
   }
-
-
-
-
 
 
   return (

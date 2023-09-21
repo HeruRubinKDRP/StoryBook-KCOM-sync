@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import {QuantityStepperWrapper} from "./quantity-stepper.styled";
 import KButton from "../Kbutton/KButton";
 import {useResizeDetector} from "react-resize-detector";
@@ -14,7 +14,7 @@ const QuantityStepper: React.FC<StepperProps> = ({ lowThreshold, highThreshold, 
     const [value, setValue] = useState<number>(0);
     const [shake, setShake] = useState<boolean>(false);
 
-    const audio = new Audio(soundFile);
+    const audio = useMemo(() => new Audio(soundFile), [soundFile]);
 
     const {width, height, ref }=useResizeDetector({
         refreshMode: 'debounce',
@@ -26,9 +26,6 @@ const QuantityStepper: React.FC<StepperProps> = ({ lowThreshold, highThreshold, 
         handleHeight: false, skipOnMount: false,
         onResize: () => {},
     });
-
-
-
 
 
     const handleIncrement = useCallback(() => {

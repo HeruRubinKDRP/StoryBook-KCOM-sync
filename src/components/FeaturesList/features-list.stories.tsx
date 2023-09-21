@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {FeaturesList, iFeaturesList} from "./FeaturesList";
 
@@ -9,7 +9,7 @@ export default{
   }
 }as Meta;
 
-const Template:Story<iFeaturesList> = (args)=><FeaturesList {...args} />
+const Template:StoryFn<iFeaturesList> = (args)=><FeaturesList {...args} />
 
 export const FeaturesListExample = Template.bind({});
 

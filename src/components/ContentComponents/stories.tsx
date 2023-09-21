@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 
 import {buttonTypesList} from "../../data/product-data";
@@ -13,7 +13,7 @@ export default {
   argTypes: contentArgs
 }as Meta;
 
-const Template: Story<iContentItem> = (args) =><ContentItem {...args} />;
+const Template: StoryFn<iContentItem> = (args) =><ContentItem {...args} />;
 
 export const FrontAndCenter = Template.bind({});
 FrontAndCenter.args = {

@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iFeaturedProduct} from "../../FeaturedProduct/FeaturedProduct";
 import {ContentStory, iContentStory} from "./ContentStory";
@@ -11,7 +11,7 @@ export default{
   }
 } as Meta;
 
-const Template:Story<iContentStory>=(args)=><ContentStory {...args} />
+const Template:StoryFn<iContentStory>=(args)=><ContentStory {...args} />
 
 export const BasicExample = Template.bind({});
 

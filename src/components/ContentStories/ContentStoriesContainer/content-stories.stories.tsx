@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import {ContentStories, iContentStories} from "./ContentStories";
 
 
@@ -21,7 +21,7 @@ export default{
     },
   }
 } as Meta;
-const Template:Story<iContentStories>=(args)=><ContentStories {...args} />;
+const Template:StoryFn<iContentStories>=(args)=><ContentStories {...args} />;
 export const Example = Template.bind({});
 
 Example.args = {
@@ -173,7 +173,7 @@ TextHeavy.args = {
   ]
 }
 
-const TemplateScroll:Story<iContentStories>=(args)=>(
+const TemplateScroll:StoryFn<iContentStories>=(args)=>(
   <>
   <div className="content-dummy"></div>
   <ContentStories {...args} />

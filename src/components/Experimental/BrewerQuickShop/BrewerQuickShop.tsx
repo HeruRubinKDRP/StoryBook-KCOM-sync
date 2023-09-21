@@ -15,6 +15,7 @@ import styled, {css} from "styled-components";
 import {ModalStyled} from "../Modal-Styled";
 import ColorVariantSelector from "../../colorPicker/simple-color-picker/color-picker-simple";
 import {number} from "prop-types";
+import Image from "next/image";
 
 export interface iBrewerQuickShop {
     productName: string;
@@ -22,7 +23,6 @@ export interface iBrewerQuickShop {
     tagline?: string;
     hasKSK: boolean;
     hasCoupon: boolean;
-    isMember: boolean;
     couponMessage: string;
     couponAppliedMessage: string;
     learnMoreTitleKSK: string;
@@ -93,7 +93,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-                    <img alt={props.carousel.slideImageURLs[i].altText} className="image-item"
+                    <Image alt={props.carousel.slideImageURLs[i].altText} className="image-item"
                          src={props.carousel.slideImageURLs[i].path} title=""/>
                 </div>
             )
@@ -102,19 +102,19 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         return slideImages;
     }
 
-    const handleVariantClick = (inStock: boolean, colorValue: string, colorName: string) => {
+    const handleVariantClick = (inStock : boolean, colorValue : string, colorName :string ) => {
         setInStock(inStock);
         setSelectedColor(colorName ?? "");
         console.log("colorValue", colorValue);
         console.log("inStock", inStock);
     }
 
-    const handleProductData = (widthX: number | undefined) => {
-        if (!widthX) return;
+    const handleProductData =(widthX : number | undefined)=>{
+        if(!widthX)return;
 
 
-        if (widthX > 420 || (widthX <= 420 && props.hideContentOnMobile === false)) {
-            return (
+        if( widthX > 420 || (widthX <= 420 && props.hideContentOnMobile === false)){
+            return  (
                 <>
                     <ProductIdentity
                         productName={props.productName}
@@ -144,7 +144,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
     return (
         <>
             {
-                learnMoreOpen ? <></> :
+                learnMoreOpen ? <></>:
                     <CloseBtnStyled className={`${getContainerQuery(width)}`}>
                         <KButton
                             buttonType="text-icon-noBG"
@@ -158,8 +158,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                     </CloseBtnStyled>
             }
 
-            <ModalStyled ref={ref} className={`modal modal-${getContainerQuery(width)}`} style={{}}>
-
+            <ModalStyled  ref={ref}  className={`modal modal-${getContainerQuery(width)}`} style={{}}>
                 <BrewerQuickShopStyled
                     mainFlagColor={props.mainFlagColor}
                     className={`brewer-quickshop-container ${props.mainFlagColor} ${getContainerQuery(width)}`}
@@ -219,7 +218,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                             props.colorVariants.length > 0 ?
                                 <>
                                     <div className="selected-color">
-                                        <div className="key">Selected Color:</div>
+                                        <div className="key">{`Selected Color:`} </div>
                                         <div className="value"> {selectedColor}</div>
                                     </div>
                                     <ColorVariantSelector
@@ -241,44 +240,37 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                 setLearnMoreTitle(props.learnMoreTitleKSK);
                                                 setLearnMoreContent(
                                                     <div className={"ksk-info-content"}>
-                                                        <img src="./images/quickshop-ksk/ksktitle.png"
-                                                             alt="Choose Your Savings" className={"ksk-title-img"}/>
+                                                        <Image src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
                                                         <div>
                                                             <h2>The best way to buy your Keurig Coffee Maker.</h2>
-                                                            <div><img src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
-                                                                      alt="Choose Your Savings"
-                                                                      className={"ksk-title-img"}/></div>
-                                                            <div className={"kit-title"}>What's in your Kit:</div>
+                                                            <div>
+                                                                <Image
+                                                                    src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
+                                                                    alt="Choose Your Savings" className={"ksk-title-img"}
+                                                                />
+                                                            </div>
+                                                            <div className={"kit-title"}>{`What's in your Kit:`}</div>
                                                             <div className={"content-container"}>
-                                                                <div className={"content"}><Graphic
-                                                                    graphicName={"icon-checkmark"}></Graphic> Discounted
-                                                                    brewer
-                                                                </div>
-                                                                <div className={"content"}><Graphic
-                                                                    graphicName={"icon-checkmark"}></Graphic> 4 boxes of
-                                                                    beverages of your choice
-                                                                </div>
-                                                                <div className={"content"}><Graphic
-                                                                    graphicName={"icon-checkmark"}></Graphic> Recurring
-                                                                    delivery at 25% off
-                                                                </div>
-                                                                <div className={"content"}><Graphic
-                                                                    graphicName={"icon-checkmark"}></Graphic> Earn
-                                                                    rewards on purchases
-                                                                </div>
+                                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Discounted brewer</div>
+                                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> 4 boxes of beverages of your choice</div>
+                                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Recurring delivery at 25% off</div>
+                                                                <div className={"content"}><Graphic graphicName={"icon-checkmark"}></Graphic> Earn rewards on purchases</div>
                                                             </div>
                                                         </div>
-                                                        <div className={"how-to-title"}>How to build your Starter Kit
-                                                        </div>
+                                                        <div className={"how-to-title"}>How to build your Starter Kit</div>
                                                         <div className={"how-to-container"}>
-                                                            <div><img src="./images/quickshop-ksk/step1.png" alt=""
-                                                                      className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step2.png" alt=""
-                                                                      className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step3.png" alt=""
-                                                                      className={"ksk-title-img"}/></div>
-                                                            <div><img src="./images/quickshop-ksk/step4.png" alt=""
-                                                                      className={"ksk-title-img"}/></div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
+                                                            <div>
+                                                                <Image src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/>
+                                                            </div>
                                                         </div>
                                                     </div>);
                                                 setLearnMoreOpen(true);
@@ -300,7 +292,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                         }}
                                         addToCartFunction={props.addToCartFunction ? props.addToCartFunction : () => {
                                         }}
-                                        isMember={props.isMember}/>
+                                    />
                                 </div>
                                 :
                                 <div className="out-of-stock-area">Out of Stock</div>

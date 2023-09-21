@@ -1,14 +1,14 @@
 import styled, {Interpolation} from 'styled-components';
 import {colorNameToValue} from "../_utilities/color-name-to-value/colorNameToValue";
 
-export const AccordionContainer = styled.div<{dynamicStyles : Interpolation<any>}>`
-  ${props => props.dynamicStyles}
-    --fontSmall: calc(var(--overallWidth) * 0.01 + 10px);
-    --fontMedium: calc(var(--overallWidth) * 0.02 + 12px);
-    --fontLarge: calc(var(--overallWidth) * 0.03 + 16px);
+export const AccordionContainer = styled.div`
+ 
+    --fontSmall: 0.75rem;
+    --fontMedium: 1rem;
+    --fontLarge: 1.5rem;
   
-    --spacingTiny: calc(var(--overallWidth) * 0.005);
-    --spacingSmall: calc(var(--overallWidth) * 0.0075);
+    --spacingTiny: 0.25rem;
+    --spacingSmall: 0.25rem;
   --colorKSK: ${colorNameToValue("KSK")};
   --colorOK: ${colorNameToValue("OK-Status")};
   --colorDiscount: ${colorNameToValue("discount")};

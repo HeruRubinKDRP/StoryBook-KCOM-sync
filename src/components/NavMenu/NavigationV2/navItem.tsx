@@ -5,6 +5,7 @@ import KButton from "../../Kbutton/KButton";
 import {colorNameToValue} from "../../_utilities/color-name-to-value/colorNameToValue";
 import {NavItemStyled} from "./NavItemStyled";
 import {highlightType} from "./Navigation";
+import Image from "next/image";
 
 type textLook = "dark-on-light-bg" | "light-on-dark-bg"
 
@@ -36,7 +37,7 @@ export const NavItem = ( props : iNavItem )=>{
     if(!props.image){return <></>}
     return(
       <div className="nav-item-image">
-        <img src={props.image} alt={""}/>
+        <Image src={props.image} alt={""}/>
       </div>
     )
   }

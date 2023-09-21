@@ -5,6 +5,12 @@ import {iIllustration} from "../../Graphic/Illustrations";
 import KButton from "../../Kbutton/KButton";
 import {FilterableCheckboxListStyled} from "./filterable-toggle-list.styled";
 import AsyncImage from "../../AsyncImage/AsyncImage";
+import {
+    ClearButton,
+    FilterListItem, FiltersInput,
+    FiltersLabelStyled,
+    NoResults
+} from "./CheckBoxListItem/check-box-list-item.styled";
 
 export interface CheckboxItem {
     label: string;
@@ -37,7 +43,7 @@ const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
     return (
         <FilterableCheckboxListStyled>
             {
-                props.useFilter &&  <Input className="filter-input" type="text" placeholder="Filter..." value={filterText} onChange={handleInputChange} />
+                props.useFilter &&  <FiltersInput className="filter-input" type="text" placeholder="Filter..." value={filterText} onChange={handleInputChange} />
             }
             {filteredItems.length === 0 ? (
                 <NoResults>
@@ -48,15 +54,15 @@ const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
                     {filteredItems.map((item, index: number) => {
 
                         return(
-                            <ListItem className="check-list-item" key={index}>
+                            <FilterListItem className="check-list-item" key={index}>
                                 <KButton classes="overlay-btn" label={""} buttonType={"text-icon-noBG"}  actionFunc={()=>props.onSelectionChange(index, props.sectionIndex)} />
                                 <div className={`${item.isChecked ? "is-checked" : ""} check-list-item-container`} >
-                                    <div className="selection-main">
+
                                         <div className="check-container">
                                             {item.isChecked && <Graphic graphicName={"icon-checkmark"} />}
                                         </div>
                                         <div className="text-area">
-                                            <Label>{item.label}</Label>
+                                            <FiltersLabelStyled>{item.label}</FiltersLabelStyled>
                                             {
                                                 item.detailsText &&
                                                 <p className="checkbox-item-details">
@@ -64,7 +70,7 @@ const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
                                                 </p>
                                             }
                                         </div>
-                                    </div>
+
                                     {
                                         item.imageSrc &&
                                         <AsyncImage
@@ -74,56 +80,18 @@ const FilterableCheckboxList = (props:FilterableCheckboxListProps) => {
                                         />
                                     }
                                 </div>
-                            </ListItem>
+                            </FilterListItem>
                         )
                     })}
                 </ul>
             )}
+
         </FilterableCheckboxListStyled>
     );
 };
 
 
 
-const Input = styled.input`
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
 
-
-const ListItem = styled.li`
-  display: flex; 
-  align-items: center;
-  margin-bottom: 5px;
-  .selection-main{
-    display: flex;
-    align-items: center;
-  }
-`;
-
-const Checkbox = styled.input.attrs({ type: 'checkbox' })`
-  margin-right: 10px;
-`;
-
-const Label = styled.label`
-  cursor: pointer;
-`;
-
-const NoResults = styled.div`
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-const ClearButton = styled.button`
-  margin-left: 10px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-`;
 
 export default FilterableCheckboxList;

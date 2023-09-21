@@ -24,7 +24,7 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
 
     const {width, height, ref } = useResizeDetector({
         refreshMode: 'throttle',
-        refreshRate: 200,
+        refreshRate: 400,
         refreshOptions: {
             leading: true,
             trailing: false
@@ -35,7 +35,7 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
 
     useEffect(() => {
         setDocumentDimensions({height: document.body.offsetHeight, width: document.body.offsetWidth});
-    }, [document.body.offsetHeight, document.body.offsetWidth]);
+    }, []);
 
     useEffect(() => {
         console.log(openItems);
@@ -99,9 +99,7 @@ const Accordion: React.FC<iAccordionProps> = (props : iAccordionProps) => {
     return (
         <AccordionContainer
             className={`${containerQueries(documentDimensions.width, documentDimensions.height)} accordion-container`}
-            dynamicStyles={getDynamicStyles(width || documentDimensions.width, height || documentDimensions.height )}
             ref={ref}
-
         >
             {props.items.map((item, index) => (
                 <AccordionItem

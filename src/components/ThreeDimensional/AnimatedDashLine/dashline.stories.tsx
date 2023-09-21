@@ -1,13 +1,13 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import AnimatedDashedLine, { AnimatedDashedLineProps } from './DashLine';
+import AnimatedDashedLine, { iAnimatedDashedLineProps } from './DashLine';
 
 export default {
     title: 'Components/AnimatedDashedLine',
     component: AnimatedDashedLine,
 } as Meta;
 
-const Template: StoryFn<AnimatedDashedLineProps> = (args) => <AnimatedDashedLine {...args} />;
+const Template: StoryFn<iAnimatedDashedLineProps> = (args) => <AnimatedDashedLine {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

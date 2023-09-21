@@ -1,4 +1,4 @@
-import {Story, Meta} from "@storybook/react/types-6-0";
+import {StoryFn, Meta} from "@storybook/react";
 import React from "react";
 import {iconsList} from "../../Graphic/iconData";
 import {iProductCard, ProductCard} from "./ProductCard";
@@ -26,7 +26,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<iProductCard> = (args)=><div style={{padding:"3rem", display: "flex", justifyContent:"center"}}><ProductCard {...args} /></div>
+const Template: StoryFn<iProductCard> = (args)=><div style={{padding:"3rem", display: "flex", justifyContent:"center"}}><ProductCard {...args} /></div>
 export const ProductCardExample = Template.bind({});
 
 ProductCardExample.args ={

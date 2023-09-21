@@ -1,4 +1,4 @@
-import { Story, Meta } from "@storybook/react/types-6-0";
+import { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import Graphic,{Igraphics} from "./Graphic";
 import {iconsList} from "./iconData";
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Igraphics> = (args) =><div style={{padding:"2rem"}}><Graphic {...args} /></div>
+const Template: StoryFn<Igraphics> = (args) =><div style={{padding:"2rem"}}><Graphic {...args} /></div>
 
 export const Primary = Template.bind({})
 Primary.args = {

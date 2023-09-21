@@ -7,6 +7,7 @@ import {Flag, flagStylesT} from "../Flag/Flag";
 import {buttonType, KButton} from "../Kbutton/KButton";
 import {colorByNameType} from "../_utilities/color-name-to-value/colorNameToValue";
 import {FeaturedProductStyled} from "./featured-product.styled";
+import Image from "next/image";
 
 export interface iFeaturedProduct{
   layout : "images-left" | "images-right"
@@ -143,10 +144,18 @@ export const FeaturedProduct=(props : iFeaturedProduct)=>{
                hasFocalImage={false}
                sectionName=""/>
             </div>,
-            <div key="1" className="image-item-container"><img alt="" className="image-item" src="/product-images/kss/kss-0.webp" title=""/></div>,
-            <div key="2" className="image-item-container"><img alt="" className="image-item" src="/product-images/kcs/kcs-open.png" title=""/></div>,
-            <div key="3" className="image-item-container"><img alt="" className="image-item" src="/product-images/kcs/kcs-mug.png" title=""/></div>,
-            <div key="4" className="image-item-container"><img alt="" className="image-item" src="/product-images/kcs/scene.jpg" title=""/></div>,
+            <div key="1" className="image-item-container">
+              <Image alt="" className="image-item" src="/product-images/kss/kss-0.webp" title=""/>
+            </div>,
+            <div key="2" className="image-item-container">
+              <Image alt="" className="image-item" src="/product-images/kcs/kcs-open.png" title=""/>
+            </div>,
+            <div key="3" className="image-item-container">
+              <Image alt="" className="image-item" src="/product-images/kcs/kcs-mug.png" title=""/>
+            </div>,
+            <div key="4" className="image-item-container">
+              <Image alt="" className="image-item" src="/product-images/kcs/scene.jpg" title=""/>
+            </div>,
 
           ]}
         />
