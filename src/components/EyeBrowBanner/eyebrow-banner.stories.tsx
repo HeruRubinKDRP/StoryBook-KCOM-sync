@@ -53,10 +53,9 @@ Default.args = {
                 "\n" +
                 "BONUS OFFER: 4 Free Boxes when enrolling in SMART Delivery. This offer is valid for up to four (4) free boxes of K-Cup® pods (20/22/24 -count), in your first SMART Delivery order only, on www.Keurig.com through 11:59 p.m. PST on 1/31/24. Offer excludes Rivo® pods, Keurig® bundles and illy® K-Cup® pods. Offer is valid upon initial enrollment in SMART Delivery whether at the time of the purchase of a Keurig Starter Kit or after a SMART Coffee Maker is connected and a first SMART Delivery order is established. Upon enrollment in SMART Delivery, if you add less than 4 eligible boxes, you will only receive the quantity in your cart for free. If you add more than 4 eligible boxes, boxes in excess of the 4 those boxes will not be free.",
         },
-
     ],
     displayMode: "chiclets",
     overallHeight: "auto",
-    mainColor: "white",
+    mainColor: "dark-roast",
     mobileBreakPoint: 1000,
 };
