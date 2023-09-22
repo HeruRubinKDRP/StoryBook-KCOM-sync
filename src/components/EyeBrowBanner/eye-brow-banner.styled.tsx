@@ -17,15 +17,66 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
   height: ${props => props.overallHeight};
   position: relative;
   overflow: hidden;
-  gap: 1rem;
+  gap: var(--space-tiny);
   
   *{
     box-sizing: border-box;
   }
+  h1, p{
+    text-align: left;
+  }
+   
+  .text-area{
+    display: flex;
+    flex-direction: column;
+    p{
+      font-size: var(--step--6);
+    }
+  }
+
+  &.mobile{
+    .eb-slide-content{
+      border-radius: 100vw;
+      width: 85%;
+    }
+  }
   //Color modes
   &.dark-roast{
-    .eb-slide-content{
+    background-color: var(--colorDarkRoast);
+    &.mobile{
+      background-color: transparent;
+      .right, .left{
+        flex-direction: column;
+        .icon{
+          padding: 45% 20%;
+        }
+      }
+      .eb-slide-content{ 
+        
         background-color: var(--colorDarkRoast);
+        padding: var(--space-line) var(--space-3xs);
+      }
+    }
+    .eyebrow-slide{
+      position: relative;
+      &:last-child{
+        .divider{
+          display: none;
+        }
+      }
+    }
+    .divider{
+      border-right: 1px solid white;
+      height: auto;
+      width: 2px;
+      position: absolute;
+      right: 0;
+      top: var(--space-small);
+      bottom: var(--space-small);
+      opacity: 1;
+    }
+    .eb-slide-content{
+        
         height: 100%;
       *{
         color: white;
@@ -104,6 +155,12 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
   }
   
   &.white{
+    
+    &.mobile{
+      .eb-slide-content{
+        border: 1px solid var(--colorDarkRoast);
+      }
+    }
     .eyebrow-slide{
       position: relative;
       &:last-child{
@@ -111,6 +168,12 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
          display: none;
        }
       }
+    }
+    h1{
+      text-align: right;
+    }
+    .fine-print-area{
+      margin: 0;
     }
     .divider{
       border-right: 1px solid var(--colorDarkRoast);
@@ -134,11 +197,11 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
     pointer-events: all;
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 80%;
     border-radius: 1rem;
-    padding: 8px 16px;
+    padding: 0 var(--space-line);
     transition: transform 0.5s ease-in-out;
     &:hover{
       transform: scale(1.05);
@@ -148,8 +211,18 @@ export const EyebrowBannerStyled = styled.div<iEyeBrowBannerStyled>`
     }
   }
   &.mobile{
-    .eyebrow-slide{
+    .right, .left{
+      border: 0 !important;
+    }
+    .k-carousel{
+      padding-bottom: var(--step-1);
+    }
      
+    .eyebrow-slide{
+     p{
+       font-size: var(--step--4) !important;
+       text-align: center;
+     }
     }
   }
   
@@ -205,26 +278,33 @@ export const EyeBrowSlideStyled = styled.div`
   align-items: center;
   flex-direction: column;
   transition: transform 0.5s;
-  margin: 1.5rem 0;
- 
+  margin: calc(var(--space-tiny) * 0.5) 0;
+ .message{
+   a{
+     white-space: nowrap;
+   }
+ }
   .fine-print-area{
     display: flex;
     margin-top: 0.5rem;
   }
- 
+     h1, p{
+       text-align: left;
+       white-space: normal;
+     }
+  
   h1{
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0.5rem 0 0 0;
+    font-size: var(--step--5) !important;
+    margin: 0 0 0 var(--space-line);
+    flex-basis: 40%;
   }
   p{
-    font-size: 0.75rem;
+    font-size:  var(--step--6);
     font-weight: 200;
-    text-align: center;
-    margin: 0.25rem 0.5rem;
+    margin: var(--space-tiny) var(--space-small);
   }
   .fine-print-area{
-    gap: 0.25rem;
+    gap: var(--space-tiny);
     align-content: center;
     flex-wrap: wrap;
     *{

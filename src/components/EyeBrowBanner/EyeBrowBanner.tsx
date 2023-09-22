@@ -6,7 +6,12 @@ import {Kcarousel} from "../Carousel/Kcarousel";
 import {PopUp} from "../PopUp/PopUp";
 
 
-const EyebrowBanner: React.FC<EyebrowBannerProps> = ({overrideTextColor, overrideBGColor, contents, overallHeight, mainColor, mobileBreakPoint}) => {
+const EyebrowBanner: React.FC<EyebrowBannerProps> = ({
+                                                         overrideTextColor,
+                                                         overrideBGColor,
+                                                         contents,
+                                                         overallHeight,
+                                                         mainColor, mobileBreakPoint}) => {
     const [modalIsOpen, setModalIsOpen] = React.useState(false);
     const [modalContent, setModalContent] = React.useState("");
 
@@ -50,13 +55,20 @@ const EyebrowBanner: React.FC<EyebrowBannerProps> = ({overrideTextColor, overrid
             <EyeBrowSlideStyled className="eyebrow-slide" key={index}
                                 style={{width: `${isMobile ? 100 : 100 / contents.length}%` }}>
                 <a href={content.ctaLink} className={`eb-slide-content ${content.color}`} style={{backgroundColor : overrideBGColor }}>
-                    <h1 style={{color : overrideTextColor}}>{content.heading}</h1>
-                    <p style={{color : overrideTextColor}}>{content.paragraph}</p>
-                    <small style={{color : overrideTextColor}}>{content.details}</small>
+
+                  <div className="text-area">
+                      {/*<h1 style={{color : overrideTextColor}}></h1>*/}
+                      <p className="message" style={{color : overrideTextColor}}>
+                          <strong>{content.heading}</strong>
+                          {` ${content.paragraph} ${content.details} ${content.finePrint} `}
+                          <a className="fine-print" onClick={()=>handleContent(index)}>{content.hyperlinkText}</a>
+                      </p>
+                      {/*<p style={{color : overrideTextColor}}>{content.details}</p>*/}
+                  </div>
                 </a>
                 <div className="fine-print-area">
-                    <small>{content.finePrint}</small>
-                    <a className="fine-print" onClick={()=>handleContent(index)}>{content.hyperlinkText}</a>
+                    <small></small>
+
                 </div>
                 <div className="divider"/>
             </EyeBrowSlideStyled>
