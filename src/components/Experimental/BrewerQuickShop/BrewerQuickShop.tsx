@@ -51,9 +51,9 @@ export interface iBrewerQuickShop {
     }
 
     hideContentOnMobile?: boolean;
-
     closeFunc?: () => void;
     addToCartFunction?: () => void;
+
 }
 
 const BrewerQuickShop = (props: iBrewerQuickShop) => {
@@ -94,11 +94,13 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
+
                     <Image alt={props.carousel.slideImageURLs[i].altText}
                            width={500}
                            height={500}
                            className="image-item"
                          src={props.carousel.slideImageURLs[i].path} title=""/>
+
                 </div>
             )
         }
@@ -202,7 +204,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                             </div> : <></>
                     }
 
-
                     <Kcarousel
                         carouselType="slider"
                         component="carousel"
@@ -258,7 +259,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                                     height={500}
                                                                     src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
                                                                     alt="Choose Your Savings" className={"ksk-title-img"}
-                                                                />
+                                                                    />
                                                             </div>
                                                             <div className={"kit-title"}>{`What's in your Kit:`}</div>
                                                             <div className={"content-container"}>
@@ -323,8 +324,9 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                             setLearnMoreOpen(true);
                                         }}
                                         addToCartFunction={props.addToCartFunction ? props.addToCartFunction : () => {
-                                        }}
-                                     isMember={props.isMember}/>
+
+                                        }} isMember={props.isMember}                                    />
+
                                 </div>
                                 :
                                 <div className="out-of-stock-area">Out of Stock</div>
