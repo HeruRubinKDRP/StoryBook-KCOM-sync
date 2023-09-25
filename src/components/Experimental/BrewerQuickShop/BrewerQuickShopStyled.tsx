@@ -62,7 +62,11 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   height: auto;
   width: 100%;
   margin: 0 auto;
-  
+  img{
+    width: 100% !important;
+    object-fit: contain;
+    height: 100%;
+  }
   
   .coupon-message {
     .coupon-copy{
@@ -145,6 +149,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
 
     .ksk-container {
       .visual-container {
+        
         .fill-pod {
           width: 100px;
         }

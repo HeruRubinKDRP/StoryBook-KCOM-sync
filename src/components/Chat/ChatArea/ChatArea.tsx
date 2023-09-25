@@ -11,6 +11,7 @@ import {NavLight} from "../../NavigationSimpler/NavLight";
 import {formattingResponseGeneral} from "../prompts";
 import {ChatPage} from "../ChatPageSections/ChatPages";
 import {navItems} from "../../../data/demo-nav-data";
+import {Sequence} from "../Sequences/Sequence";
 
 
 export interface IChatArea {
@@ -109,7 +110,7 @@ const ChatArea = (props : IChatArea) => {
 
         // Use parsed response for UI rendering
         if (parsedResponse) {
-            newUiMessages.push({ role: 'assistant', content: parsedResponse.text, recommendations: parsedResponse.recommendations, summary: parsedResponse.summary });
+            newUiMessages.push({ role: 'assistant', content: parsedResponse.text, recommendations: parsedResponse.recommendations, summary: parsedResponse.summary, route: parsedResponse.route, sequence: parsedResponse.sequence });
         } else {
             newUiMessages.push({ role: 'assistant', content: data.result });
         }
@@ -169,7 +170,20 @@ const ChatArea = (props : IChatArea) => {
 
                     <div key={index} className="conversation">
                         {/*{message.role === 'assistant' && <div>{`${JSON.stringify(message)}`}</div>}*/}
-
+                        {
+                            pair[1] && pair[1].sequence.sequenceType === "none" &&
+                            <ChatBubble
+                                chat={pair[0].content}
+                                response={pair[1] ? pair[1].content : null}
+                                summary={pair[1] ? pair[1].summary : null}
+                            />
+                        }
+                        {
+                            pair[1] && pair[1].sequence.sequenceType !== "none" &&
+                            <Sequence
+                                prerequisites={pair[1].sequence.prerequisites}
+                                steps={pair[1].sequence.steps} />
+                        }
                         {
                             pair[1] && pair[1].recommendations && pair[1].recommendations.length > 0 &&
                             <div className="recommendations">
@@ -179,11 +193,7 @@ const ChatArea = (props : IChatArea) => {
                                 />
                             </div>
                         }
-                        <ChatBubble
-                            chat={pair[0].content}
-                            response={pair[1] ? pair[1].content : null}
-                            summary={pair[1] ? pair[1].summary : null}
-                        />
+
                     </div>
                 ))}
                 <div ref={messagesEndRef}></div>

@@ -13,7 +13,7 @@ export const ChatBrewerCard: React.FC<iChatBrewerCardProps> = (props : iChatBrew
         <ChatBrewerCardStyled className="chat-card brewer" >
 
            <h2>{props.productName}</h2>
-           <div className="">
+           <div className="img-container">
                <Image width={1024} height={1102}   src={props.productImage} alt={props.productName} />
            </div>
             <KButton

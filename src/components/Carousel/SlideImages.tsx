@@ -19,7 +19,7 @@ export const SlideImages=(props : iSlideImages)=>{
     for(let i=0; i < props.slideImageURLs.length; i++){
       slideImages.push(
         <div key={i} className="image-item-container">
-          <Image alt="" className="image-item" src="/product-images/kcs/kcs-0.png" title=""/>
+          <Image alt="" width={500} height={500} className="image-item" src="/product-images/kcs/kcs-0.png" title=""/>
         </div>
       )
     }

@@ -42,7 +42,12 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
             </div>
             <div className={"ksk-container"}>
                 <div className="visual-container">
-                <Image src="./product-images/kcs/kcs-0.png" alt="" className={"kcs-image"}/>
+                <Image
+                    src="./product-images/kcs/kcs-0.png"
+                    alt=""
+                    className={"kcs-image"}
+                    width={500} height={500}
+                />
                 <Graphic graphicName={"plus-icon"}></Graphic>
                 <div className={"fill-pod"}>
                     <div className={"fill-pod"}>

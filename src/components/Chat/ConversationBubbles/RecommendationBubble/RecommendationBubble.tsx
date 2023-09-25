@@ -21,28 +21,31 @@ const ProductRecommendation: React.FC<ProductRecommendationProps> = ({ recommend
 
     return (
         <RecommendationBubbleStyled>
-            {recommendations.map((recommendation, index) => {
-                const productDetails = allProducts.find(product =>
-                    product.name.toLowerCase().includes(recommendation.name.toLowerCase())
-                );
-                if (productDetails) {
-                    console.log("recommendation found", recommendation.name)
-                    switch (recommendation.productType){
-                        case "machine":
-                            return (
-                                <ChatBrewerCard
-                                    key={index}
-                                    productName={productDetails.name}
-                                    productImage={productDetails.image}
-                                />
-                            );
-                        default:
-                            return (<></>)
-                    }
+            <h2 className="title">Recommendations for you</h2>
+            <div className="recommendation-cards">
+                {recommendations.map((recommendation, index) => {
+                    const productDetails = allProducts.find(product =>
+                        product.name.toLowerCase().includes(recommendation.name.toLowerCase())
+                    );
+                    if (productDetails) {
+                        console.log("recommendation found", recommendation.name)
+                        switch (recommendation.productType){
+                            case "machine":
+                                return (
+                                    <ChatBrewerCard
+                                        key={index}
+                                        productName={productDetails.name}
+                                        productImage={productDetails.image}
+                                    />
+                                );
+                            default:
+                                return (<></>)
+                        }
 
-                }
-                return null;
-            })}
+                    }
+                    return null;
+                })}
+            </div>
         </RecommendationBubbleStyled>
     );
 };

@@ -6,18 +6,17 @@ const client = weaviate.client({
     scheme: 'https',
     host: '2vwkvtx9qr65bbr97t8iha.c0.us-central1.gcp.weaviate.cloud',
     apiKey: new ApiKey(process.env.WEAVIATE_KEURIG as string),
-    headers: { 'X-OpenAI-Api-Key': process.env.OPENAI_API_KEY as string }, // Add this line
+    headers: { 'X-OpenAI-Api-Key': process.env.OPENAI_API_KEY as string },
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
-
         // Delete the existing 'Question' class
         await client.schema.classDeleter().withClassName('Question').do();
 
         const questionClass = {
-            class: 'Question',
-            vectorizer: 'text2vec-cohere', // or any other vectorizer you want to use
+            class: 'CoffeeMaker',
+            vectorizer: 'text2vec-openai', // Set the vectorizer as per your requirement
             vectorIndexConfig: {
                 distance: 'cosine',
             },
