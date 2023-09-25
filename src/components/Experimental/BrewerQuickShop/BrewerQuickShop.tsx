@@ -53,6 +53,7 @@ export interface iBrewerQuickShop {
 
     closeFunc?: () => void;
     addToCartFunction?: () => void;
+    isMember: boolean;
 }
 
 const BrewerQuickShop = (props: iBrewerQuickShop) => {
@@ -94,7 +95,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
             slideImages.push(
                 <div key={i} className="image-item-container">
                     <Image alt={props.carousel.slideImageURLs[i].altText} className="image-item"
-                         src={props.carousel.slideImageURLs[i].path} title=""/>
+                         src={props.carousel.slideImageURLs[i].path} title="" width={500} height={500} />
                 </div>
             )
         }
@@ -240,14 +241,14 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                 setLearnMoreTitle(props.learnMoreTitleKSK);
                                                 setLearnMoreContent(
                                                     <div className={"ksk-info-content"}>
-                                                        <Image src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
+                                                        <Image src="./images/quickshop-ksk/ksktitle.png" alt="Choose Your Savings" className={"ksk-title-img"} width={500} height={500}/>
                                                         <div>
                                                             <h2>The best way to buy your Keurig Coffee Maker.</h2>
                                                             <div>
                                                                 <Image
                                                                     src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
                                                                     alt="Choose Your Savings" className={"ksk-title-img"}
-                                                                />
+                                                                    width={500} height={500}/>
                                                             </div>
                                                             <div className={"kit-title"}>{`What's in your Kit:`}</div>
                                                             <div className={"content-container"}>
@@ -260,16 +261,16 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                         <div className={"how-to-title"}>How to build your Starter Kit</div>
                                                         <div className={"how-to-container"}>
                                                             <div>
-                                                                <Image src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/>
+                                                                <Image src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"} width={500} height={500}/>
                                                             </div>
                                                             <div>
-                                                                <Image src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/>
+                                                                <Image src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"} width={500} height={500}/>
                                                             </div>
                                                             <div>
-                                                                <Image src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/>
+                                                                <Image src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"} width={500} height={500}/>
                                                             </div>
                                                             <div>
-                                                                <Image src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/>
+                                                                <Image src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"} width={500} height={500}/>
                                                             </div>
                                                         </div>
                                                     </div>);
@@ -291,8 +292,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                             setLearnMoreOpen(true);
                                         }}
                                         addToCartFunction={props.addToCartFunction ? props.addToCartFunction : () => {
-                                        }}
-                                    />
+                                        }} isMember={props.isMember}                                    />
                                 </div>
                                 :
                                 <div className="out-of-stock-area">Out of Stock</div>
