@@ -119,6 +119,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             alt=""
                             width={180}
                             height={180}
+                            unoptimized={true}
                         />
                     </div>
                     <div className="product-name">{product.name}</div>
@@ -133,6 +134,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                 <div className="loading">
                     <div className="loading-graphic">
                         <Image
+                            unoptimized={true}
                             width={130}
                             height={136}
                             src="/loaders/cup_loader_med.gif"

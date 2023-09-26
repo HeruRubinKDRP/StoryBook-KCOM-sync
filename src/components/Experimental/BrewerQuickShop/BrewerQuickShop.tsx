@@ -96,6 +96,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                 <div key={i} className="image-item-container">
 
                     <Image alt={props.carousel.slideImageURLs[i].altText}
+                           unoptimized={true}
                            width={500}
                            height={500}
                            className="image-item"
@@ -274,6 +275,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                             <div>
                                                                 <Image src="./images/quickshop-ksk/step1.png"
                                                                        alt=""
+                                                                       unoptimized={true}
                                                                        width={500}
                                                                        height={500}
                                                                        className={"ksk-title-img"}/>
@@ -282,6 +284,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                                 <Image src="./images/quickshop-ksk/step2.png"
                                                                        alt=""
                                                                        className={"ksk-title-img"}
+                                                                       unoptimized={true}
                                                                        width={500}
                                                                        height={500}
                                                                 />

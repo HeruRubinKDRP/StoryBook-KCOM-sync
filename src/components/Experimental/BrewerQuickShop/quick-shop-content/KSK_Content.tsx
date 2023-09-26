@@ -12,7 +12,14 @@ export const KSK_Content = (props : IkskContent) => {
             <div>
                 <h2>The best way to buy your Keurig Coffee Maker.</h2>
                 <div>
-                    <Image src="./images/quickshop-ksk/fpo-ksk-learnmore.png" alt="Choose Your Savings" className={"ksk-title-img"}/>
+                    <Image
+                        src="./images/quickshop-ksk/fpo-ksk-learnmore.png"
+                        alt="Choose Your Savings"
+                        className={"ksk-title-img"}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                 </div>
                 <div className={"kit-title"}>{`What's in your Kit:`}</div>
                 <div className={"content-container"}>
@@ -25,16 +32,44 @@ export const KSK_Content = (props : IkskContent) => {
             <div className={"how-to-title"}>How to build your Starter Kit</div>
             <div className={"how-to-container"}>
                 <div>
-                    <Image src="./images/quickshop-ksk/step1.png" alt="" className={"ksk-title-img"}/>
+                    <Image
+                        src="./images/quickshop-ksk/step1.png"
+                        alt=""
+                        className={"ksk-title-img"}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                 </div>
                 <div>
-                    <Image src="./images/quickshop-ksk/step2.png" alt="" className={"ksk-title-img"}/>
+                    <Image
+                        src="./images/quickshop-ksk/step2.png"
+                        alt=""
+                        className={"ksk-title-img"}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                 </div>
                 <div>
-                    <Image src="./images/quickshop-ksk/step3.png" alt="" className={"ksk-title-img"}/>
+                    <Image
+                        src="./images/quickshop-ksk/step3.png"
+                        alt=""
+                        className={"ksk-title-img"}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                 </div>
                 <div>
-                    <Image src="./images/quickshop-ksk/step4.png" alt="" className={"ksk-title-img"}/>
+                    <Image
+                        src="./images/quickshop-ksk/step4.png"
+                        alt=""
+                        className={"ksk-title-img"}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                 </div>
             </div>
         </div>

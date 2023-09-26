@@ -114,7 +114,13 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <Image src={product.image} alt=""/>
+                        <Image
+                            src={product.image}
+                            alt=""
+                            unoptimized={true}
+                            width={500}
+                            height={500}
+                        />
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -127,7 +133,13 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <Image src="./loaders/cup_loader_med.gif" alt="loading"/>
+                        <Image
+                            src="./loaders/cup_loader_med.gif"
+                            alt="loading"
+                            unoptimized={true}
+                            width={500}
+                            height={500}
+                        />
                     </div>
                 </div>
             )
@@ -185,7 +197,13 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                     <div className="product-area">
                         <div className="product-added">
                             <div className="product-image">
-                                <Image src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                                <Image
+                                    src={props.selectedProduct.image}
+                                    alt={props.selectedProduct.name}
+                                    unoptimized={true}
+                                    width={500}
+                                    height={500}
+                                />
                             </div>
                             <div className="product-status-area">
                                 <div className="cart-message">
