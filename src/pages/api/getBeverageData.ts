@@ -45,7 +45,50 @@ async function extractBeverageData(page: Page, url: string) {
         const productDetails = productDetailsContainer!.querySelector('div:nth-child(1) > div:nth-child(1) > p');
         return productDetails ? productDetails.textContent?.trim() : null;
     });
+    const variantsData = await page.evaluate(() => {
+        const variants = [];
+        const variantElements = document.querySelectorAll('.variant-container li');
+        for (const variantElement of variantElements) {
+            const size = variantElement.querySelector('.css-9ttm')?.textContent?.trim() || '';
+            const pricePerUnitElement = variantElement.querySelector('.css-1vstcys');
+            const pricePerUnitText = pricePerUnitElement?.textContent || '';
+            const pricePerUnit = parseFloat(pricePerUnitText.split('/')[0].replace('$', '').trim() || '0');
+            const unit = pricePerUnitText.split('/')[1]?.trim() || '';
 
+            // Initialize subscriptionPrice and basePrice as null
+            let subscriptionPrice = null;
+            let basePrice = null;
+
+            // Find the price elements for this variant and extract the prices
+            const pricesElement = variantElement.querySelector('[data-testid="ad-subscription-price"]');
+            if (pricesElement) {
+                const pricesSpans = pricesElement.querySelectorAll('span');
+                if (pricesSpans.length >= 2) {
+                    subscriptionPrice = parseFloat(pricesSpans[0].textContent?.replace('$', '').trim() || '0');
+                    basePrice = parseFloat(pricesSpans[1].textContent?.replace('$', '').trim() || '0');
+                }
+            }
+
+            variants.push({ size, pricePerUnit, unit, subscriptionPrice, basePrice });
+        }
+        return variants;
+    });
+
+
+    // Click each variant and get the updated price
+    for (const variant of variantsData) {
+        const variantElement = await page.$(`li[data-code="${variant.size}"]`);
+        if (variantElement) {
+            await variantElement.click();
+            await page.waitForSelector('.radio-buttons');
+            // Wait for the price to update, adjust timeout as needed
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            // Scrape the updated price
+            const updatedPrice = await page.$eval('.productPrice .css-6grne4', el => parseFloat(el.textContent?.replace('$', '').trim() || '0'));
+            variant.basePrice = updatedPrice;
+        }
+    }
 
     return {
         productDescription: productDetails
@@ -58,7 +101,7 @@ async function extractBeverageData(page: Page, url: string) {
 export default async function handler(req : NextApiRequest, res : NextApiResponse) {
     try {
         // Define where and under which name to save the file
-
+            console.log("starting")
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         page.on('console', msg => {
@@ -199,10 +242,6 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
             const productDetails = await extractBeverageData(page, product.productDetailsURLValue!);
             productsDetailsAll.push(productDetails);
         }
-
-        const productsDetailsJSON = JSON.stringify(productsDetailsAll, null, 4); // 4 spaces for indentation
-        const outputPathDetails = path.join(process.cwd(), './public/data/productsDetails.json');
-
 
 
         //Save data to json file
