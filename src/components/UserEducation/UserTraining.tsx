@@ -90,6 +90,9 @@ export const UserTraining = (props: iUserTraining) => {
                                 className="user-training-imagery"
                                 src={isDesktop? contentItem.DesktopPath : contentItem.MobilePath}
                                 alt={isDesktop? contentItem.DesktopTitle : contentItem.MobileTitle}
+                                unoptimized={true}
+                                width={500}
+                                height={500}
                             />
                         )}
                     </div>

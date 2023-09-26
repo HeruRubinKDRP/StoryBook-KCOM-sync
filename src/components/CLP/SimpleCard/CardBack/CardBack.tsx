@@ -29,7 +29,14 @@ const CardBack: React.FC<iProductProps> = ({ name, description, imageSrc, featur
         <CardBackStyled  className="card-back"  >
             <div className="info-container">
                 <div className="product-title-area">
-                    {imageSrc && <Image className="product-silo" src={imageSrc ?? ""} alt={name} />}
+                    {imageSrc && <Image
+                        className="product-silo"
+                        src={imageSrc ?? ""}
+                        alt={name}
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />}
                     <h1>{name}</h1>
                 </div>
                 <p>{description}</p>

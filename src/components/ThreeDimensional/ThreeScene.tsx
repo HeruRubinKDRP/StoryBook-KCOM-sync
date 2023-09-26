@@ -81,6 +81,9 @@ const ThreeScene = (props: iThreeSceneProps) => {
                     top: "0",
                     left: "0",
                 }}
+                unoptimized={true}
+                width={500}
+                height={500}
             />
 
             <EnvironmentMapContext.Provider value={envMap}>

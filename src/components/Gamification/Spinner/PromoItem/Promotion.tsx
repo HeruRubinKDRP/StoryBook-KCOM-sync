@@ -23,7 +23,13 @@ export const PromotionItem = (props: Promotion) => {
                 {props.highlightedText ? <h2>{props.highlightedText}</h2> : null}
                 <p>{props.name}</p>
             </div>
-            {props.highlightImage ? <Image style={{transform: `rotate(${props.imageCounterRotation ? -props.imageCounterRotation : 0}deg)`}} src={props.highlightImage} alt={props.name} /> : null}
+            {props.highlightImage ? <Image unoptimized={true}
+                                           width={500}
+                                           height={500}
+                                           style={{transform: `rotate(${props.imageCounterRotation ? -props.imageCounterRotation : 0}deg)`}}
+                                           src={props.highlightImage}
+                                           alt={props.name}
+            /> : null}
         </PromotionStyled>
     )
 }

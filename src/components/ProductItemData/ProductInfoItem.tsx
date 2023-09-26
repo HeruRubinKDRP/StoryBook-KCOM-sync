@@ -126,6 +126,9 @@ export const ProductInfoItem = (props: IproductItem) => {
                   alt=""
                   className="pod-lid"
                   src={props.productImage}
+                  unoptimized={true}
+                  width={500}
+                  height={500}
               />
             }
             <div className="prod-info-area">
@@ -143,6 +146,9 @@ export const ProductInfoItem = (props: IproductItem) => {
                     <Image
                         alt=""
                         src="https://www.keurig.com/_ui/desktop/common/images/category-landing/autodel-logo-clp.svg"
+                        unoptimized={true}
+                        width={500}
+                        height={500}
                     />
                   </div>
                 </div>
@@ -180,6 +186,9 @@ export const ProductInfoItem = (props: IproductItem) => {
                       alt=""
                       className="pod-lid"
                       src={props.productImage}
+                      unoptimized={true}
+                      width={500}
+                      height={500}
                   />
               }
               <p>{props.brand}</p>

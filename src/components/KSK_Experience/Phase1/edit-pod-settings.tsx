@@ -82,7 +82,14 @@ export const PodSettings = (props: iPodSettings) => {
     <>
       <div className="section"></div>
       <div className="product-image-name">
-        <Image alt="" className="pod-lid" src={props.podImageUrl}/>
+        <Image
+            unoptimized={true}
+            width={500}
+            height={500}
+            alt=""
+            className="pod-lid"
+            src={props.podImageUrl}
+        />
         <div className="prod-info-area">
           <div>
             <p className="brand-title">{props.brand}</p>

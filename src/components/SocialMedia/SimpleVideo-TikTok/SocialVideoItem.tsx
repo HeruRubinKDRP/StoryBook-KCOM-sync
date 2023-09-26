@@ -33,7 +33,14 @@ export const SimpleVideoItem  = (props : iSimpleVideoItem)=>{
   const getImagery =(isPlaying : boolean)=>{
     if(!isPlaying){
       return (
-          <Image className="image-preview" src={props.previewImagePath} alt=""/>
+          <Image
+              className="image-preview"
+              src={props.previewImagePath}
+              alt=""
+              unoptimized={true}
+              width={500}
+              height={500}
+          />
       )
     }
 

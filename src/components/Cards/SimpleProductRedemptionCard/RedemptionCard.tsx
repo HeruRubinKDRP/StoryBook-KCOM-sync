@@ -62,7 +62,13 @@ export const RedemptionCard =(props : iRedemptionCard)=>{
     <RedemptionStyled theme={{widthX : props.desiredWidth }}>
       <div className="product-name">
         <div className={`product-image ${selectedVariant} `}>
-          <Image src={props.variants[selectedVariant].variantImage} alt=""/>
+          <Image
+              src={props.variants[selectedVariant].variantImage}
+              alt=""
+              unoptimized={true}
+              width={500}
+              height={500}
+          />
         </div>
         <div className="product-id-area">
           <div className="brand">

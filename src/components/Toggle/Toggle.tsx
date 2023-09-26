@@ -72,7 +72,13 @@ export const KToggle =(props : Itoggle)=>{
           {
               props.toggleOptions[index].imagePath &&
               <div className="image-container">
-                <Image alt="" src={props.toggleOptions[index].imagePath ?? ""} />
+                <Image
+                    alt=""
+                    src={props.toggleOptions[index].imagePath ?? ""}
+                    unoptimized={true}
+                    width={500}
+                    height={500}
+                />
               </div>
           }
         </>

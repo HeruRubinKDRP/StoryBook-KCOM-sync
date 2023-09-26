@@ -96,7 +96,13 @@ export const AddKSK = (props : iAddKSK)=>{
           <span className="secondary">{props.message.secondaryMessage}</span>
         </p>
         <div className="explanation-area">
-          <Image src={props.brewerImagePath} alt=""/>
+          <Image
+              src={props.brewerImagePath}
+              alt=""
+              unoptimized={true}
+              width={500}
+              height={500}
+          />
           <span className="plus" >
             <Graphic graphicName="plus-icon" iconSize="1.25rem" colorOverride={colorNameToValue(props.themeColor)}/>
           </span>

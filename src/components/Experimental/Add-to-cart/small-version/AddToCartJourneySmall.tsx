@@ -200,8 +200,9 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                             <div className="product-image">
                                 <Image
                                     src={props.selectedProduct.image}
-                                    height={200}
+                                    unoptimized={true}
                                     width={200}
+                                    height={200}
                                     alt={props.selectedProduct.name}
                                 />
                             </div>

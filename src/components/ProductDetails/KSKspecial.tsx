@@ -26,6 +26,9 @@ export const KSKspecial=()=>{
               src="/product-images/kcs/kcs-0.png"
               className="small-product-image"
               alt="small-product-image"
+              unoptimized={true}
+              width={500}
+              height={500}
           />
           <label>+</label>
           <div className="pod-slots">

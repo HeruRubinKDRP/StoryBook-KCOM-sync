@@ -37,7 +37,13 @@ export const NavItem = ( props : iNavItem )=>{
     if(!props.image){return <></>}
     return(
       <div className="nav-item-image">
-        <Image src={props.image} alt={""}/>
+        <Image
+            src={props.image}
+            alt={""}
+            unoptimized={true}
+            width={500}
+            height={500}
+        />
       </div>
     )
   }

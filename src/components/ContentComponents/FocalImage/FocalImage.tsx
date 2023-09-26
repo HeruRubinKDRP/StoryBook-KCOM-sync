@@ -75,6 +75,7 @@ export const FocalImageContent =(props : iFocalImage)=>{
             <Image
                 src="/app/apple.svg"
                 alt=""
+                unoptimized={true}
                 width={50}
                 height={50}
             />
@@ -83,6 +84,7 @@ export const FocalImageContent =(props : iFocalImage)=>{
             <Image
                 src="/app/google2.svg"
                 alt=""
+                unoptimized={true}
                 width={50}
                 height={50}
             />
@@ -132,6 +134,9 @@ export const FocalImageContent =(props : iFocalImage)=>{
             src={props.focalImagePath}
             className="focal-image"
             alt=""
+            unoptimized={true}
+            width={500}
+            height={500}
         />
       </div>
       <div className="callout-area sect">

@@ -145,16 +145,48 @@ export const FeaturedProduct=(props : iFeaturedProduct)=>{
                sectionName=""/>
             </div>,
             <div key="1" className="image-item-container">
-              <Image alt="" className="image-item" src="/product-images/kss/kss-0.webp" title=""/>
+              <Image
+                  alt=""
+                  className="image-item"
+                  src="/product-images/kss/kss-0.webp"
+                  title=""
+                  unoptimized={true}
+                  width={500}
+                  height={500}
+              />
             </div>,
             <div key="2" className="image-item-container">
-              <Image alt="" className="image-item" src="/product-images/kcs/kcs-open.png" title=""/>
+              <Image
+                  unoptimized={true}
+                  width={500}
+                  height={500}
+                  alt=""
+                  className="image-item"
+                  src="/product-images/kcs/kcs-open.png"
+                  title=""
+              />
             </div>,
             <div key="3" className="image-item-container">
-              <Image alt="" className="image-item" src="/product-images/kcs/kcs-mug.png" title=""/>
+              <Image
+                  unoptimized={true}
+                  width={500}
+                  height={500}
+                  alt=""
+                  className="image-item"
+                  src="/product-images/kcs/kcs-mug.png"
+                  title=""
+              />
             </div>,
             <div key="4" className="image-item-container">
-              <Image alt="" className="image-item" src="/product-images/kcs/scene.jpg" title=""/>
+              <Image
+                  unoptimized={true}
+                  width={500}
+                  height={500}
+                  alt=""
+                  className="image-item"
+                  src="/product-images/kcs/scene.jpg"
+                  title=""
+              />
             </div>,
 
           ]}

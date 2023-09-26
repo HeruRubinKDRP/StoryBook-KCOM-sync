@@ -109,7 +109,14 @@ export const SimpleHighlightCard=(props : iSimpleHighlightCard)=>{
 
   const getImageMethod =():ReactElement=>{
     if(!props.imageSizeMethod || props.imageSizeMethod == "from-image-size"){
-      return <Image src={props.mainFocalImage?.imagePath ?? ""} alt="" className="primary-image"/>
+      return <Image
+          src={props.mainFocalImage?.imagePath ?? ""}
+          alt=""
+          className="primary-image"
+          unoptimized={true}
+          width={500}
+          height={500}
+      />
     }
 
     return <div

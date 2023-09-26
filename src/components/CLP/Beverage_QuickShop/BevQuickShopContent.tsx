@@ -161,7 +161,10 @@ export const BevQuickShopContent = (props: iBeverageQuickShop) => {
             <div className="quick-shop-container">
                 <section className="product-container">
                     <div className="product-image">
-                        <Image src={props.productImageURL} alt={props.productName}/>
+                        <Image
+
+                            src={props.productImageURL}
+                            alt={props.productName}/>
                         <div className="brand">{props.brand}</div>
                         <h2>{props.productName}</h2>
                         <div className="rating">

@@ -248,6 +248,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                     <div className={"ksk-info-content"}>
                                                         <Image
                                                             src="./images/quickshop-ksk/ksktitle.png"
+                                                            unoptimized={true}
                                                             width={500}
                                                             height={500}
                                                             alt="Choose Your Savings"
@@ -256,6 +257,7 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
                                                             <h2>The best way to buy your Keurig Coffee Maker.</h2>
                                                             <div>
                                                                 <Image
+                                                                    unoptimized={true}
                                                                     width={500}
                                                                     height={500}
                                                                     src="./images/quickshop-ksk/fpo-ksk-learnmore.png"

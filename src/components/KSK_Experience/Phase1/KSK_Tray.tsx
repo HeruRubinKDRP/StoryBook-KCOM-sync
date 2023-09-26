@@ -125,6 +125,9 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
                   {
                     podLibrary[props.selectedPods[i].podId].productImagePrimaryPath &&
                       <Image
+                          unoptimized={true}
+                          width={500}
+                          height={500}
                           src={podLibrary[props.selectedPods[i].podId].productImagePrimaryPath ?? ""}
                           alt={podLibrary[props.selectedPods[i].podId].productType ?? ""}
                       />
@@ -201,6 +204,9 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
                       {
                         podLibrary[consolidatedList[k].podId].productImagePrimaryPath &&
                           <Image
+                              unoptimized={true}
+                              width={500}
+                              height={500}
                               src={podLibrary[consolidatedList[k].podId].productImagePrimaryPath ?? ""}
                                 alt={podLibrary[consolidatedList[k].podId].productType ?? ""}
                           />
@@ -271,6 +277,9 @@ export const KSK_Tray=(props : iKSK_Tray)=>{
             {
               coffeeMakerList[props.coffeeMakerSelectedID].productImagePath &&
                 <Image
+                    unoptimized={true}
+                    width={500}
+                    height={500}
                     src={coffeeMakerList[props.coffeeMakerSelectedID].productImagePath}
                     alt={coffeeMakerList[props.coffeeMakerSelectedID].productName ?? ""}
                     className="product-image" />

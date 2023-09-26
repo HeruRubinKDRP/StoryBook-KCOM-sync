@@ -24,7 +24,13 @@ export const OptionSelectionItem = (props: iOptionSelectionProps) => {
             </div>
 
             <div className="main-image">
-                <Image src={props.mainImage} alt=""/>
+                <Image
+                    src={props.mainImage}
+                    alt=""
+                    unoptimized={true}
+                    width={500}
+                    height={500}
+                />
             </div>
             <KButton
                 label={props.actionLabel}

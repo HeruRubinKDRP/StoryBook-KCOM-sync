@@ -41,7 +41,14 @@ export const CellBase = (props : iCellItem) => {
             </div>
             {
                 props.highlightImage &&
-                <Image className="highlight-image" height={1200} width={500} src={props.highlightImage} alt={props.title ?? ""} />
+                <Image
+                    className="highlight-image"
+                    height={1200}
+                    width={500}
+                    src={props.highlightImage}
+                    alt={props.title ?? ""}
+                    unoptimized={true}
+                />
 
             }
             {
@@ -52,6 +59,7 @@ export const CellBase = (props : iCellItem) => {
                     alt={"background image"}
                     height={1250}
                     width={2800}
+                    unoptimized={true}
                 />
             }
 

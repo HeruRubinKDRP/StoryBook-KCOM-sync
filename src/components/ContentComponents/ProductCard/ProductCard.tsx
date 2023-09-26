@@ -407,7 +407,14 @@ export const ProductCard = (props: iProductCard) => {
   return (
     <ProductCardStyled className="product-item-card">
       <h1 className="product-name">{props.productName}</h1>
-      <Image alt="" className="product-image" src={props.productImagePath}/>
+      <Image
+          alt=""
+          className="product-image"
+          src={props.productImagePath}
+          unoptimized={true}
+          width={500}
+          height={500}
+      />
       <div className="color-options">
         {getColorOptions()}
       </div>

@@ -42,7 +42,13 @@ export const QuickShop = () => {
                 className="css-d60him">
                 <Image
                 src="https://images.keurig.com/is/image/keurig/Breakfast-Blend-Coffee-K-Cup-Green-Mountain_en_general?wid=272&amp;hei=202&amp;fmt=png-alpha&amp;qlt=75,1&amp;op_sharpen=0&amp;resMode=bicub&amp;op_usm=1,1,6,0&amp;iccEmbed=0&amp;printRes=72&amp;extend=0,250,0,0"
-                className="product-image" alt="Breakfast Blend Coffee" tabIndex={0}/>
+                className="product-image"
+                alt="Breakfast Blend Coffee"
+                tabIndex={0}
+                unoptimized={true}
+                width={500}
+                height={500}
+                />
               </a>
                 <div className="product-brand css-4fyeb" tabIndex={0}>Green Mountain Coffee Roasters®</div>
                 <a className="product-name css-46md3l"
@@ -54,7 +60,11 @@ export const QuickShop = () => {
                     <div className=" css-1lhbof9"><span className="profile-variation variation-left ">Light</span>
                       <div className="css-bcg8e9">
                         <Image
-                        src="https://images.keurig.com/is/image/keurig/roast-profile2?fmt=png-alpha" alt="Light Roast"
+                        src="https://images.keurig.com/is/image/keurig/roast-profile2?fmt=png-alpha"
+                        alt="Light Roast"
+                        unoptimized={true}
+                        width={500}
+                        height={500}
                         />
                       </div>
                       <span className="profile-variation variation-right ">Dark</span>
@@ -195,6 +205,9 @@ export const QuickShop = () => {
                       title="Shipping-icon"
                       alt="Shipping-icon"
                       src="https://images.keurig.com/is/image/keurig/shipping-icon?fmt=png-alpha"
+                      unoptimized={true}
+                      width={500}
+                      height={500}
                     />
                     <span className="shippingMsgAway"><
                       span>You are <b>$35.00 </b>away from <b>FREE SHIPPING</b></span>

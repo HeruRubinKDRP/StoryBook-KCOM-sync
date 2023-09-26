@@ -26,6 +26,9 @@ export const SelectCoffeeMakerBasic=(props : iSelectCoffeeMaker)=>{
           <div className="coffee-maker-image-title">
             <div className="product-image-name">
               <Image
+                  unoptimized={true}
+                  width={500}
+                  height={500}
                   alt={props.coffeeMakers[i].productName}
                   src={props.coffeeMakers[i].productImagePath}
               />

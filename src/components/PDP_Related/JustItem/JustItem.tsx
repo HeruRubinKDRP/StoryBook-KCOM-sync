@@ -24,7 +24,13 @@ export const JustItem =(props : iJustBrewer)=>{
       <h3>{props.mainLabel}</h3>
       <div className="product-area">
         <div className="product-descriptive-area">
-          <Image alt="" src={props.productImage} />
+          <Image
+              alt=""
+              src={props.productImage}
+              unoptimized={true}
+              width={500}
+              height={500}
+          />
           <div className="product-details-area">
             <h4>{props.productName}</h4>
             <Price

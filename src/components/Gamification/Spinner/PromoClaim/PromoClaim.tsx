@@ -16,6 +16,9 @@ const PromoClaim: React.FC<PromoClaimProps> = ({ promotion, onClaim }) => {
         <PromoClaimStyled className="promo-claim">
            <div className="promo-claim-details">
                <Image
+                   unoptimized={true}
+                   width={500}
+                   height={500}
                    src={promotion.highlightImage ?? ""}
                    alt={promotion.name}
                    style={{ width: '100px', height: '100px' }}

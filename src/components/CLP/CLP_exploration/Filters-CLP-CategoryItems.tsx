@@ -153,6 +153,9 @@ export const CategoryItem = ({ title, subcategories, defaultOpen = false }: iCat
                                     <div className={"image-container"}>
                                         {subcategory.imageSrc && (
                                             <Image
+                                                unoptimized={true}
+                                                width={500}
+                                                height={500}
                                                 className="subcategory-image"
                                                 src={subcategory.imageSrc}
                                                 alt={subcategory.name ?? ""}

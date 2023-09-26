@@ -78,8 +78,9 @@ export const PricingItem = (props : iPricingItem)=>{
         <Image
             src={props.productImagePath}
             alt="product image"
-            width="0"
-            height="0"
+            width={0}
+            height={0}
+            unoptimized={true}
         />
       </div>
 

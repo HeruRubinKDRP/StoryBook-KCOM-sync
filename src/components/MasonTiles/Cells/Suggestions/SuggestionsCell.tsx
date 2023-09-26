@@ -29,7 +29,13 @@ export const SuggestionsCell = (props: iCellItem) => {
                 suggestions.map((suggestion, index) => {
                     return(
                         <div className="suggestion" key={index}>
-                            <Image src={suggestion.productImage} alt={suggestion.productName} width={200} height={200} />
+                            <Image
+                                src={suggestion.productImage}
+                                alt={suggestion.productName}
+                                width={200}
+                                height={200}
+                                unoptimized={true}
+                            />
                             {
                                 suggestion.brandName &&
                                 <p>

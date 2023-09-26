@@ -150,8 +150,15 @@ export const PdpFramework = (props: iPdpFramework) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-                    <Image alt={props.carousel.slideImageURLs[i].altText} className="image-item"
-                         src={props.carousel.slideImageURLs[i].path} title=""/>
+                    <Image
+                        alt={props.carousel.slideImageURLs[i].altText}
+                        className="image-item"
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                        src={props.carousel.slideImageURLs[i].path}
+                        title=""
+                    />
                 </div>
             )
         }

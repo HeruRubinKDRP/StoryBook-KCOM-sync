@@ -162,7 +162,14 @@ export const ContentItem =(props : iContentItem)=>{
             colorOverride={props.mainMessageColor}
           />
       }else if(props.focalImagePath){
-        return <Image src={props.focalImagePath} alt="" style={{width: props.focalImageSize}} />
+        return <Image
+            src={props.focalImagePath}
+            alt=""
+            style={{width: props.focalImageSize}}
+            unoptimized={true}
+            width={500}
+            height={500}
+        />
       }
     }
 

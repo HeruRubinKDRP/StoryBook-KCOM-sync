@@ -27,6 +27,9 @@ export const UpsellCombo=(props : iUpsellCombo)=>{
           <Image
               src={props.products[i].productImagePath}
               alt=""
+              unoptimized={true}
+              width={500}
+              height={500}
           />
           <div className="product-description">
             <div>

@@ -13,6 +13,7 @@ export const LoadingPacifier = (props: iLoadingPacifier) => {
                 return (
                     <div className="loading-graphic">
                         <Image
+                            unoptimized={true}
                             src="/loaders/cup_loader_med.gif"
                             width={130}
                             height={136}

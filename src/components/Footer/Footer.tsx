@@ -10,11 +10,13 @@ const Footer = () => (
     >
       Powered by{' '}
       <Image
+          unoptimized={true}
+          width={500}
+          height={500}
         src="/vercel.svg"
         alt="Vercel Logo"
         className="ml-2 h-4"
-        width={100}
-        height={100}
+
       />
     </a>
   </footer>

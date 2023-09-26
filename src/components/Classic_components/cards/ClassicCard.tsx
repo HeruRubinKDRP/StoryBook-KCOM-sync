@@ -134,7 +134,11 @@ const {width, height, ref} = useResizeDetector({
                     <Image
                         src={props.productImage}
                         alt={props.productName} title={props.productName} className="product-image"
-                        data-selector="PR_Image"/>
+                        data-selector="PR_Image"
+                        unoptimized={true}
+                        width={500}
+                        height={500}
+                    />
                   </a>
                 </div>
                 <div className="product-naming-area desktop">
