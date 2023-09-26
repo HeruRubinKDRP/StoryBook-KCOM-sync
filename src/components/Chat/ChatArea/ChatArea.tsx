@@ -20,6 +20,7 @@ export interface IChatArea {
 
 const ChatArea = (props : IChatArea) => {
     const [isMuted, setIsMuted] = useState<boolean>(false);
+    const [isFirstContact, setIsFirstContact] = useState<boolean>(true);
     useEffect(() => {
         // Check if there's a route
         if (props.currentRoute) {
@@ -110,7 +111,8 @@ const ChatArea = (props : IChatArea) => {
 
         // Use parsed response for UI rendering
         if (parsedResponse) {
-            newUiMessages.push({ role: 'assistant', content: parsedResponse.text, recommendations: parsedResponse.recommendations, summary: parsedResponse.summary, route: parsedResponse.route, sequence: parsedResponse.sequence });
+            console.log("parsedResponse: ", parsedResponse);
+            newUiMessages.push({ role: 'assistant', content: parsedResponse.text, recommendations: parsedResponse.recommendations, summary: parsedResponse.summary, route: parsedResponse.route, sequence: parsedResponse.sequence, sequenceType: parsedResponse.sequenceType });
         } else {
             newUiMessages.push({ role: 'assistant', content: data.result });
         }
@@ -151,6 +153,10 @@ const ChatArea = (props : IChatArea) => {
     const handleNavigation = async (route: string, instructions : string) => {
 
     }
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <ChatContainerStyled className="chat-container">
@@ -193,6 +199,7 @@ const ChatArea = (props : IChatArea) => {
                                 />
                             </div>
                         }
+
 
                     </div>
                 ))}

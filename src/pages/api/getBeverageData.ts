@@ -27,7 +27,7 @@ export interface productDetailsItem {
     productDescription?: string | null;
 }
 
-async function extractProductData(page: Page, url: string) {
+async function extractBeverageData(page: Page, url: string) {
     console.log("extracting data from ", url);
     // Use a stricter check for invalid URLs
     if (!url || url.endsWith("null")) {
@@ -196,7 +196,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
                 continue;
             }
 
-            const productDetails = await extractProductData(page, product.productDetailsURLValue!);
+            const productDetails = await extractBeverageData(page, product.productDetailsURLValue!);
             productsDetailsAll.push(productDetails);
         }
 

@@ -94,7 +94,6 @@ const BrewerQuickShop = (props: iBrewerQuickShop) => {
         for (let i = 0; i < props.carousel.slideImageURLs.length; i++) {
             slideImages.push(
                 <div key={i} className="image-item-container">
-
                     <Image alt={props.carousel.slideImageURLs[i].altText}
                            unoptimized={true}
                            width={500}

@@ -7,7 +7,7 @@ import {ChatBrewerCard} from "../../ChatCards/BrewerCard";
 import {RecommendationBubbleStyled} from "./recommendation-bubble.styled";
 
 interface ProductRecommendationProps {
-    recommendations: Array<{ productType: string; name: string }>;
+    recommendations: Array<{ productType: string; productName: string }>;
     allProducts: iProductInfoCardProps[];
 }
 
@@ -25,12 +25,12 @@ const ProductRecommendation: React.FC<ProductRecommendationProps> = ({ recommend
             <div className="recommendation-cards">
                 {recommendations.map((recommendation, index) => {
                     const productDetails = allProducts.find(product =>
-                        product.name.toLowerCase().includes(recommendation.name.toLowerCase())
+                        product.name.toLowerCase().includes(recommendation.productName.toLowerCase())
                     );
                     if (productDetails) {
-                        console.log("recommendation found", recommendation.name)
+                        console.log("recommendation found", recommendation.productName)
                         switch (recommendation.productType){
-                            case "machine":
+                            case "coffee-maker":
                                 return (
                                     <ChatBrewerCard
                                         key={index}
