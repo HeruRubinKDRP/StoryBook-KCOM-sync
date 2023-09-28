@@ -54,5 +54,21 @@ export const GridStyled = styled.div`
 
     }
   }
+
+  &.layout2{
+    .cell-0{
+      grid-row-start: 1;
+      grid-row-end: 7;
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+
+    .cell-1 { 
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 5;
+      grid-column-end: 13;
+    }
+  }
 `;
 

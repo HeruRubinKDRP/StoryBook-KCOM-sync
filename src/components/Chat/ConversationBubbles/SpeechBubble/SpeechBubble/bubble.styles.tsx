@@ -2,15 +2,18 @@ import styled from "styled-components";
 import {ctaColorStyles} from "../../../../_commonStyles/common.styled";
 
 export const ChatItemContainer = styled.div`
-  display: flex;
+  display: grid;
   flex-direction: row;
-  
+  grid-template-columns: var(--space-2xl-3xl, 1fr);
+  .back-and-forth {
+    grid-column-start: 2;
+  }
     .summary{
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
-      min-width: 12rem;
+      width: var(--space-2xl-3xl);
       .divider{
         background-color: #c1b1b1;
         border-radius: 100vw;
@@ -20,6 +23,7 @@ export const ChatItemContainer = styled.div`
       }
       h3{
         margin: 0;
+        font-size: var(var(--step--4));
       }
     }
 `;

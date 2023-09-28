@@ -24,6 +24,25 @@ export const CustomPodLibrary: podItemT[] = [
     },
 ];
 
+export const HomeGridData : iCellItem[] = [
+    {
+        cellType : 'highlight-item',
+        title: 'Keurig® Starter Kit',
+        secondaryTitle: 'Coffee Maker for FREE or 50% with the purchase of Beverages',
+        highlightImage: '/editorial/home/starter-kit.jpg',
+        iconStandard : 'action-arrow',
+        backgroundColor: '#ffffff',
+        CTA: 'Build Your Starter Kit',
+    },{
+        cellType : 'chat-text',
+        title: 'Your Digital Assistant',
+        secondaryTitle: `If you have any questions, just ask.`,
+        highlightImage: '',
+        iconStandard : 'action-arrow',
+        backgroundColor: '#ffffff',
+    }
+]
+
 export const BeverageGridData : iCellItem[] = [
     {
         cellType : 'basic',

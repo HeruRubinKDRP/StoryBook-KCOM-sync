@@ -82,7 +82,7 @@ export const NavLight: React.FC<NavLightProps> = (props: NavLightProps) => {
                         </div>
                         <div className="child-items">
                             {showChildren?.children?.map((child, index) => (
-                                <Link href={child.link}>
+                                <Link key={index} href={child.link}>
                                     <ChildItem className="child-item" key={index}>{child.label}</ChildItem>
                                 </Link>
                             ))}

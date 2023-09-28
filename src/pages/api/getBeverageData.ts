@@ -99,16 +99,24 @@ async function extractBeverageData(page: Page, url: string) {
 
 
 export default async function handler(req : NextApiRequest, res : NextApiResponse) {
+    console.log("start")
     try {
         // Define where and under which name to save the file
-            console.log("starting")
-        const browser = await puppeteer.launch();
+
+        const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-http2'] });
+        console.log("browser launched")
         const page = await browser.newPage();
-        page.on('console', msg => {
-            for (let i = 0; i < msg.args().length; ++i) {
-                console.log(`${i}: ${msg.args()[i]}`);
-            }
-        });
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+        await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
+        console.log("browser new page")
+
+
+        //** console log all in browser logs
+        // page.on('console', msg => {
+        //     for (let i = 0; i < msg.args().length; ++i) {
+        //         console.log(`${i}: ${msg.args()[i]}`);
+        //     }
+        // });
 
         //keep track of current page
         let currentPage = 0;
@@ -123,25 +131,25 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
             hasNextPage = false;
         }
 
-        await page.setViewport({ width: 1920, height: 6080, deviceScaleFactor: 2 });
 
 
-        const screenshotPath = path.join(process.cwd(), './screenshots'); // Adding process.cwd() to get the current directory
-        const screenshotFile = 'test.png';
-        const fullPath = path.join(screenshotPath, screenshotFile);
+//*** screenshots
+        // const screenshotPath = path.join(process.cwd(), './screenshots'); // Adding process.cwd() to get the current directory
+        // const screenshotFile = 'test.png';
+        // const fullPath = path.join(screenshotPath, screenshotFile);
 
         // Check if the directory exists, if not, create it
-        if (!fs.existsSync(screenshotPath)) {
-            fs.mkdirSync(screenshotPath, { recursive: true });
-        }
+        // if (!fs.existsSync(screenshotPath)) {
+        //     fs.mkdirSync(screenshotPath, { recursive: true });
+        // }
 
-        await page.screenshot({ path: fullPath });
+        //await page.screenshot({ path: fullPath });
 
         const allProductsData: ProductData[] = [];
 
         const productsBasicData: ProductData[] = [];
 
-        while (hasNextPage && currentPage < 22) {
+        while (hasNextPage && currentPage < 21) {
             // check if there is a next page
             const hasProducts = await page.$$('.clp-product-tile-wapper > div'); // Check for product cards or any other unique feature of product pages
             if (!hasProducts.length) {
@@ -248,7 +256,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
         const jsonData = JSON.stringify(allProductsData, null, 4); // 4 spaces for indentation
         // Define where and under which name to save the file
         const outputPath = path.join(process.cwd(), './public/data/productsData.json');
-
+        console.log("productCardsData", allProductsData);
         // Write the data to the file
         fs.writeFile(outputPath, jsonData, 'utf8', (err) => {
             if (err) {
@@ -260,7 +268,7 @@ export default async function handler(req : NextApiRequest, res : NextApiRespons
         });
 
 
-        console.log("productCardsData", allProductsData);
+
 
         await browser.close();
 

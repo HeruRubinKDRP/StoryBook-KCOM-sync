@@ -1,17 +1,17 @@
 import MasonTiles from "../../MasonTiles/MasonTiles";
-import {BeverageGridData} from "../../../data/demo-product-libraries";
+import {BeverageGridData, HomeGridData} from "../../../data/demo-product-libraries";
 import {BigAcross} from "../ConversationBubbles/ContentBubbles/BigAcross/BigAcrossSection";
-import React, { useEffect } from "react";
+import React, {Dispatch, SetStateAction, useEffect} from "react";
 import GetAndPlayVoice from "../../Audio/PlayAudio/GetAndPlayVoice";
 
 export interface iChatPage{
     route : string;
-    actionFunction : () => void;
+    chatFunction : (message: string) => void;
     isMuted : boolean;
 }
 
 export const ChatPage = (props : iChatPage) => {
-    const { route, actionFunction, isMuted } = props;
+    const { route, chatFunction, isMuted } = props;
 
     useEffect(() => {
         const playVoice = async () => {
@@ -27,7 +27,11 @@ export const ChatPage = (props : iChatPage) => {
     switch (route.toLowerCase()) {
         case "beverages":
             return(
-                <MasonTiles cellItems={BeverageGridData} layout="layout1"/>
+                <MasonTiles
+                    cellItems={BeverageGridData}
+                    layout="layout1"
+                    chatFunction={chatFunction}
+                />
             );
         case "home":
             return(
@@ -38,7 +42,12 @@ export const ChatPage = (props : iChatPage) => {
                         secondaryMessage="Buy a coffee maker and 4+ boxes of K-Cup® pods"
                         ctaLabel="Shop Coffee Makers"
                         backgroundColor="#ecd8c1"
-                        actionFunction={actionFunction}
+                        actionFunction={chatFunction}
+                    />
+                    <MasonTiles
+                        cellItems={HomeGridData}
+                        layout="layout2"
+                        chatFunction={chatFunction}
                     />
                 </>
             );

@@ -7,6 +7,7 @@ export const BigAcrossStyled = styled.section`
   overflow: hidden;
   border-radius: 1rem;
   display: flex;
+  margin-bottom: var(--space-medium);
   h1{
     font-size: var(--step--1);
     margin-bottom: var(--space-line);

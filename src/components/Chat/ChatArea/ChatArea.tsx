@@ -19,6 +19,7 @@ export interface IChatArea {
 }
 
 const ChatArea = (props : IChatArea) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isMuted, setIsMuted] = useState<boolean>(false);
     const [isFirstContact, setIsFirstContact] = useState<boolean>(true);
     useEffect(() => {
@@ -87,7 +88,9 @@ const ChatArea = (props : IChatArea) => {
             setUiMessages(newUiMessages);
         }
 
-        console.log("handleSend");
+        console.log("handleSend activated");
+// Set isLoading to true when starting the API call
+        setIsLoading(true);
 
         // Call Next.js API to get model's response
         const response = await fetch('/api/chat', {
@@ -99,6 +102,8 @@ const ChatArea = (props : IChatArea) => {
         });
 
         const data = await response.json();
+
+
 
         // Parse the assistant's response from JSON string to object
         let parsedResponse;
@@ -116,6 +121,9 @@ const ChatArea = (props : IChatArea) => {
         } else {
             newUiMessages.push({ role: 'assistant', content: data.result });
         }
+
+        // Set isLoading back to false once the response is received
+        setIsLoading(false);
 
         // Append model's message to chat and API conversation
         setApiMessages([...newApiMessages, { role: 'assistant', content: data.result }]);
@@ -166,9 +174,11 @@ const ChatArea = (props : IChatArea) => {
                     {props.currentRoute &&
                         <>
                             {/*<div className="current-route">Current Route: {props.currentRoute}</div>*/}
-                            <ChatPage isMuted={isMuted} route={props.currentRoute} actionFunction={()=>handleSend(
-                                'Give 3 specific Keurig coffee maker recommendations to get started. Explain this offer to the customer and ask if they\'d like to take advantage of it.The they buy any coffee maker and four or more boxes of coffee they get 25% off their entire order. ',
-                                false)} />
+                            <ChatPage
+                                isMuted={isMuted}
+                                route={props.currentRoute}
+                                chatFunction={(message) => handleSend(message, true)}
+                            />
                         </>
                     }
                 </div>
@@ -188,7 +198,10 @@ const ChatArea = (props : IChatArea) => {
                             pair[1] && pair[1].sequence.sequenceType !== "none" &&
                             <Sequence
                                 prerequisites={pair[1].sequence.prerequisites}
-                                steps={pair[1].sequence.steps} />
+                                steps={pair[1].sequence.steps}
+                                summary={pair[1].summary}
+                            />
+
                         }
                         {
                             pair[1] && pair[1].recommendations && pair[1].recommendations.length > 0 &&
@@ -203,7 +216,10 @@ const ChatArea = (props : IChatArea) => {
 
                     </div>
                 ))}
-                <div ref={messagesEndRef}></div>
+
+                <div ref={messagesEndRef}>
+                    {isLoading && <div className="loading-indicator">Keurig is thinking about that...</div>}
+                </div>
             </div>
             <button onClick={toggleMute}>
                 {isMuted ? "Unmute" : "Mute"}

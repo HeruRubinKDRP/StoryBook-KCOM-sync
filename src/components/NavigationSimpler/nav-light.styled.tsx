@@ -58,11 +58,9 @@ export const MenuContainer = styled.div<MenuContainerProps>`
     & .main-item {
       width: 100%;
       font-size: var(--step-1);  // Update this to your desired mobile font size
-    }
-
+    } 
     & .child-item {
-      width: 100%; 
-      
+      width: 100%;  
     }
   }
 
@@ -91,7 +89,7 @@ export const NavLightStyled = styled.div`
     z-index: 1000 !important;
     transition: transform 0.3s ease-in-out;
     &:hover {
-      background-color: #0d8296;
+      background-color: var(--colorLightCTA);
     }
     .logo {
       padding: 1rem;
@@ -110,7 +108,7 @@ export const MainItem = styled.div`
   padding: 16px;
   cursor: pointer;
   &:hover{
-    background-color: #0d8296;
+    background-color: var(--colorLightCTA);
   }
   @media (min-width: 768px) {
     border-right: 1px solid #ccc;
@@ -121,7 +119,7 @@ export const ChildItem = styled.div`
   padding: 6rem 16px;
   cursor: pointer;  
   &:hover{
-    background-color: #0d8296;
+    background-color: var(--colorLightCTA);
   }
   @media (min-width: 768px) {
     border-left: 1px solid #ccc;

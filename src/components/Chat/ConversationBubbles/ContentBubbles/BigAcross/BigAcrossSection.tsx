@@ -3,13 +3,14 @@ import {messagePositionT} from "../../../../ContentComponents/SimpleHighlightCar
 import KButton from "../../../../Kbutton/KButton";
 import Image from "next/image";
 import {colorByNameType} from "../../../../_utilities/color-name-to-value/colorNameToValue";
+import {Dispatch, SetStateAction} from "react";
 
 export interface iBigAcrossProps {
     backgroundImage : string;
     mainMessage : string;
     secondaryMessage : string;
     ctaLabel : string;
-    actionFunction : () => void;
+    actionFunction : (message: string) => void;
     backgroundColor? : string | colorByNameType;
 }
 
@@ -24,7 +25,7 @@ export const BigAcross: React.FC<iBigAcrossProps> = (props : iBigAcrossProps) =>
                     label={props.ctaLabel}
                     buttonType="primary"
                     buttonWidth="fit-to-content"
-                    actionFunc={props.actionFunction}
+                    actionFunc={()=>props.actionFunction("Help me find a new coffee maker")}
                     transitionType="expand-bg"
                 />
             </div>

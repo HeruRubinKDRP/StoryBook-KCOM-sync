@@ -58,7 +58,7 @@
     "next-images": "^1.8.4",
     "node": "^20.6.0",
     "postprocessing": "^6.33.0",
-    "puppeteer": "^21.0.1",
+    "puppeteer": "^21.3.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-resize-detector": "^7.0.0",

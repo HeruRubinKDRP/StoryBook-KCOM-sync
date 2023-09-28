@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {CellBasicStyled} from "./CellBasicStyled";
 import KButton from "../../../Kbutton/KButton";
 import {iconType} from "../../../Graphic/Graphic";
@@ -17,10 +17,10 @@ export type iCellItem = {
     fontColor?: string;
     CTA?: string;
     iconStandard?: iconType;
+    chatFunction?: (message: string) => void;
 };
 
 export const CellBase = (props : iCellItem) => {
-
 
 
     return(
@@ -61,6 +61,62 @@ export const CellBase = (props : iCellItem) => {
                     width={2800}
                     unoptimized={true}
                 />
+            }
+
+            {
+                props.cellType === "chat-text" &&
+                <div className="actions">
+                    <KButton
+                        classes={"cell-cta"}
+                        label={ `Help me find a coffee maker?`}
+                        buttonType="secondary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard={"none"}
+                        transitionType="expand-bg"
+                        actionFunc={ () => props.chatFunction ? props.chatFunction("Help me find a coffee maker?") : null}
+                    />
+                    <KButton
+                        classes={"cell-cta"}
+                        label={`How do I clean my brewer?`}
+                        buttonType="secondary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard={"none"}
+                        transitionType="expand-bg"
+                        actionFunc={ () => props.chatFunction ? props.chatFunction("How do I clean my brewer?") : null}
+                    />
+                    <KButton
+                        classes={"cell-cta"}
+                        label={`When is my next Auto-Delivery shipment?`}
+                        buttonType="secondary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard={"none"}
+                        transitionType="expand-bg"
+                        actionFunc={ () => props.chatFunction ? props.chatFunction("When is my next Auto-Delivery shipment?") : null}
+                    />
+                    <KButton
+                        classes={"cell-cta"}
+                        label={`Why do they roast coffee?`}
+                        buttonType="secondary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard={"none"}
+                        transitionType="expand-bg"
+                        actionFunc={ () => props.chatFunction ? props.chatFunction("Why do they roast coffee?") : null}
+                    />
+                    <KButton
+                        classes={"cell-cta"}
+                        label={`How do I recycle my pods?`}
+                        buttonType="secondary"
+                        buttonWidth="fit-to-content"
+                        iconPlacement="after-label"
+                        iconStandard={"none"}
+                        transitionType="expand-bg"
+                        actionFunc={ () => props.chatFunction ? props.chatFunction("How do I recycle my pods?") : null}
+                    />
+                </div>
             }
 
         </CellBasicStyled>

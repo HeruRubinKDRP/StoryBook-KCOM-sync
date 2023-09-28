@@ -138,6 +138,7 @@ const ProductList = (props: ProductListProps) => {
                     return (
                         <Suspense fallback={<div>Loading...</div>}>
                             <BrewerQuickShop
+                                isMember={props.isMember}
                                 closeFunc={() => setQuickShopOpen(false)}
                                 productName={props.products[selectedPod].name}
                                 productNameExtended={props.products[selectedPod].name}

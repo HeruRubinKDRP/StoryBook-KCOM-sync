@@ -1,4 +1,5 @@
 import {createGlobalStyle, css} from "styled-components";
+import {ctaColorStyles} from "./common.styled";
 
 export const FontFace = css`
   @font-face {
@@ -52,6 +53,9 @@ const GlobalStyleKCOM = createGlobalStyle`
   }
 
   :root {
+    
+    ${ctaColorStyles};
+    
     --step--6: clamp(0.30rem, calc(0.16rem + 0.8vw), 0.75rem);
     --step--5: clamp(0.40rem, calc(0.20rem + 1.01vw), 0.98rem);
     --step--4: clamp(0.48rem, calc(0.22rem + 1.30vw), 1.23rem);

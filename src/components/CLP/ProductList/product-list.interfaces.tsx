@@ -6,6 +6,7 @@ import {iCategoryItem} from "../../Filters/FiltersCenter/FiltersCenter";
 export interface ProductListProps {
     cardPresentationMode: tPresentationMode;
     cardMode: tCardMode;
+    isMember: boolean;
     products: iProductInfoCardProps[];
     ratingVisible: boolean;
     columns?: number;

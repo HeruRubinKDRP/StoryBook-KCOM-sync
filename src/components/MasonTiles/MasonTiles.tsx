@@ -11,6 +11,7 @@ import {CellBase, iCellItem} from "./Cells/CellBasic/CellBase";
 export type MasonTilesProps = {
     cellItems: iCellItem[];
     layout: 'layout1' | 'layout2'; // Add more layouts as needed
+    chatFunction?: (message: string) => void;
 };
 
 
@@ -18,7 +19,6 @@ export type MasonTilesProps = {
 // Component
 const MasonTiles: React.FC<MasonTilesProps> = (props : MasonTilesProps) => {
     // Layout algorithm based on the chosen layout
-
 
     return (
         <GridStyled className={`${props.layout}`}>
@@ -35,6 +35,7 @@ const MasonTiles: React.FC<MasonTilesProps> = (props : MasonTilesProps) => {
                  cellType={item.cellType}
                  backgroundColor={item.backgroundColor}
                  iconStandard={item.iconStandard}
+                 chatFunction={props.chatFunction}
              />
             ))}
         </GridStyled>

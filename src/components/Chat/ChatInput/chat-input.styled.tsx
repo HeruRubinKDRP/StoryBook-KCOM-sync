@@ -3,20 +3,25 @@ import {ctaColorStyles} from "../../_commonStyles/common.styled";
 
 
 export const ChatInputStyled = styled.div`
+  --textOuterHeight: calc(var(--step-2) * 1.25);
   position: fixed;
-  bottom: var(--space-xs);
+  bottom: 0;
   right: 0;
   left: 0;
-  height: 4.5rem;
+  height: auto;
   ${ctaColorStyles};
   z-index: 10000 !important;
-  
+  background-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(var(--step--6));
+  border-top: 1px solid var(--colorLatte);
   .controls{
     position: relative;
-    height: 4.5rem;
+    height: var(--textOuterHeight); 
+    
+    margin: var(--step--4) 5% var(--step--4) 5%;
     .send-btn{
       width: auto;
-      height: 3rem !important;
+      height: var(--step--4) !important;
       justify-content: center;
       background-color: rgb(71,48,54);
       color: white;
@@ -38,10 +43,10 @@ export const ChatInputStyled = styled.div`
   border-radius: 100vw;
   color: var(--colorText);
   font-family: inherit;
-  font-size: 1.25rem;
-  height: 4.5rem;
+  font-size: var(--step--2);
+  height: var(--textOuterHeight);
   outline: 0;
-  padding-inline-end: 1rem;
+  padding-inline-end: 20%;
   padding-inline-start: 52px;
   position: absolute;
   width: auto;
