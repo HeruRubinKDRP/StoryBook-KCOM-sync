@@ -54,6 +54,9 @@ const ChatArea = (props : IChatArea) => {
         {
             role: 'system',
             content: 'When you get enough information to recommend a type of coffee maker and then suggest that if the customer tries auto-delivery coffee from us they get 25% off beverages and earn points towards free stuff. '
+        }, {
+            role: 'system',
+            content: 'if the customer has a Keurig machine that is not working, tell them how to use descaling solution '
         },
 
     ]);
