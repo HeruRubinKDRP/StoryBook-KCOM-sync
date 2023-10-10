@@ -48,8 +48,10 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
 
     .coupon-area-container {
       .kcs-image {
-        max-height: 50px;
+/*        max-height: 70px;*/
+        /*
         padding-right: 0;
+        */
       }
       .coupon-area {
         padding: 1rem 0.5rem;
@@ -81,17 +83,18 @@ export const StyledBrewerOnly = styled.div<iStyledBrewerOnly>`
     align-items: center;
     .kcs-image {
       max-height: 60px;
+      max-width: 100px;
       padding-right: var(--spacingSmall);
     }
 
     .coupon-area {
-      padding: var(--spacingMedium) var(--spacingLarge);
+      padding: var(--spacingMedium) var(--spacingSmall);
       border: 1px dashed #3B2B2F;
       border-radius: var(--spacingTiny); 
       background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(245, 241, 234, 1) 15%);
     
       align-items: center;
-      margin: 0 0 var(--spacingLarge) var(--spacingLarge);
+      margin: 0 var(--spacingSmall) var(--spacingMedium) var(--spacingSmall);
       width: 100%;
 
       &:empty {

@@ -133,7 +133,7 @@ Default.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
-    hideContentOnMobile : false,
+    hideContentOnMobile : true,
     inStock : true,
     hasCoupon : true,
     couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",
@@ -174,7 +174,7 @@ MemberYesCouponYes.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
-    hideContentOnMobile : false,
+    hideContentOnMobile : true,
     inStock : true,
     hasCoupon : true,
     isMember: true,
@@ -216,7 +216,7 @@ MemberYesCouponNo.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
-    hideContentOnMobile : false,
+    hideContentOnMobile : true,
     inStock : true,
     hasCoupon : false,
     isMember: true,
@@ -258,7 +258,7 @@ MemberNoCouponYes.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
-    hideContentOnMobile : false,
+    hideContentOnMobile : true,
     inStock : true,
     hasCoupon : true,
     isMember: false,
@@ -300,7 +300,7 @@ MemberNoCouponNo.args = {
     carousel : {
         slideImageURLs : carousel_images_KCS
     },
-    hideContentOnMobile : false,
+    hideContentOnMobile : true,
     inStock : true,
     hasCoupon : false,
     isMember: false,
@@ -375,7 +375,6 @@ HideMobileContent.args = {
 
 export const K_Iced_Arctic_Gray_Example = Template.bind({});
 K_Iced_Arctic_Gray_Example.args = {
-    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "{use flag}",
     productNameExtended : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000371871.brewerName,
@@ -384,8 +383,9 @@ K_Iced_Arctic_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000371871.productImage
     },
-    hasCoupon : true,
-    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
+    hideContentOnMobile : true,
+    inStock : true,
+    hasCoupon : true,    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
@@ -414,7 +414,6 @@ K_Iced_Arctic_Gray_Example.args = {
 };
 export const K_Iced_White_Example = Template.bind({});
 K_Iced_White_Example.args = {
-    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
     productNameExtended : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000374055.brewerName,
@@ -423,8 +422,9 @@ K_Iced_White_Example.args = {
     carousel : {
         slideImageURLs : K_ICED_SINGLE_SERVE_COFFEE_MAKER_5000374055.productImage
     },
-    hasCoupon : true,
-    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
+    hideContentOnMobile : true,
+    inStock : true,
+    hasCoupon : true,    /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
     learnMoreMessagingKSK : "Choose the Starter Kit that's right for you, select your beverages, and set your schedule for convenient Auto-Delivery.",
@@ -453,7 +453,6 @@ K_Iced_White_Example.args = {
 };
 export const K_Cafe_Smart_Black_Example = Template.bind({});
 K_Cafe_Smart_Black_Example.args = {
-    inStock : true,
     mainFlagColor : "KSK",
     mainFlagLabel : "Create a kit and save",
     productNameExtended : K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485.brewerName,
@@ -462,6 +461,8 @@ K_Cafe_Smart_Black_Example.args = {
     carousel : {
         slideImageURLs : K_CAFE_SMART_COFFEE_LATTE_CAPPUCCINO_MAKER_5000365485.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -495,6 +496,8 @@ K_Supreme_Plus_Smart_Black_Stainless_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_PLUS_SMART_COFFEE_MAKER_5000361470.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -533,6 +536,8 @@ K_Supreme_Plus_Smart_Stainless_Steel_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_PLUS_SMART_COFFEE_MAKER_5000365542.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
     learnMoreTitleKSK : "Why choose a Keurig Starter Kit?",
@@ -570,6 +575,8 @@ K_Supreme_Smart_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SMART_COFFEE_MAKER_5000367509.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -608,6 +615,8 @@ K_Supreme_Smart_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SMART_COFFEE_MAKER_5000367513.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -646,6 +655,8 @@ K_Supreme_Smart_White_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SMART_COFFEE_MAKER_5000367515.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -684,6 +695,8 @@ K_Duo_Special_Edition_Example.args = {
     carousel : {
         slideImageURLs : K_DUO_SE_SINGLE_SERVE_CARAFE_COFFEE_MAKER_5000362326.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -722,6 +735,8 @@ K_Duo_Example.args = {
     carousel : {
         slideImageURLs : K_DUO_SINGLE_SERVE_CARAFE_COFFEE_MAKER_5000204977.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -760,6 +775,8 @@ K_Duo_Plus_Example.args = {
     carousel : {
         slideImageURLs : K_DUO_PLUS_SINGLE_SERVE_CARAFE_COFFEE_MAKER_5000363818.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -798,6 +815,8 @@ K_Cafe_Special_Edition_Example.args = {
     carousel : {
         slideImageURLs : K_CAFE_SPECIAL_EDITION_COFFEE_LATTE_CAPPUCCINO_MAKER_5000341465.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -836,6 +855,8 @@ K_Cafe_Example.args = {
     carousel : {
         slideImageURLs : K_CAFE_COFFEE_LATTE_CAPPUCCINO_MAKER_5000201735.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -874,6 +895,8 @@ K_Supreme_Plus_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_PLUS_SINGLE_SERVE_COFFEE_MAKER_5000368403.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -912,6 +935,8 @@ K_Supreme_Farmhouse_White_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SINGLE_SERVE_COFFEE_MAKER_5000361865.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -950,6 +975,8 @@ K_Supreme_Silver_Sage_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SINGLE_SERVE_COFFEE_MAKER_5000363309.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -988,6 +1015,8 @@ K_Supreme_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SINGLE_SERVE_COFFEE_MAKER_5000368400.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1026,6 +1055,8 @@ K_Supreme_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SINGLE_SERVE_COFFEE_MAKER_5000368401.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1064,6 +1095,8 @@ K_Supreme_White_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_SINGLE_SERVE_COFFEE_MAKER_5000368402.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1102,6 +1135,8 @@ K_Mini_Plus_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000200239.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1140,6 +1175,8 @@ K_Mini_Plus_Cardinal_Red_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000200240.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1178,6 +1215,8 @@ K_Mini_Plus_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000202016.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1216,6 +1255,8 @@ K_Mini_Plus_Evening_Teal_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000203817.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1254,6 +1295,8 @@ K_Mini_Plus_Matte_White_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000341911.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1292,6 +1335,8 @@ K_Mini_Plus_Cool_Aqua_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000361863.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1330,6 +1375,8 @@ K_Mini_Plus_Misty_Green_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_COFFEE_MAKER_5000367894.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1368,6 +1415,8 @@ K_Mini_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000200237.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1406,6 +1455,8 @@ K_Mini_Studio_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000203382.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1444,6 +1495,8 @@ K_Mini_Chill_Green_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000350704.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1482,6 +1535,8 @@ K_Mini_Dusty_Rose_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000350706.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1520,6 +1575,8 @@ K_Mini_Oasis_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000356890.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1558,6 +1615,8 @@ K_Mini_Poppy_Red_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000361864.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1596,6 +1655,8 @@ K_Mini_Evergreen_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_COFFEE_MAKER_5000367898.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1634,6 +1695,8 @@ K_Mini_Starbucks_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_STARBUCKS_BUNDLE_5000367898.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1672,6 +1735,8 @@ K_Supreme_Welcome_Bundle_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_WELCOME_BUNDLE_5000368400.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1710,6 +1775,8 @@ K_Supreme_Welcome_Bundle_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_WELCOME_BUNDLE_5000368401.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1748,6 +1815,8 @@ K_Duo_Plus_Gift_Set_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_DUO_PLUS_GIFT_SET_5000363818.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1786,6 +1855,8 @@ K_Elite_McCafe_Best_Seller_Bundle_Brushed_Gold_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_MCCAFE_BEST_SELLER_BUNDLE_5000359831.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1824,6 +1895,8 @@ K_Elite_McCafe_Best_Seller_Bundle_Brushed_Silver_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_MCCAFE_BEST_SELLER_BUNDLE_5000359832.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1862,6 +1935,8 @@ K_Elite_McCafe_Best_Seller_Bundle_Brushed_Slate_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_MCCAFE_BEST_SELLER_BUNDLE_Brushed_Slate.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1900,6 +1975,8 @@ K_Select_Essentials_Bundle_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359828.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1938,6 +2015,8 @@ K_Select_Essentials_Bundle_Matte_Navy_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359892.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -1976,6 +2055,8 @@ K_Select_Essentials_Bundle_Matte_White_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359901.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2014,6 +2095,8 @@ K_Select_Essentials_Bundle_Oasis_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359890.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2052,6 +2135,8 @@ K_Select_Essentials_Bundle_Sandstone_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359891.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2090,6 +2175,8 @@ K_Select_Essentials_Bundle_Vintage_Red_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_ESSENTIALS_BUNDLE_5000359889.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2128,6 +2215,8 @@ K_Mini_Plus_Essentials_Bundle_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_ESSENTIALS_BUNDLE_5000200239.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2166,6 +2255,8 @@ K_Mini_Plus_Essentials_Bundle_Cardinal_Red_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_ESSENTIALS_BUNDLE_5000200240.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2204,6 +2295,8 @@ K_Mini_Plus_Essentials_Bundle_Studio_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_ESSENTIALS_BUNDLE_5000202016.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2242,6 +2335,8 @@ K_Mini_Plus_Essentials_Bundle_Evening_Teal_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_ESSENTIALS_BUNDLE_5000203817.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2280,6 +2375,8 @@ K_Mini_Plus_Essentials_Bundle_Matte_White_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_PLUS_ESSENTIALS_BUNDLE_5000341911.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2318,6 +2415,8 @@ K_Slim_Essentials_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_ESSENTIALS_BUNDLE_5000363760.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2356,6 +2455,8 @@ K_Supreme_Plus_Welcome_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_PLUS_WELCOME_BUNDLE_5000368403.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2394,6 +2495,8 @@ K_Cafe_Special_Edition_Gift_Set_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_CAFE_SE_GIFT_SET_5000341465.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2432,6 +2535,8 @@ K_Mini_Essentials_Bundle_Dusty_Rose_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_ESSENTIALS_BUNDLE_5000350706.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2470,6 +2575,8 @@ K_Mini_Essentials_Bundle_Oasis_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_ESSENTIALS_BUNDLE_5000356890.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2508,6 +2615,8 @@ K_Mini_Essentials_Bundle_Studio_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_ESSENTIALS_BUNDLE_5000203382.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2546,6 +2655,8 @@ K_Mini_Essentials_Bundle_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_ESSENTIALS_BUNDLE_5000200237.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2584,6 +2695,8 @@ K_Duo_Gift_Set_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_DUO_GIFT_SET_5000204977.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2622,6 +2735,8 @@ K_Elite_Brushed_Gold_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_SINGLE_SERVE_COFFEE_MAKER_5000359831.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2660,6 +2775,8 @@ K_Elite_Brushed_Silver_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_SINGLE_SERVE_COFFEE_MAKER_5000359832.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2698,6 +2815,8 @@ K_Elite_Brushed_Slate_Example.args = {
     carousel : {
         slideImageURLs : K_ELITE_SINGLE_SERVE_COFFEE_MAKER_5000359886.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2736,6 +2855,8 @@ K_Slim_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_SINGLE_SERVE_COFFEE_MAKER_5000363760.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2774,6 +2895,8 @@ K_Slim_White_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_SINGLE_SERVE_COFFEE_MAKER_5000363788.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2812,6 +2935,8 @@ K_Slim_Scarlet_Red_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_SINGLE_SERVE_COFFEE_MAKER_5000367895.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2850,6 +2975,8 @@ K_Select_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359828.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2888,6 +3015,8 @@ K_Select_Vintage_Red_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359889.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2926,6 +3055,8 @@ K_Select_Oasis_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359890.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -2964,6 +3095,8 @@ K_Select_Sandstone_Example.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359891.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3002,6 +3135,8 @@ K_Select_Matte_NavyExample.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359892.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3040,6 +3175,8 @@ K_Select_Matte_WhiteExample.args = {
     carousel : {
         slideImageURLs : K_SELECT_COFFEE_MAKER_5000359901.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3078,6 +3215,8 @@ K_Slim_Everyday_Hero_BLK_Bold_Bundle_Blue_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_EVERYDAY_HERO_BLK_AND_BOLD_BUNDLE_5000372063.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3116,6 +3255,8 @@ K_Slim_Everyday_Hero_BLK_Bold_Bundle_Yellow_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_EVERYDAY_HERO_BLK_AND_BOLD_BUNDLE_5000372064.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3154,6 +3295,8 @@ McCafe_RMHC_Bundle_Gold_Example.args = {
     carousel : {
         slideImageURLs : MCCAFE_RMHC_BUNDLE_5000371262.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3192,6 +3335,8 @@ McCafe_RMHC_Bundle_Brown_Example.args = {
     carousel : {
         slideImageURLs : MCCAFE_RMHC_BUNDLE_5000371263.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3230,6 +3375,8 @@ McCafe_RMHC_Bundle_Blue_Example.args = {
     carousel : {
         slideImageURLs : MCCAFE_RMHC_BUNDLE_5000371264.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3268,6 +3415,8 @@ K_Classic_Black_Example.args = {
     carousel : {
         slideImageURLs : K50_COFFEE_MAKER_5000204441.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3306,6 +3455,8 @@ K_Classic_Rhubarb_Example.args = {
     carousel : {
         slideImageURLs : K50_COFFEE_MAKER_5000345253.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3344,6 +3495,8 @@ K_Mini_Back_To_College_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_MINI_BACK_TO_COLLEGE_BUNDLE_5000356890.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3382,6 +3535,8 @@ K_Slim_Iced_Dunkin_Bundle_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_ICED_BOI_DUNKIN_BUNDLE_5000365009.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3420,6 +3575,8 @@ K_Express_Example.args = {
     carousel : {
         slideImageURLs : K_EXPRESS_SINGLE_SERVE_COFFEE_MAKER_5000358267.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3458,6 +3615,8 @@ K155_OfficePro_Premier_Example.args = {
     carousel : {
         slideImageURLs : K155_BREWING_SYSTEM_5000375230.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3496,6 +3655,8 @@ K_Supreme_Community_Coffee_Bundle_Gray_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_COMMUNITY_COFFEE_BUNDLE_5000368400.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3534,6 +3695,8 @@ K_Supreme_Community_Coffee_Bundle_Black_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_COMMUNITY_COFFEE_BUNDLE_5000368401.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3572,6 +3735,8 @@ K_Supreme_Community_Coffee_Bundle_White_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_COMMUNITY_COFFEE_BUNDLE_5000368402.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3610,6 +3775,8 @@ K_Supreme_Community_Coffee_Bundle_Farmhouse_White_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_COMMUNITY_COFFEE_BUNDLE_5000361865.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3648,6 +3815,8 @@ K_Supreme_Community_Coffee_Bundle_Silver_Sage_Example.args = {
     carousel : {
         slideImageURLs : K_SUPREME_COMMUNITY_COFFEE_BUNDLE_5000363309.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3686,6 +3855,8 @@ K_Slim_Iced_Example.args = {
     carousel : {
         slideImageURLs : K_SLIM_ICED_SINGLE_SERVE_COFFEE_MAKER_5000365009.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3724,6 +3895,8 @@ K_Iced_Bundle_Arctic_Gray_Example.args = {
     carousel : {
         slideImageURLs :K_ICED_BUNDLE_5000371871.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3762,6 +3935,8 @@ K_Iced_Bundle_White_Example.args = {
     carousel : {
         slideImageURLs :K_ICED_BUNDLE_5000374055.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3800,6 +3975,8 @@ K_Compact_Example.args = {
     carousel : {
         slideImageURLs :K_COMPACT_COFFEE_MAKER_5000376527.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3838,6 +4015,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Matte_Black_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000200239.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3876,6 +4055,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Cardinal_red_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000200240.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3914,6 +4095,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Cool_Aqua_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000361863.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3952,6 +4135,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Matte_White_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000341911.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -3990,6 +4175,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Evening_Teal_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000203817.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4028,6 +4215,8 @@ K_Mini_Plus_Milk_Frother_Bundle_Studio_Gray_Example.args = {
     carousel : {
         slideImageURLs :K_MINI_PLUS_MILK_FROTHER_BUNDLE_5000202016.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4066,6 +4255,8 @@ K_Cafe_Gift_Set_Bundle_Example.args = {
     carousel : {
         slideImageURLs :K_CAFE_GIFT_SET_5000201735.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4104,6 +4295,8 @@ K_Duo_Plus_McCafe_Best_Seller_Bundle_Example.args = {
     carousel : {
         slideImageURLs :K_DUO_PLUS_MCCAFE_BEST_SELLER_BUNDLE_5000363818.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4142,6 +4335,8 @@ K_Classic_Essentials_Bundle_Rhubarb_Example.args = {
     carousel : {
         slideImageURLs :K_CLASSIC_ESSENTIALS_BUNDLE_5000345253.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4180,6 +4375,8 @@ K_Classic_Essentials_Bundle_Black_Example.args = {
     carousel : {
         slideImageURLs :K_CLASSIC_ESSENTIALS_BUNDLE_5000204441.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4218,6 +4415,8 @@ K_Supreme_Plus_Smart_Exceptional_Brews_Bundle_Example.args = {
     carousel : {
         slideImageURLs :K_SUPREME_PLUS_SMART_EXCEPTIONAL_BREWS_BUNDLE_5000361470.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4256,6 +4455,8 @@ K_Elite_Gift_Set_Bundle_Brushed_Gold_Example.args = {
     carousel : {
         slideImageURLs :K_ELITE_GIFT_SET_5000359831.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4294,6 +4495,8 @@ K_Elite_Gift_Set_Bundle_Brushed_Silver_Example.args = {
     carousel : {
         slideImageURLs :K_ELITE_GIFT_SET_5000359832.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",
@@ -4332,6 +4535,8 @@ K_Elite_Gift_Set_Bundle_Brushed_Slate_Example.args = {
     carousel : {
         slideImageURLs :K_ELITE_GIFT_SET_5000359886.productImage
     },
+    hideContentOnMobile : true,
+    inStock : true,
     hasCoupon : true,
     /*couponMessage : "20% Off on Eligible Coffee Makers. Add to cart to see discount.",*/
     couponAppliedMessage : "Coupon Applied. Add item to the cart to see the discount.",

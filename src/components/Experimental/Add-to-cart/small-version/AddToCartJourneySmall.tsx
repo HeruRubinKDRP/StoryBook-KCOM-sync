@@ -8,7 +8,7 @@ import Graphic from "../../../Graphic/Graphic";
 import {createRef, RefObject, useCallback, useEffect, useState} from "react";
 import {css} from "styled-components";
 import Typist from "../../../Animated Effects/Typist/Typist";
-import { ExpandCollapse } from "components/ExpandCollapse/expand-collapse";
+import {ExpandCollapse} from "components/ExpandCollapse/expand-collapse";
 import Image from "next/image";
 
 
@@ -27,7 +27,11 @@ export interface iCartAfterSmall {
     loadingShippingMessage?: string;
     closeFunc?: Function;
     addSuggestionToCartFunc?: Function;
+    suggestedCrossSell: CrossSellType;
 }
+
+export type CrossSellType = "Cross-Sell Products" | "CTA Beverages + Accessories" | "CTA Brewers + Accessories" | "CTA Shop Deals + Accessories" | "Simple Version"
+
 
 export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
     const [suggestionsLoading, setSuggestionsLoaded] = useState(false);
@@ -35,7 +39,6 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
     const [actionBarHeight, setActionbarHeight] = useState(0);
 
     const [freeShippingLoaded, setFreeShippingLoaded] = useState(false);
-
     const {width, height, ref} = useResizeDetector({
         refreshMode: 'debounce',
         refreshRate: 100,
@@ -47,8 +50,10 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         onResize: () => {
         },
     });
-
-
+    useEffect(() => {
+        upDateDimensions();
+        setSuggestionsLoaded(false);
+    }, [width]);
 
     const doLoadSuggestions = () => {
         setTimeout(() => {
@@ -65,29 +70,26 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
         doLoadSuggestions();
     }, [width]);
 
-    const suggestionsSectionRef = createRef<HTMLDivElement>();
-    const actionBarRef = createRef<HTMLDivElement>();
-
-    const upDateDimensions = useCallback(() => {
+    const upDateDimensions = () => {
         setSuggestionWidth(suggestionsSectionRef.current?.offsetWidth || screen.width / 2);
         setActionbarHeight(actionBarRef.current?.offsetHeight || screen.height * 0.2);
-    },[setSuggestionWidth, setActionbarHeight, actionBarRef, suggestionsSectionRef ])
+    }
 
-    useEffect(() => {
-        upDateDimensions();
-        setSuggestionsLoaded(false);
-    }, [width, upDateDimensions]);
-
-
+    const suggestionsSectionRef = createRef<HTMLDivElement>();
+    const actionBarRef = createRef<HTMLDivElement>();
 
     const handleAddSuggested = (index: number) => {
         if (!props.addSuggestionToCartFunc) {
             return;
         }
+
         props.addSuggestionToCartFunc(index);
     }
 
     const getSuggestedProducts = () => {
+        if (!props.suggestedProducts) {
+            return
+        }
         return props.suggestedProducts.slice(0, 3).map((product, index) => {
 
             return (
@@ -114,13 +116,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                         actionFunc={() => handleAddSuggested(index)}
                     />
                     <div className="product-image-inner">
-                        <Image
-                            src={product.image}
-                            alt=""
-                            width={180}
-                            height={180}
-                            unoptimized={true}
-                        />
+                        <img src={product.image} alt=""/>
                     </div>
                     <div className="product-name">{product.name}</div>
                 </div>
@@ -133,13 +129,7 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
             return (
                 <div className="loading">
                     <div className="loading-graphic">
-                        <Image
-                            unoptimized={true}
-                            width={130}
-                            height={136}
-                            src="/loaders/cup_loader_med.gif"
-                            alt="loading"
-                        />
+                        <img src="./loaders/cup_loader_med.gif" alt="loading"/>
                     </div>
                 </div>
             )
@@ -157,118 +147,50 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
           --overallWidth: ${widthX}px;
         `
     }
+    const renderSuggestedCrossSellMobile = () => {
+        switch (props.suggestedCrossSell) {
+            case "Cross-Sell Products":
+                return (
+                        <div ref={suggestionsSectionRef} className="suggested-products-container">
+                            <ExpandCollapse
+                                expanderStyle="minimalist"
+                                expandText="You might be interested in"
+                                isExpandedText="You might be interested in"
+                                content={
+                                    <>
+                                        {loadSuggestions(suggestionsLoading)}
+                                        <div className={"shop-all-cta"}>
+                                            <KButton
+                                                label="Shop Beverages"
+                                                buttonType="secondary"
+                                                buttonWidth="fit-width"
+                                                iconPlacement="after-label"
+                                                iconStandard="none"
+                                                transitionType={"expand-bg"}
+                                                actionFunc={props.closeFunc}
+                                                classes="shop-more-btn left"
+                                            />
 
-
-    return (
-        <SmallAddToCartJourneyStyled
-            ref={ref}
-            dynamicStyles={getDynamicStyles(width || screen.width)}
-            heightY={height ? height : 122}
-            outerWidth={width ? width : screen.width}
-            actionBarHeight={actionBarHeight}
-            className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
-
-        >
-            <div className="modal-item">
-                <div className="header-area">
-                    <div className="cart-info">
-                        <div className="cart-total">
-                            <span className="label">Cart Total: </span>
-                            <span className="value">$124.99</span>
-                        </div>
-                        <div className="cart-message">
-                            <Graphic graphicName="checkmark-circled"/>
-                            <p>{`You're getting free shipping!`}</p>
-                        </div>
-                        <div className="hide-label-mobile">
-                            <KButton
-                                buttonType="text-icon-noBG"
-                                buttonWidth="fit-to-content"
-                                classes="close-btn"
-                                iconPlacement="right-edge"
-                                iconStandard="close"
-                                label="Continue Shopping"
-                                transitionType="expand-bg"
-                                actionFunc={props.closeFunc}
-                            /></div>
-                    </div>
-                </div>
-
-                <div className="content-area">
-                    <div className="product-area">
-                        <div className="product-added">
-                            <div className="product-image">
-                                <Image
-                                    src={props.selectedProduct.image}
-                                    unoptimized={true}
-                                    width={200}
-                                    height={200}
-                                    alt={props.selectedProduct.name}
-                                />
-                            </div>
-                            <div className="product-status-area">
-                                <div className="cart-message">
-                                    <Graphic graphicName="checkmark-circled"/>
-                                    <p>Successfully added to cart</p>
-                                </div>
-                                <h2 className="product-name-area">
-                                    <div className="brand">{props.selectedProduct.brand}</div>
-                                    <div className="product-name">{props.selectedProduct.name}</div>
-                                </h2>
-                            </div>
-                        </div>
-                        <div className="actions-container" ref={actionBarRef}>
-                            <KButton
-                                label={"Checkout Now"}
-                                buttonType="secondary"
-                                buttonWidth="fit-width"
-                                iconPlacement="after-label"
-                                iconStandard="icon-cart"
-                                transitionType={"expand-bg"}
-                                actionFunc={props.closeFunc}
+                                            <KButton
+                                                classes="shop-more-btn right"
+                                                label="Shop Accessories"
+                                                buttonType="secondary"
+                                                buttonWidth="fit-width"
+                                                iconPlacement="after-label"
+                                                iconStandard="none"
+                                                transitionType={"expand-bg"}
+                                                actionFunc={props.closeFunc}
+                                            />
+                                        </div>
+                                    </>
+                                }
                             />
                         </div>
-                    </div>
-                    <div className="suggested-products-container-desktop">
-                    <div ref={suggestionsSectionRef} className="suggested-products-container">
-                        <Typist classes="typist" message={"You might be interested in"}/>
-                                <>
-                                    {loadSuggestions(suggestionsLoading)}
-                                    <div className={"shop-all-cta"}>
-                                        <KButton
-                                            label="Shop Beverages"
-                                            buttonType="secondary"
-                                            buttonWidth="fit-width"
-                                            iconPlacement="after-label"
-                                            iconStandard="none"
-                                            transitionType={"expand-bg"}
-                                            actionFunc={props.closeFunc}
-                                            classes="shop-more-btn left"
-                                        />
+                );
 
-                                        <KButton
-                                            classes="shop-more-btn right"
-                                            label="Shop Accessories"
-                                            buttonType="secondary"
-                                            buttonWidth="fit-width"
-                                            iconPlacement="after-label"
-                                            iconStandard="none"
-                                            transitionType={"expand-bg"}
-                                            actionFunc={props.closeFunc}
-                                        />
-                                    </div>
-                                </>
-                    </div>
-                    </div>
-                    <div className="suggested-products-container-mobile">
-                    <div ref={suggestionsSectionRef} className="suggested-products-container">
-                        <ExpandCollapse
-                            expanderStyle="minimalist"
-                            expandText="You might be interested in"
-                            isExpandedText="You might be interested in"
-                            content={
-                        <>
-                            {loadSuggestions(suggestionsLoading)}
+            case "CTA Beverages + Accessories":
+                return (
+                        <div className="suggested-products-container">
                             <div className={"shop-all-cta"}>
                                 <KButton
                                     label="Shop Beverages"
@@ -292,11 +214,175 @@ export const AddToCartJourneySmall = (props: iCartAfterSmall) => {
                                     actionFunc={props.closeFunc}
                                 />
                             </div>
-                        </>
-                            }
-                        />
+                        </div>
+                );
+            case "CTA Brewers + Accessories":
+                return (
+                    <div className="suggested-products-container">
+                        <div className={"shop-all-cta"}>
+                            <KButton
+                                label="Shop Brewers"
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="none"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                                classes="shop-more-btn left"
+                            />
+
+                            <KButton
+                                classes="shop-more-btn right"
+                                label="Shop Accessories"
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="none"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+                        </div>
                     </div>
+                );
+            case "CTA Shop Deals + Accessories":
+                return (
+                    <div className="suggested-products-container">
+                        <div className={"shop-all-cta"}>
+                            <KButton
+                                label="Shop Deals"
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="icon-stop-watch"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                                classes="shop-more-btn left"
+                            />
+
+                            <KButton
+                                classes="shop-more-btn right"
+                                label="Shop Accessories"
+                                buttonType="secondary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="none"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+                        </div>
                     </div>
+                );
+            case "Simple Version":
+                return null;
+            default:
+                return null;
+        }
+    };
+
+
+    return (
+        <SmallAddToCartJourneyStyled
+            ref={ref}
+            dynamicStyles={getDynamicStyles(width || screen.width)}
+            heightY={height ? height : 122}
+            outerWidth={width ? width : screen.width}
+            actionBarHeight={actionBarHeight}
+            className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
+        >
+            <div className="modal-item">
+                <div className="header-area">
+                    <div className="cart-info">
+                        <div className="cart-total">
+                            <span className="label">Cart Total: </span>
+                            <span className="value">$124.99</span>
+                        </div>
+                        <div className="cart-message">
+                            <p>You're getting free shipping!</p>
+                        </div>
+                        <div className="hide-label-mobile">
+                            <KButton
+                                buttonType="text-icon-noBG"
+                                buttonWidth="fit-to-content"
+                                classes="close-btn"
+                                iconPlacement="right-edge"
+                                iconStandard="close"
+                                label="Continue Shopping"
+                                transitionType="expand-bg"
+                                actionFunc={props.closeFunc}
+                            /></div>
+                    </div>
+                </div>
+
+                <div className="content-area">
+                    <div className="product-area">
+                        <div className="product-added">
+                            <div className="product-image">
+                                <img src={props.selectedProduct.image} alt={props.selectedProduct.name}/>
+                            </div>
+                            <div className="product-status-area">
+                                <div className="product-message">
+{/*
+                                    <Graphic graphicName="checkmark-circled"/>
+*/}
+                                    <p>Successfully added to cart</p>
+                                </div>
+                                <h2 className="product-name-area">
+                                    <div className="desktop-hide">
+                                        <div className="cart-message-mobile">You're getting free shipping!</div>
+                                    </div>
+                                    <div className="brand mobile-hide">{props.selectedProduct.brand}</div>
+                                    <div className="product-name mobile-hide">{props.selectedProduct.name}</div>
+                                </h2>
+                            </div>
+                        </div>
+                        <div className="actions-container" ref={actionBarRef}>
+                            <KButton
+                                label={"Checkout Now"}
+                                buttonType="primary"
+                                buttonWidth="fit-width"
+                                iconPlacement="after-label"
+                                iconStandard="icon-cart"
+                                transitionType={"expand-bg"}
+                                actionFunc={props.closeFunc}
+                            />
+                        </div>
+                    </div>
+                    <div className="suggested-products-container-desktop">
+                        <div ref={suggestionsSectionRef} className="suggested-products-container">
+                            <Typist classes="typist" message={"You might be interested in"}/>
+                            <>
+                                {loadSuggestions(suggestionsLoading)}
+                                <div className={"shop-all-cta"}>
+                                    <KButton
+                                        label="Shop Beverages"
+                                        buttonType="secondary"
+                                        buttonWidth="fit-width"
+                                        iconPlacement="after-label"
+                                        iconStandard="none"
+                                        transitionType={"expand-bg"}
+                                        actionFunc={props.closeFunc}
+                                        classes="shop-more-btn left"
+                                    />
+
+                                    <KButton
+                                        classes="shop-more-btn right"
+                                        label="Shop Accessories"
+                                        buttonType="secondary"
+                                        buttonWidth="fit-width"
+                                        iconPlacement="after-label"
+                                        iconStandard="none"
+                                        transitionType={"expand-bg"}
+                                        actionFunc={props.closeFunc}
+                                    />
+                                </div>
+                            </>
+                        </div>
+                    </div>
+                    <div className="suggested-products-container-mobile">
+                        {renderSuggestedCrossSellMobile()}
+                    </div>
+
+
                 </div>
             </div>
             <div className="back-fill"></div>

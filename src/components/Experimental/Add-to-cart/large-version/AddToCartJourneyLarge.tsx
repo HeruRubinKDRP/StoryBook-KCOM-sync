@@ -166,7 +166,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
             heightY={height ? height : 122}
             outerWidth={width ? width : screen.width}
             actionBarHeight={actionBarHeight}
-            className={`add-to-cart-journey-small ${width} ${getContainerQuery(width)} `}
+            className={`add-to-cart-journey-large ${width} ${getContainerQuery(width)} `}
         >
             <div className="modal-item">
                 <div className="header-area">
@@ -176,7 +176,9 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                             <span className="value">$124.99</span>
                         </div>
                         <div className="cart-message">
+{/*
                             <Graphic graphicName="checkmark-circled"/>
+*/}
                             <p>{`You're getting free shipping!`}</p>
                         </div>
                         <div className="hide-label-mobile">
@@ -206,7 +208,7 @@ export const AddToCartJourneyLarge = (props: iCartAfterLarge) => {
                                 />
                             </div>
                             <div className="product-status-area">
-                                <div className="cart-message">
+                                <div className="product-message">
                                     <Graphic graphicName="checkmark-circled"/>
                                     <p>Successfully added to cart</p>
                                 </div>

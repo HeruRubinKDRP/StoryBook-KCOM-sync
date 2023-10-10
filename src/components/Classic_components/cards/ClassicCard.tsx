@@ -176,6 +176,7 @@ const {width, height, ref} = useResizeDetector({
                   </div>
                 </div>
 
+
                <div className="all-pricing-container">
                  <div className="program-group">
                    <div className="program-logo">
@@ -207,6 +208,7 @@ const {width, height, ref} = useResizeDetector({
                    </div>
                  </div>
                </div>
+
 
                 <div className="card-bottom-content desktop">
                   <KButton

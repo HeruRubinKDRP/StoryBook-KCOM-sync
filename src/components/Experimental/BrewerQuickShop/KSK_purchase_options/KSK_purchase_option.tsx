@@ -44,8 +44,8 @@ export const KSKPurchaseOption = (props: iKSKPurchaseOption) => {
                 <div className="visual-container">
                 <Image
                     unoptimized={true}
-                    width={500}
-                    height={500}
+                    width={70}
+                    height={70}
                     src="./product-images/kcs/kcs-0.png"
                     alt=""
                     className={"kcs-image"}

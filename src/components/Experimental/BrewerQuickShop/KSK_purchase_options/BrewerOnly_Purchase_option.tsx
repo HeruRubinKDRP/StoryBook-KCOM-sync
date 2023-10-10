@@ -156,8 +156,8 @@ export const BrewerOnlyPurchaseOption =(props : iBrewerOnlyPurchaseOption)=>{
                 src="./product-images/kcs/kcs-0.png"
                 alt=""
                 className={"kcs-image"}
-                width={500}
-                height={500}
+                width={70}
+                height={70}
                 unoptimized={true}
             />
 

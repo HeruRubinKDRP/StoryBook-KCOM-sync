@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {ctaColorStyles} from "../_commonStyles/common.styled";
 
+
 export const KButtonStyled = styled.button`
   ${ctaColorStyles};
 
@@ -21,6 +22,7 @@ export const KButtonStyled = styled.button`
   border: none;
   overflow: hidden;
   box-shadow: none;
+
   label {
     cursor: inherit;
     z-index: 1;
@@ -75,7 +77,7 @@ export const KButtonStyled = styled.button`
         }
 
         .expander {
-/*          background-color: white;*/
+          /*          background-color: white;*/
           border: 1px solid var(--colorDarkRoast);
         }
 
@@ -104,8 +106,8 @@ export const KButtonStyled = styled.button`
     }
 
     .expander {
-/*      background-color: white;*/
-      border: none; 
+      /*      background-color: white;*/
+      border: none;
     }
   }
 }
@@ -132,8 +134,6 @@ export const KButtonStyled = styled.button`
   border-radius: 100vw;
   z-index: 0;
 }
-
-
 
 
 &.extra-large {
@@ -197,21 +197,28 @@ export const KButtonStyled = styled.button`
 }
 
 &.primary {
-.icon{
-.filled {
-  fill: white !important;
-}
-}
-  &:hover {
-    .expand-bg {
-
+  .icon {
+    .stroked {
+      stroke: white;
     }
 
+    .filled {
+      fill: white !important;
+    }
+  }
+
+  &:hover {
+    .stroked {
+      stroke: var(--colorDarkroast) !important;
+    }
     label {
       color: var(--colorText);
-    }
-
+    } 
     .icon {
+      .stroked {
+        stroke: #473036!important;
+      }
+
       .filled {
         fill: var(--colorDarkroast) !important;
       }
@@ -219,9 +226,9 @@ export const KButtonStyled = styled.button`
   }
 
 
-  .filled {
+/*  .filled {
     fill: white !important;
-  }
+  }*/
 }
 
 &.primary-light {
