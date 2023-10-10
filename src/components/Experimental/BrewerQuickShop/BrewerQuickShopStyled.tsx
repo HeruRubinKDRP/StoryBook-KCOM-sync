@@ -62,6 +62,17 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   height: auto;
   width: 100%;
   margin: 0 auto;
+  .ksk-container {
+    .visual-container {
+
+      .fill-pod {
+        /*
+        width: 100px;
+        */
+      }
+    }
+  }
+
   img{
     width: 100% !important;
     object-fit: contain;
@@ -145,16 +156,7 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
   }
 
   &.medium-dimensions {
-    max-width: 85vw;
-
-    .ksk-container {
-      .visual-container {
-        
-        .fill-pod {
-          width: 100px;
-        }
-      }
-    }
+    max-width: 95vw;
   }
 
   &.mobile-dimensions {
@@ -169,7 +171,9 @@ export const BrewerQuickShopStyled = styled.div<iBrewerQuickShopStyled>`
       }
     }
     .fill-pod {
+      /*
       width: 65px;
+      */
     }
 
     .k-carousel {

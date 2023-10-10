@@ -57,22 +57,31 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   height: 100vh;
   width: 100vw;
   z-index: 110000000000;
-  
+
+  .cart-total {
+    width: 20%;
+  }
+
   .suggested-products-container-desktop {
     width: 50%;
     display: block;
   }
 
   .suggested-products-container-mobile {
-    display: none; 
+    display: none;
   }
-  .expand-collapse{
-    button.k-btn{
-      &.secondary{
+
+  .expand-collapse {
+    button.k-btn {
+      &.secondary {
         border-color: none !important;
       }
 
     }
+  }
+
+  .desktop-hide {
+    display: none;
   }
 
   .product-name {
@@ -83,7 +92,10 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
+.cart-message-mobile{
+  font-size: 16px;
+  font-weight: 200;
+}
   .cart-info {
     display: flex;
     flex-direction: row;
@@ -96,11 +108,48 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   //top area that informs of success
   .hide-label-mobile .k-btn label {
     font-size: 16px;
+    width: 20%;
+  }
+
+  .product-message {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: clamp(4px, ${(props) => props.theme.heightY * 0.005}px, 24px);
+    color: var(--colorGreen);
+    font-size: 16px;
+    font-weight: 600;
+    
+    p {
+      color: var(--colorGreen);
+      /*font-size: var(--fontTiny);*/
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+
+    .checkmark-circled {
+      margin-right: var(--spacingTiny);
+      margin-bottom: 0;
+      height: var(--fontTiny);
+      width: var(--fontTiny);
+
+      .filled {
+        fill: var(--colorGreen);
+      }
+
+      .stroked {
+        stroke: var(--colorGreen);
+        stroke-width: var(--iconStrokeSmall);
+      }
+    }
   }
 
   .cart-message {
+    width: 40%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin-bottom: clamp(4px, ${(props) => props.theme.heightY * 0.005}px, 24px);
 
@@ -174,7 +223,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       opacity: 0;
     }
     100% {
-      opacity: 1!important;
+      opacity: 1 !important;
     }
   }
 
@@ -200,7 +249,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   animation-delay: 0.2s;
 
   .shop-all-cta {
-    padding: 10px 0px;
+    padding: 15px 20px;
     display: flex;
     flex-direction: row;
 
@@ -321,16 +370,19 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     align-content: stretch;
     flex-wrap: wrap;
     /*    gap: calc(var(--spacingSmall) );*/
+    /*
     padding: var(--spacingTiny) var(--spacingSmall);
+    */
 
 
     .product-added, .actions-container {
       width: 100%;
-      padding: 10px 0;
+      padding: 15px 0;
     }
 
     .product-added {
       display: flex;
+      justify-content: center;
       flex: 1;
       align-items: center;
       width: 100%;
@@ -340,7 +392,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
         width: calc(var(--productImageSize) * 0.4);
         height: calc(var(--productImageSize) * 0.3);
         min-width: 100px;
-      //  min-height: 140px;
+        //  min-height: 140px;
 
         img {
           width: 100%;
@@ -381,7 +433,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    /*
     padding: var(--spacingTiny);
+    */
 
     .suggested-products, .actions-container {
       width: 100%;
@@ -573,7 +627,7 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    padding: 0 0 12px 0;
+    padding: 12px 0 12px 0;
   }
 
   // by BREAKPOINT
@@ -594,20 +648,59 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
   }
 
   &.small-dimensions {
+    .header-area {
+      padding: 10px 10px 0;
+      border-bottom: none;
+    }
+
+    .button-area {
+      display: flex;
+      justify-content: center;
+      padding: 15px 20px;
+
+      .kbtn {
+        width: 100% !important;
+      }
+    }
+
+    .modal-item {
+      margin: 0 auto 0;
+    }
+
+    .cart-info {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .cart-message {
+      display: none;
+    }
+
+    .cart-total {
+      display: none;
+    }
+
     .suggested-products-container-desktop {
       display: none;
     }
+
     .suggested-products-container-mobile {
       display: block;
     }
+
     // container is less than 390
     margin: 5%;
     flex-direction: column;
 
     .content-area {
+      /*
       background-color: #0d8296;
+      */
 
       .actions-container {
+        box-sizing: border-box;
+        padding: 15px 20px;
+
         .k-btn {
           label {
             font: var(--fontSmall);
@@ -664,7 +757,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
     .actions-container {
       flex-direction: row;
+      /*
       position: fixed;
+      */
       bottom: 0;
       left: 0;
       right: 0;
@@ -680,39 +775,55 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
 
   }
 
-  &.mobile-dimensions {
+  &.mobile-dimensions, &.small-dimensions {
+    .desktop-hide {
+      display: block;
+    }
+
+    .mobile-hide {
+      display: none;
+    }
+
     .suggested-products-container-desktop {
       display: none;
     }
+
     .suggested-products-container-mobile {
       display: block;
     }
+
     margin: 0;
     width: 100vw;
     max-width: none;
     box-shadow: 0 calc(var(--button-size) * -0.22) calc(var(--button-size) * 0.52) 0 rgba(0, 0, 0, 0.25);
 
     .hide-label-mobile .k-btn label {
+      /*
       display: none;
+      */
     }
+
     button.k-btn.add-label-btn {
       label {
         position: absolute;
         //position label to visually center by accounting for padding
-        right: 25%!important;
+        right: 25% !important;
         font-size: 14px;
       }
     }
+
     .modal-item {
-      bottom: ${props => props.actionBarHeight}px !important;
-      margin: 0 5% 5% 5%;
+        /*      bottom: ${props => props.actionBarHeight}px !important;
+      margin: 0 5% 5% 5%;*/
       max-width: 100%;
       min-width: 90%;
       max-height: 85vh;
     }
 
     .actions-container {
+      /*
       position: fixed;
+      */
       bottom: 0;
       left: 0;
       right: 0;
@@ -831,7 +942,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
       }
 
       .actions-container {
+        /*
         background-color: #3B2B2F;
+        */
         /*        background-color: var(--colorSepia);*/
         /*
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, var(--colorSepia) 40%, var(--colorSepia) 100%);
@@ -852,7 +965,9 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     }
 
     .suggested-products-container {
+      /*
       min-height: 10vh;
+      */
         // padding-bottom: ${(props) => props.actionBarHeight * 1.2 + 'px'};
       .Typist {
         h2 {
@@ -870,9 +985,11 @@ export const SmallAddToCartJourneyStyled = styled.div<smallAddToCartTheme>`
     .suggested-products-container-desktop {
       display: none;
     }
+
     .suggested-products-container-mobile {
       display: block;
     }
+
     // container is less than 200
   }
 `;

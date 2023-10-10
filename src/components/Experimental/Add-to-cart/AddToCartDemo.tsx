@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import {SmallAddToCartJourneyStyled} from "./small-version/smallVersionStyled";
 import {AddToCartJourneyLarge} from "./large-version/AddToCartJourneyLarge";
-import {AddToCartJourneySmall, iSimpleProduct} from "./small-version/AddToCartJourneySmall";
+import {AddToCartJourneySmall, CrossSellType, iSimpleProduct} from "./small-version/AddToCartJourneySmall";
 import {podItemT} from "../../../pages/myBrews";
 import {AddToCartDemoStyled} from "./AddToCartDemoStyled";
 
@@ -15,6 +15,7 @@ export interface iDemoProps{
     numberOfSuggestions : number;
     currentCartValue : number;
     freeShippingTarget : number;
+    suggestedCrossSell: CrossSellType;
 }
 export const simplifiedPodItems = (pods : podItemT[]) : iSimpleProduct[]=>{
     return pods.map((pod) => {
@@ -36,8 +37,8 @@ const AddToCartDemo: React.FunctionComponent<iDemoProps> = (props:iDemoProps) =>
                         selectedProduct={simplifiedPodItems(props.products.slice(0))[0]}
                         suggestedProducts={simplifiedPodItems(props.products.slice(1, 4))}
                         numberOfSuggestions={props.numberOfSuggestions}
-                        currentCartTotal={props.currentCartValue}
-                    />
+                        currentCartTotal={props.currentCartValue} 
+                        suggestedCrossSell={props.suggestedCrossSell}                    />
                 )
             case "large-after-add":
                 return <AddToCartJourneyLarge

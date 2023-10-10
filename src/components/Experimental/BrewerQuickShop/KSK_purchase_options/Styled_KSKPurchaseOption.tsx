@@ -43,7 +43,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       width: 30px;
       max-height: 30px;
       max-width: 30px;
-      min-width: 25px;
+      min-width: 30px;
       border-radius: 100vh;
       margin-right: 3px;
     }
@@ -57,8 +57,8 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
     .ksk-container {
       .kcs-image {
-        max-height: 70px !important;
-        padding-right: 0;
+        max-height: 60px;
+        max-width: 100px;
       }
     }
       .visual-container {
@@ -66,14 +66,14 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       }
     }
   
-  &.medium-dimensions, &.large-dimensions  {
+  &.medium-dimensions, &.large-dimensions, &.extra-large-dimensions  {
     .pod-ksk-container {
       border: 2px dashed #0d8296;
-      height: 40px;
-      width: 40px;
-      max-height: 40px;
-      max-width: 40px;
-      min-width: 40px;
+      height: 30px;
+      width: 30px;
+      max-height: 30px;
+      max-width: 30px;
+      min-width: 30px;
       border-radius: 100vh;
       margin-right: 5px;
     }
@@ -135,7 +135,8 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
 
     h3 {
-      color: var(--colorKSK);
+      /*color: var(--colorKSK);*/
+      color: var(--DarkRoast);
       font-size: var(--FontSizeMedium);
       grid-column: 2 / 3;
       grid-row: 1 / 1;
@@ -187,7 +188,6 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
     }
 
     .kcs-image {
-      max-height: 60px;
       padding-right: var(--spacingSmall);
     }
 
@@ -204,6 +204,7 @@ export const Styled_KSKPurchaseOption = styled.div<iStyledContainerQueryBased>`
       display: flex;
       flex-wrap: wrap;
       gap: 4px;
+      width: 74px;
     }
 
     .k-btn {
