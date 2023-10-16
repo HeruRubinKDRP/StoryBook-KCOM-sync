@@ -22,8 +22,6 @@ import {
     TextureLoader,
     UnsignedByteType, Vector3, WebGLRenderer
 } from "three";
-import {coffeeSurface, matGlass} from "./materials/materials";
-import {FilmShader, RGBELoader} from "three-stdlib";
 import {EnvironmentSystem, EnvironmentMapContext} from "../../../public/three/EnvironmentSystem";
 import {Bloom, EffectComposer, N8AO, Noise, TiltShift2} from "@react-three/postprocessing";
 import Mug from "./Models/Mug";
@@ -32,6 +30,7 @@ import {RotatingBox} from "./debug/debug_cube";
 import {MugPlanes} from "./Models/MugPlanes";
 import MugCeramic from "./Models/CeramicMug";
 import Image from "next/image";
+import Pods from "./Models/Kcup/Kcup";
 
 
 export interface iThreeSceneProps {
@@ -71,24 +70,10 @@ const ThreeScene = (props: iThreeSceneProps) => {
 
     return (
         <div style={{ height: "100vh" }}>
-            <Image
-                alt=""
-                src="./three/textures/coffee-texture_NRM.jpg"
-                style={{
-                    position: "fixed",
-                    height : "20vh",
-                    width: "20vw",
-                    top: "0",
-                    left: "0",
-                }}
-                unoptimized={true}
-                width={500}
-                height={500}
-            />
 
             <EnvironmentMapContext.Provider value={envMap}>
             <Canvas>
-                <EnvironmentSystem path={'./three/hdr/MR_INT-006_LoftIndustrialWindow_1024.hdr'} mode="hdr">
+                <EnvironmentSystem path={'./three/hdr/studio_small_512.hdr'} mode="hdr">
                     {/*<Lightformer intensity={8} position={[10, 5, 0]} scale={[10, 40, 1]} onUpdate={(self) => self.lookAt(0, 0, 0)} />*/}
                 </EnvironmentSystem>
 
@@ -100,7 +85,6 @@ const ThreeScene = (props: iThreeSceneProps) => {
                         intensity={0.1}
                         height={400}
                     />
-
                    <Noise opacity={0.06} />
                 </EffectComposer>
                 <PerspectiveCamera
@@ -114,25 +98,10 @@ const ThreeScene = (props: iThreeSceneProps) => {
                 />
                 {props.cameraMode === 'orbit' && <OrbitControls />}
                 <CameraController />
+                <Pods />
 
-                {/*<spotLight intensity={.1} position={[20, 20, 10]} penumbra={1} castShadow={true} angle={0.2} />*/}
-                {/*<ambientLight position={[11,42,22]} intensity={.1} />*/}
-                {/*<pointLight position={[13, 13, 13]} />*/}
-
-                {/*<Mug />*/}
-                {/*<AnimatedDashedLine*/}
-                {/*    startX={0}*/}
-                {/*    startY={0}*/}
-                {/*    endX={11}*/}
-                {/*    endY={11}*/}
-                {/*    numDots={3}*/}
-                {/*    distanceBetween={1}*/}
-                {/*/>*/}
-                <AccumulativeShadows temporal color={"transparent"} frames={100} scale={10}>
-                    <RandomizedLight amount={8} position={[2, 2, -5]} />
-                </AccumulativeShadows>
-                <MugCeramic />
-                {/*<ContactShadows scale={50} position={[0, 0, 0]} blur={0.25} far={100} opacity={0.25} />*/}
+                {/*<MugCeramic />*/}
+                <ContactShadows scale={12} position={[0, 0, 0]} blur={0.4} far={100} opacity={0.25} />
             </Canvas>
             </EnvironmentMapContext.Provider>
         </div>

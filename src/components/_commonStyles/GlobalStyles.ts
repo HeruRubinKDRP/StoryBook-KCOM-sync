@@ -24,7 +24,7 @@ const GlobalStyleKCOM = createGlobalStyle`
   #storybook-root{
     min-height: 100vh;
     min-width: 100vw;
-  }
+  }+++++++
   
   body, #__next {
     margin: 0 !important;

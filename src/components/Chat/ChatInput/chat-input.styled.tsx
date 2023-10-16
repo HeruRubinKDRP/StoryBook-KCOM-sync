@@ -28,12 +28,16 @@ export const ChatInputStyled = styled.div`
       border-radius: 100vw;
       position: absolute;
       z-index: 100;
-      right: 3.5rem;
+      right: var(--space-3xs);
       top: 50%;
       transform: translateY(-50%);
       padding: 0 1.5rem;
       border: 1px solid rgba(255,255,255,0.5);
     }
+  }
+  
+  .animated-placeholder {
+    left : var(--space-xs)
   }
 
 .chat-input{
@@ -53,7 +57,7 @@ export const ChatInputStyled = styled.div`
   white-space: normal;
   box-sizing: border-box;
   top: 0;
-  right: 3rem;
-  left: 3rem;
+  right: 0;
+  left: 0;
 }
 `;

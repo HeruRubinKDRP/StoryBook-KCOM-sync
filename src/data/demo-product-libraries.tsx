@@ -40,7 +40,16 @@ export const HomeGridData : iCellItem[] = [
         highlightImage: '',
         iconStandard : 'action-arrow',
         backgroundColor: '#ffffff',
-    }
+    },{
+        cellType : 'basic',
+        title: 'Save 40% on your first order',
+        secondaryTitle: 'When you include Green Mountain Coffee Roasters® coffee with your order of beverages',
+        backgroundImage: '/editorial/home/homepage-bev-bg.jpg',
+        highlightImage: '/editorial/home/bev-hero-foreground.png',
+        backgroundColor: '#f1f1f1',
+        iconStandard : 'action-arrow',
+        CTA: 'Click Me'
+    },
 ]
 
 export const BeverageGridData : iCellItem[] = [

@@ -6,10 +6,12 @@ export const CellBasicStyled = styled.div`
   border-radius: var(--step--6); 
   overflow: hidden;
   position: relative;
+  
   *{
     box-sizing: border-box;
   }
-  .background-image{}
+ 
+  
   .highlight-image{
     object-fit: cover;
     position: absolute;
@@ -21,6 +23,7 @@ export const CellBasicStyled = styled.div`
     width: 100%;
     z-index: 100;
   }
+  
   img{
     width: 100%;
     height: 100%;
@@ -28,6 +31,7 @@ export const CellBasicStyled = styled.div`
     position: absolute;
     z-index: 0;
   }
+  
   .cell-content {
     position: relative;
     z-index: 200;
@@ -46,10 +50,19 @@ export const CellBasicStyled = styled.div`
   .background-image{
     color: transparent;
     bottom: 0;
-    height: auto;
+    height: 100%;
     align-self: stretch;
     display: flex;
   }
+  
+  .text-area{
+    p{
+      p{
+        font-size: var(--step--5);
+      }
+    }
+  }
+  
   
   &.hero{
     .background-image{
@@ -93,6 +106,7 @@ export const CellBasicStyled = styled.div`
         height: 15%;
         border-bottom: 1px solid #473036;
         color: #473036;
+        
       }
       .cell-cta.k-btn{ 
         width: auto;
@@ -128,6 +142,8 @@ export const CellBasicStyled = styled.div`
       flex-wrap: wrap;
       align-items: center;
     }
+    
+    
     .highlight-image{
       position: relative;
       width: 100%;
@@ -159,6 +175,7 @@ export const CellBasicStyled = styled.div`
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      
     }
     .actions{
       display: flex;
