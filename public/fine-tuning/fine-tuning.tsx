@@ -1,6 +1,6 @@
 import {coffeeMakerBasicInfo, formattingResponseGeneral} from "../../src/components/Chat/prompts";
 
-export const shoppingFinetuning = [
+export const shoppingFineTuning = [
 
     {
         messages: [
